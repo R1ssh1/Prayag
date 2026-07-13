@@ -53,7 +53,7 @@ export const TrustedByBannerSection: React.FC = () => (
           hidden: {},
           visible: { transition: { staggerChildren: 0.07 } },
         }}
-        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-3"
+        className="flex flex-wrap justify-center gap-4"
         role="list"
         aria-label="Trusted institutions"
       >
@@ -65,10 +65,10 @@ export const TrustedByBannerSection: React.FC = () => (
               hidden: { opacity: 0, scale: 0.85 },
               visible: { opacity: 1, scale: 1, transition: { duration: 0.35 } },
             }}
-            className="group bg-white/15 hover:bg-white/25 border border-white/20 rounded-xl p-4 text-center transition-all duration-200 cursor-default"
+            className="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.666rem)] lg:w-[calc(20%-0.8rem)] group bg-white/15 hover:bg-white/25 border border-white/20 rounded-xl p-4 text-center transition-all duration-200 cursor-default"
             title={inst.full}
           >
-            <div className="font-heading font-black text-white text-xs sm:text-sm uppercase tracking-wide leading-tight">
+            <div className="font-body font-bold text-white text-sm sm:text-[15px] uppercase tracking-wide leading-tight">
               {inst.name}
             </div>
             <div className="text-white/50 text-[9px] font-body mt-1 leading-tight hidden sm:block">

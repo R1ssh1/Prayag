@@ -16,17 +16,18 @@ const slideUp: Variants = {
 
 export const AboutHeroSection: React.FC = () => (
   <section
-    className="relative bg-prayag-black overflow-hidden"
+    className="relative bg-prayag-black overflow-hidden min-h-[50vh] lg:min-h-[65vh]"
     aria-label="About Prayag Steel — Our Story"
-    style={{ minHeight: "65vh" }}
   >
     {/* Background image with dark overlay */}
     <div className="absolute inset-0 z-0">
-      <ImagePlaceholder
-        path="about/hero-banner.webp"
-        label="Prayag Steel manufacturing facility"
-        aspectRatio="banner"
-        className="w-full h-full object-cover opacity-30"
+      <img
+        src="/assets/images/about/hero-banner.webp"
+        alt="Prayag Steel manufacturing facility"
+        className="w-full h-full object-cover object-left opacity-70"
+        onError={(e) => {
+          (e.target as HTMLImageElement).style.display = 'none';
+        }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-prayag-black via-prayag-black/70 to-transparent" />
     </div>
@@ -44,7 +45,7 @@ export const AboutHeroSection: React.FC = () => (
     </div>
 
     {/* Content */}
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36 flex flex-col justify-center min-h-[65vh]">
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 flex flex-col justify-center min-h-[50vh] lg:min-h-[65vh]">
       <motion.div
         variants={container}
         initial="hidden"
@@ -55,7 +56,7 @@ export const AboutHeroSection: React.FC = () => (
         <motion.div variants={slideUp} className="mb-7">
           <span className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-prayag-red/30 bg-prayag-red/10">
             <span className="w-2 h-2 rounded-full bg-prayag-red animate-pulse" aria-hidden="true" />
-            <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+            <span className="text-prayag-red font-body text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em]">
               Est. 1994 · Mumbai & Umbergaon, India
             </span>
           </span>
@@ -90,7 +91,7 @@ export const AboutHeroSection: React.FC = () => (
         <motion.div variants={slideUp} className="flex flex-wrap gap-4">
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-prayag-red text-white font-heading font-black uppercase tracking-wider text-sm rounded-xl transition-all duration-200 hover:bg-red-700"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-prayag-red text-white font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:bg-red-700"
             style={{ boxShadow: "0 6px 24px rgba(227,30,36,0.3)" }}
           >
             Our Products
@@ -98,7 +99,7 @@ export const AboutHeroSection: React.FC = () => (
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white font-heading font-bold uppercase tracking-wider text-sm rounded-xl transition-all duration-200 hover:border-prayag-red/60 hover:text-prayag-red"
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white font-body font-semibold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:border-prayag-red/60 hover:text-prayag-red"
           >
             Contact Us
           </Link>

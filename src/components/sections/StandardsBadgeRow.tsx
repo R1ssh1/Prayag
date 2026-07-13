@@ -50,7 +50,7 @@ export const StandardsBadgeRow: React.FC = () => (
               hidden: { opacity: 0, scale: 0.8, y: 10 },
               visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
             }}
-            className="inline-block px-5 py-2.5 rounded-full border-2 border-gray-200 text-prayag-black font-heading font-black text-sm uppercase tracking-wider hover:border-prayag-red hover:text-prayag-red transition-colors duration-200 cursor-default"
+            className="inline-block px-5 py-2.5 rounded-full border-2 border-gray-200 text-prayag-black font-body font-bold text-sm uppercase tracking-wider hover:border-prayag-red hover:text-prayag-red transition-colors duration-200 cursor-default"
           >
             {std}
           </motion.span>

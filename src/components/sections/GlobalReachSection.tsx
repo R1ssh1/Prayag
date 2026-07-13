@@ -42,28 +42,28 @@ export const GlobalReachSection: React.FC = () => {
                 <div className="w-10 h-10 rounded-full bg-prayag-red/20 text-prayag-red flex items-center justify-center">
                   <Globe className="w-5 h-5" />
                 </div>
-                <h4 className="font-heading font-bold uppercase tracking-wider text-sm">25+ Countries</h4>
+                <h4 className="font-body font-semibold uppercase tracking-wider text-[15px]">25+ Countries</h4>
                 <p className="text-gray-500 text-xs font-body">Exporting to key industrial hubs globally.</p>
               </div>
               <div className="flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-full bg-prayag-red/20 text-prayag-red flex items-center justify-center">
                   <Anchor className="w-5 h-5" />
                 </div>
-                <h4 className="font-heading font-bold uppercase tracking-wider text-sm">Port Proximity</h4>
+                <h4 className="font-body font-semibold uppercase tracking-wider text-[15px]">Port Proximity</h4>
                 <p className="text-gray-500 text-xs font-body">Strategic manufacturing location near major ports.</p>
               </div>
               <div className="flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-full bg-prayag-red/20 text-prayag-red flex items-center justify-center">
                   <Award className="w-5 h-5" />
                 </div>
-                <h4 className="font-heading font-bold uppercase tracking-wider text-sm">Recognized Export House</h4>
+                <h4 className="font-body font-semibold uppercase tracking-wider text-[15px]">Recognized Export House</h4>
                 <p className="text-gray-500 text-xs font-body">Government-certified export operations.</p>
               </div>
               <div className="flex flex-col gap-3">
                 <div className="w-10 h-10 rounded-full bg-prayag-red/20 text-prayag-red flex items-center justify-center">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <h4 className="font-heading font-bold uppercase tracking-wider text-sm">Domestic Network</h4>
+                <h4 className="font-body font-semibold uppercase tracking-wider text-[15px]">Domestic Network</h4>
                 <p className="text-gray-500 text-xs font-body">Pan-India distribution and supply chain.</p>
               </div>
             </div>

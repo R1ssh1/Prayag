@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { User } from "lucide-react";
 import { ImagePlaceholder } from "../../ui/ImagePlaceholder";
 import { directorMessage } from "../../../data/company";
 
@@ -67,7 +68,7 @@ export const DirectorDeskSection: React.FC = () => (
           {/* Signature */}
           <div className="border-t border-gray-100 pt-7">
             <p className="text-gray-400 font-body text-sm">With gratitude and regards,</p>
-            <p className="font-heading font-black text-prayag-black text-base uppercase">
+            <p className="font-body font-bold text-prayag-black text-base uppercase">
               {directorMessage.name}
             </p>
             <p className="text-gray-400 font-body text-sm">{directorMessage.designation}</p>
@@ -89,17 +90,12 @@ export const DirectorDeskSection: React.FC = () => (
               aria-hidden="true"
             />
             {/* Portrait placeholder */}
-            <div className="relative z-10">
-              <ImagePlaceholder
-                path="about/jayesh-patel.webp"
-                label="Jayesh Patel — Director, Prayag Steel & Engineering Co."
-                aspectRatio="portrait"
-                className="rounded-2xl shadow-xl"
-              />
+            <div className="relative z-10 bg-prayag-charcoal/5 rounded-2xl aspect-[3/4] flex items-center justify-center border border-gray-100 shadow-xl overflow-hidden">
+              <User className="w-1/3 h-1/3 text-gray-300" strokeWidth={1} />
             </div>
             {/* Floating name card */}
             <div className="absolute -bottom-5 -right-5 z-20 bg-prayag-black rounded-2xl shadow-2xl p-5 max-w-[200px]">
-              <p className="text-white font-heading font-black text-sm uppercase leading-tight">
+              <p className="text-white font-body font-bold  uppercase leading-tight">
                 Jayesh Patel
               </p>
               <p className="text-prayag-red text-[10px] font-body uppercase tracking-[0.18em] mt-1">

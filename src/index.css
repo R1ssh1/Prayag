@@ -3,7 +3,7 @@
    Tailwind v4 with CSS-based design tokens (@theme)
    ───────────────────────────────────────────────────────────────────────────── */
 
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
 /* ── Tailwind v4 Theme Tokens ────────────────────────────────────────────────
@@ -19,7 +19,7 @@
 
   /* Fonts */
   --font-heading: "Anton", "Arial Black", sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-body: "Outfit", system-ui, sans-serif;
 
   /* Border radius */
   --radius-xl: 0.75rem;

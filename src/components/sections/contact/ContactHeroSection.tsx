@@ -42,8 +42,8 @@ export const ContactHeroSection: React.FC = () => (
         <motion.div variants={slideUp} className="mb-7">
           <span className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-prayag-red/30 bg-prayag-red/10">
             <span className="w-2 h-2 rounded-full bg-prayag-red animate-pulse" aria-hidden="true" />
-            <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
-              Get in Touch
+            <span className="text-prayag-red font-body text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em]">
+              Get In Touch
             </span>
           </span>
         </motion.div>

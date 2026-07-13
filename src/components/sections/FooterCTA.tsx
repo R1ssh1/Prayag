@@ -31,7 +31,7 @@ export const FooterCTA: React.FC = () => {
           <div className="flex flex-wrap justify-center items-center gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-prayag-red font-heading font-black uppercase tracking-wider text-sm rounded-xl transition-transform duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-black/10"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-prayag-red font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-transform duration-200 hover:scale-105 active:scale-95 shadow-xl shadow-black/10"
             >
               Contact Sales
               <ArrowRight className="w-4 h-4" />
@@ -39,7 +39,7 @@ export const FooterCTA: React.FC = () => {
 
             <a
               href="mailto:prayagsteelindia@yahoo.co.in"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-black/20 text-white font-heading font-bold uppercase tracking-wider text-sm rounded-xl border border-white/20 hover:bg-black/40 transition-colors"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-black/20 text-white font-body font-semibold uppercase tracking-wider text-[15px] rounded-xl border border-white/20 hover:bg-black/40 transition-colors"
             >
               <Mail className="w-4 h-4" />
               Email Us directly

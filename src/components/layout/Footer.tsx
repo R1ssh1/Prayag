@@ -157,7 +157,7 @@ export const Footer: React.FC = () => {
           <p className="text-gray-500 text-xs font-body text-center sm:text-left">
             © {currentYear} Prayag Steel &amp; Engineering Co. All rights reserved.
           </p>
-          <p className="text-gray-600 text-xs font-heading font-bold uppercase tracking-widest">
+          <p className="text-gray-600  font-body font-semibold uppercase tracking-widest">
             Steel. Strength. Prayag.
           </p>
         </div>

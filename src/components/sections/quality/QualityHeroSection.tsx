@@ -53,7 +53,7 @@ export const QualityHeroSection: React.FC = () => (
         <motion.div variants={slideUp} className="mb-7">
           <span className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-prayag-red/30 bg-prayag-red/10">
             <span className="w-2 h-2 rounded-full bg-prayag-red animate-pulse" aria-hidden="true" />
-            <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+            <span className="text-prayag-red font-body text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em]">
               {qualityPolicy.eyebrow}
             </span>
           </span>
@@ -92,7 +92,7 @@ export const QualityHeroSection: React.FC = () => (
         <motion.div variants={slideUp} className="flex flex-wrap gap-4">
           <a
             href="#policy-statements"
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-prayag-red text-white font-heading font-black uppercase tracking-wider text-sm rounded-xl transition-all duration-200 hover:bg-red-700"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-prayag-red text-white font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:bg-red-700"
             style={{ boxShadow: "0 6px 24px rgba(227,30,36,0.3)" }}
           >
             Our Policy
@@ -100,7 +100,7 @@ export const QualityHeroSection: React.FC = () => (
           </a>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white font-heading font-bold uppercase tracking-wider text-sm rounded-xl transition-all duration-200 hover:border-prayag-red/60 hover:text-prayag-red"
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white font-body font-semibold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:border-prayag-red/60 hover:text-prayag-red"
           >
             Contact Us
           </Link>

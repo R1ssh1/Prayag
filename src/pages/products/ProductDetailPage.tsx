@@ -106,7 +106,7 @@ export const ProductDetailPage: React.FC = () => {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 {product.sizeRange && (
                   <div className="bg-gray-50 rounded-xl p-4">
-                    <p className="text-xs font-heading font-bold uppercase tracking-widest text-gray-400 mb-1">
+                    <p className=" font-body font-semibold uppercase tracking-widest text-gray-400 mb-1">
                       Size Range
                     </p>
                     <p className="font-heading font-black text-prayag-black text-sm">
@@ -116,7 +116,7 @@ export const ProductDetailPage: React.FC = () => {
                 )}
                 {product.pressureRating && (
                   <div className="bg-gray-50 rounded-xl p-4">
-                    <p className="text-xs font-heading font-bold uppercase tracking-widest text-gray-400 mb-1">
+                    <p className=" font-body font-semibold uppercase tracking-widest text-gray-400 mb-1">
                       Pressure Rating
                     </p>
                     <p className="font-heading font-black text-prayag-black text-sm">
@@ -129,7 +129,7 @@ export const ProductDetailPage: React.FC = () => {
 
             {/* Materials */}
             <div className="mb-6">
-              <h2 className="text-xs font-heading font-bold uppercase tracking-widest text-gray-400 mb-3">
+              <h2 className=" font-body font-semibold uppercase tracking-widest text-gray-400 mb-3">
                 Available Materials
               </h2>
               <div className="flex flex-wrap gap-2">
@@ -141,7 +141,7 @@ export const ProductDetailPage: React.FC = () => {
 
             {/* Standards */}
             <div className="mb-6">
-              <h2 className="text-xs font-heading font-bold uppercase tracking-widest text-gray-400 mb-3">
+              <h2 className=" font-body font-semibold uppercase tracking-widest text-gray-400 mb-3">
                 Standards
               </h2>
               <div className="flex flex-wrap gap-2">

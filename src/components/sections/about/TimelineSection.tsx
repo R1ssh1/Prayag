@@ -86,10 +86,10 @@ export const TimelineSection: React.FC = () => (
 
                   {/* Card */}
                   <div className="flex-1 min-w-0">
-                    <span className="inline-block px-3 py-1 rounded-full bg-prayag-red/20 border border-prayag-red/30 text-prayag-red font-heading font-black text-[10px] uppercase tracking-widest mb-2">
+                    <span className="inline-block px-3 py-1 rounded-full bg-prayag-red/20 border border-prayag-red/30 text-prayag-red font-body font-bold text-[10px] uppercase tracking-widest mb-2">
                       {item.year}
                     </span>
-                    <h3 className="font-heading font-black text-base uppercase text-white mb-1 leading-tight">
+                    <h3 className="font-body font-bold text-base uppercase text-white mb-1 leading-tight">
                       {item.title}
                     </h3>
                     <p className="text-gray-400 font-body text-sm leading-relaxed">
@@ -159,10 +159,10 @@ const DesktopCard: React.FC<{
       align === "right" ? "text-right" : "text-left"
     }`}
   >
-    <span className="inline-block px-3 py-1 rounded-full bg-prayag-red/20 border border-prayag-red/30 text-prayag-red font-heading font-black text-[10px] uppercase tracking-widest mb-3">
+    <span className="inline-block px-3 py-1 rounded-full bg-prayag-red/20 border border-prayag-red/30 text-prayag-red font-body font-bold text-[10px] uppercase tracking-widest mb-3">
       {item.year}
     </span>
-    <h3 className="font-heading font-black text-xl uppercase text-white mb-2 group-hover:text-prayag-red transition-colors duration-200">
+    <h3 className="font-body font-bold text-xl uppercase text-white mb-2 group-hover:text-prayag-red transition-colors duration-200">
       {item.title}
     </h3>
     <p className="text-gray-400 font-body text-sm leading-relaxed">

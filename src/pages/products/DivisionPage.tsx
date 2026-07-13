@@ -129,7 +129,7 @@ export const DivisionPage: React.FC = () => {
                 <p className="text-gray-500 text-sm font-body line-clamp-2">
                   {product.shortDescription}
                 </p>
-                <span className="inline-block mt-3 text-prayag-red text-xs font-heading font-bold uppercase tracking-wider">
+                <span className="inline-block mt-3 text-prayag-red  font-body font-semibold uppercase tracking-wider">
                   View Details →
                 </span>
               </Link>

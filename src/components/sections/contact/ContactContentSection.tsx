@@ -53,7 +53,7 @@ export const ContactContentSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-prayag-red/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
                   <Phone className="w-5 h-5 text-prayag-red" aria-hidden="true" />
                 </div>
-                <h3 className="font-heading font-black text-sm uppercase text-prayag-black mb-2 leading-tight">
+                <h3 className="font-body font-bold  uppercase text-prayag-black mb-2 leading-tight">
                   Call Us
                 </h3>
                 <a
@@ -69,7 +69,7 @@ export const ContactContentSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-prayag-red/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
                   <Mail className="w-5 h-5 text-prayag-red" aria-hidden="true" />
                 </div>
-                <h3 className="font-heading font-black text-sm uppercase text-prayag-black mb-2 leading-tight">
+                <h3 className="font-body font-bold  uppercase text-prayag-black mb-2 leading-tight">
                   Email Us
                 </h3>
                 <a
@@ -85,7 +85,7 @@ export const ContactContentSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-prayag-red/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
                   <MapPin className="w-5 h-5 text-prayag-red" aria-hidden="true" />
                 </div>
-                <h3 className="font-heading font-black text-sm uppercase text-prayag-black mb-2 leading-tight">
+                <h3 className="font-body font-bold  uppercase text-prayag-black mb-2 leading-tight">
                   {companyInfo.registeredOffice.label}
                 </h3>
                 <address className="text-gray-500 text-[13px] font-body leading-relaxed not-italic">
@@ -98,7 +98,7 @@ export const ContactContentSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-prayag-red/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
                   <MapPin className="w-5 h-5 text-prayag-red" aria-hidden="true" />
                 </div>
-                <h3 className="font-heading font-black text-sm uppercase text-prayag-black mb-2 leading-tight">
+                <h3 className="font-body font-bold  uppercase text-prayag-black mb-2 leading-tight">
                   {companyInfo.factory.label}
                 </h3>
                 <address className="text-gray-500 text-[13px] font-body leading-relaxed not-italic">

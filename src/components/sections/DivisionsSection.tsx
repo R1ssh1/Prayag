@@ -66,13 +66,13 @@ export const DivisionsSection: React.FC = () => {
                   <h3 className="font-heading font-black text-3xl uppercase text-white mb-2 group-hover:text-prayag-red transition-colors">
                     {div.name}
                   </h3>
-                  <p className="text-prayag-red text-xs font-heading font-bold uppercase tracking-wider mb-4">
+                  <p className="text-prayag-red  font-body font-semibold uppercase tracking-wider mb-4">
                     {div.tagline}
                   </p>
                   <p className="text-gray-400 font-body text-sm leading-relaxed mb-8 flex-1">
                     {div.description}
                   </p>
-                  <div className="mt-auto inline-flex items-center gap-2 text-white font-heading font-bold uppercase tracking-wider text-sm transition-colors group-hover:text-prayag-red">
+                  <div className="mt-auto inline-flex items-center gap-2 text-white font-body font-semibold uppercase tracking-wider text-[15px] transition-colors group-hover:text-prayag-red">
                     Explore Product <span aria-hidden="true">→</span>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ export const DivisionsSection: React.FC = () => {
         <div className="mt-16 text-center">
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/20 text-white font-heading font-bold uppercase tracking-wider text-sm hover:bg-white hover:text-prayag-black transition-all duration-300"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/20 text-white font-body font-semibold uppercase tracking-wider text-[15px] hover:bg-white hover:text-prayag-black transition-all duration-300"
           >
             View Full Catalogue Directory
           </Link>

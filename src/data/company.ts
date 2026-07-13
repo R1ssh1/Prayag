@@ -114,37 +114,54 @@ export const journeyTimeline = [
     year: "1994",
     icon: "🏭",
     title: "The Beginning",
-    description: "Prayag Steel & Engineering Company founded by Shri P. J. Patel in Mumbai as a trading firm.",
+    description: [
+      "A small trading office in Mumbai, a big dream, and a simple belief: quality is remembered long after price is forgotten. Prayag Steel & Engineering Company was born with a commitment to supply materials that clients could rely on with closed eyes."
+    ],
   },
   {
     year: "2000",
     icon: "⚙️",
-    title: "Flanges Manufacturing Begins",
-    description: "Expanded into manufacturing flanges, marking the transition from trading to production.",
+    title: "From Trading to Manufacturing (Flanges)",
+    description: [
+      "Our first leap into manufacturing — a dedicated flange production unit. This was not just about machines, but about taking control of quality in our own hands. Every flange carried our signature of precision, giving clients the confidence that they weren't just buying steel — they were buying assurance."
+    ],
   },
   {
     year: "2004",
     icon: "🔩",
     title: "Fittings Unit Established",
-    description: "A dedicated fittings unit set up to manufacture butt-weld and forged fittings.",
+    description: [
+      "As projects demanded complete piping solutions, we invested in a state-of-the-art fittings facility. From elbows to tees, reducers to caps, our fittings began powering chemical plants, refineries, and nuclear projects. This step made Prayag not just a supplier, but a partner in progress."
+    ],
   },
   {
     year: "2008",
     icon: "🔥",
-    title: "In-House Forging",
-    description: "Forging capabilities brought in-house, enabling tighter quality control and faster delivery.",
+    title: "Forging In-House",
+    description: [
+      "To eliminate dependency and strengthen quality roots, we brought forging completely in-house. This milestone was about self-reliance — ensuring every raw shape that left our floor was forged with accuracy, uniformity, and metallurgical integrity. For clients, this meant traceability, reliability, and zero compromises."
+    ],
   },
   {
     year: "2019",
     icon: "🚀",
-    title: "Pipes & Tubes Manufacturing",
-    description: "Proficient Tubes Pvt. Ltd. established — a dedicated facility for seamless and welded tubes & pipes.",
+    title: "Pipes & Tubes Manufacturing Begins",
+    description: [
+      "With the implementation of BIS regulations, India witnessed a much-needed check on non-standard Chinese imports. That very moment, Prayag seized the opportunity and entered pipe & tube manufacturing with Proficient Tubes Pvt. Ltd.",
+      "Equipped with pilger machines, draw benches, piercing machines, pickling & passivation and electric furnaces, this facility began producing high precision seamless in stainless steel and exotic alloys like Monel, Inconel, and Hastelloy. This marked the beginning of Prayag's transformation into a complete piping solution provider.",
+      "The turning point came with the introduction of BIS regulations, which restricted non-standard Chinese pipes from entering India. The very day that opportunity opened, Prayag seized it — and without wasting a moment, we began building our PIPES & TUBES manufacturing unit at Umbergaon",
+      "This expansion is not just about space — it is about vision and preparedness.",
+      "This milestone reflects what Prayag has always stood for: not chasing growth, but building trust step by step, ton by ton, year by year."
+    ],
   },
   {
     year: "2024",
     icon: "🏗️",
-    title: "98,000 Sq. Ft. Expansion",
-    description: "Major facility expansion at Umbergaon — 98,000 sq. ft. of world-class manufacturing space.",
+    title: "Expansion with 98,000 sq. ft. Facility",
+    description: [
+      "To keep pace with the growing demand and strengthen our long-term vision, Prayag acquired an additional 98,000 sq. ft. of land at Umbergaon for a dedicated pipes manufacturing unit.",
+      "This upcoming facility will be a benchmark in pipe manufacturing — equipped with the latest technology, advanced testing labs, and enhanced capacity."
+    ],
   },
 ];
 

@@ -12,21 +12,21 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
-  { label: "Quality Policy", to: "/quality-policy" },
+  { label: "HOME", to: "/" },
+  { label: "ABOUT US", to: "/about" },
+  { label: "QUALITY POLICY", to: "/quality-policy" },
   {
-    label: "Products",
+    label: "PRODUCTS",
     to: "/products",
     children: [
-      { label: "Flanges", to: "/products/flanges" },
-      { label: "Fittings", to: "/products/fittings" },
-      { label: "Pipes", to: "/products/pipes" },
-      { label: "Tubes", to: "/products/tubes" },
+      { label: "FLANGES", to: "/products/flanges" },
+      { label: "FITTINGS", to: "/products/fittings" },
+      { label: "PIPES", to: "/products/pipes" },
+      { label: "TUBES", to: "/products/tubes" },
     ],
   },
-  { label: "Certificates", to: "/certificates" },
-  { label: "Contact Us", to: "/contact" },
+  { label: "CERTIFICATES", to: "/certificates" },
+  { label: "CONTACT US", to: "/contact" },
 ];
 
 export const Navbar: React.FC = () => {
@@ -77,18 +77,16 @@ export const Navbar: React.FC = () => {
   };
 
   const activeLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `font-heading font-bold uppercase tracking-wide text-sm transition-colors duration-200 ${
-      isActive
-        ? "text-prayag-red"
-        : "text-gray-800 hover:text-prayag-red"
+    `font-body font-semibold tracking-wide text-base transition-colors duration-200 ${isActive
+      ? "text-prayag-red"
+      : "text-gray-800 hover:text-prayag-red"
     }`;
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${
-          isScrolled ? "shadow-lg" : "shadow-sm"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 ${isScrolled ? "shadow-lg" : "shadow-sm"
+          }`}
         role="banner"
       >
         <nav
@@ -102,10 +100,10 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-3 flex-shrink-0"
             aria-label="Prayag Steel & Engineering Co. — Home"
           >
-            <img 
-              src={logoLight} 
-              alt="Prayag Steel & Engineering Co. Logo" 
-              className="h-10 sm:h-12 w-auto object-contain" 
+            <img
+              src={logoLight}
+              alt="Prayag Steel & Engineering Co. Logo"
+              className="h-10 sm:h-12 w-auto object-contain"
             />
           </Link>
 
@@ -114,8 +112,8 @@ export const Navbar: React.FC = () => {
             {navItems.map((item) =>
               item.children ? (
                 // Products dropdown
-                <li 
-                  key={item.to} 
+                <li
+                  key={item.to}
                   className="relative group"
                   onMouseEnter={() => setProductsOpen(true)}
                   onMouseLeave={() => setProductsOpen(false)}
@@ -123,10 +121,9 @@ export const Navbar: React.FC = () => {
                   <NavLink
                     to={item.to}
                     className={({ isActive }) =>
-                      `flex items-center gap-1 font-heading font-bold uppercase tracking-wide text-sm transition-colors duration-200 px-3 py-2 rounded-lg ${
-                        isActive || productsOpen
-                          ? "text-prayag-red bg-red-50"
-                          : "text-gray-800 hover:text-prayag-red hover:bg-red-50"
+                      `flex items-center gap-1 font-body font-semibold tracking-wide text-base transition-colors duration-200 px-2 py-2 rounded-lg ${isActive || productsOpen
+                        ? "text-prayag-red bg-red-50"
+                        : "text-gray-800 hover:text-prayag-red hover:bg-red-50"
                       }`
                     }
                     aria-haspopup="true"
@@ -156,10 +153,9 @@ export const Navbar: React.FC = () => {
                             key={child.to}
                             to={child.to}
                             className={({ isActive }) =>
-                              `block px-4 py-2.5 text-sm font-body font-medium transition-colors duration-150 ${
-                                isActive
-                                  ? "text-prayag-red bg-red-50"
-                                  : "text-gray-700 hover:text-prayag-red hover:bg-red-50"
+                              `block px-4 py-2.5 text-[15px] font-body font-medium transition-colors duration-150 ${isActive
+                                ? "text-prayag-red bg-red-50"
+                                : "text-gray-700 hover:text-prayag-red hover:bg-red-50"
                               }`
                             }
                             onClick={() => handleNavClick(child.to)}
@@ -178,7 +174,7 @@ export const Navbar: React.FC = () => {
                     to={item.to}
                     end={item.to === "/"}
                     className={({ isActive }) =>
-                      `${activeLinkClass({ isActive })} px-3 py-2 rounded-lg hover:bg-red-50 block`
+                      `${activeLinkClass({ isActive })} px-2 py-2 rounded-lg hover:bg-red-50 block`
                     }
                     onClick={() => handleNavClick(item.to)}
                   >
@@ -244,10 +240,10 @@ export const Navbar: React.FC = () => {
               {/* Mobile menu header */}
               <div className="flex items-center justify-between p-4 border-b border-gray-100">
                 <Link to="/" className="flex items-center gap-2" onClick={() => { setMobileOpen(false); handleNavClick("/"); }}>
-                  <img 
-                    src={logoLight} 
-                    alt="Prayag Steel Logo" 
-                    className="h-8 w-auto object-contain" 
+                  <img
+                    src={logoLight}
+                    alt="Prayag Steel Logo"
+                    className="h-8 w-auto object-contain"
                   />
                 </Link>
                 <button
@@ -267,10 +263,9 @@ export const Navbar: React.FC = () => {
                       to={item.to}
                       end={item.to === "/"}
                       className={({ isActive }) =>
-                        `block px-4 py-3 rounded-xl font-heading font-bold uppercase tracking-wide text-sm transition-colors ${
-                          isActive
-                            ? "text-prayag-red bg-red-50"
-                            : "text-gray-700 hover:text-prayag-red hover:bg-red-50"
+                        `block px-4 py-3 rounded-xl font-body font-semibold tracking-wide text-base transition-colors ${isActive
+                          ? "text-prayag-red bg-red-50"
+                          : "text-gray-700 hover:text-prayag-red hover:bg-red-50"
                         }`
                       }
                       onClick={() => { setMobileOpen(false); handleNavClick(item.to); }}
@@ -285,8 +280,7 @@ export const Navbar: React.FC = () => {
                             <NavLink
                               to={child.to}
                               className={({ isActive }) =>
-                                `block py-2 text-sm font-body font-medium transition-colors ${
-                                  isActive ? "text-prayag-red" : "text-gray-500 hover:text-prayag-red"
+                                `block py-2 text-sm font-body font-medium transition-colors ${isActive ? "text-prayag-red" : "text-gray-500 hover:text-prayag-red"
                                 }`
                               }
                               onClick={() => { setMobileOpen(false); handleNavClick(child.to); }}

@@ -113,7 +113,7 @@ export const AboutOverviewSection: React.FC = () => (
               {trustedBy.map((c) => (
                 <span
                   key={c.name}
-                  className="inline-block px-3 py-1.5 rounded-full border border-prayag-red/20 bg-prayag-red/5 text-prayag-black font-heading font-black text-[11px] uppercase tracking-wider"
+                  className="inline-block px-3 py-1.5 rounded-full border border-prayag-red/20 bg-prayag-red/5 text-prayag-black font-body font-bold text-xs uppercase tracking-wider"
                 >
                   {c.name}
                 </span>

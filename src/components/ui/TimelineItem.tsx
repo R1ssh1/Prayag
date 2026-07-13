@@ -43,14 +43,14 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
         <div className="w-14 h-14 rounded-full bg-prayag-black border-2 border-prayag-red flex items-center justify-center text-xl shadow-lg shadow-prayag-red/20">
           {icon}
         </div>
-        <span className="font-heading font-black text-sm text-prayag-red tracking-wider">
+        <span className="font-body font-bold  text-prayag-red tracking-wider">
           {year}
         </span>
       </div>
 
       {/* Content */}
       <div className="pt-1">
-        <h3 className="font-heading font-black text-lg uppercase text-prayag-black leading-tight">
+        <h3 className="font-body font-bold text-lg uppercase text-prayag-black leading-tight">
           {title}
         </h3>
         <p className="mt-1 text-sm text-gray-600 font-body leading-relaxed">

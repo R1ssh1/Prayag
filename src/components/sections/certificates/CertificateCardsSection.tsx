@@ -100,7 +100,7 @@ export const CertificateCardsSection: React.FC = () => (
               {/* Request CTA */}
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-1.5 mt-5 text-prayag-red font-heading font-black text-xs uppercase tracking-wider hover:gap-2.5 transition-all duration-200"
+                className="inline-flex items-center gap-1.5 mt-5 text-prayag-red font-body font-bold  uppercase tracking-wider hover:gap-2.5 transition-all duration-200"
               >
                 <ShieldCheck className="w-3.5 h-3.5" aria-hidden="true" />
                 Request Certificate

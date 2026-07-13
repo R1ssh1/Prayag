@@ -32,7 +32,7 @@ const ProductsOverviewContent: React.FC = () => {
             <h2 className="font-heading font-black text-xl uppercase text-prayag-black mb-2">
               {div.name}
             </h2>
-            <p className="text-prayag-red text-xs font-heading font-bold uppercase tracking-wider mb-3">
+            <p className="text-prayag-red  font-body font-semibold uppercase tracking-wider mb-3">
               {div.tagline}
             </p>
             <p className="text-gray-500 text-sm font-body line-clamp-3">

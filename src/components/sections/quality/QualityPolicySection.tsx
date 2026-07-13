@@ -87,7 +87,7 @@ export const QualityPolicySection: React.FC = () => (
             {qualityPolicy.philosophy}
           </p>
           <div className="inline-block px-5 py-2 rounded-full bg-prayag-red/20 border border-prayag-red/30">
-            <span className="text-prayag-red font-heading font-black text-xs uppercase tracking-[0.2em]">
+            <span className="text-prayag-red font-body font-bold  uppercase tracking-[0.2em]">
               Prayag Steel — Quality Commitment
             </span>
           </div>

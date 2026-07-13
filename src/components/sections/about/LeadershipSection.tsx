@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { User } from "lucide-react";
 import { SectionHeading } from "../../ui/SectionHeading";
-import { ImagePlaceholder } from "../../ui/ImagePlaceholder";
 import { leadership } from "../../../data/company";
 
 export const LeadershipSection: React.FC = () => {
@@ -55,13 +55,8 @@ export const LeadershipSection: React.FC = () => {
                 aria-label={`Learn about ${leader.name}`}
               >
                 {/* Portrait */}
-                <div className="relative">
-                  <ImagePlaceholder
-                    path={leader.image}
-                    label={`${leader.name} — ${leader.title}`}
-                    aspectRatio="video"
-                    className="w-full"
-                  />
+                <div className="relative bg-prayag-charcoal/5 aspect-[4/5] flex items-center justify-center border-b border-gray-100">
+                  <User className="w-1/3 h-1/3 text-gray-300" strokeWidth={1} />
                   {/* Active red overlay */}
                   {active === leader.id && (
                     <div className="absolute inset-0 bg-prayag-red/10" aria-hidden="true" />
@@ -81,7 +76,7 @@ export const LeadershipSection: React.FC = () => {
                   }`}>
                     {leader.role}
                   </p>
-                  <h3 className={`font-heading font-black text-xl uppercase mb-3 ${
+                  <h3 className={`font-body font-bold text-xl uppercase mb-3 ${
                     active === leader.id ? "text-white" : "text-prayag-black"
                   }`}>
                     {leader.name}
@@ -110,7 +105,7 @@ export const LeadershipSection: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* Philosophy */}
               <div>
-                <h4 className="font-heading font-black text-xs uppercase tracking-widest text-gray-400 mb-3">
+                <h4 className="font-body font-bold  uppercase tracking-widest text-gray-400 mb-3">
                   Philosophy
                 </h4>
                 <p className="font-body text-gray-700 leading-relaxed italic">
@@ -119,7 +114,7 @@ export const LeadershipSection: React.FC = () => {
               </div>
               {/* Legacy */}
               <div>
-                <h4 className="font-heading font-black text-xs uppercase tracking-widest text-gray-400 mb-3">
+                <h4 className="font-body font-bold  uppercase tracking-widest text-gray-400 mb-3">
                   Legacy
                 </h4>
                 <p className="font-body text-gray-700 leading-relaxed">

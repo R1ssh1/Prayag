@@ -123,7 +123,7 @@ export const ApprovedVendorsSection: React.FC = () => (
       </motion.div>
 
       {/* Vendor grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {approvedVendors.map((vendor, i) => (
           <motion.div
             key={vendor.id}
@@ -136,7 +136,7 @@ export const ApprovedVendorsSection: React.FC = () => (
             <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-200">
               {vendor.icon}
             </div>
-            <p className="font-heading font-black text-lg uppercase text-prayag-black group-hover:!text-white transition-colors duration-300 mb-1 leading-tight">
+            <p className="font-body font-bold text-[15px] uppercase text-prayag-black group-hover:!text-white transition-colors duration-300 mb-1 leading-tight">
               {vendor.name}
             </p>
             <p className="font-body text-gray-400 group-hover:text-gray-400 text-xs leading-snug mb-3">

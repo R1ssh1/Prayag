@@ -71,7 +71,7 @@ export const SnapshotSection: React.FC = () => (
 
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 text-prayag-red font-heading font-bold uppercase tracking-wider text-sm group"
+            className="inline-flex items-center gap-2 text-prayag-red font-body font-semibold uppercase tracking-wider text-[15px] group"
           >
             Read Our Full Story
             <ArrowRight

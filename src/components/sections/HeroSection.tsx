@@ -92,12 +92,12 @@ export const HeroSection: React.FC = () => (
     />
 
     {/* ── Main content ───────────────────────────────────────────── */}
-    <div className="relative z-10 flex-1 flex flex-col justify-start max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-20 lg:pt-16 pb-20">
+    <div className="relative z-10 flex-1 flex flex-col justify-start max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24 pb-20">
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="max-w-5xl"
+        className="max-w-full lg:max-w-2xl xl:max-w-3xl relative z-30"
       >
         {/* Eyebrow tag */}
         <motion.div variants={fadeIn} className="mb-8">
@@ -106,7 +106,7 @@ export const HeroSection: React.FC = () => (
             role="text"
           >
             <span className="w-2 h-2 rounded-full bg-prayag-red animate-pulse" aria-hidden="true" />
-            <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+            <span className="text-prayag-red font-body text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em]">
               Est. 1994 · Mumbai & Umergaon, India
             </span>
           </span>
@@ -117,14 +117,14 @@ export const HeroSection: React.FC = () => (
           variants={slideUp}
           className="font-heading font-black uppercase leading-[0.88] tracking-tighter text-white mb-8"
         >
-          <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl">
+          <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
             Steel Is Strong,
           </span>
           <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mt-3 text-gray-400 font-black">
             But Our Commitment Is
           </span>
           <span
-            className="block text-6xl sm:text-8xl lg:text-9xl mt-1 text-prayag-red"
+            className="block text-6xl sm:text-8xl lg:text-[7.5rem] mt-2 text-prayag-red"
             style={{ WebkitTextStroke: "0px transparent" }}
           >
             Stronger.
@@ -147,7 +147,7 @@ export const HeroSection: React.FC = () => (
           <Link
             to="/products"
             id="hero-explore-products-btn"
-            className="inline-flex items-center gap-3 px-7 py-4 bg-prayag-red text-white font-heading font-black uppercase tracking-wider text-sm rounded-xl transition-all duration-200 hover:bg-red-700 hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-3 px-7 py-4 bg-prayag-red text-white font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:bg-red-700 hover:scale-105 active:scale-95"
             style={{ boxShadow: "0 8px 30px rgba(227,30,36,0.35)" }}
           >
             Explore Products
@@ -159,11 +159,28 @@ export const HeroSection: React.FC = () => (
           <Link
             to="/contact"
             id="hero-contact-btn"
-            className="inline-flex items-center gap-2 px-6 py-4 border border-white/20 text-white font-heading font-bold uppercase tracking-wider text-sm rounded-xl transition-all duration-200 hover:border-prayag-red/60 hover:text-prayag-red"
+            className="inline-flex items-center gap-2 px-6 py-4 border border-white/20 text-white font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:border-prayag-red/60 hover:text-prayag-red"
           >
             Contact Us
           </Link>
         </motion.div>
+      </motion.div>
+
+      {/* ── Staggered Images (Desktop absolute, Mobile static) ── */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.6 }}
+        className="mt-16 lg:mt-0 lg:absolute lg:right-8 xl:right-16 lg:top-[15%] z-20 flex relative w-full sm:w-[450px] lg:w-[450px] xl:w-[550px] self-center pointer-events-none"
+      >
+        {/* Main image */}
+        <div className="w-[75%] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10 relative z-10 pointer-events-auto hover:-translate-y-2 transition-transform duration-500">
+          <img src="/assets/images/pages/hero-big.webp" alt="Manufacturing Flanges" className="w-full h-auto object-cover aspect-[4/3]" />
+        </div>
+        {/* Overlapping smaller image */}
+        <div className="w-[45%] absolute -top-28 -right-4 lg:-right-8 xl:-right-12 rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-prayag-red/40 z-20 pointer-events-auto hover:-translate-y-2 transition-transform duration-500">
+          <img src="/assets/images/pages/hero-small.webp" alt="Steel Pipes" className="w-full h-auto object-cover object-top aspect-square" />
+        </div>
       </motion.div>
 
       {/* Stats strip */}

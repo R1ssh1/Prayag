@@ -3,6 +3,7 @@ import { PageMeta } from "../seo/PageMeta";
 import { AboutHeroSection } from "../components/sections/about/AboutHeroSection";
 import { DirectorDeskSection } from "../components/sections/about/DirectorDeskSection";
 import { AboutOverviewSection } from "../components/sections/about/AboutOverviewSection";
+import { JourneySection } from "../components/sections/about/JourneySection";
 import { TimelineSection } from "../components/sections/about/TimelineSection";
 import { LeadershipSection } from "../components/sections/about/LeadershipSection";
 import { TrustedByBannerSection } from "../components/sections/about/TrustedByBannerSection";
@@ -25,6 +26,9 @@ export const About: React.FC = () => (
 
       {/* 3. Company Overview + Vision & Mission */}
       <AboutOverviewSection />
+
+      {/* 4. Our Journey */}
+      <JourneySection />
 
       {/* 4. The Steel Legacy Timeline (1994–2024) */}
       <TimelineSection />

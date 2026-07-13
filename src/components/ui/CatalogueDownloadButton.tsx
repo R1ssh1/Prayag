@@ -42,9 +42,9 @@ export const CatalogueDownloadButton: React.FC<CatalogueDownloadButtonProps> = (
       {/* Left zone — PDF PNG icon */}
       <div className="flex items-center justify-center w-10 h-10 m-2 flex-shrink-0 overflow-hidden">
         <img
-          src="/assets/images/pages/pdf.png"
+          src="/assets/images/pages/pdf_2.webp"
           alt="PDF"
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain rounded-xl"
           onError={(e) => {
             (e.target as HTMLImageElement).style.display = 'none';
           }}
@@ -56,7 +56,7 @@ export const CatalogueDownloadButton: React.FC<CatalogueDownloadButtonProps> = (
         <span className="text-[10px] font-body font-semibold uppercase tracking-widest text-gray-500">
           Download
         </span>
-        <span className="text-sm font-heading font-black uppercase tracking-wide text-prayag-red">
+        <span className="text-sm font-body font-bold uppercase tracking-wide text-prayag-red">
           Catalogue
         </span>
       </div>
