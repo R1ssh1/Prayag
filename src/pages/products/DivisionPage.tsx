@@ -27,13 +27,7 @@ const divisionMeta: Record<Division, { metaTitle: string; metaDescription: strin
   },
 };
 
-// Dynamic division loaders — only the needed file is fetched
-const divisionLoaders: Record<Division, () => Promise<{ default?: Product[] } & { [key: string]: Product[] }>> = {
-  flanges: () => import("../../data/products/flanges").then((m) => ({ flanges: m.flanges })),
-  fittings: () => import("../../data/products/fittings").then((m) => ({ fittings: m.fittings })),
-  pipes: () => import("../../data/products/pipes").then((m) => ({ pipes: m.pipes })),
-  tubes: () => import("../../data/products/tubes").then((m) => ({ tubes: m.tubes })),
-};
+import { getProductsByDivision } from "../../data/products";
 
 export const DivisionPage: React.FC = () => {
   const { division } = useParams<{ division: string }>();
@@ -44,13 +38,13 @@ export const DivisionPage: React.FC = () => {
   const meta = divisionMeta[div];
 
   useEffect(() => {
-    if (!div || !divisionLoaders[div]) return;
+    if (!div) return;
     setLoading(true);
-    divisionLoaders[div]().then((mod) => {
-      const key = Object.keys(mod)[0];
-      setProducts(mod[key] as Product[]);
-      setLoading(false);
-    });
+    // Simulate slight loading delay for skeleton effect if desired, 
+    // or just load instantly since it's statically imported now.
+    const divisionProducts = getProductsByDivision(div);
+    setProducts(divisionProducts);
+    setLoading(false);
   }, [div]);
 
   if (!meta) {

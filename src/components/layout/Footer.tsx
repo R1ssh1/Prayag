@@ -1,11 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Mail, Phone, MapPin, Globe } from "lucide-react";
 import { companyInfo } from "../../data/company";
 import logoDark from "../../assets/images/logo/logo-2.webp";
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+
+  const handleNavClick = (to: string) => {
+    if (location.pathname === to) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <footer className="bg-prayag-black text-white" role="contentinfo">
@@ -49,6 +56,7 @@ export const Footer: React.FC = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
+                    onClick={() => handleNavClick(link.to)}
                     className="text-gray-400 hover:text-prayag-red text-sm font-body transition-colors duration-200"
                   >
                     {link.label}
@@ -73,6 +81,7 @@ export const Footer: React.FC = () => {
                 <li key={link.to}>
                   <Link
                     to={link.to}
+                    onClick={() => handleNavClick(link.to)}
                     className="text-gray-400 hover:text-prayag-red text-sm font-body transition-colors duration-200"
                   >
                     {link.label}

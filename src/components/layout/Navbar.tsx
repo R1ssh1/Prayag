@@ -70,6 +70,12 @@ export const Navbar: React.FC = () => {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  const handleNavClick = (to: string) => {
+    if (location.pathname === to) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const activeLinkClass = ({ isActive }: { isActive: boolean }) =>
     `font-heading font-bold uppercase tracking-wide text-sm transition-colors duration-200 ${
       isActive
@@ -92,6 +98,7 @@ export const Navbar: React.FC = () => {
           {/* Logo */}
           <Link
             to="/"
+            onClick={() => handleNavClick("/")}
             className="flex items-center gap-3 flex-shrink-0"
             aria-label="Prayag Steel & Engineering Co. — Home"
           >
@@ -125,6 +132,7 @@ export const Navbar: React.FC = () => {
                     aria-haspopup="true"
                     aria-expanded={productsOpen}
                     id="products-menu-btn"
+                    onClick={() => handleNavClick(item.to)}
                     onFocus={() => setProductsOpen(true)}
                   >
                     {item.label}
@@ -154,6 +162,7 @@ export const Navbar: React.FC = () => {
                                   : "text-gray-700 hover:text-prayag-red hover:bg-red-50"
                               }`
                             }
+                            onClick={() => handleNavClick(child.to)}
                             role="menuitem"
                           >
                             {child.label}
@@ -171,6 +180,7 @@ export const Navbar: React.FC = () => {
                     className={({ isActive }) =>
                       `${activeLinkClass({ isActive })} px-3 py-2 rounded-lg hover:bg-red-50 block`
                     }
+                    onClick={() => handleNavClick(item.to)}
                   >
                     {item.label}
                   </NavLink>
@@ -233,7 +243,7 @@ export const Navbar: React.FC = () => {
             >
               {/* Mobile menu header */}
               <div className="flex items-center justify-between p-4 border-b border-gray-100">
-                <Link to="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
+                <Link to="/" className="flex items-center gap-2" onClick={() => { setMobileOpen(false); handleNavClick("/"); }}>
                   <img 
                     src={logoLight} 
                     alt="Prayag Steel Logo" 
@@ -263,7 +273,7 @@ export const Navbar: React.FC = () => {
                             : "text-gray-700 hover:text-prayag-red hover:bg-red-50"
                         }`
                       }
-                      onClick={() => setMobileOpen(false)}
+                      onClick={() => { setMobileOpen(false); handleNavClick(item.to); }}
                     >
                       {item.label}
                     </NavLink>
@@ -279,7 +289,7 @@ export const Navbar: React.FC = () => {
                                   isActive ? "text-prayag-red" : "text-gray-500 hover:text-prayag-red"
                                 }`
                               }
-                              onClick={() => setMobileOpen(false)}
+                              onClick={() => { setMobileOpen(false); handleNavClick(child.to); }}
                             >
                               {child.label}
                             </NavLink>

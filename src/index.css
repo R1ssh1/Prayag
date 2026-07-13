@@ -49,6 +49,11 @@ body {
   line-height: 1.6;
 }
 
+::selection {
+  background-color: var(--color-prayag-red);
+  color: white;
+}
+
 /* ── Typography utilities ────────────────────────────────────────────────────*/
 .font-heading {
   font-family: var(--font-heading);

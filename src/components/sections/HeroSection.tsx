@@ -1,23 +1,39 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion, type Variants } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { motion, type Variants, animate, useInView } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { CatalogueDownloadButton } from "../ui/CatalogueDownloadButton";
 
-const WATERMARK_WORDS = [
-  "ASTM", "ASME", "PIPES", "TUBES", "FITTINGS", "FLANGES",
-  "SS316L", "INCONEL", "DUPLEX", "HASTELLOY", "MONEL", "TITANIUM",
-  "NUCLEAR", "DEFENCE", "AEROSPACE", "ISO9001", "PRECISION",
-  "FORGED", "SEAMLESS", "WELDED", "STRENGTH", "INTEGRITY",
-  "PRAYAG", "MUMBAI", "UMERGAON", "CERTIFIED", "QUALITY",
-];
+const WATERMARK_TEXT = "WNRF SORF BLRF WNST WNSG BLLT BLSG PIPES TUBES ELBOW TEE REDUCER STAINLESS STEEL PIERCING PICKLING INCONEL MONEL HASTELLOY DUPLEX FORGED FITTINGS SORF BLRF WNST WNSG BLLT BLSG PIPES TUBES TUBES ELBOW TEE REDUCER STAINLESS STEEL PIERCING PICKLING INCONEL MONEL HASTELLOY DUPLEX FORGED FITTINGS FLANGES WNRF SORF BLRF WNST WNSG BLLT BLSG PIPES TUBES ELBOW TEE REDUCER STAINLESS STEEL PIERCING REDUCER PICKLING INCONEL MONEL HASTELLOY DUPLEX FORGED FITTINGS SORF BLRF WNST WNSG BLLT BLSG PIPES TUBES TUBES ELBOW TEE REDUCER STAINLESS STEEL ";
 
 const heroStats = [
-  { value: "30+", label: "Years of Excellence" },
-  { value: "7+", label: "Industries Served" },
-  { value: "100+", label: "Trusted Clients" },
-  { value: "98K", label: "Sq. Ft. Factory" },
+  { end: 30, suffix: "+", label: "Years of Excellence" },
+  { end: 7, suffix: "+", label: "Industries Served" },
+  { end: 100, suffix: "+", label: "Trusted Clients" },
+  { end: 98, suffix: "K", label: "Sq. Ft. Factory" },
 ];
+
+const AnimatedNumber = ({ end, suffix }: { end: number; suffix: string }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (isInView && ref.current) {
+      const controls = animate(0, end, {
+        duration: 3.5,
+        ease: "easeOut",
+        onUpdate: (value) => {
+          if (ref.current) {
+            ref.current.textContent = Math.round(value) + suffix;
+          }
+        },
+      });
+      return controls.stop;
+    }
+  }, [isInView, end, suffix]);
+
+  return <span ref={ref}>0{suffix}</span>;
+};
 
 const container: Variants = {
   hidden: {},
@@ -41,20 +57,15 @@ export const HeroSection: React.FC = () => (
   >
     {/* ── Watermark keyword texture ───────────────────────────────── */}
     <div
-      className="absolute inset-0 flex flex-wrap content-start gap-x-8 gap-y-3 p-10 select-none pointer-events-none overflow-hidden"
+      className="absolute inset-0 p-4 sm:p-8 select-none pointer-events-none overflow-hidden z-0"
       aria-hidden="true"
     >
-      {Array.from({ length: 6 }, () => WATERMARK_WORDS)
-        .flat()
-        .map((word, i) => (
-          <span
-            key={i}
-            className="text-[11px] font-heading font-black uppercase tracking-widest text-white whitespace-nowrap"
-            style={{ opacity: 0.035 }}
-          >
-            {word}
-          </span>
-        ))}
+      <p
+        className="text-sm sm:text-lg lg:text-xl font-body font-bold uppercase tracking-[0.25em] text-justify text-white break-words"
+        style={{ opacity: 0.035, lineHeight: 2.2 }}
+      >
+        {WATERMARK_TEXT.repeat(10)}
+      </p>
     </div>
 
     {/* ── Red geometric ring decoration ──────────────────────────── */}
@@ -62,7 +73,7 @@ export const HeroSection: React.FC = () => (
       initial={{ opacity: 0, scale: 0.7 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
-      className="absolute -right-48 top-1/2 -translate-y-1/2 pointer-events-none"
+      className="absolute -right-48 top-1/2 -translate-y-1/2 pointer-events-none z-10"
       aria-hidden="true"
     >
       <div className="relative w-[560px] h-[560px]">
@@ -75,13 +86,13 @@ export const HeroSection: React.FC = () => (
 
     {/* ── Right vertical accent stripe ───────────────────────────── */}
     <div
-      className="absolute right-0 top-0 bottom-0 w-px pointer-events-none"
+      className="absolute right-0 top-0 bottom-0 w-px pointer-events-none z-10"
       style={{ background: "linear-gradient(to bottom, transparent, rgba(227,30,36,0.5), transparent)" }}
       aria-hidden="true"
     />
 
     {/* ── Main content ───────────────────────────────────────────── */}
-    <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
+    <div className="relative z-10 flex-1 flex flex-col justify-start max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-20 lg:pt-16 pb-20">
       <motion.div
         variants={container}
         initial="hidden"
@@ -166,7 +177,7 @@ export const HeroSection: React.FC = () => (
         {heroStats.map((stat) => (
           <div key={stat.label} className="flex flex-col items-start">
             <span className="font-heading font-black text-white text-4xl sm:text-5xl leading-none tabular-nums">
-              {stat.value}
+              <AnimatedNumber end={stat.end} suffix={stat.suffix} />
             </span>
             <span className="text-gray-500 text-[10px] font-body uppercase tracking-[0.18em] mt-2 leading-tight">
               {stat.label}
@@ -175,20 +186,6 @@ export const HeroSection: React.FC = () => (
         ))}
       </motion.div>
     </div>
-
-    {/* Scroll indicator */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 2, duration: 0.5 }}
-      className="relative z-10 flex justify-center pb-6"
-      aria-hidden="true"
-    >
-      <div className="flex flex-col items-center gap-1.5 text-gray-600">
-        <span className="text-[9px] font-body uppercase tracking-[0.35em]">Scroll</span>
-        <ChevronDown className="w-4 h-4 animate-bounce" />
-      </div>
-    </motion.div>
 
     {/* Arc transition to next section */}
     <div className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden leading-none" aria-hidden="true">

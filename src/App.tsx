@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { PageWrapper } from "./components/layout/PageWrapper";
+import { ScrollToTopButton } from "./components/ui/ScrollToTopButton";
 import { ScrollToTop } from "./components/layout/ScrollToTop";
 import { OrganizationSchema } from "./seo/StructuredData";
 import { Home } from "./pages/Home";
@@ -21,6 +22,7 @@ function App() {
       {/* Site-wide JSON-LD */}
       <OrganizationSchema />
       <ScrollToTop />
+      <ScrollToTopButton />
 
       <PageWrapper>
         <Routes>
