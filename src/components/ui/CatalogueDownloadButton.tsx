@@ -39,9 +39,16 @@ export const CatalogueDownloadButton: React.FC<CatalogueDownloadButtonProps> = (
       aria-label="Download Prayag Steel Catalogue PDF"
       title="Download Our Catalogue — Prayag Steel & Engineering Co."
     >
-      {/* Left zone — red PDF icon */}
-      <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-red-500 to-prayag-red rounded-full m-1 flex-shrink-0">
-        <FileText className="w-5 h-5 text-white" strokeWidth={2.5} aria-hidden="true" />
+      {/* Left zone — PDF PNG icon */}
+      <div className="flex items-center justify-center w-10 h-10 m-2 flex-shrink-0 overflow-hidden">
+        <img
+          src="/assets/images/pages/pdf.png"
+          alt="PDF"
+          className="w-full h-full object-contain"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = 'none';
+          }}
+        />
       </div>
 
       {/* Center text */}

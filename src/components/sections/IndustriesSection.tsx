@@ -1,34 +1,27 @@
 import React from "react";
-import { motion, type Variants } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
-import { Shield, Plane, Factory, Beaker, Zap, Activity, Droplets, Ship } from "lucide-react";
 
 const industries = [
-  { name: "Nuclear Power", icon: Zap, desc: "Critical application pipes & flanges" },
-  { name: "Aerospace", icon: Plane, desc: "High-temperature exotic alloys" },
-  { name: "Defence", icon: Shield, desc: "Mil-spec structural components" },
-  { name: "Petrochemicals", icon: Factory, desc: "High-pressure fittings & tubes" },
-  { name: "Pharmaceuticals", icon: Beaker, desc: "Ultra-high purity (UHP) tubing" },
-  { name: "Oil & Gas", icon: Droplets, desc: "Corrosion-resistant offshore pipes" },
-  { name: "Power Generation", icon: Activity, desc: "Thermal and hydro plant tubes" },
-  { name: "Marine", icon: Ship, desc: "Cupro-nickel sea water systems" },
+  { name: "Chemical Industry", slug: "chemical" },
+  { name: "Nuclear Industry", slug: "nuclear" },
+  { name: "Defence Industry", slug: "defence" },
+  { name: "Fertilizer Industry", slug: "fertilizer" },
+  { name: "Power Industry", slug: "power" },
+  { name: "Instrumentation & Control Systems", slug: "instrumentation" },
+  { name: "Petrochemical Industry", slug: "petrochemical" },
+  { name: "Heat Exchangers & Condensors", slug: "heat-exchangers" },
+  { name: "Refineries", slug: "refineries" },
+  { name: "Aerospace Industry", slug: "aerospace" },
 ];
 
-const container: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
 export const IndustriesSection: React.FC = () => {
+  // We duplicate the list to create a seamless infinite scroll loop
+  const duplicatedIndustries = [...industries, ...industries];
+
   return (
-    <section className="bg-white py-24 lg:py-36 relative" aria-label="Industries We Serve">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 lg:mb-20">
+    <section className="bg-white py-24 lg:py-36 relative overflow-hidden" aria-label="Industries We Serve">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 lg:mb-16">
+        <div className="text-center">
           <SectionHeading
             text="Industries We Serve"
             highlightWords={["Industries"]}
@@ -39,32 +32,43 @@ export const IndustriesSection: React.FC = () => {
             From the depths of the ocean to the vacuum of space, Prayag Steel delivers mission-critical components where failure is not an option.
           </p>
         </div>
+      </div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {industries.map((industry) => (
-            <motion.div
-              key={industry.name}
-              variants={item}
-              className="group bg-off-white rounded-2xl p-6 border border-gray-100 hover:border-prayag-red/30 hover:bg-white hover:shadow-xl hover:shadow-prayag-red/5 transition-all duration-300"
+      {/* Marquee Wrapper */}
+      <div className="relative w-full overflow-hidden group">
+        <div className="animate-marquee flex w-max gap-6 px-3 hover:[animation-play-state:paused]">
+          {duplicatedIndustries.map((industry, index) => (
+            <div
+              // using index in key because of duplicates
+              key={`${industry.slug}-${index}`}
+              className="relative shrink-0 w-64 sm:w-80 h-80 sm:h-96 rounded-2xl overflow-hidden group/card bg-prayag-charcoal/10"
             >
-              <div className="w-12 h-12 rounded-xl bg-prayag-red/10 text-prayag-red flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-prayag-red group-hover:text-white transition-all duration-300">
-                <industry.icon className="w-6 h-6" />
+              {/* Background Image */}
+              <img
+                src={`/assets/images/industries/${industry.slug}.webp`}
+                alt={industry.name}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
+              
+              {/* Gradient overlay for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-prayag-black/90 via-prayag-black/40 to-transparent transition-opacity duration-300" />
+
+              {/* Text Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end h-full">
+                <h3 className="font-heading font-black text-white leading-tight uppercase transition-all duration-500 origin-bottom-left text-xl group-hover/card:text-3xl group-hover/card:text-prayag-red">
+                  {industry.name}
+                </h3>
               </div>
-              <h3 className="font-heading font-black text-xl uppercase text-prayag-black mb-2">
-                {industry.name}
-              </h3>
-              <p className="text-gray-500 text-sm font-body line-clamp-2">
-                {industry.desc}
-              </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
+
+        {/* Optional fade edges for marquee */}
+        <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent pointer-events-none" />
       </div>
     </section>
   );

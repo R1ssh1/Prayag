@@ -74,21 +74,16 @@ export const GlobalReachSection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="relative h-[400px] lg:h-[500px] rounded-2xl bg-prayag-black/50 border border-white/10 flex items-center justify-center overflow-hidden"
+            className="relative w-full rounded-2xl border border-white/20 shadow-2xl overflow-hidden bg-prayag-black/20"
           >
-            {/* Simple abstract globe visualization */}
-            <Globe className="w-64 h-64 text-white/5" strokeWidth={0.5} />
-            <div className="absolute inset-0 bg-gradient-to-tr from-prayag-red/20 to-transparent mix-blend-overlay" />
-            
-            {/* Pulsing dots representing global locations */}
-            <div className="absolute top-1/4 left-1/4 w-3 h-3 rounded-full bg-prayag-red shadow-[0_0_15px_rgba(227,30,36,0.8)] animate-pulse" />
-            <div className="absolute top-1/3 right-1/3 w-2 h-2 rounded-full bg-prayag-red shadow-[0_0_10px_rgba(227,30,36,0.8)] animate-pulse" style={{ animationDelay: "1s" }} />
-            <div className="absolute bottom-1/3 right-1/4 w-4 h-4 rounded-full bg-prayag-red shadow-[0_0_20px_rgba(227,30,36,0.8)] animate-pulse" style={{ animationDelay: "0.5s" }} />
-            <div className="absolute bottom-1/4 left-1/3 w-2.5 h-2.5 rounded-full bg-prayag-red shadow-[0_0_12px_rgba(227,30,36,0.8)] animate-pulse" style={{ animationDelay: "1.5s" }} />
-            
-            <div className="absolute bottom-6 left-6 right-6 text-center">
-              <p className="text-xs font-body uppercase tracking-[0.2em] text-gray-500">Delivering Excellence Worldwide</p>
-            </div>
+            <img 
+              src="/assets/images/pages/footprint.webp" 
+              alt="Prayag Steel Global Footprint" 
+              className="w-full h-auto object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
           </motion.div>
 
         </div>

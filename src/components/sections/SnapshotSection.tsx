@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "../ui/SectionHeading";
-import { ImagePlaceholder } from "../ui/ImagePlaceholder";
+import umergaonFacility from "../../assets/images/about/facility-umergaon.webp";
+import mumbaiOffice from "../../assets/images/about/facility-mumbai.webp";
 
 export const SnapshotSection: React.FC = () => (
   <section className="bg-off-white py-24 lg:py-36" aria-label="About Prayag Steel & Engineering">
@@ -61,7 +62,7 @@ export const SnapshotSection: React.FC = () => (
                 <dt className="text-[10px] font-body font-semibold uppercase tracking-widest text-gray-400 mb-0.5">
                   {dt}
                 </dt>
-                <dd className="font-heading font-black text-sm text-prayag-black">
+                <dd className="font-body font-bold text-sm text-prayag-black">
                   {dd}
                 </dd>
               </div>
@@ -96,11 +97,10 @@ export const SnapshotSection: React.FC = () => (
 
           {/* Main facility image */}
           <div className="relative z-10">
-            <ImagePlaceholder
-              path="about/facility-umergaon.webp"
-              label="Prayag Steel — Umergaon manufacturing facility"
-              aspectRatio="video"
-              className="rounded-2xl shadow-xl"
+            <img
+              src={umergaonFacility}
+              alt="Prayag Steel — Umergaon manufacturing facility"
+              className="w-full aspect-video object-cover rounded-2xl shadow-xl border border-gray-100"
             />
           </div>
 
@@ -116,11 +116,10 @@ export const SnapshotSection: React.FC = () => (
 
           {/* Second image (offset below) */}
           <div className="mt-8 ml-12">
-            <ImagePlaceholder
-              path="about/facility-mumbai.webp"
-              label="Mumbai registered office"
-              aspectRatio="video"
-              className="rounded-xl shadow-md"
+            <img
+              src={mumbaiOffice}
+              alt="Mumbai registered office"
+              className="w-full aspect-video object-cover rounded-xl shadow-md border border-gray-100 bg-gray-100"
             />
           </div>
         </motion.div>
