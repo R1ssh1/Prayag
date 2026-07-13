@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block AI crawlers from indexing product images (placeholder images)
+Disallow: /src/assets/images/
+
+Sitemap: https://www.prayagsteel.in/sitemap.xml

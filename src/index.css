@@ -1,0 +1,296 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   Prayag Steel & Engineering Co. — Global Styles
+   Tailwind v4 with CSS-based design tokens (@theme)
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* ── Tailwind v4 Theme Tokens ────────────────────────────────────────────────
+   Extends the default theme with Prayag's design system.
+   ─────────────────────────────────────────────────────────────────────────── */
+@theme {
+  /* Colors */
+  --color-prayag-red: #E31E24;
+  --color-prayag-red-dark: #C41920;
+  --color-prayag-black: #1A1A1A;
+  --color-prayag-charcoal: #2B2B2B;
+  --color-off-white: #F5F5F5;
+
+  /* Fonts */
+  --font-heading: "Anton", "Arial Black", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Border radius */
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+
+  /* Shadows */
+  --shadow-red-glow: 0 4px 24px rgba(227, 30, 36, 0.3);
+}
+
+/* ── Base resets ─────────────────────────────────────────────────────────────*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-off-white);
+  color: var(--color-prayag-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* ── Typography utilities ────────────────────────────────────────────────────*/
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ── Color utilities ─────────────────────────────────────────────────────────*/
+.text-prayag-red {
+  color: var(--color-prayag-red);
+}
+
+.text-prayag-black {
+  color: var(--color-prayag-black);
+}
+
+.bg-prayag-red {
+  background-color: var(--color-prayag-red);
+}
+
+.bg-prayag-black {
+  background-color: var(--color-prayag-black);
+}
+
+.bg-prayag-charcoal {
+  background-color: var(--color-prayag-charcoal);
+}
+
+.bg-off-white {
+  background-color: var(--color-off-white);
+}
+
+.border-prayag-red {
+  border-color: var(--color-prayag-red);
+}
+
+.border-prayag-black {
+  border-color: var(--color-prayag-black);
+}
+
+/* Opacity variants for red */
+.bg-prayag-red\/10 {
+  background-color: rgba(227, 30, 36, 0.10);
+}
+
+.bg-prayag-red\/20 {
+  background-color: rgba(227, 30, 36, 0.20);
+}
+
+.bg-prayag-red\/30 {
+  background-color: rgba(227, 30, 36, 0.30);
+}
+
+.border-prayag-red\/20 {
+  border-color: rgba(227, 30, 36, 0.20);
+}
+
+.border-prayag-red\/30 {
+  border-color: rgba(227, 30, 36, 0.30);
+}
+
+.shadow-prayag-red\/10 {
+  --tw-shadow-color: rgba(227, 30, 36, 0.10);
+}
+
+.shadow-prayag-red\/20 {
+  --tw-shadow-color: rgba(227, 30, 36, 0.20);
+}
+
+.shadow-prayag-red\/30 {
+  --tw-shadow-color: rgba(227, 30, 36, 0.30);
+}
+
+/* White opacity variants */
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.10);
+}
+
+.border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+.border-white\/20 {
+  border-color: rgba(255, 255, 255, 0.20);
+}
+
+/* Red hover */
+.hover\:bg-red-50:hover {
+  background-color: #fff1f2;
+}
+
+.hover\:bg-red-700:hover {
+  background-color: #b91c1c;
+}
+
+.focus\:ring-prayag-red:focus {
+  --tw-ring-color: var(--color-prayag-red);
+}
+
+/* ── Aspect ratio utilities ──────────────────────────────────────────────────*/
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-\[3\/4\] {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-\[4\/1\] {
+  aspect-ratio: 4 / 1;
+}
+
+.aspect-\[16\/5\] {
+  aspect-ratio: 16 / 5;
+}
+
+.aspect-\[21\/9\] {
+  aspect-ratio: 21 / 9;
+}
+
+/* ── Scrollbar styling ───────────────────────────────────────────────────────*/
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-prayag-red);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-prayag-red-dark);
+}
+
+/* ── Focus visible ───────────────────────────────────────────────────────────*/
+:focus-visible {
+  outline: 2px solid var(--color-prayag-red);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────────*/
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ── Line clamp ──────────────────────────────────────────────────────────────*/
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Red arc / section divider ───────────────────────────────────────────────
+   The sweeping red curve motif from the Prayag brochure.
+   Usage: <div class="section-divider-arc" aria-hidden="true" />
+   ─────────────────────────────────────────────────────────────────────────── */
+.section-divider-arc {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.section-divider-arc svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Vertical rotated label (e.g. "INTEGRITY") ───────────────────────────────*/
+.vertical-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-family: var(--font-heading);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(227, 30, 36, 0.15);
+  font-size: 0.75rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Animate pulse (for status dot) ─────────────────────────────────────────*/
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ── Animate spin (loading spinner) ─────────────────────────────────────────*/
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 0.8s linear infinite;
+}

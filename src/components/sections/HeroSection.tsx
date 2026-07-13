@@ -1,0 +1,200 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import { CatalogueDownloadButton } from "../ui/CatalogueDownloadButton";
+
+const WATERMARK_WORDS = [
+  "ASTM", "ASME", "PIPES", "TUBES", "FITTINGS", "FLANGES",
+  "SS316L", "INCONEL", "DUPLEX", "HASTELLOY", "MONEL", "TITANIUM",
+  "NUCLEAR", "DEFENCE", "AEROSPACE", "ISO9001", "PRECISION",
+  "FORGED", "SEAMLESS", "WELDED", "STRENGTH", "INTEGRITY",
+  "PRAYAG", "MUMBAI", "UMERGAON", "CERTIFIED", "QUALITY",
+];
+
+const heroStats = [
+  { value: "30+", label: "Years of Excellence" },
+  { value: "7+", label: "Industries Served" },
+  { value: "100+", label: "Trusted Clients" },
+  { value: "98K", label: "Sq. Ft. Factory" },
+];
+
+const container: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.14, delayChildren: 0.2 } },
+};
+
+const slideUp: Variants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const fadeIn: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+export const HeroSection: React.FC = () => (
+  <section
+    className="relative min-h-screen flex flex-col bg-prayag-black overflow-hidden"
+    aria-label="Hero — Prayag Steel & Engineering Co."
+  >
+    {/* ── Watermark keyword texture ───────────────────────────────── */}
+    <div
+      className="absolute inset-0 flex flex-wrap content-start gap-x-8 gap-y-3 p-10 select-none pointer-events-none overflow-hidden"
+      aria-hidden="true"
+    >
+      {Array.from({ length: 6 }, () => WATERMARK_WORDS)
+        .flat()
+        .map((word, i) => (
+          <span
+            key={i}
+            className="text-[11px] font-heading font-black uppercase tracking-widest text-white whitespace-nowrap"
+            style={{ opacity: 0.035 }}
+          >
+            {word}
+          </span>
+        ))}
+    </div>
+
+    {/* ── Red geometric ring decoration ──────────────────────────── */}
+    <motion.div
+      initial={{ opacity: 0, scale: 0.7 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.5, ease: "easeOut", delay: 0.4 }}
+      className="absolute -right-48 top-1/2 -translate-y-1/2 pointer-events-none"
+      aria-hidden="true"
+    >
+      <div className="relative w-[560px] h-[560px]">
+        <div className="absolute inset-0 rounded-full border border-prayag-red/20" />
+        <div className="absolute inset-16 rounded-full border border-prayag-red/15" />
+        <div className="absolute inset-32 rounded-full border border-prayag-red/25" />
+        <div className="absolute inset-48 rounded-full bg-prayag-red/5 rounded-full" />
+      </div>
+    </motion.div>
+
+    {/* ── Right vertical accent stripe ───────────────────────────── */}
+    <div
+      className="absolute right-0 top-0 bottom-0 w-px pointer-events-none"
+      style={{ background: "linear-gradient(to bottom, transparent, rgba(227,30,36,0.5), transparent)" }}
+      aria-hidden="true"
+    />
+
+    {/* ── Main content ───────────────────────────────────────────── */}
+    <div className="relative z-10 flex-1 flex flex-col justify-center max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-28 lg:py-36">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="max-w-5xl"
+      >
+        {/* Eyebrow tag */}
+        <motion.div variants={fadeIn} className="mb-8">
+          <span
+            className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-prayag-red/30 bg-prayag-red/10"
+            role="text"
+          >
+            <span className="w-2 h-2 rounded-full bg-prayag-red animate-pulse" aria-hidden="true" />
+            <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+              Est. 1994 · Mumbai & Umergaon, India
+            </span>
+          </span>
+        </motion.div>
+
+        {/* Headline */}
+        <motion.h1
+          variants={slideUp}
+          className="font-heading font-black uppercase leading-[0.88] tracking-tighter text-white mb-8"
+        >
+          <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl">
+            Steel Is Strong,
+          </span>
+          <span className="block text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mt-3 text-gray-400 font-black">
+            But Our Commitment Is
+          </span>
+          <span
+            className="block text-6xl sm:text-8xl lg:text-9xl mt-1 text-prayag-red"
+            style={{ WebkitTextStroke: "0px transparent" }}
+          >
+            Stronger.
+          </span>
+        </motion.h1>
+
+        {/* Subline */}
+        <motion.p
+          variants={fadeIn}
+          className="text-gray-300 font-body text-lg sm:text-xl lg:text-2xl mb-10 max-w-xl leading-relaxed"
+        >
+          Forging trust, strength, and precision since 1994.
+        </motion.p>
+
+        {/* CTA row */}
+        <motion.div
+          variants={fadeIn}
+          className="flex flex-wrap items-center gap-4"
+        >
+          <Link
+            to="/products"
+            id="hero-explore-products-btn"
+            className="inline-flex items-center gap-3 px-7 py-4 bg-prayag-red text-white font-heading font-black uppercase tracking-wider text-sm rounded-xl transition-all duration-200 hover:bg-red-700 hover:scale-105 active:scale-95"
+            style={{ boxShadow: "0 8px 30px rgba(227,30,36,0.35)" }}
+          >
+            Explore Products
+            <ArrowRight className="w-4 h-4" aria-hidden="true" />
+          </Link>
+
+          <CatalogueDownloadButton id="hero-catalogue-btn" />
+
+          <Link
+            to="/contact"
+            id="hero-contact-btn"
+            className="inline-flex items-center gap-2 px-6 py-4 border border-white/20 text-white font-heading font-bold uppercase tracking-wider text-sm rounded-xl transition-all duration-200 hover:border-prayag-red/60 hover:text-prayag-red"
+          >
+            Contact Us
+          </Link>
+        </motion.div>
+      </motion.div>
+
+      {/* Stats strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.1, duration: 0.6 }}
+        className="mt-20 lg:mt-28 grid grid-cols-2 sm:grid-cols-4 gap-8 border-t border-white/10 pt-10 max-w-2xl"
+        aria-label="Company highlights"
+      >
+        {heroStats.map((stat) => (
+          <div key={stat.label} className="flex flex-col items-start">
+            <span className="font-heading font-black text-white text-4xl sm:text-5xl leading-none tabular-nums">
+              {stat.value}
+            </span>
+            <span className="text-gray-500 text-[10px] font-body uppercase tracking-[0.18em] mt-2 leading-tight">
+              {stat.label}
+            </span>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+
+    {/* Scroll indicator */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 2, duration: 0.5 }}
+      className="relative z-10 flex justify-center pb-6"
+      aria-hidden="true"
+    >
+      <div className="flex flex-col items-center gap-1.5 text-gray-600">
+        <span className="text-[9px] font-body uppercase tracking-[0.35em]">Scroll</span>
+        <ChevronDown className="w-4 h-4 animate-bounce" />
+      </div>
+    </motion.div>
+
+    {/* Arc transition to next section */}
+    <div className="absolute bottom-0 left-0 right-0 z-20 overflow-hidden leading-none" aria-hidden="true">
+      <svg viewBox="0 0 1440 72" preserveAspectRatio="none" className="w-full block" style={{ height: "72px" }}>
+        <path d="M0,72 C480,4 960,4 1440,72 L1440,72 L0,72 Z" fill="#F5F5F5" />
+      </svg>
+    </div>
+  </section>
+);
