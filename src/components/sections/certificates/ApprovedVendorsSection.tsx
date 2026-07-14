@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { SectionHeading } from "../../ui/SectionHeading";
 
@@ -75,19 +75,10 @@ const approvedVendors = [
   },
 ];
 
-const sectorColors: Record<string, string> = {
-  Nuclear: "bg-blue-50 text-blue-700 border-blue-200",
-  Space: "bg-indigo-50 text-indigo-700 border-indigo-200",
-  Defence: "bg-amber-50 text-amber-700 border-amber-200",
-  Power: "bg-green-50 text-green-700 border-green-200",
-};
+export const ApprovedVendorsSection: React.FC = () => {
+  const [activeCard, setActiveCard] = useState<string | null>(null);
 
-const getSectorColor = (sector: string) => {
-  const key = Object.keys(sectorColors).find((k) => sector.includes(k));
-  return key ? sectorColors[key] : "bg-gray-50 text-gray-600 border-gray-200";
-};
-
-export const ApprovedVendorsSection: React.FC = () => (
+  return (
   <section
     className="bg-gray-50 py-24 lg:py-36"
     aria-label="Approved Vendor Status"
@@ -123,34 +114,46 @@ export const ApprovedVendorsSection: React.FC = () => (
       </motion.div>
 
       {/* Vendor grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {approvedVendors.map((vendor, i) => (
-          <motion.div
-            key={vendor.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.45, delay: i * 0.06 }}
-            className="group bg-white hover:bg-prayag-black border border-gray-100 hover:border-prayag-red/30 rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-xl cursor-default"
-          >
-            <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-200">
-              {vendor.icon}
-            </div>
-            <p className="font-body font-bold text-[15px] uppercase text-prayag-black group-hover:!text-white transition-colors duration-300 mb-1 leading-tight">
-              {vendor.name}
-            </p>
-            <p className="font-body text-gray-400 group-hover:text-gray-400 text-xs leading-snug mb-3">
-              {vendor.full}
-            </p>
-            <span
-              className={`inline-block px-2.5 py-1 rounded-full border text-[9px] font-body font-semibold uppercase tracking-widest ${getSectorColor(vendor.sector)} group-hover:bg-prayag-red/20 group-hover:border-prayag-red/40 group-hover:text-prayag-red transition-all duration-300`}
+      <div className="flex flex-wrap justify-center gap-4">
+        {approvedVendors.map((vendor, i) => {
+          const isActive = activeCard === vendor.id;
+          return (
+            <motion.div
+              key={vendor.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+              onClick={() => setActiveCard(isActive ? null : vendor.id)}
+              className={`w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.67rem)] lg:w-[calc(20%-0.8rem)] aspect-square group relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer ${isActive ? 'border-prayag-red' : 'border-gray-100 lg:hover:border-prayag-red'
+                }`}
             >
-              {vendor.sector}
-            </span>
-          </motion.div>
-        ))}
+              {/* Background Image */}
+              <div
+                className={`absolute inset-0 bg-white bg-cover bg-center bg-no-repeat transition-transform duration-500 ${isActive ? 'scale-110' : 'lg:group-hover:scale-110'
+                  }`}
+                style={{ backgroundImage: `url('/assets/images/vendors/${vendor.name}.webp')` }}
+              />
+              {/* Dark Red Overlay (Default) -> Transparent (Hover/Tap) */}
+              <div className={`absolute inset-0 bg-[#4a090b]/90 transition-opacity duration-300 ${isActive ? 'opacity-0' : 'lg:group-hover:opacity-0'
+                }`} />
+
+              {/* Content (Text) */}
+              <div className={`relative z-10 p-5 text-center flex flex-col justify-center items-center h-full w-full transition-opacity duration-300 ${isActive ? 'opacity-0' : 'lg:group-hover:opacity-0'
+                }`}>
+                <p className="font-heading font-black text-xl text-white mb-2 tracking-wider">
+                  {vendor.name}
+                </p>
+                <p className="font-body text-red-100 text-[10px] leading-tight">
+                  {vendor.full}
+                </p>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
     </div>
   </section>
-);
+  );
+};

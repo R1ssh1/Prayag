@@ -86,7 +86,7 @@ export const TestingStandardsSection: React.FC = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-prayag-red/40 rounded-2xl p-7 transition-all duration-300"
+            className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-prayag-red/50 rounded-2xl p-7 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_12px_40px_rgba(227,30,36,0.15)]"
           >
             {/* Division header */}
             <div className="flex items-center gap-3 mb-6 pb-5 border-b border-white/10">

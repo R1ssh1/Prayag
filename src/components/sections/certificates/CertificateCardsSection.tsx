@@ -5,17 +5,12 @@ import { ShieldCheck, Lock, ExternalLink } from "lucide-react";
 import { SectionHeading } from "../../ui/SectionHeading";
 import { certificates } from "../../../data/certificates";
 
-// Icon map by standard keyword
-const certIcons: Record<string, string> = {
-  ISO: "🏅",
-  PED: "🇪🇺",
-  NACE: "⚗️",
-  ASME: "⚙️",
-};
-
-const getIcon = (standard: string) => {
-  const key = Object.keys(certIcons).find((k) => standard.includes(k));
-  return key ? certIcons[key] : "📋";
+const getStandardKey = (standard: string) => {
+  if (standard.includes("ISO")) return "ISO";
+  if (standard.includes("PED")) return "PED";
+  if (standard.includes("NACE")) return "NACE";
+  if (standard.includes("ASME")) return "ASME";
+  return "ISO";
 };
 
 export const CertificateCardsSection: React.FC = () => (
@@ -62,16 +57,18 @@ export const CertificateCardsSection: React.FC = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: i * 0.09 }}
-            className="group flex flex-col bg-gray-50 hover:bg-white border border-gray-100 hover:border-prayag-red/30 hover:shadow-xl rounded-2xl overflow-hidden transition-all duration-300"
+            className="group flex flex-col bg-gray-50 hover:bg-white border border-gray-100 hover:border-prayag-red/30 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(227,30,36,0.15)]"
           >
             {/* Top accent */}
             <div className="h-1 bg-prayag-red w-full flex-shrink-0" aria-hidden="true" />
 
-            {/* Icon area — placeholder for future certificate scan */}
-            <div className="relative bg-gray-100 group-hover:bg-gray-50 transition-colors duration-300 mx-5 mt-5 rounded-xl flex flex-col items-center justify-center py-8 gap-2">
-              <span className="text-4xl leading-none" role="img" aria-label={cert.title}>
-                {getIcon(cert.standard)}
-              </span>
+            {/* Image area */}
+            <div className="relative bg-white group-hover:bg-gray-50 transition-colors duration-300 mx-5 mt-5 rounded-xl border border-gray-100 flex flex-col items-center justify-center py-6 gap-2">
+              <img
+                src={`/assets/images/standards/${getStandardKey(cert.standard)}.webp`}
+                alt={cert.title}
+                className="w-16 h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+              />
               <div className="flex items-center gap-1.5 mt-2">
                 <Lock className="w-3 h-3 text-gray-400" aria-hidden="true" />
                 <span className="text-gray-400 font-body text-[10px] uppercase tracking-widest">
@@ -87,7 +84,7 @@ export const CertificateCardsSection: React.FC = () => (
                 {cert.standard}
               </span>
 
-              <h3 className="font-heading font-black text-base uppercase text-prayag-black mb-1 leading-tight group-hover:text-prayag-red transition-colors duration-200">
+              <h3 className="font-body font-bold text-lg text-prayag-black mb-1 leading-tight group-hover:text-prayag-red transition-colors duration-200">
                 {cert.title}
               </h3>
               <p className="text-gray-400 font-body text-xs mb-3">
@@ -110,21 +107,6 @@ export const CertificateCardsSection: React.FC = () => (
           </motion.div>
         ))}
       </div>
-
-      {/* Notice banner */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.5 }}
-        className="bg-prayag-red/5 border border-prayag-red/15 rounded-2xl px-6 sm:px-10 py-6 text-center max-w-3xl mx-auto"
-      >
-        <p className="text-gray-700 font-body text-sm leading-relaxed">
-          <strong className="text-prayag-black font-semibold">Certificate copies are provided with every order.</strong>{" "}
-          For pre-qualification or vendor approval purposes, contact our team and we will dispatch
-          the relevant documentation within 24 hours.
-        </p>
-      </motion.div>
 
     </div>
   </section>
