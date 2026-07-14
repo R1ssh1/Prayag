@@ -154,9 +154,10 @@ export const Footer: React.FC = () => {
 
         {/* Divider + bottom bar */}
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-xs font-body text-center sm:text-left">
-            © {currentYear} Prayag Steel &amp; Engineering Co. All rights reserved.
-          </p>
+          <div className="text-gray-500 text-xs font-body text-center sm:text-left">
+            <p>© {currentYear} Prayag Steel &amp; Engineering Co. All rights reserved.</p>
+            <p className="mt-1">Designed &amp; Developed at SunMarg</p>
+          </div>
           <p className="text-gray-600  font-body font-semibold uppercase tracking-widest">
             Steel. Strength. Prayag.
           </p>

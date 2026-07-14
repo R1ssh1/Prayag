@@ -17,7 +17,7 @@ const MarqueeRow = ({ items, solid = true, reverse = false }: { items: string[],
   // so the spacing between the copies is identical to the spacing between the items.
   const content = items.map((item, index) => (
     <React.Fragment key={index}>
-      <span>{item}</span>
+      <span className="text-center inline-block">{item}</span>
       <span className="text-prayag-red">✦</span>
     </React.Fragment>
   ));
@@ -27,9 +27,9 @@ const MarqueeRow = ({ items, solid = true, reverse = false }: { items: string[],
     : "text-transparent [-webkit-text-stroke:2px_rgba(255,255,255,0.4)]";
 
   return (
-    <div className="relative w-full overflow-hidden flex select-none py-2">
+    <div className="relative w-full overflow-hidden flex items-center select-none py-2">
       <div 
-        className={`${reverse ? 'animate-marquee-reverse' : 'animate-marquee'} flex w-max gap-6 px-3 font-heading font-black text-3xl sm:text-4xl lg:text-5xl uppercase tracking-widest ${textStyle}`}
+        className={`${reverse ? 'animate-marquee-reverse' : 'animate-marquee'} flex items-center w-max gap-6 px-3 font-heading font-black text-3xl sm:text-4xl lg:text-5xl uppercase tracking-widest ${textStyle}`}
       >
         <div className="flex items-center gap-6">
           {content}

@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { CatalogueDownloadButton } from "../ui/CatalogueDownloadButton";
 import logoLight from "../../assets/images/logo/logo.webp";
+import { divisions } from "../../data/company";
+import { getProductsByDivision } from "../../data/products";
+import type { Division } from "../../data/products/types";
 
 interface NavItem {
   label: string;
   to: string;
+  isMegaMenu?: boolean;
   children?: { label: string; to: string }[];
 }
 
@@ -18,6 +22,7 @@ const navItems: NavItem[] = [
   {
     label: "PRODUCTS",
     to: "/products",
+    isMegaMenu: true,
     children: [
       { label: "FLANGES", to: "/products/flanges" },
       { label: "FITTINGS", to: "/products/fittings" },
@@ -137,7 +142,61 @@ export const Navbar: React.FC = () => {
                   </NavLink>
 
                   <AnimatePresence>
-                    {(productsOpen) && (
+                    {productsOpen && item.isMegaMenu && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.18 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[800px] bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden"
+                        role="menu"
+                        aria-labelledby="products-menu-btn"
+                      >
+                        <div className="grid grid-cols-4 gap-6 p-6">
+                          {divisions.map((div) => {
+                            const divProducts = getProductsByDivision(div.id as Division).slice(0, 5);
+                            return (
+                              <div key={div.id} className="flex flex-col">
+                                <Link 
+                                  to={`/products/${div.slug}`}
+                                  className="flex items-center gap-2 mb-4 group/head"
+                                  onClick={() => handleNavClick(`/products/${div.slug}`)}
+                                >
+                                  <div className="w-8 h-8 rounded-lg bg-prayag-red/10 flex items-center justify-center text-prayag-red font-heading font-black transition-colors group-hover/head:bg-prayag-red group-hover/head:text-white">
+                                    {div.name[0]}
+                                  </div>
+                                  <h3 className="font-heading font-black uppercase text-prayag-black text-[15px] transition-colors group-hover/head:text-prayag-red">
+                                    {div.name}
+                                  </h3>
+                                </Link>
+                                <ul className="flex flex-col space-y-2.5 mb-4 flex-1">
+                                  {divProducts.map(p => (
+                                    <li key={p.id}>
+                                      <Link 
+                                        to={`/products/${div.slug}/${p.slug}`}
+                                        className="text-[13px] font-body text-gray-500 hover:text-prayag-red transition-colors line-clamp-2 leading-snug"
+                                        onClick={() => handleNavClick(`/products/${div.slug}/${p.slug}`)}
+                                      >
+                                        {p.name}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                                <Link
+                                  to={`/products/${div.slug}`}
+                                  className="text-[12px] font-body font-bold uppercase tracking-[0.1em] text-prayag-red hover:text-prayag-black transition-colors mt-auto inline-flex items-center gap-1"
+                                  onClick={() => handleNavClick(`/products/${div.slug}`)}
+                                >
+                                  Explore <ArrowRight className="w-3 h-3" />
+                                </Link>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {productsOpen && !item.isMegaMenu && (
                       <motion.div
                         initial={{ opacity: 0, y: -8 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -147,7 +206,6 @@ export const Navbar: React.FC = () => {
                         role="menu"
                         aria-labelledby="products-menu-btn"
                       >
-
                         {item.children.map((child) => (
                           <NavLink
                             key={child.to}
