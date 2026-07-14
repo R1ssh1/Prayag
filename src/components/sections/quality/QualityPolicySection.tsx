@@ -54,7 +54,7 @@ export const QualityPolicySection: React.FC = () => (
             </div>
 
             {/* Content */}
-            <h3 className="font-heading font-black text-lg uppercase text-prayag-black group-hover:!text-white transition-colors duration-300 mb-4">
+            <h3 className="font-body font-bold text-[17px] uppercase tracking-wider text-prayag-black group-hover:!text-white transition-colors duration-300 mb-4">
               {stmt.heading}
             </h3>
             <p className="font-body text-[15px] leading-relaxed text-gray-600 group-hover:text-gray-300 transition-colors duration-300">

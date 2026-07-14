@@ -109,7 +109,7 @@ export const ProductDetailPage: React.FC = () => {
                     <p className=" font-body font-semibold uppercase tracking-widest text-gray-400 mb-1">
                       Size Range
                     </p>
-                    <p className="font-heading font-black text-prayag-black text-sm">
+                    <p className="font-body font-bold text-prayag-black text-[15px]">
                       {product.sizeRange}
                     </p>
                   </div>
@@ -119,7 +119,7 @@ export const ProductDetailPage: React.FC = () => {
                     <p className=" font-body font-semibold uppercase tracking-widest text-gray-400 mb-1">
                       Pressure Rating
                     </p>
-                    <p className="font-heading font-black text-prayag-black text-sm">
+                    <p className="font-body font-bold text-prayag-black text-[15px]">
                       {product.pressureRating}
                     </p>
                   </div>
@@ -155,13 +155,13 @@ export const ProductDetailPage: React.FC = () => {
             <div className="flex gap-3 flex-wrap">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-prayag-red text-white font-heading font-bold uppercase tracking-wide text-sm hover:bg-red-700 transition-colors shadow-lg shadow-prayag-red/30"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-prayag-red text-white font-body font-bold uppercase tracking-widest text-sm hover:bg-red-700 transition-colors shadow-lg shadow-prayag-red/30"
               >
                 Request a Quote
               </Link>
               <Link
                 to={`/products/${div}`}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-200 text-gray-700 font-heading font-bold uppercase tracking-wide text-sm hover:border-prayag-red hover:text-prayag-red transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-200 text-gray-700 font-body font-bold uppercase tracking-widest text-sm hover:border-prayag-red hover:text-prayag-red transition-colors"
               >
                 ← {divisionTitle}
               </Link>

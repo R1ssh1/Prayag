@@ -73,7 +73,7 @@ export const IconGrid: React.FC<IconGridProps> = ({
 
           {/* Label */}
           <span
-            className={`font-heading font-black uppercase tracking-wide ${
+            className={`font-body font-bold uppercase tracking-wider ${
               compact ? "text-xs" : "text-sm"
             } ${light ? "text-white" : "text-prayag-black"}`}
           >

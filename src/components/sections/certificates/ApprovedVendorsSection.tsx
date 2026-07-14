@@ -141,7 +141,7 @@ export const ApprovedVendorsSection: React.FC = () => {
               {/* Content (Text) */}
               <div className={`relative z-10 p-5 text-center flex flex-col justify-center items-center h-full w-full transition-opacity duration-300 ${isActive ? 'opacity-0' : 'lg:group-hover:opacity-0'
                 }`}>
-                <p className="font-heading font-black text-xl text-white mb-2 tracking-wider">
+                <p className="font-body font-bold text-[19px] text-white mb-2 tracking-wider">
                   {vendor.name}
                 </p>
                 <p className="font-body text-red-100 text-[10px] leading-tight">

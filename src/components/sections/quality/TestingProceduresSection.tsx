@@ -58,7 +58,7 @@ export const TestingProceduresSection: React.FC = () => {
                   {div.icon}
                 </div>
                 <div>
-                  <h3 className="font-heading font-black text-lg uppercase text-prayag-black">
+                  <h3 className="font-body font-bold text-lg uppercase tracking-wider text-prayag-black">
                     {div.division} Division
                   </h3>
                   <p className="text-gray-400 font-body text-xs mt-0.5">
@@ -108,7 +108,7 @@ export const TestingProceduresSection: React.FC = () => {
               >
                 <div className="flex items-center gap-3">
                   <span className="text-xl">{div.icon}</span>
-                  <span className="font-heading font-black text-base uppercase text-prayag-black">
+                  <span className="font-body font-bold text-base uppercase tracking-wider text-prayag-black">
                     {div.division} Division
                   </span>
                 </div>

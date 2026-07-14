@@ -64,7 +64,8 @@ body {
 /* ── Typography utilities ────────────────────────────────────────────────────*/
 .font-heading {
   font-family: var(--font-heading);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
+  font-weight: 400 !important;
 }
 
 .font-body {

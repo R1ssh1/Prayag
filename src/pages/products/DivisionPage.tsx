@@ -123,7 +123,7 @@ export const DivisionPage: React.FC = () => {
                     Image: assets/images/{product.image}
                   </span>
                 </div>
-                <h2 className="font-heading font-black text-lg uppercase text-prayag-black mb-1 group-hover:text-prayag-red transition-colors">
+                <h2 className="font-body font-bold text-[17px] uppercase tracking-wider text-prayag-black mb-1 group-hover:text-prayag-red transition-colors">
                   {product.name}
                 </h2>
                 <p className="text-gray-500 text-sm font-body line-clamp-2">

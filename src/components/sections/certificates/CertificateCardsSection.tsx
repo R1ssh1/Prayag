@@ -80,7 +80,7 @@ export const CertificateCardsSection: React.FC = () => (
             {/* Card body */}
             <div className="p-5 flex flex-col flex-1">
               {/* Standard badge */}
-              <span className="inline-block px-2.5 py-1 rounded-full bg-prayag-red/10 border border-prayag-red/20 text-prayag-red font-heading font-black text-[9px] uppercase tracking-widest mb-3 self-start">
+              <span className="inline-block px-2.5 py-1 rounded-full bg-prayag-red/10 border border-prayag-red/20 text-prayag-red font-body font-extrabold text-[9px] uppercase tracking-widest mb-3 self-start">
                 {cert.standard}
               </span>
 

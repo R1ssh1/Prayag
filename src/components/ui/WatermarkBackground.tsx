@@ -37,7 +37,7 @@ export const WatermarkBackground: React.FC<WatermarkBackgroundProps> = ({
         {repeatedKeywords.map((kw, i) => (
           <span
             key={i}
-            className="text-[11px] font-heading font-black uppercase tracking-widest text-gray-400 opacity-20 whitespace-nowrap"
+            className="text-[11px] font-body font-extrabold uppercase tracking-[0.2em] text-gray-400 opacity-20 whitespace-nowrap"
           >
             {kw}
           </span>

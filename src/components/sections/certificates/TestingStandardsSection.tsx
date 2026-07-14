@@ -94,7 +94,7 @@ export const TestingStandardsSection: React.FC = () => (
                 {div.icon}
               </div>
               <div>
-                <h3 className="font-heading font-black text-base uppercase text-white">
+                <h3 className="font-body font-bold text-base uppercase tracking-wider text-white">
                   {div.division} Division
                 </h3>
                 <span className="text-prayag-red font-body text-[10px] uppercase tracking-widest">

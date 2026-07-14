@@ -208,7 +208,7 @@ export const LeadershipSection: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-10 text-center font-heading font-black text-xl uppercase text-gray-300 tracking-widest"
+          className="mt-10 text-center font-body font-bold text-xl uppercase text-gray-300 tracking-widest"
         >
           Guided by Experience.{" "}
           <span className="text-prayag-red">Driven by Innovation.</span>
