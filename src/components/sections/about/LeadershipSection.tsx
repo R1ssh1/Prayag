@@ -45,17 +45,16 @@ export const LeadershipSection: React.FC = () => {
               transition={{ duration: 0.55, delay: i * 0.1 }}
             >
               <button
-                className={`group w-full text-left rounded-2xl border overflow-hidden transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prayag-red ${
-                  active === leader.id
+                className={`group w-full text-left rounded-2xl border overflow-hidden transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-prayag-red ${active === leader.id
                     ? "bg-prayag-black border-prayag-red/50 shadow-xl"
                     : "bg-white border-gray-100 hover:border-prayag-red/30 hover:shadow-lg"
-                }`}
+                  }`}
                 onClick={() => setActive(leader.id)}
                 aria-pressed={active === leader.id}
                 aria-label={`Learn about ${leader.name}`}
               >
                 {/* Portrait */}
-                <div className="relative bg-prayag-charcoal/5 aspect-[4/5] flex items-center justify-center border-b border-gray-100">
+                <div className="relative bg-prayag-charcoal/5 aspect-[9.5/10] flex items-center justify-center border-b border-gray-100">
                   <User className="w-1/3 h-1/3 text-gray-300" strokeWidth={1} />
                   {/* Active red overlay */}
                   {active === leader.id && (
@@ -71,19 +70,16 @@ export const LeadershipSection: React.FC = () => {
 
                 {/* Card body */}
                 <div className="p-6">
-                  <p className={`text-xs font-body uppercase tracking-[0.2em] mb-1 ${
-                    active === leader.id ? "text-prayag-red" : "text-gray-400"
-                  }`}>
+                  <p className={`text-xs font-body uppercase tracking-[0.2em] mb-1 ${active === leader.id ? "text-prayag-red" : "text-gray-400"
+                    }`}>
                     {leader.role}
                   </p>
-                  <h3 className={`font-body font-bold text-xl uppercase mb-3 ${
-                    active === leader.id ? "text-white" : "text-prayag-black"
-                  }`}>
+                  <h3 className={`font-body font-bold text-xl uppercase mb-3 ${active === leader.id ? "text-white" : "text-prayag-black"
+                    }`}>
                     {leader.name}
                   </h3>
-                  <p className={`font-body text-sm leading-relaxed ${
-                    active === leader.id ? "text-gray-300" : "text-gray-500"
-                  }`}>
+                  <p className={`font-body text-sm leading-relaxed ${active === leader.id ? "text-gray-300" : "text-gray-500"
+                    }`}>
                     {leader.experience}
                   </p>
                 </div>

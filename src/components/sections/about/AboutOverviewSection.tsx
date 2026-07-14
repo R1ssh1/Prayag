@@ -11,7 +11,7 @@ const quickStats = [
 ];
 
 export const AboutOverviewSection: React.FC = () => (
-  <section className="bg-off-white py-24 lg:py-36" aria-label="About Prayag Steel">
+  <section className="snap-start bg-off-white py-24 lg:py-36" aria-label="About Prayag Steel">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 lg:space-y-28">
 
       {/* ── Company paragraph + quick stats ───────────────────── */}
