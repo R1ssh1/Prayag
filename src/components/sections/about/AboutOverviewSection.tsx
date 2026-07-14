@@ -94,7 +94,7 @@ export const AboutOverviewSection: React.FC = () => (
         >
           <div className="grid grid-cols-2 gap-4">
             {quickStats.map((s) => (
-              <div key={s.label} className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+              <div key={s.label} className="bg-white rounded-2xl border border-gray-100 p-6 lg:p-10 lg:min-h-[180px] shadow-sm flex flex-col justify-center">
                 <div className="font-heading font-black text-4xl text-prayag-black leading-none">
                   {s.value}
                 </div>
@@ -105,7 +105,7 @@ export const AboutOverviewSection: React.FC = () => (
             ))}
           </div>
           {/* Clients strip */}
-          <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
+          <div className="bg-white rounded-2xl border border-gray-100 p-6 lg:p-10 lg:min-h-[220px] shadow-sm flex flex-col justify-center">
             <p className="text-[10px] font-body uppercase tracking-[0.22em] text-gray-400 mb-4">
               Trusted by India's Premier Institutions
             </p>

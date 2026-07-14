@@ -49,59 +49,59 @@ export const ContactContentSection: React.FC = () => {
             {/* 2x2 Grid for Contact Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
               {/* Call Us Card */}
-              <div className="bg-white p-8 sm:p-10 flex flex-col justify-between rounded-2xl border border-gray-100 hover:border-prayag-red/30 hover:shadow-[0_12px_40px_rgba(227,30,36,0.15)] hover:-translate-y-2 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl bg-prayag-red/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:animate-pulse transition-transform duration-300">
-                  <Phone className="w-5 h-5 text-prayag-red" aria-hidden="true" />
+              <div className="bg-white p-10 sm:p-12 flex flex-col justify-between rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50 hover:border-prayag-red/30 hover:shadow-[0_20px_50px_rgba(227,30,36,0.2)] hover:-translate-y-2 transition-all duration-300 group">
+                <div className="w-14 h-14 rounded-2xl bg-prayag-red shadow-lg shadow-prayag-red/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:animate-pulse transition-transform duration-300">
+                  <Phone className="w-6 h-6 text-white" aria-hidden="true" />
                 </div>
-                <h3 className="font-body font-bold  uppercase text-prayag-black mb-2 leading-tight">
+                <h3 className="font-body font-bold text-lg uppercase text-prayag-black mb-3 leading-tight">
                   Call Us
                 </h3>
                 <a
                   href={`tel:${companyInfo.phone.replace(/\s/g, "")}`}
-                  className="text-gray-500 hover:text-prayag-red text-[13px] font-body leading-relaxed transition-colors duration-200"
+                  className="text-gray-500 hover:text-prayag-red text-sm sm:text-[15px] font-body leading-relaxed transition-colors duration-200"
                 >
                   {companyInfo.phone}
                 </a>
               </div>
 
               {/* Email Us Card */}
-              <div className="bg-white p-8 sm:p-10 flex flex-col justify-between rounded-2xl border border-gray-100 hover:border-prayag-red/30 hover:shadow-[0_12px_40px_rgba(227,30,36,0.15)] hover:-translate-y-2 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl bg-prayag-red/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:animate-pulse transition-transform duration-300">
-                  <Mail className="w-5 h-5 text-prayag-red" aria-hidden="true" />
+              <div className="bg-white p-10 sm:p-12 flex flex-col justify-between rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50 hover:border-prayag-red/30 hover:shadow-[0_20px_50px_rgba(227,30,36,0.2)] hover:-translate-y-2 transition-all duration-300 group">
+                <div className="w-14 h-14 rounded-2xl bg-prayag-red shadow-lg shadow-prayag-red/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:animate-pulse transition-transform duration-300">
+                  <Mail className="w-6 h-6 text-white" aria-hidden="true" />
                 </div>
-                <h3 className="font-body font-bold  uppercase text-prayag-black mb-2 leading-tight">
+                <h3 className="font-body font-bold text-lg uppercase text-prayag-black mb-3 leading-tight">
                   Email Us
                 </h3>
                 <a
                   href={`mailto:${companyInfo.email}`}
-                  className="text-gray-500 hover:text-prayag-red text-[13px] font-body leading-relaxed transition-colors duration-200 break-all"
+                  className="text-gray-500 hover:text-prayag-red text-sm sm:text-[15px] font-body leading-relaxed transition-colors duration-200 break-all"
                 >
                   {companyInfo.email}
                 </a>
               </div>
 
               {/* Office Address */}
-              <div className="bg-white p-8 sm:p-10 flex flex-col justify-between rounded-2xl border border-gray-100 hover:border-prayag-red/30 hover:shadow-[0_12px_40px_rgba(227,30,36,0.15)] hover:-translate-y-2 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl bg-prayag-red/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:animate-pulse transition-transform duration-300">
-                  <MapPin className="w-5 h-5 text-prayag-red" aria-hidden="true" />
+              <div className="bg-white p-10 sm:p-12 flex flex-col justify-between rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50 hover:border-prayag-red/30 hover:shadow-[0_20px_50px_rgba(227,30,36,0.2)] hover:-translate-y-2 transition-all duration-300 group">
+                <div className="w-14 h-14 rounded-2xl bg-prayag-red shadow-lg shadow-prayag-red/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:animate-pulse transition-transform duration-300">
+                  <MapPin className="w-6 h-6 text-white" aria-hidden="true" />
                 </div>
-                <h3 className="font-body font-bold  uppercase text-prayag-black mb-2 leading-tight">
+                <h3 className="font-body font-bold text-lg uppercase text-prayag-black mb-3 leading-tight">
                   {companyInfo.registeredOffice.label}
                 </h3>
-                <address className="text-gray-500 text-[13px] font-body leading-relaxed not-italic">
+                <address className="text-gray-500 text-sm sm:text-[15px] font-body leading-relaxed not-italic">
                   {companyInfo.registeredOffice.full}
                 </address>
               </div>
 
               {/* Factory Address */}
-              <div className="bg-white p-8 sm:p-10 flex flex-col justify-between rounded-2xl border border-gray-100 hover:border-prayag-red/30 hover:shadow-[0_12px_40px_rgba(227,30,36,0.15)] hover:-translate-y-2 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-xl bg-prayag-red/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:animate-pulse transition-transform duration-300">
-                  <MapPin className="w-5 h-5 text-prayag-red" aria-hidden="true" />
+              <div className="bg-white p-10 sm:p-12 flex flex-col justify-between rounded-3xl border border-gray-100 shadow-xl shadow-gray-200/50 hover:border-prayag-red/30 hover:shadow-[0_20px_50px_rgba(227,30,36,0.2)] hover:-translate-y-2 transition-all duration-300 group">
+                <div className="w-14 h-14 rounded-2xl bg-prayag-red shadow-lg shadow-prayag-red/20 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:animate-pulse transition-transform duration-300">
+                  <MapPin className="w-6 h-6 text-white" aria-hidden="true" />
                 </div>
-                <h3 className="font-body font-bold  uppercase text-prayag-black mb-2 leading-tight">
+                <h3 className="font-body font-bold text-lg uppercase text-prayag-black mb-3 leading-tight">
                   {companyInfo.factory.label}
                 </h3>
-                <address className="text-gray-500 text-[13px] font-body leading-relaxed not-italic">
+                <address className="text-gray-500 text-sm sm:text-[15px] font-body leading-relaxed not-italic">
                   {companyInfo.factory.full}
                 </address>
               </div>

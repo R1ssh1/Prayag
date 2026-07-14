@@ -11,9 +11,14 @@ const ProductsOverviewContent: React.FC = () => {
           Phase 5 — Skeleton
         </span>
       </div>
-      <h1 className="font-heading font-black text-5xl uppercase text-prayag-black mb-3">
-        Our Products
-      </h1>
+      <div className="flex items-center flex-wrap gap-4 mb-3">
+        <h1 className="font-heading font-black text-5xl uppercase text-prayag-black">
+          Our Products
+        </h1>
+        <span className="inline-flex items-center px-3 py-1 mt-2 sm:mt-0 rounded-full bg-amber-100 border border-amber-200 text-amber-700 font-body text-[11px] font-bold uppercase tracking-widest">
+          Under Development
+        </span>
+      </div>
       <p className="text-gray-500 font-body mb-12 max-w-2xl">
         Four divisions, one standard of excellence. Browse by division or explore the full catalog.
       </p>
