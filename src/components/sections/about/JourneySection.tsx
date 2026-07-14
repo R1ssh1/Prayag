@@ -32,7 +32,7 @@ export const JourneySection: React.FC = () => (
 
       {/* Sticky Scroll Container */}
       <div className="flex flex-col">
-        {journeyTimeline.map((item, index) => (
+        {journeyTimeline.map((item) => (
           <div key={item.year} className="lg:snap-start lg:snap-always relative flex flex-col lg:flex-row items-start min-h-[50vh] lg:min-h-[90vh] border-b border-gray-100 last:border-0">
 
             {/* Left: Sticky Year */}

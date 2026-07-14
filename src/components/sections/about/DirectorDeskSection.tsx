@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { User } from "lucide-react";
-import { ImagePlaceholder } from "../../ui/ImagePlaceholder";
 import { directorMessage } from "../../../data/company";
 
 export const DirectorDeskSection: React.FC = () => (
