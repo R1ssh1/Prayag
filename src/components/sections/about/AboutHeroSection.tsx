@@ -45,7 +45,7 @@ export const AboutHeroSection: React.FC = () => (
     </div>
 
     {/* Content */}
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 flex flex-col justify-center min-h-[50vh] lg:min-h-[65vh]">
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-30 lg:py-24 flex flex-col justify-center min-h-[50vh] lg:min-h-[65vh]">
       <motion.div
         variants={container}
         initial="hidden"

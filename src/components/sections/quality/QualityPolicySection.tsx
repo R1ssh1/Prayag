@@ -43,7 +43,7 @@ export const QualityPolicySection: React.FC = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.55, delay: i * 0.1 }}
-            className="group relative bg-gray-50 hover:bg-prayag-black border border-gray-100 hover:border-prayag-red/40 rounded-2xl p-8 transition-all duration-400 overflow-hidden"
+            className="group relative bg-gray-50 hover:bg-prayag-black border border-gray-100 hover:border-prayag-red/40 hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(227,30,36,0.15)] rounded-2xl p-8 transition-all duration-400 overflow-hidden"
           >
             {/* Red accent bar */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-prayag-red rounded-t-2xl" aria-hidden="true" />
@@ -72,9 +72,14 @@ export const QualityPolicySection: React.FC = () => (
         transition={{ duration: 0.65 }}
         className="relative bg-prayag-black rounded-3xl p-10 lg:p-14 overflow-hidden"
       >
-        {/* Background glow */}
+        {/* Background glows */}
         <div
-          className="absolute -top-20 -right-20 w-64 h-64 rounded-full pointer-events-none"
+          className="absolute -top-64 -right-64 w-[800px] h-[800px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(227,30,36,0.15) 0%, transparent 70%)" }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -top-5 -left-2 w-[200px] h-[200px] rounded-full pointer-events-none"
           style={{ background: "radial-gradient(circle, rgba(227,30,36,0.15) 0%, transparent 70%)" }}
           aria-hidden="true"
         />

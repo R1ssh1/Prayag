@@ -101,7 +101,9 @@ export const TestingProceduresSection: React.FC = () => {
             >
               <button
                 onClick={() => setOpenId(openId === div.id ? null : div.id)}
-                className="w-full flex items-center justify-between gap-3 p-5 text-left"
+                className={`w-full flex items-center justify-between gap-3 p-5 text-left transition-colors duration-300 ${
+                  openId === div.id ? "bg-prayag-red/5" : "bg-transparent hover:bg-gray-50"
+                }`}
                 aria-expanded={openId === div.id}
               >
                 <div className="flex items-center gap-3">

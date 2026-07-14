@@ -19,19 +19,19 @@ export const QualityHeroSection: React.FC = () => (
     aria-label="Quality Policy — Prayag Steel"
     style={{ minHeight: "60vh" }}
   >
-    {/* Dot-grid background */}
-    <div
-      className="absolute inset-0 opacity-[0.04] pointer-events-none"
-      style={{
-        backgroundImage: "radial-gradient(#E31E24 1px, transparent 1px)",
-        backgroundSize: "28px 28px",
-      }}
-      aria-hidden="true"
-    />
+    {/* Background image with dark overlay */}
+    <div className="absolute inset-0 z-0">
+      <img
+        src="/assets/images/pages/quality-hero.webp"
+        alt="Prayag Steel Quality Assurance"
+        className="w-full h-full object-cover opacity-60 object-center"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-prayag-black via-prayag-black/80 to-transparent" />
+    </div>
 
     {/* Decorative ring */}
     <div
-      className="absolute -right-32 top-1/2 -translate-y-1/2 pointer-events-none"
+      className="absolute -left-32 top-1/2 -translate-y-1/2 pointer-events-none z-0"
       aria-hidden="true"
     >
       <div className="relative w-[400px] h-[400px]">
@@ -42,12 +42,12 @@ export const QualityHeroSection: React.FC = () => (
     </div>
 
     {/* Content */}
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36 flex flex-col lg:flex-row lg:items-center justify-between min-h-[60vh]">
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-30 lg:py-25 flex flex-col justify-center min-h-[60vh]">
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="max-w-2xl xl:max-w-3xl lg:w-1/2"
+        className="max-w-2xl xl:max-w-3xl"
       >
         {/* Eyebrow */}
         <motion.div variants={slideUp} className="mb-7">
@@ -67,11 +67,10 @@ export const QualityHeroSection: React.FC = () => (
           {qualityPolicy.tagline.split("\n").map((line, i) => (
             <span
               key={i}
-              className={`block ${
-                i === 0
-                  ? "text-3xl sm:text-4xl lg:text-6xl text-gray-400"
-                  : "text-4xl sm:text-5xl lg:text-7xl text-prayag-red mt-2"
-              }`}
+              className={`block ${i === 0
+                ? "text-3xl sm:text-4xl lg:text-6xl text-gray-400"
+                : "text-4xl sm:text-5xl lg:text-7xl text-prayag-red mt-2"
+                }`}
             >
               {line}
             </span>
@@ -105,18 +104,6 @@ export const QualityHeroSection: React.FC = () => (
             Contact Us
           </Link>
         </motion.div>
-      </motion.div>
-
-      {/* Hero Image */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1, delay: 0.6 }}
-        className="mt-16 lg:mt-0 lg:w-1/2 flex justify-center lg:justify-end relative z-20"
-      >
-        <div className="w-full max-w-lg rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10 relative">
-          <img src="/assets/images/pages/quality-hero.webp" alt="Prayag Steel Quality Assurance" className="w-full h-auto object-cover aspect-[4/3] hover:-translate-y-2 transition-transform duration-500" />
-        </div>
       </motion.div>
     </div>
 
