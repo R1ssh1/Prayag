@@ -5,7 +5,7 @@ import { ImagePlaceholder } from "../../ui/ImagePlaceholder";
 import { directorMessage } from "../../../data/company";
 
 export const DirectorDeskSection: React.FC = () => (
-  <section className="snap-start bg-white py-24 lg:py-36" aria-label="Director's Desk">
+  <section className="snap-start bg-white py-24 lg:py-36 overflow-x-hidden" aria-label="Director's Desk">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-start">
 

@@ -15,7 +15,7 @@ const slideUp: Variants = {
 
 export const QualityHeroSection: React.FC = () => (
   <section
-    className="relative bg-prayag-black overflow-hidden"
+    className="relative bg-prayag-black overflow-hidden overflow-x-hidden"
     aria-label="Quality Policy — Prayag Steel"
     style={{ minHeight: "60vh" }}
   >

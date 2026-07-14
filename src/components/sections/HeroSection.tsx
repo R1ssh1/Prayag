@@ -52,7 +52,7 @@ const fadeIn: Variants = {
 
 export const HeroSection: React.FC = () => (
   <section
-    className="relative min-h-screen flex flex-col bg-prayag-black overflow-hidden"
+    className="relative min-h-screen flex flex-col bg-prayag-black overflow-hidden overflow-x-hidden"
     aria-label="Hero — Prayag Steel & Engineering Co."
   >
     {/* ── Watermark keyword texture ───────────────────────────────── */}
@@ -142,12 +142,12 @@ export const HeroSection: React.FC = () => (
         {/* CTA row */}
         <motion.div
           variants={fadeIn}
-          className="flex flex-wrap items-center gap-4"
+          className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4"
         >
           <Link
             to="/products"
             id="hero-explore-products-btn"
-            className="inline-flex items-center gap-3 px-7 py-4 bg-prayag-red text-white font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:bg-red-700 hover:scale-105 active:scale-95"
+            className="inline-flex justify-center items-center gap-3 px-7 py-4 bg-prayag-red text-white font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:bg-red-700 hover:scale-105 active:scale-95"
             style={{ boxShadow: "0 8px 30px rgba(227,30,36,0.35)" }}
           >
             Explore Products
@@ -159,7 +159,7 @@ export const HeroSection: React.FC = () => (
           <Link
             to="/contact"
             id="hero-contact-btn"
-            className="inline-flex items-center gap-2 px-6 py-4 border border-white/20 text-white font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:border-prayag-red/60 hover:text-prayag-red"
+            className="inline-flex justify-center items-center gap-2 px-6 py-4 border border-white/20 text-white font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:border-prayag-red/60 hover:text-prayag-red"
           >
             Contact Us
           </Link>
@@ -171,7 +171,7 @@ export const HeroSection: React.FC = () => (
         initial={{ opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, delay: 0.6 }}
-        className="mt-16 lg:mt-0 lg:absolute lg:right-8 xl:right-16 lg:top-[15%] z-20 flex relative w-full sm:w-[450px] lg:w-[450px] xl:w-[550px] self-center pointer-events-none"
+        className="mt-32 sm:mt-32 lg:mt-0 lg:absolute lg:right-8 xl:right-16 lg:top-[15%] z-20 flex relative w-full sm:w-[450px] lg:w-[450px] xl:w-[550px] self-center pointer-events-none"
       >
         {/* Main image */}
         <div className="w-[75%] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10 relative z-10 pointer-events-auto hover:-translate-y-2 transition-transform duration-500">

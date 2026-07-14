@@ -21,7 +21,7 @@ export const ContactContentSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-24 lg:py-36 relative" aria-label="Contact Information and Form">
+    <section className="bg-gray-50 py-24 lg:py-36 relative overflow-x-hidden" aria-label="Contact Information and Form">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
           

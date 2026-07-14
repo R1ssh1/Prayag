@@ -7,7 +7,7 @@ import umergaonFacility from "../../assets/images/about/facility-umergaon.webp";
 import mumbaiOffice from "../../assets/images/about/facility-mumbai.webp";
 
 export const SnapshotSection: React.FC = () => (
-  <section className="bg-off-white py-24 lg:py-36" aria-label="About Prayag Steel & Engineering">
+  <section className="bg-off-white py-24 lg:py-36 overflow-x-hidden" aria-label="About Prayag Steel & Engineering">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-center">
 

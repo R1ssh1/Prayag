@@ -24,7 +24,7 @@ export const AboutHeroSection: React.FC = () => (
       <img
         src="/assets/images/about/hero-banner.webp"
         alt="Prayag Steel manufacturing facility"
-        className="w-full h-full object-cover object-left opacity-70"
+        className="w-full h-full object-cover object-center lg:object-left opacity-70"
         onError={(e) => {
           (e.target as HTMLImageElement).style.display = 'none';
         }}
