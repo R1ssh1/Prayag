@@ -58,7 +58,7 @@ export const IndustriesSection: React.FC = () => {
 
               {/* Text Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end h-full">
-                <h3 className="font-heading font-black text-white leading-tight uppercase transition-all duration-500 origin-bottom-left text-xl group-hover/card:text-3xl group-hover/card:text-prayag-red">
+                <h3 className="font-body font-bold text-white leading-tight uppercase transition-all duration-500 origin-bottom-left text-xl tracking-wider group-hover/card:text-2xl group-hover/card:text-prayag-red">
                   {industry.name}
                 </h3>
               </div>
@@ -67,8 +67,8 @@ export const IndustriesSection: React.FC = () => {
         </div>
 
         {/* Optional fade edges for marquee */}
-        <div className="absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-white/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-white/80 to-transparent pointer-events-none" />
       </div>
     </section>
   );

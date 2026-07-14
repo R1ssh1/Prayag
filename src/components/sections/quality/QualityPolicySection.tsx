@@ -1,9 +1,52 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { SectionHeading } from "../../ui/SectionHeading";
 import { qualityPolicy } from "../../../data/quality";
 
-export const QualityPolicySection: React.FC = () => (
+const PolicyCard = ({ stmt, i, isMobile }: { stmt: any; i: number; isMobile: boolean }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-45% 0px -45% 0px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      data-active={isMobile && isInView}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.55, delay: i * 0.1 }}
+      className="group relative bg-gray-50 hover:bg-prayag-black data-[active=true]:bg-prayag-black border border-gray-100 hover:border-prayag-red/40 data-[active=true]:border-prayag-red/40 hover:-translate-y-2 data-[active=true]:-translate-y-2 hover:shadow-[0_12px_40px_rgba(227,30,36,0.15)] data-[active=true]:shadow-[0_12px_40px_rgba(227,30,36,0.15)] rounded-2xl p-8 transition-all duration-400 overflow-hidden"
+    >
+      {/* Red accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-prayag-red rounded-t-2xl" aria-hidden="true" />
+
+      {/* Number */}
+      <div className="text-[72px] font-heading font-black leading-none text-prayag-red/10 group-hover:text-prayag-red group-data-[active=true]:text-prayag-red transition-colors duration-300 select-none mb-4">
+        {stmt.number}
+      </div>
+
+      {/* Content */}
+      <h3 className="font-body font-bold text-[17px] uppercase tracking-wider text-prayag-black group-hover:!text-white group-data-[active=true]:!text-white transition-colors duration-300 mb-4">
+        {stmt.heading}
+      </h3>
+      <p className="font-body text-[15px] leading-relaxed text-gray-600 group-hover:text-gray-300 group-data-[active=true]:text-gray-300 transition-colors duration-300">
+        {stmt.body}
+      </p>
+    </motion.div>
+  );
+};
+
+export const QualityPolicySection: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile(); // initial check
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  return (
   <section
     id="policy-statements"
     className="bg-white py-24 lg:py-36"
@@ -37,30 +80,7 @@ export const QualityPolicySection: React.FC = () => (
       {/* Three policy statement cards */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-20">
         {qualityPolicy.statements.map((stmt, i) => (
-          <motion.div
-            key={stmt.id}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.55, delay: i * 0.1 }}
-            className="group relative bg-gray-50 hover:bg-prayag-black border border-gray-100 hover:border-prayag-red/40 hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(227,30,36,0.15)] rounded-2xl p-8 transition-all duration-400 overflow-hidden"
-          >
-            {/* Red accent bar */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-prayag-red rounded-t-2xl" aria-hidden="true" />
-
-            {/* Number */}
-            <div className="text-[72px] font-heading font-black leading-none text-prayag-red/10 group-hover:text-prayag-red transition-colors duration-300 select-none mb-4">
-              {stmt.number}
-            </div>
-
-            {/* Content */}
-            <h3 className="font-body font-bold text-[17px] uppercase tracking-wider text-prayag-black group-hover:!text-white transition-colors duration-300 mb-4">
-              {stmt.heading}
-            </h3>
-            <p className="font-body text-[15px] leading-relaxed text-gray-600 group-hover:text-gray-300 transition-colors duration-300">
-              {stmt.body}
-            </p>
-          </motion.div>
+          <PolicyCard key={stmt.id} stmt={stmt} i={i} isMobile={isMobile} />
         ))}
       </div>
 
@@ -100,4 +120,5 @@ export const QualityPolicySection: React.FC = () => (
       </motion.div>
     </div>
   </section>
-);
+  );
+};
