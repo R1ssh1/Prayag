@@ -83,7 +83,7 @@ export const DivisionsSection: React.FC = () => {
         
         <div className="mt-16 text-center">
           <Link
-            to="/products"
+            to="/products#divisions-grid"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/20 text-white font-body font-semibold uppercase tracking-wider text-[15px] hover:bg-white hover:text-prayag-black transition-all duration-300"
           >
             View Full Catalogue Directory

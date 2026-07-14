@@ -89,7 +89,7 @@ export const AboutHeroSection: React.FC = () => (
         {/* CTA */}
         <motion.div variants={slideUp} className="flex flex-wrap gap-4">
           <Link
-            to="/products"
+            to="/products#divisions-grid"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-prayag-red text-white font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:bg-red-700"
             style={{ boxShadow: "0 6px 24px rgba(227,30,36,0.3)" }}
           >

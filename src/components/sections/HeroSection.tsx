@@ -145,7 +145,7 @@ export const HeroSection: React.FC = () => (
           className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4"
         >
           <Link
-            to="/products"
+            to="/products#divisions-grid"
             id="hero-explore-products-btn"
             className="inline-flex justify-center items-center gap-3 px-7 py-4 bg-prayag-red text-white font-body font-bold uppercase tracking-wider text-[15px] rounded-xl transition-all duration-200 hover:bg-red-700 hover:scale-105 active:scale-95"
             style={{ boxShadow: "0 8px 30px rgba(227,30,36,0.35)" }}
