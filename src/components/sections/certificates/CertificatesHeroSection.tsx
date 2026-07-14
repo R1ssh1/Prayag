@@ -28,15 +28,6 @@ export const CertificatesHeroSection: React.FC = () => (
       <div className="absolute inset-0 bg-gradient-to-r from-prayag-black via-prayag-black/80 to-transparent" />
     </div>
 
-    {/* Decorative ring */}
-    <div className="absolute -right-32 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true">
-      <div className="relative w-[400px] h-[400px]">
-        <div className="absolute inset-0 rounded-full border border-prayag-red/10" />
-        <div className="absolute inset-12 rounded-full border border-prayag-red/15" />
-        <div className="absolute inset-24 rounded-full border border-prayag-red/20" />
-      </div>
-    </div>
-
     {/* Content */}
     <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-36 flex flex-col justify-center min-h-[58vh]">
       <motion.div variants={container} initial="hidden" animate="visible" className="max-w-3xl">

@@ -46,7 +46,7 @@ export const FooterCTA: React.FC = () => {
             </a>
             
             <div className="w-full sm:w-auto mt-4 sm:mt-0 flex justify-center">
-               <CatalogueDownloadButton />
+               <CatalogueDownloadButton variant="white" />
             </div>
           </div>
         </motion.div>

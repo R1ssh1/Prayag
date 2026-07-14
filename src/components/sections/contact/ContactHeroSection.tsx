@@ -16,15 +16,15 @@ export const ContactHeroSection: React.FC = () => (
     aria-label="Contact Us — Prayag Steel"
     style={{ minHeight: "50vh" }}
   >
-    {/* Dot-grid background */}
-    <div
-      className="absolute inset-0 opacity-[0.04] pointer-events-none"
-      style={{
-        backgroundImage: "radial-gradient(#E31E24 1px, transparent 1px)",
-        backgroundSize: "28px 28px",
-      }}
-      aria-hidden="true"
-    />
+    {/* Background image with dark overlay */}
+    <div className="absolute inset-0 z-0">
+      <img
+        src="/assets/images/pages/contact-hero.webp"
+        alt="Prayag Steel Contact"
+        className="w-full h-full object-cover opacity-60 object-center"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-prayag-black via-prayag-black/80 to-transparent" />
+    </div>
 
     {/* Decorative ring */}
     <div className="absolute -right-32 top-1/2 -translate-y-1/2 pointer-events-none" aria-hidden="true">

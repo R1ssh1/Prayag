@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-prayag-black text-white" role="contentinfo">
+    <footer className="bg-[#221f1f] text-white" role="contentinfo">
       {/* Red accent bar at top */}
       <div className="h-1 bg-gradient-to-r from-prayag-red via-red-400 to-prayag-red" />
 
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-heading font-black uppercase text-sm tracking-widest text-gray-300 mb-5">
+            <h3 className="font-body font-bold uppercase text-sm tracking-widest text-gray-300 mb-5">
               Quick Links
             </h3>
             <ul className="space-y-2.5" role="list">
@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
 
           {/* Products */}
           <div>
-            <h3 className="font-heading font-black uppercase text-sm tracking-widest text-gray-300 mb-5">
+            <h3 className="font-body font-bold uppercase text-sm tracking-widest text-gray-300 mb-5">
               Products
             </h3>
             <ul className="space-y-2.5" role="list">
@@ -93,14 +93,14 @@ export const Footer: React.FC = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-heading font-black uppercase text-sm tracking-widest text-gray-300 mb-5">
+            <h3 className="font-body font-bold uppercase text-sm tracking-widest text-gray-300 mb-5">
               Contact
             </h3>
             <ul className="space-y-4" role="list">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-prayag-red mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <div>
-                  <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-gray-500 mb-0.5">
+                  <p className="text-[10px] font-body font-bold uppercase tracking-widest text-gray-500 mb-0.5">
                     Registered Office
                   </p>
                   <address className="text-gray-400 text-xs font-body leading-relaxed not-italic">
@@ -111,7 +111,7 @@ export const Footer: React.FC = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-prayag-red mt-0.5 flex-shrink-0" aria-hidden="true" />
                 <div>
-                  <p className="text-[10px] font-heading font-bold uppercase tracking-widest text-gray-500 mb-0.5">
+                  <p className="text-[10px] font-body font-bold uppercase tracking-widest text-gray-500 mb-0.5">
                     Factory
                   </p>
                   <address className="text-gray-400 text-xs font-body leading-relaxed not-italic">

@@ -1,69 +1,49 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FileText, ChevronDown } from "lucide-react";
+import { Download } from "lucide-react";
+import pdfIcon from "../../assets/pdf-svgrepo-com.svg";
 
 interface CatalogueDownloadButtonProps {
   /** Path to the PDF in public/ directory */
   pdfPath?: string;
   className?: string;
   id?: string;
+  variant?: "primary" | "white";
 }
 
-/**
- * CatalogueDownloadButton — styled PDF download pill.
- *
- * Visual anatomy (left → right):
- *   [ Red PDF icon zone ]  [ "DOWNLOAD" / "CATALOG" text ]  [ ↓ arrow circle ]
- *
- * The PDF should be placed at: public/catalogue/prayag-steel-catalogue.pdf
- * Drop the file there — zero code changes needed after that.
- *
- * Listed in DOCS_MANIFEST.md:
- *   Expected file: public/catalogue/prayag-steel-catalogue.pdf
- */
 export const CatalogueDownloadButton: React.FC<CatalogueDownloadButtonProps> = ({
   pdfPath = "/catalogue/prayag-steel-catalogue.pdf",
   className = "",
   id = "catalogue-download-btn",
+  variant = "primary",
 }) => {
+  const isWhite = variant === "white";
+
   return (
     <motion.a
       id={id}
       href={pdfPath}
       download="Prayag-Steel-Catalogue.pdf"
-      whileHover={{ scale: 1.03, boxShadow: "0 8px 30px rgba(227, 30, 36, 0.25)" }}
-      whileTap={{ scale: 0.97 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-      className={`inline-flex items-center gap-0 rounded-full bg-gray-100 overflow-hidden
-        border border-gray-200 shadow-md no-underline select-none ${className}`}
+      whileHover={{ scale: 1.05, boxShadow: isWhite ? "0 12px 30px rgba(0, 0, 0, 0.15)" : "0 12px 30px rgba(227, 30, 36, 0.4)" }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ duration: 0.2 }}
+      className={`inline-flex items-center px-4 py-2.5 rounded-xl border no-underline select-none group ${isWhite ? "bg-white text-prayag-red border-white shadow-xl shadow-black/10" : "bg-prayag-red text-white border-red-500/50 shadow-lg"} ${className}`}
       aria-label="Download Prayag Steel Catalogue PDF"
       title="Download Our Catalogue — Prayag Steel & Engineering Co."
     >
-      {/* Left zone — PDF PNG icon */}
-      <div className="flex items-center justify-center w-10 h-10 m-2 flex-shrink-0 overflow-hidden">
-        <img
-          src="/assets/images/pages/pdf_2.webp"
-          alt="PDF"
-          className="w-full h-full object-contain rounded-xl"
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = 'none';
-          }}
-        />
-      </div>
+      <img src={pdfIcon} alt="PDF" className="w-5 h-5 object-contain scale-300 ml-2" />
 
-      {/* Center text */}
-      <div className="flex flex-col items-start leading-tight px-3">
-        <span className="text-[10px] font-body font-semibold uppercase tracking-widest text-gray-500">
+      <div className={`flex flex-col items-start leading-none ml-6 mr-3 ${isWhite ? "text-prayag-black" : "text-white"}`}>
+        <span className="text-[10px] font-body font-bold uppercase tracking-[0.15em] opacity-90 mb-0.5">
           Download
         </span>
-        <span className="text-sm font-body font-bold uppercase tracking-wide text-prayag-red">
+        <span className="text-[13px] font-body font-black uppercase tracking-wider">
           Catalogue
         </span>
       </div>
 
-      {/* Right zone — down arrow circle */}
-      <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gray-200 mr-1.5 flex-shrink-0">
-        <ChevronDown className="w-4 h-4 text-gray-600" strokeWidth={2.5} aria-hidden="true" />
+      <div className={`flex items-center justify-center w-8 h-8 rounded-full transition-colors flex-shrink-0 ${isWhite ? "bg-prayag-red/10 group-hover:bg-prayag-red/20" : "bg-white/20 group-hover:bg-white/30"}`}>
+        <Download className={`w-4 h-4 group-hover: transition-transform duration-300 ${isWhite ? "text-prayag-red" : "text-white"}`} strokeWidth={2.5} aria-hidden="true" />
       </div>
     </motion.a>
   );
