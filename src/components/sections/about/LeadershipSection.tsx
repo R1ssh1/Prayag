@@ -11,7 +11,7 @@ export const LeadershipSection: React.FC = () => {
   const activeLeader = leadership.find((l) => l.id === active) ?? leadership[2];
 
   return (
-    <section className="bg-off-white py-24 lg:py-36 relative overflow-x-hidden" aria-label="Leadership">
+    <section id="leadership" className="bg-off-white py-24 lg:py-36 relative overflow-x-hidden" aria-label="Leadership">
       <style>{`
         @keyframes border-pulse {
           0%, 100% { border-color: #f3f4f6; }

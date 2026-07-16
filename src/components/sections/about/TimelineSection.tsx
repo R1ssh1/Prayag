@@ -5,6 +5,7 @@ import { legacyTimeline } from "../../../data/company";
 
 export const TimelineSection: React.FC = () => (
   <section
+    id="legacy"
     className="bg-prayag-black py-24 lg:py-36 relative overflow-hidden overflow-x-hidden"
     aria-label="The Steel Legacy — Company Timeline"
   >

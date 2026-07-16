@@ -4,7 +4,7 @@ import { SectionHeading } from "../../ui/SectionHeading";
 import { journeyTimeline } from "../../../data/company";
 
 export const JourneySection: React.FC = () => (
-  <section className="bg-white py-24 lg:py-36 relative" aria-label="Our Journey">
+  <section id="journey" className="bg-white py-24 lg:py-36 relative" aria-label="Our Journey">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       {/* Heading */}

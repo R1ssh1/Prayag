@@ -17,7 +17,15 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "HOME", to: "/" },
-  { label: "ABOUT US", to: "/about" },
+  { 
+    label: "ABOUT US", 
+    to: "/about",
+    children: [
+      { label: "Our Journey", to: "/about#journey" },
+      { label: "The Steel Legacy of Prayag", to: "/about#legacy" },
+      { label: "Leadership at Prayag", to: "/about#leadership" },
+    ]
+  },
   { label: "QUALITY POLICY", to: "/quality-policy" },
   {
     label: "PRODUCTS",
@@ -37,14 +45,15 @@ const navItems: NavItem[] = [
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const currentPathWithHash = location.pathname + location.hash;
 
   // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
-    setProductsOpen(false);
-  }, [location.pathname]);
+    setActiveDropdown(null);
+  }, [location.pathname, location.hash]);
 
   // Detect scroll for sticky shadow
   useEffect(() => {
@@ -58,7 +67,7 @@ export const Navbar: React.FC = () => {
     (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setMobileOpen(false);
-        setProductsOpen(false);
+        setActiveDropdown(null);
       }
     },
     []
@@ -116,33 +125,33 @@ export const Navbar: React.FC = () => {
           <ul className="hidden lg:flex items-center gap-1 xl:gap-2" role="list">
             {navItems.map((item) =>
               item.children ? (
-                // Products dropdown
+                // Dropdown menu
                 <li
                   key={item.to}
                   className="relative group"
-                  onMouseEnter={() => setProductsOpen(true)}
-                  onMouseLeave={() => setProductsOpen(false)}
+                  onMouseEnter={() => setActiveDropdown(item.label)}
+                  onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <NavLink
                     to={item.to}
                     className={({ isActive }) =>
-                      `flex items-center gap-1 font-body font-semibold tracking-wide text-base transition-colors duration-200 px-2 py-2 rounded-lg ${isActive || productsOpen
+                      `flex items-center gap-1 font-body font-semibold tracking-wide text-base transition-colors duration-200 px-2 py-2 rounded-lg ${isActive || activeDropdown === item.label
                         ? "text-prayag-red bg-red-50"
                         : "text-gray-800 hover:text-prayag-red hover:bg-red-50"
                       }`
                     }
                     aria-haspopup="true"
-                    aria-expanded={productsOpen}
-                    id="products-menu-btn"
+                    aria-expanded={activeDropdown === item.label}
+                    id={`${item.label.toLowerCase().replace(/\s+/g, '-')}-menu-btn`}
                     onClick={() => handleNavClick(item.to)}
-                    onFocus={() => setProductsOpen(true)}
+                    onFocus={() => setActiveDropdown(item.label)}
                   >
                     {item.label}
                     <ChevronDown className="w-3.5 h-3.5" aria-hidden="true" />
                   </NavLink>
 
                   <AnimatePresence>
-                    {productsOpen && item.isMegaMenu && (
+                    {activeDropdown === item.label && item.isMegaMenu && (
                       <motion.div
                         initial={{ opacity: 0, y: -8 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -150,7 +159,7 @@ export const Navbar: React.FC = () => {
                         transition={{ duration: 0.18 }}
                         className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[800px] bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden"
                         role="menu"
-                        aria-labelledby="products-menu-btn"
+                        aria-labelledby={`${item.label.toLowerCase().replace(/\s+/g, '-')}-menu-btn`}
                       >
                         <div className="grid grid-cols-4 gap-6 p-6">
                           {divisions.map((div) => {
@@ -196,32 +205,33 @@ export const Navbar: React.FC = () => {
                       </motion.div>
                     )}
 
-                    {productsOpen && !item.isMegaMenu && (
+                    {activeDropdown === item.label && !item.isMegaMenu && (
                       <motion.div
                         initial={{ opacity: 0, y: -8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
                         transition={{ duration: 0.18 }}
-                        className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
+                        className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
                         role="menu"
-                        aria-labelledby="products-menu-btn"
+                        aria-labelledby={`${item.label.toLowerCase().replace(/\s+/g, '-')}-menu-btn`}
                       >
-                        {item.children.map((child) => (
-                          <NavLink
-                            key={child.to}
-                            to={child.to}
-                            className={({ isActive }) =>
-                              `block px-4 py-2.5 text-[15px] font-body font-medium transition-colors duration-150 ${isActive
+                        {item.children.map((child) => {
+                          const isChildActive = currentPathWithHash === child.to;
+                          return (
+                            <Link
+                              key={child.to}
+                              to={child.to}
+                              className={`block px-4 py-2.5 text-[15px] font-body font-medium transition-colors duration-150 ${isChildActive
                                 ? "text-prayag-red bg-red-50"
                                 : "text-gray-700 hover:text-prayag-red hover:bg-red-50"
-                              }`
-                            }
-                            onClick={() => handleNavClick(child.to)}
-                            role="menuitem"
-                          >
-                            {child.label}
-                          </NavLink>
-                        ))}
+                              }`}
+                              onClick={() => handleNavClick(child.to)}
+                              role="menuitem"
+                            >
+                              {child.label}
+                            </Link>
+                          );
+                        })}
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -333,20 +343,21 @@ export const Navbar: React.FC = () => {
                     {/* Mobile sub-links for Products */}
                     {item.children && (
                       <ul className="ml-4 mt-1 space-y-1 border-l-2 border-red-100 pl-4">
-                        {item.children.map((child) => (
-                          <li key={child.to}>
-                            <NavLink
-                              to={child.to}
-                              className={({ isActive }) =>
-                                `block py-2 text-sm font-body font-medium transition-colors ${isActive ? "text-prayag-red" : "text-gray-500 hover:text-prayag-red"
-                                }`
-                              }
-                              onClick={() => { setMobileOpen(false); handleNavClick(child.to); }}
-                            >
-                              {child.label}
-                            </NavLink>
-                          </li>
-                        ))}
+                        {item.children.map((child) => {
+                          const isChildActive = currentPathWithHash === child.to;
+                          return (
+                            <li key={child.to}>
+                              <Link
+                                to={child.to}
+                                className={`block py-2 text-sm font-body font-medium transition-colors ${isChildActive ? "text-prayag-red" : "text-gray-500 hover:text-prayag-red"
+                                }`}
+                                onClick={() => { setMobileOpen(false); handleNavClick(child.to); }}
+                              >
+                                {child.label}
+                              </Link>
+                            </li>
+                          );
+                        })}
                       </ul>
                     )}
                   </li>
