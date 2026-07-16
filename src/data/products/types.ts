@@ -22,6 +22,13 @@ export interface Product {
    *  not just "wnrf". */
   slug: string;
   division: Division;
+  /** Alloy family / product family grouping used for same-category sidebar
+   *  navigation and future filtering. Alloy family name ONLY — e.g. "Inconel",
+   *  never "Inconel Seamless Pipes". Optional so other division files are
+   *  unaffected until they adopt it. */
+  subcategory?: string;
+  /** Product type classification (e.g. "Seamless", "Welded", "Forged") */
+  type?: string;
   name: string;
   /** Short copy for card/grid views */
   shortDescription: string;

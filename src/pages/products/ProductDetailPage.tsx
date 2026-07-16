@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
 import { PageMeta } from "../../seo/PageMeta";
 import { BreadcrumbSchema, ProductSchema } from "../../seo/StructuredData";
-import { getProductBySlug } from "../../data/products/index";
+import { getProductBySlug, getProductsByDivision } from "../../data/products";
 import { ImagePlaceholder } from "../../components/ui/ImagePlaceholder";
-import { Badge } from "../../components/ui/Primitives";
+import { CatalogueDownloadButton } from "../../components/ui/CatalogueDownloadButton";
+import { divisions } from "../../data/company";
 import type { Division } from "../../data/products/types";
+
+// ── TOC sections — fixed for all pipe product detail pages ───────────────────
+const TOC_SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "specifications", label: "Specifications" },
+  { id: "standards", label: "Standards & Compliance" },
+  { id: "enquire", label: "Enquire" },
+];
 
 export const ProductDetailPage: React.FC = () => {
   const { division, slug } = useParams<{ division: string; slug: string }>();
   const div = division as Division;
 
   const product = div && slug ? getProductBySlug(div, slug) : undefined;
+
+  // Scroll offset to account for sticky navbar (~80px)
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const offset = 96;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
+
+  // Reset scroll on product change
+  const prevSlugRef = useRef<string | undefined>(undefined);
+  useEffect(() => {
+    if (prevSlugRef.current !== slug) {
+      window.scrollTo({ top: 0 });
+      prevSlugRef.current = slug;
+    }
+  }, [slug]);
 
   if (!product) {
     return (
@@ -36,6 +63,18 @@ export const ProductDetailPage: React.FC = () => {
 
   const divisionTitle = div.charAt(0).toUpperCase() + div.slice(1);
 
+  // ── Sidebar data ────────────────────────────────────────────────────────────
+  const allDivisionProducts = getProductsByDivision(div);
+
+  // Same-subcategory: if subcategory is defined, filter by it; otherwise show all in division
+  const sameCategoryProducts = product.subcategory
+    ? allDivisionProducts.filter((p) => p.subcategory === product.subcategory)
+    : allDivisionProducts;
+
+  const sameCategoryLabel = product.subcategory
+    ? `Other ${product.subcategory} ${divisionTitle}`
+    : `Other ${divisionTitle}`;
+
   return (
     <>
       <PageMeta
@@ -54,148 +93,321 @@ export const ProductDetailPage: React.FC = () => {
         ]}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Breadcrumb UI */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+
+        {/* ── Breadcrumb ──────────────────────────────────────────────────── */}
         <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex flex-wrap items-center gap-2 text-sm font-body text-gray-500">
+          <ol className="flex flex-wrap items-center gap-1.5 text-sm font-body text-gray-500">
             <li><Link to="/" className="hover:text-prayag-red transition-colors">Home</Link></li>
-            <li aria-hidden="true">/</li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
             <li><Link to="/products" className="hover:text-prayag-red transition-colors">Products</Link></li>
-            <li aria-hidden="true">/</li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
             <li>
-              <Link to={`/products/${div}`} className="hover:text-prayag-red transition-colors">
+              <Link to={`/products/${div}`} className="hover:text-prayag-red transition-colors capitalize">
                 {divisionTitle}
               </Link>
             </li>
-            <li aria-hidden="true">/</li>
+            <li aria-hidden="true" className="text-gray-300">/</li>
             <li className="text-prayag-red font-medium truncate max-w-[200px]" aria-current="page">
               {product.name}
             </li>
           </ol>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Image column */}
-          <div>
-            <ImagePlaceholder
-              path={product.image}
-              label={`${product.name} — ${product.materials[0]}`}
-              aspectRatio="video"
-              className="rounded-xl"
-            />
-          </div>
+        {/* ── Two-column layout ────────────────────────────────────────────── */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
-          {/* Details column */}
-          <div>
+          {/* ════════════════════════════════════════════════════════════════
+              MAIN COLUMN
+          ════════════════════════════════════════════════════════════════ */}
+          <main className="flex-1 min-w-0">
+
+            {/* Division badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-prayag-red/10 border border-prayag-red/20 mb-4">
               <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-widest">
                 {divisionTitle}
               </span>
             </div>
 
-            <h1 className="font-heading font-black text-3xl sm:text-4xl uppercase text-prayag-black leading-tight mb-4">
+            {/* H1 */}
+            <h1 className="font-heading font-black text-3xl sm:text-4xl xl:text-5xl uppercase text-prayag-black leading-tight mb-4">
               {product.name}
             </h1>
 
-            <p className="text-gray-600 font-body leading-relaxed mb-6">
-              {product.description}
+            {/* Short description */}
+            <p className="text-gray-600 font-body text-lg leading-relaxed mb-8">
+              {product.shortDescription}
             </p>
 
-            {/* Quick stats */}
-            {(product.sizeRange || product.pressureRating) && (
-              <div className="grid grid-cols-2 gap-4 mb-6">
-                {product.sizeRange && (
-                  <div className="bg-gray-50 rounded-xl p-4">
-                    <p className=" font-body font-semibold uppercase tracking-widest text-gray-400 mb-1">
-                      Size Range
-                    </p>
-                    <p className="font-body font-bold text-prayag-black text-[15px]">
-                      {product.sizeRange}
-                    </p>
-                  </div>
-                )}
-                {product.pressureRating && (
-                  <div className="bg-gray-50 rounded-xl p-4">
-                    <p className=" font-body font-semibold uppercase tracking-widest text-gray-400 mb-1">
-                      Pressure Rating
-                    </p>
-                    <p className="font-body font-bold text-prayag-black text-[15px]">
-                      {product.pressureRating}
-                    </p>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Materials */}
-            <div className="mb-6">
-              <h2 className=" font-body font-semibold uppercase tracking-widest text-gray-400 mb-3">
-                Available Materials
-              </h2>
-              <div className="flex flex-wrap gap-2">
-                {product.materials.map((mat) => (
-                  <Badge key={mat} label={mat} variant="gray" />
-                ))}
-              </div>
+            {/* Hero image */}
+            <div className="mb-10">
+              <ImagePlaceholder
+                path={product.image}
+                label={`${product.name} — ${product.materials[0]}`}
+                aspectRatio="video"
+                className="rounded-2xl shadow-lg"
+              />
             </div>
 
-            {/* Standards */}
-            <div className="mb-6">
-              <h2 className=" font-body font-semibold uppercase tracking-widest text-gray-400 mb-3">
-                Standards
+            {/* ── Table of Contents ──────────────────────────────────────── */}
+            <nav aria-label="Page contents" className="mb-12 p-5 rounded-xl border border-gray-200 bg-gray-50">
+              <p className="font-body font-bold text-xs uppercase tracking-[0.2em] text-gray-400 mb-3">
+                On This Page
+              </p>
+              <ol className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4">
+                {TOC_SECTIONS.map((section, i) => (
+                  <li key={section.id}>
+                    <button
+                      onClick={() => scrollToSection(section.id)}
+                      className="flex items-center gap-2 text-sm font-body font-medium text-gray-600 hover:text-prayag-red transition-colors group"
+                    >
+                      <span className="w-5 h-5 rounded-full bg-prayag-red/10 text-prayag-red text-[10px] font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-prayag-red group-hover:text-white transition-colors">
+                        {i + 1}
+                      </span>
+                      {section.label}
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+
+            {/* ── § Overview ─────────────────────────────────────────────── */}
+            <section id="overview" className="mb-14 scroll-mt-24">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
+                <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                  Overview
+                </span>
+              </div>
+              <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-4">
+                Overview
+              </h2>
+              <div className="prose prose-gray max-w-none font-body text-gray-600 leading-relaxed space-y-4">
+                <p>{product.description}</p>
+              </div>
+              {/* Materials */}
+              <div className="mt-6">
+                <p className="font-body font-semibold uppercase tracking-widest text-gray-400 text-xs mb-3">
+                  Material Grade
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {product.materials.map((mat) => (
+                    <span
+                      key={mat}
+                      className="inline-block px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-700 font-body text-sm font-medium"
+                    >
+                      {mat}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* ── § Specifications ───────────────────────────────────────── */}
+            <section id="specifications" className="mb-14 scroll-mt-24">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
+                <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                  Specifications
+                </span>
+              </div>
+              <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-5">
+                Specifications
+              </h2>
+              {product.specs.length > 0 ? (
+                <div className="rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                  <table className="w-full text-sm font-body">
+                    <tbody>
+                      {product.specs.map((spec, i) => (
+                        <tr
+                          key={spec.label}
+                          className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                        >
+                          <td className="px-6 py-3.5 font-semibold text-gray-500 w-2/5 border-r border-gray-100">
+                            {spec.label}
+                          </td>
+                          <td className="px-6 py-3.5 text-prayag-black font-medium">
+                            {spec.value}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <p className="text-gray-400 font-body text-sm">No specifications listed.</p>
+              )}
+            </section>
+
+            {/* ── § Standards & Compliance ───────────────────────────────── */}
+            <section id="standards" className="mb-14 scroll-mt-24">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
+                <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                  Standards & Compliance
+                </span>
+              </div>
+              <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-5">
+                Standards &amp; Compliance
               </h2>
               <div className="flex flex-wrap gap-2">
                 {product.standards.map((std) => (
-                  <Badge key={std} label={std} variant="outline" />
+                  <span
+                    key={std}
+                    className="inline-block px-4 py-2 rounded-full border-2 border-prayag-red/30 bg-prayag-red/5 text-prayag-red font-body font-bold text-sm hover:bg-prayag-red/10 transition-colors"
+                  >
+                    {std}
+                  </span>
                 ))}
               </div>
+            </section>
+
+            {/* ── § Enquire ──────────────────────────────────────────────── */}
+            <section id="enquire" className="scroll-mt-24">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
+                <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                  Enquire
+                </span>
+              </div>
+              <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-5">
+                Enquire About This Product
+              </h2>
+              <div className="bg-off-white rounded-2xl border border-gray-100 p-8 lg:p-10">
+                <p className="text-gray-600 font-body leading-relaxed mb-6">
+                  Interested in <strong className="text-prayag-black">{product.name}</strong>? Contact our team for
+                  pricing, availability, mill test certificates, and custom specifications.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    to={`/contact?product=${encodeURIComponent(product.name)}&division=${div}`}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-prayag-red text-white font-body font-bold uppercase tracking-widest text-sm hover:bg-red-700 transition-colors shadow-lg shadow-prayag-red/20"
+                  >
+                    Enquire Now
+                  </Link>
+                  <a
+                    href={`mailto:prayagsteelindia@yahoo.co.in?subject=Enquiry%3A%20${encodeURIComponent(product.name)}&body=Hi%20Prayag%20Steel%2C%0A%0AI%20am%20interested%20in%20${encodeURIComponent(product.name)}.%20Please%20send%20me%20a%20quote.`}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-200 text-gray-700 font-body font-bold uppercase tracking-widest text-sm hover:border-prayag-red hover:text-prayag-red transition-colors"
+                  >
+                    Email Us Directly
+                  </a>
+                </div>
+              </div>
+            </section>
+
+          </main>
+
+          {/* ════════════════════════════════════════════════════════════════
+              SIDEBAR — sticky on desktop
+          ════════════════════════════════════════════════════════════════ */}
+          <aside className="w-full lg:w-72 xl:w-80 flex-shrink-0 space-y-6">
+
+            {/* ── Same-subcategory products ─────────────────────────────── */}
+            {sameCategoryProducts.length > 0 && (
+              <div className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden">
+                <div className="px-5 py-4 border-b border-gray-100 bg-gray-50">
+                  <p className="font-body font-bold text-xs uppercase tracking-[0.18em] text-gray-500">
+                    {sameCategoryLabel}
+                  </p>
+                </div>
+                <ul className="divide-y divide-gray-50">
+                  {sameCategoryProducts.map((p) => {
+                    const isCurrent = p.slug === product.slug;
+                    return (
+                      <li key={p.id}>
+                        {isCurrent ? (
+                          <div
+                            className="flex items-center gap-3 px-5 py-3.5 bg-prayag-red/5"
+                            aria-current="page"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-prayag-red flex-shrink-0" aria-hidden="true" />
+                            <span className="font-body font-bold text-sm text-prayag-red leading-snug">
+                              {p.name}
+                            </span>
+                          </div>
+                        ) : (
+                          <Link
+                            to={`/products/${div}/${p.slug}`}
+                            className="flex items-center gap-3 px-5 py-3.5 hover:bg-red-50 transition-colors group"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-prayag-red flex-shrink-0 transition-colors" aria-hidden="true" />
+                            <span className="font-body text-sm text-gray-600 group-hover:text-prayag-red transition-colors leading-snug">
+                              {p.name}
+                            </span>
+                          </Link>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+
+            {/* ── Explore Other Products (all divisions) ────────────────── */}
+            <div className="rounded-2xl border border-gray-100 bg-white shadow-sm overflow-hidden">
+              <div className="px-5 py-4 border-b border-gray-100 bg-gray-50">
+                <p className="font-body font-bold text-xs uppercase tracking-[0.18em] text-gray-500">
+                  Explore Other Products
+                </p>
+              </div>
+              <ul className="divide-y divide-gray-50">
+                {divisions.map((d) => {
+                  const isCurrentDivision = d.id === div;
+                  return (
+                    <li key={d.id}>
+                      {isCurrentDivision ? (
+                        <div
+                          className="flex items-center gap-3 px-5 py-3.5 bg-prayag-red/5"
+                          aria-current="true"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-prayag-red flex-shrink-0" aria-hidden="true" />
+                          <span className="font-body font-bold text-sm text-prayag-red">
+                            {d.name}
+                          </span>
+                        </div>
+                      ) : (
+                        <Link
+                          to={`/products/${d.slug}`}
+                          className="flex items-center gap-3 px-5 py-3.5 hover:bg-red-50 transition-colors group"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-prayag-red flex-shrink-0 transition-colors" aria-hidden="true" />
+                          <span className="font-body text-sm text-gray-600 group-hover:text-prayag-red transition-colors">
+                            {d.name}
+                          </span>
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
 
-            {/* CTA */}
-            <div className="flex gap-3 flex-wrap">
+            {/* ── Download Catalogue ────────────────────────────────────── */}
+            <div className="rounded-2xl border border-gray-100 bg-white shadow-sm p-5">
+              <p className="font-body font-bold text-xs uppercase tracking-[0.18em] text-gray-500 mb-3">
+                Download
+              </p>
+              <CatalogueDownloadButton id="product-detail-catalogue-btn" className="w-full justify-center" />
+            </div>
+
+            {/* ── Enquire Now CTA ───────────────────────────────────────── */}
+            <div className="rounded-2xl bg-prayag-red p-5 text-white">
+              <p className="font-body font-bold text-xs uppercase tracking-[0.18em] text-red-200 mb-2">
+                Get a Quote
+              </p>
+              <p className="font-body text-sm text-red-100 mb-4 leading-relaxed">
+                Need specs, pricing, or MTCs for this product?
+              </p>
               <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-prayag-red text-white font-body font-bold uppercase tracking-widest text-sm hover:bg-red-700 transition-colors shadow-lg shadow-prayag-red/30"
+                to={`/contact?product=${encodeURIComponent(product.name)}&division=${div}`}
+                className="block text-center px-4 py-2.5 rounded-lg bg-white text-prayag-red font-body font-bold uppercase tracking-widest text-sm hover:bg-red-50 transition-colors"
               >
-                Request a Quote
-              </Link>
-              <Link
-                to={`/products/${div}`}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-200 text-gray-700 font-body font-bold uppercase tracking-widest text-sm hover:border-prayag-red hover:text-prayag-red transition-colors"
-              >
-                ← {divisionTitle}
+                Enquire Now
               </Link>
             </div>
-          </div>
+
+          </aside>
         </div>
-
-        {/* Spec table */}
-        {product.specs.length > 0 && (
-          <div className="mt-16">
-            <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-6">
-              Specifications
-            </h2>
-            <div className="rounded-xl border border-gray-100 overflow-hidden">
-              <table className="w-full text-sm font-body">
-                <tbody>
-                  {product.specs.map((spec, i) => (
-                    <tr
-                      key={spec.label}
-                      className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}
-                    >
-                      <td className="px-6 py-3 font-medium text-gray-500 w-1/3">
-                        {spec.label}
-                      </td>
-                      <td className="px-6 py-3 text-prayag-black font-medium">
-                        {spec.value}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
       </div>
     </>
   );
