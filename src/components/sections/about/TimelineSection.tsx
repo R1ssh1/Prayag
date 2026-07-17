@@ -57,7 +57,7 @@ export const TimelineSection: React.FC = () => {
   const moonY = useTransform(smoothProgress, [0, 1], ["10%", "-20%"]);
   const moonRotate = useTransform(smoothProgress, [0, 1], [-10, 40]);
 
-  const rocketTop = useTransform(smoothProgress, [0, 1], ["3%", "97%"]);
+  const rocketTop = useTransform(smoothProgress, [0, 1], ["3%", "90%"]);
   const rocketLeft = useTransform(smoothProgress, [0, 1], ["1%", "85%"]);
 
   return (
@@ -88,7 +88,7 @@ export const TimelineSection: React.FC = () => {
 
       {/* Rocket Parallax */}
       <motion.div
-        className="absolute w-[120px] md:w-[220px] opacity-80 z-0 pointer-events-none"
+        className="absolute w-[120px] md:w-[350px] opacity-80 z-0 pointer-events-none"
         style={{ top: rocketTop, left: rocketLeft }}
       >
         <img src="/assets/images/about/rocket.png" alt="" className="w-full h-auto object-contain rotate-[157deg] md:rotate-[140deg] drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
