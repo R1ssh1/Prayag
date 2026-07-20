@@ -23,80 +23,59 @@ import type { Product, MaterialFamily } from "./types";
 // ── Shared materials table (define ONCE, reference from every product) ───────
 export const FLANGES_MATERIALS: MaterialFamily[] = [
   {
-    family: "Stainless Steel (Austenitic)",
-    standard: "ASTM A182",
-    grades: [
-      "F304 (S30400)", "F304L (S30403)", "F304H (S30409)",
-      "F310 (S31000)", "F310S (S31008)",
-      "F316 (S31600)", "F316L (S31603)", "F316Ti (S31635)",
-      "F317 (S31700)", "F317L (S31703)",
-      "F321 (S32100)", "F321H (S32109)",
-      "F347 (S34700)", "F347H (S34709)",
-      "F904L (N08904)",
-    ],
+    family: "Stainless Steel",
+    standard: "",
+    grades: ["304", "304L", "304H", "316", "316L", "316Ti", "317L", "321", "347", "904L"],
   },
   {
-    family: "Duplex Stainless Steel",
-    standard: "ASTM A182",
-    grades: [
-      "F51 — Duplex 2205 (S31803/S32205)",
-      "F68 — Duplex 2304 (S32304)",
-    ],
+    family: "Duplex",
+    standard: "",
+    grades: ["2205", "2304"],
   },
   {
-    family: "Super Duplex Stainless Steel",
-    standard: "ASTM A182",
-    grades: [
-      "F53 — Super Duplex 2507 (S32750)",
-      "F55 — Super Duplex (S32760)",
-    ],
+    family: "Super Duplex",
+    standard: "",
+    grades: ["2507", "Zeron 100"],
   },
   {
-    // Incoloy merged into Nickel Alloys — confirmed intentional.
-    // See file-level comment for context.
     family: "Nickel Alloys",
-    standard: "ASTM B564",
-    grades: [
-      "Inconel 600 (N06600)", "Inconel 601 (N06601)",
-      "Inconel 617 (N06617)", "Inconel 625 (N06625)",
-      "Inconel 718 (N07718, also ASTM B637)",
-      "Incoloy 800 (N08800)", "Incoloy 800H (N08810)",
-      "Incoloy 800HT (N08811)", "Incoloy 825 (N08825)",
-    ],
+    standard: "",
+    grades: ["Inconel 600", "625", "718", "800H", "825"],
   },
   {
     family: "Monel",
-    standard: "ASTM B564",
-    grades: ["Monel 400 (N04400)", "Monel K500 (N05500)"],
+    standard: "",
+    grades: ["400", "K500"],
   },
   {
     family: "Hastelloy",
-    standard: "ASTM B564",
-    grades: ["C22 (N06022)", "C276 (N10276)", "B2 (N10665)", "B3 (N10675)", "X (N06002)"],
+    standard: "",
+    grades: ["C22", "C276", "B2", "B3", "X"],
   },
   {
     family: "Titanium",
-    standard: "ASTM B381",
-    grades: [
-      "Grade 1 (F1, R50250)", "Grade 2 (F2, R50400)",
-      "Grade 5 / Ti-6Al-4V (F5, R56400)",
-      "Grade 7 (F7, R52400)", "Grade 12 (F12, R53400)",
-    ],
-  },
-  {
-    family: "Nickel",
-    standard: "ASTM B564",
-    grades: ["Nickel 200 (N02200)", "Nickel 201 (N02201)"],
+    standard: "",
+    grades: ["Grade 2", "Grade 5", "Grade 7"],
   },
   {
     family: "Copper Nickel",
-    standard: "ASTM B151",
-    grades: ["90/10 Cu-Ni (C70600)", "70/30 Cu-Ni (C71500)"],
+    standard: "",
+    grades: ["90/10", "70/30"],
   },
   {
     family: "Alloy 20",
-    standard: "ASTM B462",
-    grades: ["Alloy 20 (N08020)"],
+    standard: "",
+    grades: ["Alloy 20"],
+  },
+  {
+    family: "Nickel",
+    standard: "",
+    grades: ["Nickel 200", "Nickel 201"],
+  },
+  {
+    family: "Other Exotic Alloys",
+    standard: "",
+    grades: ["Available on Request"],
   },
 ];
 

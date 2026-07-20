@@ -2,7 +2,6 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, ChevronUp, FileDown, CheckCircle2 } from "lucide-react";
-import * as LucideIcons from "lucide-react";
 import { PageMeta } from "../../seo/PageMeta";
 import { BreadcrumbSchema } from "../../seo/StructuredData";
 import { SectionHeading } from "../../components/ui/SectionHeading";
@@ -11,9 +10,16 @@ import { CatalogueDownloadButton } from "../../components/ui/CatalogueDownloadBu
 import { FooterCTA } from "../../components/sections/FooterCTA";
 import { getProductsByDivision, buildSubcategoryGroups } from "../../data/products";
 import { divisions } from "../../data/company";
+import { ManufacturingCapabilities } from "../../components/sections/divisions/ManufacturingCapabilities";
+import { AvailableMaterials } from "../../components/sections/divisions/AvailableMaterials";
+import { ManufacturingStandards } from "../../components/sections/divisions/ManufacturingStandards";
+import { SizeAndPressure } from "../../components/sections/divisions/SizeAndPressure";
+import { QualityAndTesting } from "../../components/sections/divisions/QualityAndTesting";
+import { WhyChooseUs } from "../../components/sections/divisions/WhyChooseUs";
+import { IndustriesSection } from "../../components/sections/IndustriesSection";
 import { useScrollSpy } from "../../hooks/useScrollSpy";
-import { divisionContent, type DivisionContent } from "../../data/divisions/content";
-import type { Division, Product, MaterialFamily } from "../../data/products/types";
+import { divisionContent } from "../../data/divisions/content";
+import type { Division, Product } from "../../data/products/types";
 import type { Transition } from "framer-motion";
 
 // ── SEO meta per division ─────────────────────────────────────────────────────
@@ -57,84 +63,7 @@ function scrollToId(id: string) {
 
 // ─────────────────────────────────────────────────────────────────────────────
 
-function StandardsTabs({ content }: { content: DivisionContent }) {
-  const [activeTab, setActiveTab] = useState(content.standardsByBody?.[0]?.body || "");
 
-  if (!content.standardsByBody || content.standardsByBody.length === 0) return null;
-
-  const activeContent = content.standardsByBody.find(s => s.body === activeTab);
-
-  return (
-    <section className="bg-white py-16 lg:py-24" aria-label="Manufacturing Standards">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-3 mb-3">
-          <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
-          <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">Standards</span>
-        </div>
-        <SectionHeading text="Manufacturing Standards" as="h2" className="mb-10" />
-
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <div className="flex flex-row lg:flex-col gap-2 overflow-x-auto pb-4 lg:pb-0 hide-scrollbar">
-            {content.standardsByBody.map((group) => (
-              <button
-                key={group.body}
-                onClick={() => setActiveTab(group.body)}
-                className={`flex-shrink-0 text-left px-5 py-3 rounded-xl font-heading font-black text-sm uppercase transition-all duration-300 ${activeTab === group.body
-                  ? "bg-prayag-red text-white shadow-lg shadow-prayag-red/25"
-                  : "bg-gray-50 text-gray-500 hover:bg-gray-100 hover:text-prayag-black"
-                  }`}
-              >
-                {group.body}
-              </button>
-            ))}
-          </div>
-          <div className="lg:col-span-3">
-            {activeContent && (
-              <motion.div
-                key={activeContent.body}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4 }}
-                className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
-              >
-                {activeContent.standards.map((std) => (
-                  <div key={std} className="flex items-center gap-3 p-4 rounded-xl border border-gray-100 bg-off-white hover:border-prayag-red/30 transition-colors">
-                    <CheckCircle2 className="w-5 h-5 text-prayag-red flex-shrink-0" />
-                    <span className="font-body text-sm font-semibold text-gray-700">{std}</span>
-                  </div>
-                ))}
-              </motion.div>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const industryIcons: Record<string, any> = {
-  "Oil & Gas": LucideIcons.Droplets,
-  "Petrochemical": LucideIcons.FlaskConical,
-  "Chemical Processing": LucideIcons.TestTubes,
-  "Fertilizer": LucideIcons.Sprout,
-  "Pharmaceutical": LucideIcons.Pill,
-  "Semiconductor": LucideIcons.Cpu,
-  "LNG": LucideIcons.Flame,
-  "Hydrogen": LucideIcons.Atom,
-  "Power": LucideIcons.Zap,
-  "Nuclear": LucideIcons.Radiation,
-  "Desalination": LucideIcons.Waves,
-  "Marine": LucideIcons.Ship,
-  "Food Processing": LucideIcons.Wheat,
-  "Water Treatment": LucideIcons.Droplets,
-};
-
-function getIndustryIcon(name: string) {
-  for (const [key, IconComp] of Object.entries(industryIcons)) {
-    if (name.includes(key)) return IconComp;
-  }
-  return LucideIcons.Factory;
-}
 
 function parseBoldText(text: string) {
   const parts = text.split(/(\*\*.*?\*\*)/g);
@@ -517,213 +446,47 @@ export const DivisionPage: React.FC = () => {
       {/* ===================================================================
           RICH DIVISION CONTENT SECTIONS
           All sections are conditionally rendered — only appear when data
-          exists in divisionContent. No hardcoded division checks.
+          exists in src/data/divisions/content.ts
       =================================================================== */}
 
-      {/* ── Manufacturing Capability ───────────────────────────────────── */}
+      {/* ── Manufacturing Capabilities ─────────────────────────────────── */}
       {content?.manufacturingCapability && content.manufacturingCapability.length > 0 && (
-        <section className="bg-white py-16 lg:py-24" aria-label="Manufacturing Capability">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
-              <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">Capabilities</span>
-            </div>
-            <SectionHeading text="Manufacturing Capability" as="h2" className="mb-10" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {content.manufacturingCapability.map((cap, i) => (
-                <motion.div
-                  key={cap.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={cardTransition(i)}
-                  className="rounded-2xl border border-gray-100 bg-off-white p-6"
-                >
-                  <h3 className="font-heading font-black text-lg uppercase text-prayag-black mb-2">{cap.title}</h3>
-                  <p className="font-body text-sm text-gray-600 leading-relaxed">{cap.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ManufacturingCapabilities capabilities={content.manufacturingCapability} />
       )}
+
+
 
       {/* ── Available Materials Grid ────────────────────────────────────── */}
       {content?.materialsTable && content.materialsTable.length > 0 && (
-        <section className="bg-off-white py-16 lg:py-24" aria-label="Available Materials">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
-              <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">Materials</span>
-            </div>
-            <SectionHeading text="Available Materials" as="h2" className="mb-3" />
-            <p className="text-gray-500 font-body text-sm leading-relaxed mb-10 max-w-2xl">
-              Available in the following material families and grades. Contact us for stock availability and lead times.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-              {content.materialsTable.map((family: MaterialFamily, i: number) => (
-                <motion.div
-                  key={family.family}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={cardTransition(i)}
-                  className="rounded-xl border border-gray-100 bg-white shadow-sm overflow-hidden"
-                >
-                  <div className="px-4 py-3 border-b border-gray-100 bg-gray-50">
-                    <p className="font-body font-bold text-xs uppercase tracking-[0.18em] text-prayag-black leading-snug">{family.family}</p>
-                    <p className="font-body text-[11px] text-gray-400 mt-0.5 leading-snug">{family.standard}</p>
-                  </div>
-                  <div className="px-4 py-3 flex flex-wrap gap-1.5">
-                    {family.grades.map((grade) => (
-                      <span
-                        key={grade}
-                        className="inline-block px-2.5 py-1 rounded-full bg-prayag-red/5 border border-prayag-red/15 text-prayag-red font-body text-xs font-medium leading-snug"
-                      >
-                        {grade}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <AvailableMaterials materials={content.materialsTable} />
       )}
 
       {/* ── Standards Tabs ─────────────────────────────────────────────── */}
       {content?.standardsByBody && content.standardsByBody.length > 0 && (
-        <StandardsTabs content={content} />
+        <ManufacturingStandards standards={content.standardsByBody} />
       )}
 
       {/* ── Size Range & Pressure Classes ──────────────────────────────── */}
       {(content?.sizeRange || (content?.pressureClasses && content.pressureClasses.length > 0)) && (
-        <section className="bg-white py-16 lg:py-20" aria-label="Size Range and Pressure Classes">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              {content.sizeRange && (
-                <div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
-                    <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">Sizes</span>
-                  </div>
-                  <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-3">Size Range</h2>
-                  <p className="font-body text-2xl font-bold text-gray-700">{content.sizeRange}</p>
-                </div>
-              )}
-              {content.pressureClasses && content.pressureClasses.length > 0 && (
-                <div>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
-                    <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">Pressure</span>
-                  </div>
-                  <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-4">Pressure Classes</h2>
-                  <div className="flex flex-wrap gap-2">
-                    {content.pressureClasses.map((pc) => (
-                      <div
-                        key={pc}
-                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 bg-white shadow-sm hover:border-prayag-red/50 hover:shadow-md transition-all group"
-                      >
-                        <LucideIcons.Gauge className="w-4 h-4 text-gray-400 group-hover:text-prayag-red transition-colors" />
-                        <span className="text-gray-700 font-body font-bold text-sm group-hover:text-prayag-black transition-colors">{pc}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
+        <SizeAndPressure sizeRange={content.sizeRange} pressureClasses={content.pressureClasses} />
       )}
 
       {/* ── Testing & Inspection ───────────────────────────────────────── */}
-      {content?.testingMethods && content.testingMethods.length > 0 && (
-        <section className="bg-prayag-black py-16 lg:py-24" aria-label="Testing and Inspection">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
-              <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">Quality</span>
-            </div>
-            <SectionHeading text="Testing & Inspection" as="h2" light className="mb-10" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {content.testingMethods.map((method, i) => (
-                <motion.div
-                  key={method.name}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={cardTransition(i)}
-                  className="rounded-xl border border-white/10 bg-white/5 p-5"
-                >
-                  <div className="flex items-start gap-3">
-                    <span className="w-2 h-2 rounded-full bg-prayag-red mt-1.5 flex-shrink-0" aria-hidden="true" />
-                    <div>
-                      <p className="font-body font-bold text-sm text-white leading-snug">{method.name}</p>
-                      {method.description && (
-                        <p className="font-body text-xs text-gray-400 mt-1 leading-relaxed">{method.description}</p>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {(content?.testingMethods && content.testingMethods.length > 0) || (content?.thirdPartyInspections && content.thirdPartyInspections.length > 0) ? (
+        <QualityAndTesting 
+          testingMethods={content.testingMethods} 
+          thirdPartyInspections={content.thirdPartyInspections} 
+        />
+      ) : null}
 
       {/* ── Why Choose Us ──────────────────────────────────────────────── */}
       {content?.whyChooseUs && content.whyChooseUs.length > 0 && (
-        <section className="bg-off-white py-16 lg:py-24" aria-label="Why Choose Prayag Steel">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
-              <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">Why Us</span>
-            </div>
-            <SectionHeading text="Why Choose Prayag Steel" as="h2" className="mb-10" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {content.whyChooseUs.map((card, i) => (
-                <motion.div
-                  key={card.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={cardTransition(i)}
-                  className="rounded-2xl bg-white border border-gray-100 shadow-sm p-6"
-                >
-                  <h3 className="font-heading font-black text-lg uppercase text-prayag-black mb-2">{card.title}</h3>
-                  <p className="font-body text-sm text-gray-600 leading-relaxed">{card.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <WhyChooseUs cards={content.whyChooseUs} />
       )}
 
       {/* ── Industries Served ──────────────────────────────────────────── */}
       {content?.industriesServed && content.industriesServed.length > 0 && (
-        <section className="bg-white py-16 lg:py-20" aria-label="Industries Served">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
-              <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">Industries</span>
-            </div>
-            <SectionHeading text="Industries Served" as="h2" className="mb-8" />
-            <div className="flex flex-wrap gap-4">
-              {content.industriesServed.map((industry) => {
-                const Icon = getIndustryIcon(industry);
-                return (
-                  <div
-                    key={industry}
-                    className="flex flex-col items-center justify-center p-6 rounded-2xl bg-off-white border border-gray-100 hover:border-prayag-red/30 hover:shadow-lg hover:shadow-prayag-red/5 transition-all group text-center min-w-[140px] flex-1"
-                  >
-                    <Icon className="w-8 h-8 text-prayag-red mb-3 group-hover:scale-110 transition-transform" />
-                    <span className="text-prayag-black font-body text-sm font-bold leading-tight group-hover:text-prayag-red transition-colors">{industry}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <IndustriesSection />
       )}
 
       {/* ── Technical Specifications Accordion ─────────────────────────── */}

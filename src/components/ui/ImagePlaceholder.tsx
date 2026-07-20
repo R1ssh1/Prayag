@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface ImagePlaceholderProps {
   /** Expected file path relative to assets/images/ — shown as caption */
@@ -31,6 +31,19 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   className = "",
 }) => {
   const ar = aspectClasses[aspectRatio] ?? "aspect-video";
+  const [error, setError] = useState(false);
+
+  // Attempt to load the real image first. If it fails, fallback to the placeholder UI.
+  if (!error) {
+    return (
+      <img
+        src={`/assets/images/${path}`}
+        alt={label || "Product image"}
+        className={`${ar} ${className}`}
+        onError={() => setError(true)}
+      />
+    );
+  }
 
   return (
     <div

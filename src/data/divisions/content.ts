@@ -61,6 +61,12 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface SizeRangeItem {
+  label: string;
+  value: string;
+  customNote?: boolean;
+}
+
 export interface DownloadItem {
   label: string;
   description?: string;
@@ -92,7 +98,7 @@ export interface DivisionContent {
   // -- Standards by body (tabbed or grouped) ---------------------------------
   standardsByBody?: StandardsBody[];
   // -- Size and pressure summary ---------------------------------------------
-  sizeRange?: string;
+  sizeRange?: string | SizeRangeItem[];
   pressureClasses?: string[];
   // -- Testing and inspection ------------------------------------------------
   testingMethods?: TestingMethod[];
@@ -194,7 +200,10 @@ export const flangesContent: DivisionContent = {
     }
   ],
 
-  sizeRange: "Forged Flanges: ½\" to 60\" | Plate Flanges: Up to 120\" (Custom Sizes Available)",
+  sizeRange: [
+    { label: "Forged Flanges", value: "½\" to 60\"" },
+    { label: "Plate Flanges", value: "Up to 120\"", customNote: true }
+  ],
 
   pressureClasses: [
     "150", "300", "400", "600", "900", "1500", "2500",
