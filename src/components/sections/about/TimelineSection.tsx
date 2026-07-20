@@ -4,7 +4,7 @@ import { SectionHeading } from "../../ui/SectionHeading";
 import { legacyTimeline } from "../../../data/company";
 
 const StarryBackground = ({ scrollYProgress }: { scrollYProgress: any }) => {
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-30%", "60%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-30%", "90%"]);
   const bgYHalf = useTransform(scrollYProgress, [0, 1], ["-15%", "20%"]); // Half speed for extra depth
 
   const { movingStars, slowMovingStars, staticStars } = useMemo(() => {
@@ -13,16 +13,16 @@ const StarryBackground = ({ scrollYProgress }: { scrollYProgress: any }) => {
         id: i,
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * (topRange[1] - topRange[0]) + topRange[0]}%`,
-        size: Math.random() * 4 + 1 + "px",
+        size: Math.random() * 2 + 1 + "px",
         opacity: Math.random() * 0.5 + 0.2,
         animationDuration: `${Math.random() * 7 + 2}s`,
         animationDelay: `${Math.random() * 0.5}s`
       }));
 
     return {
-      movingStars: generateStars(200, [-50, 150]),
-      slowMovingStars: generateStars(150, [-25, 125]),
-      staticStars: generateStars(150, [0, 100])
+      movingStars: generateStars(150, [-50, 150]),
+      slowMovingStars: generateStars(250, [-25, 125]),
+      staticStars: generateStars(250, [0, 100])
     };
   }, []);
 
@@ -39,7 +39,7 @@ const StarryBackground = ({ scrollYProgress }: { scrollYProgress: any }) => {
               top: star.top,
               width: star.size,
               height: star.size,
-              opacity: star.opacity * 0.6,
+              opacity: star.opacity * 0.9,
               animationDuration: star.animationDuration,
               animationDelay: star.animationDelay,
             }}
