@@ -124,7 +124,7 @@ export const fittings: Product[] = [
       { label: "Testing", value: "PMI, Hydro Test, UT, RT, PT, Mechanical Testing, Hardness, IGC, Ferrite" },
     ],
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-90deg-long-radius-elbow.webp",
+    image: "products/fittings/90-degree-long-radius-elbow.webp",
     metaTitle: "90 Degree Long Radius Elbow | Buttweld Fittings | Prayag Steel",
     metaDescription:
       "90 Degree LR Elbows in SS, Duplex, Super Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", SCH 5S–XXS. ASME B16.9. Seamless, welded & fabricated. Prayag Steel India.",
@@ -154,7 +154,7 @@ export const fittings: Product[] = [
       { label: "Testing", value: "PMI, Hydro Test, UT, RT, PT, Mechanical Testing, Hardness, IGC, Ferrite" },
     ],
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-45deg-long-radius-elbow.webp",
+    image: "products/fittings/45-degree-long-radius-elbow.webp",
     metaTitle: "45 Degree Long Radius Elbow | Buttweld Fittings | Prayag Steel",
     metaDescription:
       "45 Degree LR Elbows in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", SCH 5S–XXS. ASME B16.9. Seamless & welded construction. Prayag Steel India.",
@@ -184,7 +184,7 @@ export const fittings: Product[] = [
       { label: "Testing", value: "PMI, Hydro Test, UT, RT, PT, Mechanical Testing, Hardness, IGC, Ferrite" },
     ],
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-180deg-return-bend.webp",
+    image: "products/fittings/180-degree-return-bend.webp",
     metaTitle: "180 Degree Return Bend | Buttweld Fittings | Prayag Steel",
     metaDescription:
       "180 Degree Return Bends in SS, Duplex, Inconel, Hastelloy. LR & SR configurations. 1/2\"–24\", ASME B16.9. Heat exchangers, coil assemblies. Prayag Steel India.",
@@ -211,7 +211,7 @@ export const fittings: Product[] = [
       { label: "Radius", value: "Short Radius (1D)" },
     ],
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-short-radius-elbow.webp",
+    image: "products/fittings/short-radius-elbow.webp",
     metaTitle: "Short Radius Elbow | Buttweld Fittings | Prayag Steel",
     metaDescription:
       "Short Radius Elbows in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", SCH 5S–XXS. ASME B16.28. Compact piping layouts. Prayag Steel India.",
@@ -235,7 +235,7 @@ export const fittings: Product[] = [
       { label: "Applications", value: "Chemical Plants, Power Plants, Oil & Gas, Water Treatment" },
     ],
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-equal-tee.webp",
+    image: "products/fittings/equal-tee.webp",
     metaTitle: "Equal Tee | Buttweld Fittings | Prayag Steel",
     metaDescription:
       "Equal Tees in SS, Duplex, Super Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Chemical, power, oil & gas, water treatment. Prayag Steel India.",
@@ -256,7 +256,7 @@ export const fittings: Product[] = [
     standards: FITTINGS_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-reducing-tee.webp",
+    image: "products/fittings/reducing-tee.webp",
     metaTitle: "Reducing Tee | Buttweld Fittings | Prayag Steel",
     metaDescription:
       "Reducing Tees in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Seamless, welded & fabricated. Pipeline branch connections. Prayag Steel India.",
@@ -277,7 +277,7 @@ export const fittings: Product[] = [
     standards: FITTINGS_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-concentric-reducer.webp",
+    image: "products/fittings/concentric-reducer.webp",
     metaTitle: "Concentric Reducer | Buttweld Fittings | Prayag Steel",
     metaDescription:
       "Concentric Reducers in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Seamless, welded & fabricated. Centreline-maintained transitions. Prayag Steel.",
@@ -298,7 +298,7 @@ export const fittings: Product[] = [
     standards: FITTINGS_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-eccentric-reducer.webp",
+    image: "products/fittings/eccentric-reducer.webp",
     metaTitle: "Eccentric Reducer | Buttweld Fittings | Prayag Steel",
     metaDescription:
       "Eccentric Reducers in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Prevents air entrapment. Horizontal pump suction lines. Prayag Steel.",
@@ -390,7 +390,7 @@ export const fittings: Product[] = [
     standards: FITTINGS_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-cross.webp",
+    image: "products/fittings/cross-fitting.webp",
     metaTitle: "Cross Fitting | Buttweld Fittings | Prayag Steel",
     metaDescription:
       "Cross Fittings in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Four-way pipeline junction. Seamless, welded & fabricated. Prayag Steel India.",
@@ -438,7 +438,7 @@ export const fittings: Product[] = [
       { label: "Available In", value: "3D, 5D, 8D, 10D Radius Configurations" },
     ],
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-pipe-bend.webp",
+    image: "products/fittings/pipe-bend.webp",
     metaTitle: "Pipe Bend | Buttweld Fittings | Prayag Steel",
     metaDescription:
       "Pipe Bends (3D, 5D, 8D, 10D) in SS, Duplex, Inconel, Hastelloy. 1/2\"–48\", ASME B16.9. Ultra-low pressure drop. Induction & cold-formed. Prayag Steel India.",
@@ -459,7 +459,7 @@ export const fittings: Product[] = [
     standards: FITTINGS_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-miter-bend.webp",
+    image: "products/fittings/miter-bend.webp",
     metaTitle: "Miter Bend | Custom Fabricated Fittings | Prayag Steel",
     metaDescription:
       "Miter Bends fabricated to customer drawings in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\". Project-specific engineering. Prayag Steel India.",
@@ -480,7 +480,7 @@ export const fittings: Product[] = [
     standards: FITTINGS_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-barred-tee.webp",
+    image: "products/fittings/barred-tee.webp",
     metaTitle: "Barred Tee | Custom Fabricated Fittings | Prayag Steel",
     metaDescription:
       "Barred Tees for piggable pipelines in SS, Duplex, Inconel, Hastelloy. 1/2\"–48\". Customer drawing-based fabrication. Oil & gas, water, process pipelines. Prayag Steel.",
@@ -505,7 +505,7 @@ export const fittings: Product[] = [
       { label: "Size Range", value: "Available on Request" },
     ],
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-swage-nipple.webp",
+    image: "products/fittings/swage-nipple.webp",
     metaTitle: "Swage Nipple | Fittings | Prayag Steel",
     metaDescription:
       "Swage Nipples (concentric & eccentric) in SS, Duplex, Inconel, Hastelloy, Titanium. Small-bore diameter transitions. Instrumentation, branch connections. Prayag Steel.",
@@ -530,7 +530,7 @@ export const fittings: Product[] = [
       { label: "Size Range", value: "Available on Request" },
     ],
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-pipe-nipple.webp",
+    image: "products/fittings/pipe-nipple.webp",
     metaTitle: "Pipe Nipple | Fittings | Prayag Steel",
     metaDescription:
       "Pipe Nipples (threaded, plain end, welded) in SS, Duplex, Inconel, Hastelloy, Titanium. Compact assembly connectors. Instrumentation & process piping. Prayag Steel.",
@@ -555,7 +555,7 @@ export const fittings: Product[] = [
       { label: "Size Range", value: "Available on Request" },
     ],
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-reducer-insert.webp",
+    image: "products/fittings/reducer-insert.webp",
     metaTitle: "Reducer Insert | Fittings | Prayag Steel",
     metaDescription:
       "Reducer Inserts (SW & threaded) in SS, Duplex, Inconel, Hastelloy. In-fitting bore reduction for small-bore piping. Space-efficient diameter transitions. Prayag Steel.",
@@ -576,7 +576,7 @@ export const fittings: Product[] = [
     standards: FITTINGS_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-header-assembly.webp",
+    image: "products/fittings/header-assembly.webp",
     metaTitle: "Header Assembly | Custom Fabricated Fittings | Prayag Steel",
     metaDescription:
       "Header Assemblies fabricated to customer drawings in SS, Duplex, Inconel, Hastelloy, Titanium. Flow distribution manifolds. Chemical, power, oil & gas. Prayag Steel.",
@@ -597,7 +597,7 @@ export const fittings: Product[] = [
     standards: FITTINGS_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
-    image: "products/fittings/buttweld-fitting-transition-piece.webp",
+    image: "products/fittings/transition-piece.webp",
     metaTitle: "Transition Piece | Custom Fabricated Fittings | Prayag Steel",
     metaDescription:
       "Transition Pieces fabricated to customer drawings in SS, Duplex, Inconel, Hastelloy, Titanium. Custom geometry changes. Ductwork, pressure vessels, process piping. Prayag Steel.",
