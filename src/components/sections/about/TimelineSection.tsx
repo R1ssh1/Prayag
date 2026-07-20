@@ -5,8 +5,9 @@ import { legacyTimeline } from "../../../data/company";
 
 const StarryBackground = ({ scrollYProgress }: { scrollYProgress: any }) => {
   const bgY = useTransform(scrollYProgress, [0, 1], ["-30%", "60%"]);
+  const bgYHalf = useTransform(scrollYProgress, [0, 1], ["-15%", "20%"]); // Half speed for extra depth
 
-  const { movingStars, staticStars } = useMemo(() => {
+  const { movingStars, slowMovingStars, staticStars } = useMemo(() => {
     const generateStars = (count: number, topRange: [number, number]) =>
       Array.from({ length: count }).map((_, i) => ({
         id: i,
@@ -19,8 +20,9 @@ const StarryBackground = ({ scrollYProgress }: { scrollYProgress: any }) => {
       }));
 
     return {
-      movingStars: generateStars(300, [-50, 150]),
-      staticStars: generateStars(200, [0, 100])
+      movingStars: generateStars(200, [-50, 150]),
+      slowMovingStars: generateStars(150, [-25, 125]),
+      staticStars: generateStars(150, [0, 100])
     };
   }, []);
 
@@ -45,7 +47,29 @@ const StarryBackground = ({ scrollYProgress }: { scrollYProgress: any }) => {
         ))}
       </div>
 
-      {/* Moving Stars */}
+      {/* Slow Moving Stars (Half Speed) */}
+      <motion.div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{ y: bgYHalf }}
+      >
+        {slowMovingStars.map((star) => (
+          <div
+            key={`slow-${star.id}`}
+            className="absolute rounded-full bg-white/70 animate-pulse"
+            style={{
+              left: star.left,
+              top: star.top,
+              width: star.size,
+              height: star.size,
+              opacity: star.opacity * 0.8,
+              animationDuration: star.animationDuration,
+              animationDelay: star.animationDelay,
+            }}
+          />
+        ))}
+      </motion.div>
+
+      {/* Fast Moving Stars */}
       <motion.div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{ y: bgY }}
