@@ -6,15 +6,49 @@ import { getProductBySlug, getProductsByDivision } from "../../data/products";
 import { ImagePlaceholder } from "../../components/ui/ImagePlaceholder";
 import { CatalogueDownloadButton } from "../../components/ui/CatalogueDownloadButton";
 import { divisions } from "../../data/company";
-import type { Division } from "../../data/products/types";
+import type { Division, MaterialFamily } from "../../data/products/types";
 
-// ── TOC sections — fixed for all pipe product detail pages ───────────────────
-const TOC_SECTIONS = [
-  { id: "overview", label: "Overview" },
-  { id: "specifications", label: "Specifications" },
-  { id: "standards", label: "Standards & Compliance" },
-  { id: "enquire", label: "Enquire" },
-];
+// ── TOC sections — computed per product based on available data ───────────────
+function buildTocSections(hasMaterialsTable: boolean) {
+  const sections = [
+    { id: "overview", label: "Overview" },
+    { id: "specifications", label: "Specifications" },
+  ];
+  if (hasMaterialsTable) {
+    sections.push({ id: "available-materials", label: "Available Materials" });
+  }
+  sections.push(
+    { id: "standards", label: "Standards & Compliance" },
+    { id: "enquire", label: "Enquire" }
+  );
+  return sections;
+}
+
+// ── Available Materials card ──────────────────────────────────────────────────
+function MaterialFamilyCard({ family }: { family: MaterialFamily }) {
+  return (
+    <div className="rounded-xl border border-gray-100 bg-white shadow-sm overflow-hidden">
+      <div className="px-4 py-3 border-b border-gray-100 bg-gray-50">
+        <p className="font-body font-bold text-xs uppercase tracking-[0.18em] text-prayag-black leading-snug">
+          {family.family}
+        </p>
+        <p className="font-body text-[11px] text-gray-400 mt-0.5 leading-snug">
+          {family.standard}
+        </p>
+      </div>
+      <div className="px-4 py-3 flex flex-wrap gap-1.5">
+        {family.grades.map((grade) => (
+          <span
+            key={grade}
+            className="inline-block px-2.5 py-1 rounded-full bg-prayag-red/5 border border-prayag-red/15 text-prayag-red font-body text-xs font-medium leading-snug"
+          >
+            {grade}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export const ProductDetailPage: React.FC = () => {
   const { division, slug } = useParams<{ division: string; slug: string }>();
@@ -66,14 +100,25 @@ export const ProductDetailPage: React.FC = () => {
   // ── Sidebar data ────────────────────────────────────────────────────────────
   const allDivisionProducts = getProductsByDivision(div);
 
-  // Same-subcategory: if subcategory is defined, filter by it; otherwise show all in division
-  const sameCategoryProducts = product.subcategory
+  // Same-subcategory: filter by subcategory if defined.
+  // FALLBACK: if the subcategory group only contains the current product (e.g.
+  // fittings/flanges where each type is its own unique subcategory), fall back
+  // to showing ALL products in the division — so the sidebar is always useful.
+  const sameSubcategoryProducts = product.subcategory
     ? allDivisionProducts.filter((p) => p.subcategory === product.subcategory)
     : allDivisionProducts;
 
-  const sameCategoryLabel = product.subcategory
-    ? `Other ${product.subcategory} ${divisionTitle}`
-    : `Other ${divisionTitle}`;
+  const sameCategoryProducts =
+    sameSubcategoryProducts.length > 1
+      ? sameSubcategoryProducts
+      : allDivisionProducts;
+
+  const sameCategoryLabel =
+    sameSubcategoryProducts.length > 1 && product.subcategory
+      ? `Other ${product.subcategory} ${divisionTitle}`
+      : `Other ${divisionTitle}`;
+
+  const tocSections = buildTocSections(!!product.materialsTable);
 
   return (
     <>
@@ -155,7 +200,7 @@ export const ProductDetailPage: React.FC = () => {
                 On This Page
               </p>
               <ol className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4">
-                {TOC_SECTIONS.map((section, i) => (
+                {tocSections.map((section, i) => (
                   <li key={section.id}>
                     <button
                       onClick={() => scrollToSection(section.id)}
@@ -238,6 +283,29 @@ export const ProductDetailPage: React.FC = () => {
                 <p className="text-gray-400 font-body text-sm">No specifications listed.</p>
               )}
             </section>
+
+            {/* ── § Available Materials (type-first divisions only) ────────── */}
+            {product.materialsTable && product.materialsTable.length > 0 && (
+              <section id="available-materials" className="mb-14 scroll-mt-24">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
+                  <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                    Available Materials
+                  </span>
+                </div>
+                <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-2">
+                  Available Materials
+                </h2>
+                <p className="text-gray-500 font-body text-sm leading-relaxed mb-6">
+                  This product is available in the following material families and grades. Enquire for current stock availability and lead times.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+                  {product.materialsTable.map((family) => (
+                    <MaterialFamilyCard key={family.family} family={family} />
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* ── § Standards & Compliance ───────────────────────────────── */}
             <section id="standards" className="mb-14 scroll-mt-24">

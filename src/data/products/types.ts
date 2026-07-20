@@ -13,6 +13,17 @@ export interface ProductSpec {
   value: string;
 }
 
+/**
+ * A single row in the shared cross-cutting materials table used by
+ * type-first divisions (fittings, flanges). Each entry represents one
+ * alloy family with its governing standard and available grades.
+ */
+export interface MaterialFamily {
+  family: string;
+  standard: string;
+  grades: string[];
+}
+
 export interface Product {
   /** Stable unique ID — never reused even if the product is renamed */
   id: string;
@@ -40,6 +51,11 @@ export interface Product {
   standards: string[];
   /** Free-form spec table rendered on the detail page */
   specs: ProductSpec[];
+  /** Shared cross-cutting materials table for type-first divisions
+   *  (fittings, flanges). Reference the same exported constant array
+   *  across every product in that division — do not duplicate by value.
+   *  Leave undefined for material-first divisions (pipes, tubes). */
+  materialsTable?: MaterialFamily[];
   /** Path string only — e.g. "products/flanges/weld-neck-raised-face-wnrf.webp"
    *  Never a static import. Resolved at render time via getProductImage(). */
   image: string;

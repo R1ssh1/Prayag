@@ -5,7 +5,7 @@ import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import { CatalogueDownloadButton } from "../ui/CatalogueDownloadButton";
 import logoLight from "../../assets/images/logo/logo.webp";
 import { divisions } from "../../data/company";
-import { getProductsByDivision } from "../../data/products";
+import { getProductsByDivision, buildSubcategoryGroups } from "../../data/products";
 import type { Division } from "../../data/products/types";
 
 interface NavItem {
@@ -163,7 +163,9 @@ export const Navbar: React.FC = () => {
                       >
                         <div className="grid grid-cols-4 gap-6 p-6">
                           {divisions.map((div) => {
-                            const divProducts = getProductsByDivision(div.id as Division).slice(0, 5);
+                            const allDivProducts = getProductsByDivision(div.id as Division);
+                            const categoryGroups = buildSubcategoryGroups(allDivProducts, div.name).slice(0, 5);
+                            
                             return (
                               <div key={div.id} className="flex flex-col">
                                 <Link 
@@ -179,14 +181,14 @@ export const Navbar: React.FC = () => {
                                   </h3>
                                 </Link>
                                 <ul className="flex flex-col space-y-2.5 mb-4 flex-1">
-                                  {divProducts.map(p => (
-                                    <li key={p.id}>
+                                  {categoryGroups.map(group => (
+                                    <li key={group.id}>
                                       <Link 
-                                        to={`/products/${div.slug}/${p.slug}`}
+                                        to={`/products/${div.slug}#${group.id}`}
                                         className="text-[13px] font-body text-gray-500 hover:text-prayag-red transition-colors line-clamp-2 leading-snug"
-                                        onClick={() => handleNavClick(`/products/${div.slug}/${p.slug}`)}
+                                        onClick={() => handleNavClick(`/products/${div.slug}#${group.id}`)}
                                       >
-                                        {p.name}
+                                        {group.label}
                                       </Link>
                                     </li>
                                   ))}

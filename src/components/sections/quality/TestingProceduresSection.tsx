@@ -154,15 +154,20 @@ export const TestingProceduresSection: React.FC = () => {
         </div>
 
         {/* QC note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center text-gray-400 font-body text-sm italic"
-        >
-          ✓ {qualityPolicy.qcNote}
-        </motion.p>
+        <div className="text-center mt-12">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-prayag-red/10 border border-prayag-red/20 text-prayag-red font-body text-sm font-semibold"
+          >
+            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-prayag-red text-white text-xs flex-shrink-0">
+              ✓
+            </span>
+            {qualityPolicy.qcNote}
+          </motion.div>
+        </div>
 
       </div>
     </section>

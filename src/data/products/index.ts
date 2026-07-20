@@ -23,6 +23,27 @@ export function getProductBySlug(division: Division, slug: string): Product | un
   return allProducts.find((p) => p.division === division && p.slug === slug);
 }
 
+/** Group products by their subcategory */
+export function buildSubcategoryGroups(
+  products: Product[],
+  fallbackLabel: string
+): Array<{ label: string; products: Product[]; id: string }> {
+  const map = new Map<string, Product[]>();
+  for (const p of products) {
+    const key = p.subcategory ?? fallbackLabel;
+    if (!map.has(key)) map.set(key, []);
+    map.get(key)!.push(p);
+  }
+  return [...map.entries()]
+    .sort(([, a], [, b]) => b.length - a.length)
+    .map(([label, products]) => ({
+      label,
+      products,
+      // slug-safe id for anchor links
+      id: label.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+    }));
+}
+
 /** Get all products for a specific division */
 export function getProductsByDivision(division: Division): Product[] {
   return allProducts.filter((p) => p.division === division);
