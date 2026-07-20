@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { SectionHeading } from "../../ui/SectionHeading";
 import { legacyTimeline } from "../../../data/company";
@@ -6,44 +6,81 @@ import { legacyTimeline } from "../../../data/company";
 const StarryBackground = ({ scrollYProgress }: { scrollYProgress: any }) => {
   const bgY = useTransform(scrollYProgress, [0, 1], ["-30%", "60%"]);
 
-  const stars = useMemo(() => {
-    return Array.from({ length: 300 }).map((_, i) => ({
-      id: i,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 200 - 50}%`,
-      size: Math.random() * 5 + 1 + "px",
-      opacity: Math.random() * 0.5 + 0.3,
-      animationDuration: `${Math.random() * 7 + 2}s`,
-      animationDelay: `${Math.random() * 0.5}s`
-    }));
+  const { movingStars, staticStars } = useMemo(() => {
+    const generateStars = (count: number, topRange: [number, number]) =>
+      Array.from({ length: count }).map((_, i) => ({
+        id: i,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * (topRange[1] - topRange[0]) + topRange[0]}%`,
+        size: Math.random() * 4 + 1 + "px",
+        opacity: Math.random() * 0.5 + 0.2,
+        animationDuration: `${Math.random() * 7 + 2}s`,
+        animationDelay: `${Math.random() * 0.5}s`
+      }));
+
+    return {
+      movingStars: generateStars(300, [-50, 150]),
+      staticStars: generateStars(200, [0, 100])
+    };
   }, []);
 
   return (
-    <motion.div
-      className="absolute inset-0 z-0 pointer-events-none"
-      style={{ y: bgY }}
-    >
-      {stars.map((star) => (
-        <div
-          key={star.id}
-          className="absolute rounded-full bg-white/80 animate-pulse"
-          style={{
-            left: star.left,
-            top: star.top,
-            width: star.size,
-            height: star.size,
-            opacity: star.opacity,
-            animationDuration: star.animationDuration,
-            animationDelay: star.animationDelay,
-          }}
-        />
-      ))}
-    </motion.div>
+    <>
+      {/* Static Stars */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {staticStars.map((star) => (
+          <div
+            key={`static-${star.id}`}
+            className="absolute rounded-full bg-white/60 animate-pulse"
+            style={{
+              left: star.left,
+              top: star.top,
+              width: star.size,
+              height: star.size,
+              opacity: star.opacity * 0.6,
+              animationDuration: star.animationDuration,
+              animationDelay: star.animationDelay,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Moving Stars */}
+      <motion.div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{ y: bgY }}
+      >
+        {movingStars.map((star) => (
+          <div
+            key={`moving-${star.id}`}
+            className="absolute rounded-full bg-white/90 animate-pulse"
+            style={{
+              left: star.left,
+              top: star.top,
+              width: star.size,
+              height: star.size,
+              opacity: star.opacity,
+              animationDuration: star.animationDuration,
+              animationDelay: star.animationDelay,
+            }}
+          />
+        ))}
+      </motion.div>
+    </>
   );
 };
 
 export const TimelineSection: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -51,48 +88,57 @@ export const TimelineSection: React.FC = () => {
 
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 50, damping: 20 });
 
-  const earthY = useTransform(smoothProgress, [0, 1], ["-10%", "30%"]);
   const earthRotate = useTransform(smoothProgress, [0, 1], [0, 180]);
 
-  const moonY = useTransform(smoothProgress, [0, 1], ["10%", "-20%"]);
   const moonRotate = useTransform(smoothProgress, [0, 1], [-10, 40]);
 
-  const rocketTop = useTransform(smoothProgress, [0, 1], ["3%", "90%"]);
-  const rocketLeft = useTransform(smoothProgress, [0, 1], ["1%", "85%"]);
+  const rocketTop = useTransform(smoothProgress, [0, 0.4, 0.8, 1], ["85%", "55%", "25%", "5%"]);
+  const rocketLeft = useTransform(smoothProgress, [0, 0.4, 0.8, 1], ["5%", "35%", "65%", "85%"]);
+  const rocketScale = useTransform(smoothProgress, [0, 0.5, 1], [0.3, 0.8, 1.5]);
+
+  const rocketRotateDesktop = useTransform(smoothProgress, [0, 1], [40, 85]);
+  const rocketRotateMobile = useTransform(smoothProgress, [0, 1], [-10, 65]); // Mobile-specific rotation
+
+  const rocketRotate = isMobile ? rocketRotateMobile : rocketRotateDesktop;
 
   return (
     <section
       id="legacy"
       ref={containerRef}
-      className="bg-prayag-black py-24 lg:py-36 relative overflow-hidden overflow-x-hidden"
+      className="bg-prayag-black py-24 lg:py-36 relative overflow-clip overflow-x-clip"
       aria-label="The Steel Legacy — Company Timeline"
     >
-      {/* Background Starfield */}
-      <StarryBackground scrollYProgress={smoothProgress} />
+      {/* Sticky Background Container */}
+      <div className="absolute inset-0 z-0">
+        <div className="sticky top-0 h-screen w-full overflow-hidden">
+          {/* Background Starfield */}
+          <StarryBackground scrollYProgress={smoothProgress} />
 
-      {/* Earth Parallax */}
-      <motion.div
-        className="absolute top-[0%] -left-[20%] w-[350px] h-[350px] md:w-[600px] md:h-[600px] md:-left-[10%] opacity-40 z-0 pointer-events-none"
-        style={{ y: earthY, rotate: earthRotate }}
-      >
-        <img src="/assets/images/about/earth.webp" alt="" className="w-full h-full object-contain" />
-      </motion.div>
+          {/* Earth Parallax */}
+          <motion.div
+            className="absolute -bottom-[12%] -left-[25%] lg:-bottom-[35%] lg:-left-[15%] w-[380px] h-[380px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px] opacity-40 md:opacity-50 z-0 pointer-events-none"
+            style={{ rotate: earthRotate }}
+          >
+            <img src="/assets/images/about/earth.webp" alt="" className="w-full h-full object-contain" />
+          </motion.div>
 
-      {/* Moon Parallax */}
-      <motion.div
-        className="absolute bottom-[5%] -right-[15%] w-[250px] h-[250px] md:w-[450px] md:h-[450px] md:-right-[5%] opacity-50 z-0 pointer-events-none"
-        style={{ y: moonY, rotate: moonRotate }}
-      >
-        <img src="/assets/images/about/moon.png" alt="" className="w-full h-full object-contain" />
-      </motion.div>
+          {/* Moon Parallax */}
+          <motion.div
+            className="absolute top-[-4%] -right-[25%] lg:-top-[15%] lg:-right-[12%] w-[280px] h-[280px] md:w-[300px] md:h-[300px] lg:w-[450px] lg:h-[450px] opacity-50 md:opacity-60 z-0 pointer-events-none"
+            style={{ rotate: moonRotate }}
+          >
+            <img src="/assets/images/about/moon.png" alt="" className="w-full h-full object-contain" />
+          </motion.div>
 
-      {/* Rocket Parallax */}
-      <motion.div
-        className="absolute w-[180px] md:w-[350px] opacity-50 z-0 pointer-events-none"
-        style={{ top: rocketTop, left: rocketLeft }}
-      >
-        <img src="/assets/images/about/rocket.png" alt="" className="w-full h-auto object-contain rotate-[157deg] md:rotate-[140deg] drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
-      </motion.div>
+          {/* Rocket Parallax */}
+          <motion.div
+            className="absolute w-[180px] md:w-[180px] lg:w-[250px] opacity-90 z-0 pointer-events-none drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+            style={{ top: rocketTop, left: rocketLeft, scale: rocketScale, rotate: rocketRotate }}
+          >
+            <img src="/assets/images/about/rocket.png" alt="" className="w-full h-auto object-contain" />
+          </motion.div>
+        </div>
+      </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
