@@ -140,7 +140,7 @@ export const TimelineSection: React.FC = () => {
 
           {/* Earth Parallax */}
           <motion.div
-            className="absolute -bottom-[12%] -left-[25%] lg:-bottom-[35%] lg:-left-[15%] w-[380px] h-[380px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px] opacity-40 md:opacity-50 z-0 pointer-events-none"
+            className="absolute -bottom-[12%] -left-[25%] lg:-bottom-[35%] lg:-left-[15%] w-[380px] h-[380px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px] opacity-70 md:opacity-80 z-0 pointer-events-none"
             style={{ rotate: earthRotate }}
           >
             <img src="/assets/images/about/earth.webp" alt="" className="w-full h-full object-contain" />
