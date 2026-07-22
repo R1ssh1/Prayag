@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, ChevronUp, FileDown, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronUp, CheckCircle2 } from "lucide-react";
 import { PageMeta } from "../../seo/PageMeta";
 import { BreadcrumbSchema } from "../../seo/StructuredData";
 import { SectionHeading } from "../../components/ui/SectionHeading";
@@ -147,6 +147,8 @@ export const DivisionPage: React.FC = () => {
             src={heroImageSrc}
             alt=""
             className="w-full h-full object-cover opacity-20"
+            fetchPriority="high"
+            loading="eager"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = "none";
             }}
@@ -253,6 +255,8 @@ export const DivisionPage: React.FC = () => {
                   src={heroImageSrc}
                   alt={`${divisionTitle} division`}
                   className="w-full aspect-[4/3] object-cover"
+                  fetchPriority="high"
+                  loading="eager"
                   onError={(e) => {
                     const parent = (e.target as HTMLImageElement).parentElement;
                     if (parent) {
@@ -507,38 +511,6 @@ export const DivisionPage: React.FC = () => {
         </section>
       )}
 
-      {/* ── Downloads ──────────────────────────────────────────────────── */}
-      {content?.downloads && content.downloads.length > 0 && (
-        <section className="bg-white py-16 lg:py-20" aria-label="Downloads">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
-              <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">Downloads</span>
-            </div>
-            <SectionHeading text="Downloads" as="h2" className="mb-8" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {content.downloads.map((dl) => (
-                <a
-                  key={dl.label}
-                  href={dl.href}
-                  className="flex items-start gap-4 rounded-xl border border-gray-100 bg-off-white p-5 hover:border-prayag-red/30 hover:bg-prayag-red/5 transition-colors group"
-                >
-                  <FileDown className="w-8 h-8 text-prayag-red flex-shrink-0 mt-0.5" aria-hidden="true" />
-                  <div className="min-w-0">
-                    <p className="font-body font-bold text-sm text-prayag-black group-hover:text-prayag-red transition-colors leading-snug">{dl.label}</p>
-                    {dl.description && (
-                      <p className="font-body text-xs text-gray-500 mt-1 leading-relaxed">{dl.description}</p>
-                    )}
-                    {dl.fileType && (
-                      <span className="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-prayag-red/10 text-prayag-red">{dl.fileType}</span>
-                    )}
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ── FAQs ───────────────────────────────────────────────────────── */}
       {content?.faqs && content.faqs.length > 0 && (

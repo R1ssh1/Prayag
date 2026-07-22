@@ -7,6 +7,8 @@ interface ProductImageProps {
   alt: string;
   className?: string;
   aspectRatio?: "square" | "video" | "portrait" | "banner" | "wide" | "hero";
+  /** If true, loads with high priority. False by default. */
+  priority?: boolean;
 }
 
 /**
@@ -50,6 +52,7 @@ export const ProductImage: React.FC<ProductImageProps> = ({
   alt,
   className = "",
   aspectRatio = "video",
+  priority = false,
 }) => {
   const src = useProductImage(path);
 
@@ -59,8 +62,9 @@ export const ProductImage: React.FC<ProductImageProps> = ({
         src={src}
         alt={alt}
         className={`object-cover w-full h-full ${className}`}
-        loading="lazy"
-        decoding="async"
+        loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        fetchPriority={priority ? "high" : "auto"}
       />
     );
   }
@@ -71,6 +75,7 @@ export const ProductImage: React.FC<ProductImageProps> = ({
       label={alt}
       aspectRatio={aspectRatio}
       className={className}
+      priority={priority}
     />
   );
 };

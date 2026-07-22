@@ -175,11 +175,11 @@ export const HeroSection: React.FC = () => (
       >
         {/* Main image */}
         <div className="w-[75%] rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/10 relative z-10 pointer-events-auto hover:-translate-y-2 transition-transform duration-500">
-          <img src="/assets/images/pages/hero-big.webp" alt="Manufacturing Flanges" className="w-full h-auto object-cover aspect-[4/3]" />
+          <img src="/assets/images/pages/hero-big.webp" alt="Manufacturing Flanges" className="w-full h-auto object-cover aspect-[4/3]" fetchPriority="high" loading="eager" />
         </div>
         {/* Overlapping smaller image */}
         <div className="w-[45%] absolute -top-28 -right-4 lg:-right-8 xl:-right-12 rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-prayag-red/40 z-20 pointer-events-auto hover:-translate-y-2 transition-transform duration-500">
-          <img src="/assets/images/pages/hero-small.webp" alt="Steel Pipes" className="w-full h-auto object-cover object-top aspect-square" />
+          <img src="/assets/images/pages/hero-small.webp" alt="Steel Pipes" className="w-full h-auto object-cover object-top aspect-square" fetchPriority="high" loading="eager" />
         </div>
       </motion.div>
 

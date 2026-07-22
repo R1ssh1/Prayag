@@ -5,9 +5,11 @@ interface ImagePlaceholderProps {
   path: string;
   /** Human-readable description of what goes here */
   label?: string;
-  /** Aspect ratio class: "square" | "video" | "portrait" | "banner" | "wide" */
+  /** Aspect ratio class: "square" | "video" | "portrait" | "banner" | "wide" | "hero" */
   aspectRatio?: "square" | "video" | "portrait" | "banner" | "wide" | "hero";
   className?: string;
+  /** If true, the image is loaded immediately with high priority (use for above-the-fold heroes) */
+  priority?: boolean;
 }
 
 const aspectClasses: Record<string, string> = {
@@ -29,6 +31,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   label,
   aspectRatio = "video",
   className = "",
+  priority = false,
 }) => {
   const ar = aspectClasses[aspectRatio] ?? "aspect-video";
   const [error, setError] = useState(false);
@@ -41,6 +44,9 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
         alt={label || "Product image"}
         className={`${ar} ${className}`}
         onError={() => setError(true)}
+        loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        fetchPriority={priority ? "high" : "auto"}
       />
     );
   }
