@@ -67,13 +67,13 @@ export const AboutHeroSection: React.FC = () => (
           className="font-heading font-black uppercase leading-[0.9] tracking-tight text-white mb-6"
         >
           <span className="block text-4xl sm:text-5xl lg:text-7xl">
-            Steel Is Strong —
+            Growth Without Quality
           </span>
           <span className="block text-3xl sm:text-4xl lg:text-6xl mt-2 text-gray-400">
-            But Our Commitment Is
+            Is Simply
           </span>
           <span className="block text-5xl sm:text-6xl lg:text-8xl mt-1 text-prayag-red">
-            Stronger.
+            Noise.
           </span>
         </motion.h1>
 
