@@ -17,8 +17,8 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "HOME", to: "/" },
-  { 
-    label: "ABOUT US", 
+  {
+    label: "ABOUT US",
     to: "/about",
     children: [
       { label: "Our Journey", to: "/about#journey" },
@@ -39,6 +39,7 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "CERTIFICATES", to: "/certificates" },
+  { label: "BLOGS", to: "/blogs" },
   { label: "CONTACT US", to: "/contact" },
 ];
 
@@ -91,7 +92,7 @@ export const Navbar: React.FC = () => {
   };
 
   const activeLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `font-body font-semibold tracking-wide text-base transition-colors duration-200 ${isActive
+    `font-body font-semibold tracking-normal text-[15px] transition-colors duration-200 ${isActive
       ? "text-prayag-red"
       : "text-gray-800 hover:text-prayag-red"
     }`;
@@ -108,155 +109,159 @@ export const Navbar: React.FC = () => {
           aria-label="Main navigation"
         >
           {/* Logo */}
-          <Link
-            to="/"
-            onClick={() => handleNavClick("/")}
-            className="flex items-center gap-3 flex-shrink-0"
-            aria-label="Prayag Steel & Engineering Co. — Home"
-          >
-            <img
-              src={logoLight}
-              alt="Prayag Steel & Engineering Co. Logo"
-              className="h-10 sm:h-12 w-auto object-contain"
-            />
-          </Link>
+          <div className="flex-shrink-0 mr-8 xl:mr-4">
+            <Link
+              to="/"
+              onClick={() => handleNavClick("/")}
+              className="flex items-center gap-3 flex-shrink-0"
+              aria-label="Prayag Steel & Engineering Co. — Home"
+            >
+              <img
+                src={logoLight}
+                alt="Prayag Steel & Engineering Co. Logo"
+                className="h-10 sm:h-12 w-auto object-contain"
+              />
+            </Link>
+          </div>
 
           {/* Desktop nav */}
-          <ul className="hidden lg:flex items-center gap-1 xl:gap-2" role="list">
-            {navItems.map((item) =>
-              item.children ? (
-                // Dropdown menu
-                <li
-                  key={item.to}
-                  className="relative group"
-                  onMouseEnter={() => setActiveDropdown(item.label)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <NavLink
-                    to={item.to}
-                    className={({ isActive }) =>
-                      `flex items-center gap-1 font-body font-semibold tracking-wide text-base transition-colors duration-200 px-2 py-2 rounded-lg ${isActive || activeDropdown === item.label
-                        ? "text-prayag-red bg-red-50"
-                        : "text-gray-800 hover:text-prayag-red hover:bg-red-50"
-                      }`
-                    }
-                    aria-haspopup="true"
-                    aria-expanded={activeDropdown === item.label}
-                    id={`${item.label.toLowerCase().replace(/\s+/g, '-')}-menu-btn`}
-                    onClick={() => handleNavClick(item.to)}
-                    onFocus={() => setActiveDropdown(item.label)}
+          <div className="flex-1 flex justify-center">
+            <ul className="hidden lg:flex items-center gap-0.5" role="list">
+              {navItems.map((item) =>
+                item.children ? (
+                  // Dropdown menu
+                  <li
+                    key={item.to}
+                    className="relative group"
+                    onMouseEnter={() => setActiveDropdown(item.label)}
+                    onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    {item.label}
-                    <ChevronDown className="w-3.5 h-3.5" aria-hidden="true" />
-                  </NavLink>
+                    <NavLink
+                      to={item.to}
+                      className={({ isActive }) =>
+                        `flex items-center gap-1 font-body font-semibold tracking-normal text-[15px] transition-colors duration-200 px-3 py-2 rounded-lg whitespace-nowrap ${isActive || activeDropdown === item.label
+                          ? "text-prayag-red bg-red-50"
+                          : "text-gray-800 hover:text-prayag-red hover:bg-red-50"
+                        }`
+                      }
+                      aria-haspopup="true"
+                      aria-expanded={activeDropdown === item.label}
+                      id={`${item.label.toLowerCase().replace(/\s+/g, '-')}-menu-btn`}
+                      onClick={() => handleNavClick(item.to)}
+                      onFocus={() => setActiveDropdown(item.label)}
+                    >
+                      {item.label}
+                      <ChevronDown className="w-3.5 h-3.5" aria-hidden="true" />
+                    </NavLink>
 
-                  <AnimatePresence>
-                    {activeDropdown === item.label && item.isMegaMenu && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.18 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[800px] bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden"
-                        role="menu"
-                        aria-labelledby={`${item.label.toLowerCase().replace(/\s+/g, '-')}-menu-btn`}
-                      >
-                        <div className="grid grid-cols-4 gap-6 p-6">
-                          {divisions.map((div) => {
-                            const allDivProducts = getProductsByDivision(div.id as Division);
-                            const categoryGroups = buildSubcategoryGroups(allDivProducts, div.name).slice(0, 5);
-                            
+                    <AnimatePresence>
+                      {activeDropdown === item.label && item.isMegaMenu && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.18 }}
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[800px] bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden"
+                          role="menu"
+                          aria-labelledby={`${item.label.toLowerCase().replace(/\s+/g, '-')}-menu-btn`}
+                        >
+                          <div className="grid grid-cols-4 gap-6 p-6">
+                            {divisions.map((div) => {
+                              const allDivProducts = getProductsByDivision(div.id as Division);
+                              const categoryGroups = buildSubcategoryGroups(allDivProducts, div.name).slice(0, 5);
+
+                              return (
+                                <div key={div.id} className="flex flex-col">
+                                  <Link
+                                    to={`/products/${div.slug}`}
+                                    className="flex items-center gap-2 mb-4 group/head"
+                                    onClick={() => handleNavClick(`/products/${div.slug}`)}
+                                  >
+                                    <div className="w-8 h-8 rounded-lg bg-prayag-red/10 flex items-center justify-center text-prayag-red font-heading font-black transition-colors group-hover/head:bg-prayag-red group-hover/head:text-white">
+                                      {div.name[0]}
+                                    </div>
+                                    <h3 className="font-heading font-black uppercase text-prayag-black text-[15px] transition-colors group-hover/head:text-prayag-red">
+                                      {div.name}
+                                    </h3>
+                                  </Link>
+                                  <ul className="flex flex-col space-y-2.5 mb-4 flex-1">
+                                    {categoryGroups.map(group => (
+                                      <li key={group.id}>
+                                        <Link
+                                          to={`/products/${div.slug}#${group.id}`}
+                                          className="text-[13px] font-body text-gray-500 hover:text-prayag-red transition-colors line-clamp-2 leading-snug"
+                                          onClick={() => handleNavClick(`/products/${div.slug}#${group.id}`)}
+                                        >
+                                          {group.label}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                  <Link
+                                    to={`/products/${div.slug}`}
+                                    className="text-[12px] font-body font-bold uppercase tracking-[0.1em] text-prayag-red hover:text-prayag-black transition-colors mt-auto inline-flex items-center gap-1"
+                                    onClick={() => handleNavClick(`/products/${div.slug}`)}
+                                  >
+                                    Explore <ArrowRight className="w-3 h-3" />
+                                  </Link>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      )}
+
+                      {activeDropdown === item.label && !item.isMegaMenu && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          transition={{ duration: 0.18 }}
+                          className="absolute top-full left-0 mt-1 min-w-[260px] w-max bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
+                          role="menu"
+                          aria-labelledby={`${item.label.toLowerCase().replace(/\s+/g, '-')}-menu-btn`}
+                        >
+                          {item.children.map((child) => {
+                            const isChildActive = currentPathWithHash === child.to;
                             return (
-                              <div key={div.id} className="flex flex-col">
-                                <Link 
-                                  to={`/products/${div.slug}`}
-                                  className="flex items-center gap-2 mb-4 group/head"
-                                  onClick={() => handleNavClick(`/products/${div.slug}`)}
-                                >
-                                  <div className="w-8 h-8 rounded-lg bg-prayag-red/10 flex items-center justify-center text-prayag-red font-heading font-black transition-colors group-hover/head:bg-prayag-red group-hover/head:text-white">
-                                    {div.name[0]}
-                                  </div>
-                                  <h3 className="font-heading font-black uppercase text-prayag-black text-[15px] transition-colors group-hover/head:text-prayag-red">
-                                    {div.name}
-                                  </h3>
-                                </Link>
-                                <ul className="flex flex-col space-y-2.5 mb-4 flex-1">
-                                  {categoryGroups.map(group => (
-                                    <li key={group.id}>
-                                      <Link 
-                                        to={`/products/${div.slug}#${group.id}`}
-                                        className="text-[13px] font-body text-gray-500 hover:text-prayag-red transition-colors line-clamp-2 leading-snug"
-                                        onClick={() => handleNavClick(`/products/${div.slug}#${group.id}`)}
-                                      >
-                                        {group.label}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                                <Link
-                                  to={`/products/${div.slug}`}
-                                  className="text-[12px] font-body font-bold uppercase tracking-[0.1em] text-prayag-red hover:text-prayag-black transition-colors mt-auto inline-flex items-center gap-1"
-                                  onClick={() => handleNavClick(`/products/${div.slug}`)}
-                                >
-                                  Explore <ArrowRight className="w-3 h-3" />
-                                </Link>
-                              </div>
+                              <Link
+                                key={child.to}
+                                to={child.to}
+                                className={`block px-4 py-2.5 text-[15px] font-body font-medium transition-colors duration-150 whitespace-nowrap ${isChildActive
+                                  ? "text-prayag-red bg-red-50"
+                                  : "text-gray-700 hover:text-prayag-red hover:bg-red-50"
+                                  }`}
+                                onClick={() => handleNavClick(child.to)}
+                                role="menuitem"
+                              >
+                                {child.label}
+                              </Link>
                             );
                           })}
-                        </div>
-                      </motion.div>
-                    )}
-
-                    {activeDropdown === item.label && !item.isMegaMenu && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.18 }}
-                        className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden"
-                        role="menu"
-                        aria-labelledby={`${item.label.toLowerCase().replace(/\s+/g, '-')}-menu-btn`}
-                      >
-                        {item.children.map((child) => {
-                          const isChildActive = currentPathWithHash === child.to;
-                          return (
-                            <Link
-                              key={child.to}
-                              to={child.to}
-                              className={`block px-4 py-2.5 text-[15px] font-body font-medium transition-colors duration-150 ${isChildActive
-                                ? "text-prayag-red bg-red-50"
-                                : "text-gray-700 hover:text-prayag-red hover:bg-red-50"
-                              }`}
-                              onClick={() => handleNavClick(child.to)}
-                              role="menuitem"
-                            >
-                              {child.label}
-                            </Link>
-                          );
-                        })}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </li>
-              ) : (
-                <li key={item.to}>
-                  <NavLink
-                    to={item.to}
-                    end={item.to === "/"}
-                    className={({ isActive }) =>
-                      `${activeLinkClass({ isActive })} px-2 py-2 rounded-lg hover:bg-red-50 block`
-                    }
-                    onClick={() => handleNavClick(item.to)}
-                  >
-                    {item.label}
-                  </NavLink>
-                </li>
-              )
-            )}
-          </ul>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                ) : (
+                  <li key={item.to}>
+                    <NavLink
+                      to={item.to}
+                      end={item.to === "/"}
+                      className={({ isActive }) =>
+                        `${activeLinkClass({ isActive })} px-3 py-2 rounded-lg hover:bg-red-50 block whitespace-nowrap`
+                      }
+                      onClick={() => handleNavClick(item.to)}
+                    >
+                      {item.label}
+                    </NavLink>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
 
           {/* Right side: Catalogue button + mobile hamburger */}
-          <div className="flex items-center gap-3">
+          <div className="flex-shrink-0 flex justify-end items-center gap-3 ml-8 xl:ml-4">
             {/* Catalogue button — desktop only in navbar */}
             <div className="hidden lg:block">
               <CatalogueDownloadButton id="navbar-catalogue-btn" />
@@ -352,7 +357,7 @@ export const Navbar: React.FC = () => {
                               <Link
                                 to={child.to}
                                 className={`block py-2 text-sm font-body font-medium transition-colors ${isChildActive ? "text-prayag-red" : "text-gray-500 hover:text-prayag-red"
-                                }`}
+                                  }`}
                                 onClick={() => { setMobileOpen(false); handleNavClick(child.to); }}
                               >
                                 {child.label}

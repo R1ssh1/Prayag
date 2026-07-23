@@ -302,3 +302,17 @@ body {
 .animate-spin {
   animation: spin 0.8s linear infinite;
 }
+
+/* ── Blog prose utilities ────────────────────────────────────────────────────
+   Used by BlogPostBody via @portabletext/react custom renderers.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Inline code background — red/8 opacity (used in blog post body) */
+.bg-prayag-red\/8 {
+  background-color: rgba(227, 30, 36, 0.08);
+}
+
+/* Hover / active state helpers for blog card filters */
+.hover\:border-prayag-red\/40:hover {
+  border-color: rgba(227, 30, 36, 0.4);
+}

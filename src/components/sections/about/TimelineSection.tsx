@@ -120,8 +120,8 @@ export const TimelineSection: React.FC = () => {
   const rocketLeft = useTransform(smoothProgress, [0, 0.4, 0.8, 1], ["5%", "35%", "65%", "85%"]);
   const rocketScale = useTransform(smoothProgress, [0, 0.5, 1], [0.3, 0.8, 1.5]);
 
-  const rocketRotateDesktop = useTransform(smoothProgress, [0, 1], [40, 85]);
-  const rocketRotateMobile = useTransform(smoothProgress, [0, 1], [-10, 65]); // Mobile-specific rotation
+  const rocketRotateDesktop = useTransform(smoothProgress, [0, 1], [65, 125]);
+  const rocketRotateMobile = useTransform(smoothProgress, [0, 1], [30, 65]); // Mobile-specific rotation
 
   const rocketRotate = isMobile ? rocketRotateMobile : rocketRotateDesktop;
 
@@ -159,7 +159,15 @@ export const TimelineSection: React.FC = () => {
             className="absolute w-[180px] md:w-[180px] lg:w-[250px] opacity-90 z-0 pointer-events-none drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
             style={{ top: rocketTop, left: rocketLeft, scale: rocketScale, rotate: rocketRotate }}
           >
-            <img src="/assets/images/about/rocket.png" alt="" className="w-full h-auto object-contain" />
+            <img
+              src="/assets/images/about/rocket.webp"
+              alt=""
+              className="w-full h-auto object-contain"
+              style={{
+                maskImage: "linear-gradient(to bottom right, black 45%, transparent 80%)",
+                WebkitMaskImage: "linear-gradient(to bottom right, black 45%, transparent 80%)",
+              }}
+            />
           </motion.div>
         </div>
       </div>

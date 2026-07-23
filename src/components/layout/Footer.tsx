@@ -51,6 +51,7 @@ export const Footer: React.FC = () => {
                 { label: "Quality Policy", to: "/quality-policy" },
                 { label: "Products", to: "/products" },
                 { label: "Certificates", to: "/certificates" },
+                { label: "Blogs", to: "/blogs" },
                 { label: "Contact Us", to: "/contact" },
               ].map((link) => (
                 <li key={link.to}>
