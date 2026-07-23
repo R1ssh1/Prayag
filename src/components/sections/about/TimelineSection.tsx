@@ -118,9 +118,9 @@ export const TimelineSection: React.FC = () => {
 
   const rocketTop = useTransform(smoothProgress, [0, 0.4, 0.8, 1], ["85%", "55%", "25%", "5%"]);
   const rocketLeft = useTransform(smoothProgress, [0, 0.4, 0.8, 1], ["5%", "35%", "65%", "85%"]);
-  const rocketScale = useTransform(smoothProgress, [0, 0.5, 1], [0.3, 0.8, 1.5]);
+  const rocketScale = useTransform(smoothProgress, [0, 0.5, 1], [0.3, 0.8, 1]);
 
-  const rocketRotateDesktop = useTransform(smoothProgress, [0, 1], [65, 125]);
+  const rocketRotateDesktop = useTransform(smoothProgress, [0, 1], [60, 125]);
   const rocketRotateMobile = useTransform(smoothProgress, [0, 1], [30, 65]); // Mobile-specific rotation
 
   const rocketRotate = isMobile ? rocketRotateMobile : rocketRotateDesktop;
@@ -156,7 +156,7 @@ export const TimelineSection: React.FC = () => {
 
           {/* Rocket Parallax */}
           <motion.div
-            className="absolute w-[180px] md:w-[180px] lg:w-[250px] opacity-90 z-0 pointer-events-none drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+            className="absolute w-[180px] md:w-[180px] lg:w-[250px] opacity-90 z-0 pointer-events-none drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
             style={{ top: rocketTop, left: rocketLeft, scale: rocketScale, rotate: rocketRotate }}
           >
             <img

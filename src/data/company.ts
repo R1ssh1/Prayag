@@ -8,8 +8,8 @@ export const companyInfo = {
   tagline: "Forging trust, strength, and precision since 1994.",
   founded: 1994,
   website: "www.prayagsteel.in",
-  email: "prayagsteelindia@yahoo.co.in",
-  phone: "+91-22-6636 2417",
+  email: "jayesh@prayagsteel.in",
+  phone: "+91-7977607041",
   registeredOffice: {
     label: "Registered Office",
     address: "67/26, 3rd Kumbharwada",

@@ -142,6 +142,22 @@ export const ProductDetailPage: React.FC = () => {
           HERO — Dark background matching DivisionPage style
       ══════════════════════════════════════════════════════════════════════ */}
       <section className="relative bg-prayag-black overflow-hidden" aria-label={`${product.name} Hero`}>
+        {/* Background division image */}
+        <div className="absolute inset-0 z-0" aria-hidden="true">
+          <img
+            src={div === "flanges" ? "/assets/images/products/flanges/hero.webp" : (divisions.find(d => d.id === div)?.image ? `/assets/images/${divisions.find(d => d.id === div)?.image}` : "")}
+            alt=""
+            className="w-full h-full object-cover opacity-20 bg-white"
+            fetchPriority="high"
+            loading="eager"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-prayag-black via-prayag-black/65 to-prayag-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-prayag-black/80 via-transparent to-transparent" />
+        </div>
+
         {/* Red geometric accent rings */}
         <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-prayag-red/15 pointer-events-none z-10" aria-hidden="true" />
         <div className="absolute -right-16 top-1/2 -translate-y-1/2 w-[280px] h-[280px] rounded-full border border-prayag-red/25 pointer-events-none z-10" aria-hidden="true" />

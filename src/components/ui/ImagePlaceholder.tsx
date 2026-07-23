@@ -42,7 +42,7 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
       <img
         src={`/assets/images/${path}`}
         alt={label || "Product image"}
-        className={`${ar} ${className}`}
+        className={`${ar} object-cover ${className}`}
         onError={() => setError(true)}
         loading={priority ? "eager" : "lazy"}
         decoding={priority ? "sync" : "async"}

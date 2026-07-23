@@ -146,7 +146,7 @@ export const DivisionPage: React.FC = () => {
           <img
             src={heroImageSrc}
             alt=""
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-20 bg-white"
             fetchPriority="high"
             loading="eager"
             onError={(e) => {
