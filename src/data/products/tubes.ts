@@ -37,8 +37,8 @@ import type { Product } from "./types";
 // UNCONFIRMED: see file-level comment above.
 function makeSpecs(grade: string, standards: string[], applications?: string) {
   const s = [
-    { label: "OD Range", value: "6mm – 168.3mm" }, // UNCONFIRMED — source doc placeholder
-    { label: "Wall Thickness", value: "0.5mm – 20mm" }, // UNCONFIRMED — source doc placeholder
+    { label: "OD Range", value: "6mm – 355.6mm (¼\" – 14\")" },
+    { label: "Wall Thickness", value: "0.5mm – 40mm" },
     { label: "Length", value: "Up to 12 meters" },
     { label: "Grade", value: grade },
     {

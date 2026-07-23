@@ -105,11 +105,11 @@ export const Navbar: React.FC = () => {
         role="banner"
       >
         <nav
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20"
+          className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20"
           aria-label="Main navigation"
         >
           {/* Logo */}
-          <div className="flex-shrink-0 mr-8 xl:mr-4">
+          <div className="flex-shrink-0 mr-4 lg:mr-6 xl:mr-8">
             <Link
               to="/"
               onClick={() => handleNavClick("/")}
@@ -165,45 +165,58 @@ export const Navbar: React.FC = () => {
                           role="menu"
                           aria-labelledby={`${item.label.toLowerCase().replace(/\s+/g, '-')}-menu-btn`}
                         >
-                          <div className="grid grid-cols-4 gap-6 p-6">
+                          <div className="grid grid-cols-4 gap-4 p-4">
                             {divisions.map((div) => {
                               const allDivProducts = getProductsByDivision(div.id as Division);
                               const categoryGroups = buildSubcategoryGroups(allDivProducts, div.name).slice(0, 5);
 
                               return (
-                                <div key={div.id} className="flex flex-col">
-                                  <Link
-                                    to={`/products/${div.slug}`}
-                                    className="flex items-center gap-2 mb-4 group/head"
-                                    onClick={() => handleNavClick(`/products/${div.slug}`)}
-                                  >
-                                    <div className="w-8 h-8 rounded-lg bg-prayag-red/10 flex items-center justify-center text-prayag-red font-heading font-black transition-colors group-hover/head:bg-prayag-red group-hover/head:text-white">
-                                      {div.name[0]}
-                                    </div>
-                                    <h3 className="font-heading font-black uppercase text-prayag-black text-[15px] transition-colors group-hover/head:text-prayag-red">
-                                      {div.name}
-                                    </h3>
-                                  </Link>
-                                  <ul className="flex flex-col space-y-2.5 mb-4 flex-1">
-                                    {categoryGroups.map(group => (
-                                      <li key={group.id}>
-                                        <Link
-                                          to={`/products/${div.slug}#${group.id}`}
-                                          className="text-[13px] font-body text-gray-500 hover:text-prayag-red transition-colors line-clamp-2 leading-snug"
-                                          onClick={() => handleNavClick(`/products/${div.slug}#${group.id}`)}
-                                        >
-                                          {group.label}
-                                        </Link>
-                                      </li>
-                                    ))}
-                                  </ul>
-                                  <Link
-                                    to={`/products/${div.slug}`}
-                                    className="text-[12px] font-body font-bold uppercase tracking-[0.1em] text-prayag-red hover:text-prayag-black transition-colors mt-auto inline-flex items-center gap-1"
-                                    onClick={() => handleNavClick(`/products/${div.slug}`)}
-                                  >
-                                    Explore <ArrowRight className="w-3 h-3" />
-                                  </Link>
+                                <div key={div.id} className="relative flex flex-col p-5 rounded-xl overflow-hidden group/col border border-gray-100 hover:border-prayag-red/30 transition-colors">
+                                  {/* Background Image */}
+                                  <img
+                                    src={`/assets/images/${div.image}`}
+                                    alt=""
+                                    className="absolute inset-0 w-full h-full object-cover z-0 transition-transform duration-700 group-hover/col:scale-110"
+                                    aria-hidden="true"
+                                  />
+                                  {/* Gradient Overlay */}
+                                  <div className="absolute inset-0 bg-gradient-to-b from-prayag-black/85 via-prayag-black/85 to-prayag-black/95 z-0 transition-opacity duration-300 group-hover/col:opacity-90" />
+                                  
+                                  <div className="relative z-10 flex flex-col h-full">
+                                    <Link
+                                      to={`/products/${div.slug}`}
+                                      className="flex items-center gap-3 mb-5 group/head"
+                                      onClick={() => handleNavClick(`/products/${div.slug}`)}
+                                    >
+                                      <div className="w-8 h-8 rounded-lg bg-prayag-red/20 border border-prayag-red/30 flex items-center justify-center text-white font-heading font-black transition-colors group-hover/head:bg-prayag-red group-hover/head:text-white group-hover/head:border-prayag-red">
+                                        {div.name[0]}
+                                      </div>
+                                      <h3 className="font-heading font-black uppercase text-white text-[15px] transition-colors group-hover/head:text-prayag-red">
+                                        {div.name}
+                                      </h3>
+                                    </Link>
+                                    <ul className="flex flex-col space-y-3 mb-6 flex-1">
+                                      {categoryGroups.map(group => (
+                                        <li key={group.id}>
+                                          <Link
+                                            to={`/products/${div.slug}#${group.id}`}
+                                            className="text-[13px] font-body text-gray-300 hover:text-white transition-colors line-clamp-2 leading-snug flex items-start gap-2 group/link"
+                                            onClick={() => handleNavClick(`/products/${div.slug}#${group.id}`)}
+                                          >
+                                            <span className="w-1 h-1 rounded-full bg-prayag-red/50 mt-1.5 flex-shrink-0 group-hover/link:bg-prayag-red transition-colors" />
+                                            {group.label}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                    <Link
+                                      to={`/products/${div.slug}`}
+                                      className="text-[12px] font-body font-bold uppercase tracking-[0.1em] text-prayag-red hover:text-red-400 transition-colors mt-auto inline-flex items-center gap-1.5"
+                                      onClick={() => handleNavClick(`/products/${div.slug}`)}
+                                    >
+                                      Explore <ArrowRight className="w-3.5 h-3.5" />
+                                    </Link>
+                                  </div>
                                 </div>
                               );
                             })}

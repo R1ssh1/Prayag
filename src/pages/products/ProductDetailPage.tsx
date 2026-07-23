@@ -5,6 +5,7 @@ import { BreadcrumbSchema, ProductSchema } from "../../seo/StructuredData";
 import { getProductBySlug, getProductsByDivision } from "../../data/products";
 import { ImagePlaceholder } from "../../components/ui/ImagePlaceholder";
 import { CatalogueDownloadButton } from "../../components/ui/CatalogueDownloadButton";
+import { ProductCard } from "../../components/ui/ProductCard";
 import { divisions } from "../../data/company";
 import type { Division, MaterialFamily } from "../../data/products/types";
 
@@ -377,6 +378,25 @@ export const ProductDetailPage: React.FC = () => {
                 </div>
               </div>
             </section>
+            {/* ── § Explore Other Products ────────────────────────────────── */}
+            {sameCategoryProducts.filter((p) => p.slug !== product.slug).length > 0 && (
+              <section className="mt-16 pt-12 border-t border-gray-100">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
+                  <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                    Other Products
+                  </span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {sameCategoryProducts
+                    .filter((p) => p.slug !== product.slug)
+                    .slice(0, 3)
+                    .map((p, idx) => (
+                      <ProductCard key={p.id} product={p} div={div} index={idx} />
+                    ))}
+                </div>
+              </section>
+            )}
 
           </main>
 

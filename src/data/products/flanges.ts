@@ -349,4 +349,31 @@ export const flanges: Product[] = [
     metaDescription:
       "Forged RTJ Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Metal-to-metal seal for extreme pressure & temperature. Prayag Steel India.",
   },
+  // ── 11. Male-Female Tongue & Groove Flange ─────────────────────────────────
+  {
+    id: "flg-011",
+    slug: "male-female-tongue-and-groove-flange",
+    division: "flanges",
+    subcategory: "Male-Female Tongue & Groove Flange",
+    type: "Forged",
+    name: "Male-Female Tongue & Groove Flange",
+    shortDescription:
+      "Specialised matched pair flanges providing a highly reliable, blowout-proof seal for volatile, hazardous, or high-pressure fluids.",
+    description:
+      "Male-Female Tongue & Groove Flanges are highly specialised facings supplied as matched pairs. One flange is machined with a raised concentric ring (the tongue), and the mating flange is machined with a matching depression (the groove). The gasket is completely confined within the groove, preventing blowout under extreme pressures and shielding the gasket from chemical attack or erosion by the process fluid. They are essential in refineries, petrochemical plants, and high-pressure steam applications where leak prevention is critical.",
+    materials: [],
+    standards: [...FLANGES_STANDARDS, "ASME B16.47"],
+    specs: [
+      ...FLANGES_SPECS,
+      { label: "Facing Type", value: "Male-Female Tongue & Groove" },
+      { label: "Supply", value: "Matched Pairs (Male + Female)" },
+      { label: "Gasket Confinement", value: "Groove-confined — prevents blowout" },
+      { label: "Size Range", value: "1/2\" to 24\" NPS (Larger sizes per ASME B16.47)" }
+    ],
+    materialsTable: FLANGES_MATERIALS,
+    image: "products/flanges/tongue-groove-flange.webp",
+    metaTitle: "Male-Female Tongue & Groove Flange | Forged Flanges | Prayag Steel",
+    metaDescription:
+      "Forged Male-Female Tongue & Groove Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–24\"+, Class 150#–2500#. Blowout-proof seal. Prayag Steel India.",
+  },
 ];
