@@ -349,31 +349,59 @@ export const flanges: Product[] = [
     metaDescription:
       "Forged RTJ Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Metal-to-metal seal for extreme pressure & temperature. Prayag Steel India.",
   },
-  // ── 11. Male-Female Tongue & Groove Flange ─────────────────────────────────
+  // ── 11. Male-Female Flange ───────────────────────────────────────────────────
   {
     id: "flg-011",
-    slug: "male-female-tongue-and-groove-flange",
+    slug: "male-female-flange",
     division: "flanges",
-    subcategory: "Male-Female Tongue & Groove Flange",
+    subcategory: "Male-Female Flange",
     type: "Forged",
-    name: "Male-Female Tongue & Groove Flange",
+    name: "Male-Female Flange",
     shortDescription:
-      "Specialised matched pair flanges providing a highly reliable, blowout-proof seal for volatile, hazardous, or high-pressure fluids.",
+      "Matched-pair flanges where one face is raised (male) and the other is recessed (female), fully confining the gasket for leak-proof, blowout-resistant sealing.",
     description:
-      "Male-Female Tongue & Groove Flanges are highly specialised facings supplied as matched pairs. One flange is machined with a raised concentric ring (the tongue), and the mating flange is machined with a matching depression (the groove). The gasket is completely confined within the groove, preventing blowout under extreme pressures and shielding the gasket from chemical attack or erosion by the process fluid. They are essential in refineries, petrochemical plants, and high-pressure steam applications where leak prevention is critical.",
+      "Male-Female Flanges are specialised facing flanges supplied as matched pairs: one flange is machined with a raised central face (male) and the mating flange carries a matching recessed depression (female). The gasket seats entirely within the female recess and is held under uniform compression across its full width, preventing blowout even under extreme internal pressures. This facing style is widely used in high-pressure steam lines, refineries, petrochemical plants, and cryogenic services where gasket containment and leak prevention are paramount.",
     materials: [],
     standards: [...FLANGES_STANDARDS, "ASME B16.47"],
     specs: [
       ...FLANGES_SPECS,
-      { label: "Facing Type", value: "Male-Female Tongue & Groove" },
+      { label: "Facing Type", value: "Male-Female (Raised Male / Recessed Female)" },
       { label: "Supply", value: "Matched Pairs (Male + Female)" },
-      { label: "Gasket Confinement", value: "Groove-confined — prevents blowout" },
-      { label: "Size Range", value: "1/2\" to 24\" NPS (Larger sizes per ASME B16.47)" }
+      { label: "Gasket Confinement", value: "Fully confined within female recess — prevents blowout" },
+      { label: "Size Range", value: "1/2\" to 24\" NPS (Larger sizes per ASME B16.47)" },
+    ],
+    materialsTable: FLANGES_MATERIALS,
+    image: "products/flanges/male-female-flange.webp",
+    metaTitle: "Male-Female Flange | Forged Flanges | Prayag Steel & Engineering",
+    metaDescription:
+      "Forged Male-Female Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–24\"+, Class 150#–2500#. Matched pairs, blowout-proof gasket confinement. Prayag Steel India.",
+  },
+
+  // ── 12. Tongue and Groove Flange ─────────────────────────────────────────────
+  {
+    id: "flg-012",
+    slug: "tongue-and-groove-flange",
+    division: "flanges",
+    subcategory: "Tongue and Groove Flange",
+    type: "Forged",
+    name: "Tongue and Groove Flange",
+    shortDescription:
+      "Matched-pair flanges with a concentric tongue and groove that fully enclose the gasket, ideal for volatile, hazardous, or high-pressure process fluids.",
+    description:
+      "Tongue and Groove Flanges are precision-machined matched pairs: one flange carries a concentric raised ring (the tongue) and its partner carries a matching annular depression (the groove). The gasket is completely enclosed within the groove on both its inner and outer diameters, preventing lateral movement, gasket blow-out, and direct contact with the process fluid. This makes Tongue and Groove flanges the preferred choice for volatile hydrocarbons, toxic process streams, high-pressure steam, and other applications where any gasket exposure or leakage is unacceptable.",
+    materials: [],
+    standards: [...FLANGES_STANDARDS, "ASME B16.47"],
+    specs: [
+      ...FLANGES_SPECS,
+      { label: "Facing Type", value: "Tongue and Groove (Concentric Ring / Annular Groove)" },
+      { label: "Supply", value: "Matched Pairs (Tongue + Groove)" },
+      { label: "Gasket Confinement", value: "Fully enclosed — ID and OD contained within groove" },
+      { label: "Size Range", value: "1/2\" to 24\" NPS (Larger sizes per ASME B16.47)" },
     ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/tongue-groove-flange.webp",
-    metaTitle: "Male-Female Tongue & Groove Flange | Forged Flanges | Prayag Steel",
+    metaTitle: "Tongue and Groove Flange | Forged Flanges | Prayag Steel & Engineering",
     metaDescription:
-      "Forged Male-Female Tongue & Groove Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–24\"+, Class 150#–2500#. Blowout-proof seal. Prayag Steel India.",
+      "Forged Tongue and Groove Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–24\"+, Class 150#–2500#. Full gasket confinement for volatile & hazardous fluids. Prayag Steel India.",
   },
 ];

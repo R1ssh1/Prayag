@@ -105,11 +105,11 @@ export const Navbar: React.FC = () => {
         role="banner"
       >
         <nav
-          className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20"
+          className="w-full px-4 sm:px-6 lg:px-10 xl:px-16 2xl:px-24 flex items-center justify-between h-16 lg:h-20"
           aria-label="Main navigation"
         >
           {/* Logo */}
-          <div className="flex-shrink-0 mr-4 lg:mr-6 xl:mr-8">
+          <div className="flex-shrink-0 flex items-center">
             <Link
               to="/"
               onClick={() => handleNavClick("/")}
@@ -274,7 +274,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Right side: Catalogue button + mobile hamburger */}
-          <div className="flex-shrink-0 flex justify-end items-center gap-3 ml-8 xl:ml-4">
+          <div className="flex-shrink-0 flex justify-end items-center gap-3">
             {/* Catalogue button — desktop only in navbar */}
             <div className="hidden lg:block">
               <CatalogueDownloadButton id="navbar-catalogue-btn" />

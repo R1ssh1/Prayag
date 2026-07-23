@@ -5,6 +5,7 @@ import { SnapshotSection } from "../components/sections/SnapshotSection";
 import { StandardsBadgeRow } from "../components/sections/StandardsBadgeRow";
 import { DivisionsSection } from "../components/sections/DivisionsSection";
 import { IndustriesSection } from "../components/sections/IndustriesSection";
+import { MaterialsMarqueeSection } from "../components/sections/products/MaterialsMarqueeSection";
 import { GlobalReachSection } from "../components/sections/GlobalReachSection";
 import { FooterCTA } from "../components/sections/FooterCTA";
 
@@ -22,6 +23,7 @@ export const Home: React.FC = () => {
         <SnapshotSection />
         <StandardsBadgeRow />
         <DivisionsSection />
+        <MaterialsMarqueeSection />
         <IndustriesSection />
         <GlobalReachSection />
         <FooterCTA />

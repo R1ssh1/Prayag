@@ -94,7 +94,7 @@ export const DivisionsSection: React.FC = () => {
       {/* Bottom Red Arc Divider */}
       <div className="absolute bottom-0 left-0 right-0 z-0 overflow-hidden leading-none" aria-hidden="true">
         <svg viewBox="0 0 1440 72" preserveAspectRatio="none" className="w-full block" style={{ height: "72px" }}>
-          <path d="M0,72 C480,4 960,4 1440,72 L1440,72 L0,72 Z" fill="#ffffff" />
+          <path d="M0,72 C480,4 960,4 1440,72 L1440,72 L0,72 Z" fill="#2B2B2B" />
         </svg>
       </div>
     </section>
