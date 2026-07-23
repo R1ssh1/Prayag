@@ -138,26 +138,57 @@ export const ProductDetailPage: React.FC = () => {
         ]}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+      {/* ══════════════════════════════════════════════════════════════════════
+          HERO — Dark background matching DivisionPage style
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section className="relative bg-prayag-black overflow-hidden" aria-label={`${product.name} Hero`}>
+        {/* Red geometric accent rings */}
+        <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full border border-prayag-red/15 pointer-events-none z-10" aria-hidden="true" />
+        <div className="absolute -right-16 top-1/2 -translate-y-1/2 w-[280px] h-[280px] rounded-full border border-prayag-red/25 pointer-events-none z-10" aria-hidden="true" />
 
-        {/* ── Breadcrumb ──────────────────────────────────────────────────── */}
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex flex-wrap items-center gap-1.5 text-sm font-body text-gray-500">
-            <li><Link to="/" className="hover:text-prayag-red transition-colors">Home</Link></li>
-            <li aria-hidden="true" className="text-gray-300">/</li>
-            <li><Link to="/products" className="hover:text-prayag-red transition-colors">Products</Link></li>
-            <li aria-hidden="true" className="text-gray-300">/</li>
-            <li>
-              <Link to={`/products/${div}`} className="hover:text-prayag-red transition-colors capitalize">
-                {divisionTitle}
-              </Link>
-            </li>
-            <li aria-hidden="true" className="text-gray-300">/</li>
-            <li className="text-prayag-red font-medium truncate max-w-[200px]" aria-current="page">
-              {product.name}
-            </li>
-          </ol>
-        </nav>
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 lg:pt-32 lg:pb-16">
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="mb-8">
+            <ol className="flex flex-wrap items-center gap-1.5 text-sm font-body text-gray-400">
+              <li><Link to="/" className="hover:text-prayag-red transition-colors">Home</Link></li>
+              <li aria-hidden="true" className="text-gray-600">/</li>
+              <li><Link to="/products" className="hover:text-prayag-red transition-colors">Products</Link></li>
+              <li aria-hidden="true" className="text-gray-600">/</li>
+              <li><Link to={`/products/${div}`} className="hover:text-prayag-red transition-colors capitalize">{divisionTitle}</Link></li>
+              <li aria-hidden="true" className="text-gray-600">/</li>
+              <li className="text-prayag-red font-medium truncate max-w-[240px]" aria-current="page">{product.name}</li>
+            </ol>
+          </nav>
+
+          {/* Division badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-prayag-red/15 border border-prayag-red/30 mb-4">
+            <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-widest">{divisionTitle}</span>
+          </div>
+
+          {/* H1 */}
+          <h1 className="font-heading font-black text-3xl sm:text-4xl xl:text-5xl uppercase text-white leading-tight mb-5 max-w-3xl">
+            {product.name}
+          </h1>
+
+          {/* Short description */}
+          <p className="text-gray-300 font-body text-base lg:text-lg leading-relaxed max-w-2xl mb-8">
+            {product.shortDescription}
+          </p>
+
+          {/* Standards pills */}
+          {product.standards && product.standards.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {product.standards.slice(0, 5).map((std) => (
+                <span key={std} className="inline-block px-3 py-1 rounded-full border border-white/15 bg-white/5 text-gray-300 font-body text-xs font-medium">
+                  {std}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
 
         {/* ── Two-column layout ────────────────────────────────────────────── */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
@@ -166,23 +197,6 @@ export const ProductDetailPage: React.FC = () => {
               MAIN COLUMN
           ════════════════════════════════════════════════════════════════ */}
           <main className="flex-1 min-w-0">
-
-            {/* Division badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-prayag-red/10 border border-prayag-red/20 mb-4">
-              <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-widest">
-                {divisionTitle}
-              </span>
-            </div>
-
-            {/* H1 */}
-            <h1 className="font-heading font-black text-3xl sm:text-4xl xl:text-5xl uppercase text-prayag-black leading-tight mb-4">
-              {product.name}
-            </h1>
-
-            {/* Short description */}
-            <p className="text-gray-600 font-body text-lg leading-relaxed mb-8">
-              {product.shortDescription}
-            </p>
 
             {/* Hero image */}
             <div className="mb-10">
@@ -195,8 +209,8 @@ export const ProductDetailPage: React.FC = () => {
             </div>
 
             {/* ── Table of Contents ──────────────────────────────────────── */}
-            <nav aria-label="Page contents" className="mb-12 p-5 rounded-xl border border-gray-200 bg-gray-50">
-              <p className="font-body font-bold text-xs uppercase tracking-[0.2em] text-gray-400 mb-3">
+            <nav aria-label="Page contents" className="mb-12 border-l-4 border-prayag-red pl-5 pr-5 py-5 rounded-r-xl bg-prayag-red/3 border border-prayag-red/20">
+              <p className="font-body font-bold text-xs uppercase tracking-[0.2em] text-prayag-red mb-4">
                 On This Page
               </p>
               <ol className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4">
@@ -206,7 +220,7 @@ export const ProductDetailPage: React.FC = () => {
                       onClick={() => scrollToSection(section.id)}
                       className="flex items-center gap-2 text-sm font-body font-medium text-gray-600 hover:text-prayag-red transition-colors group"
                     >
-                      <span className="w-5 h-5 rounded-full bg-prayag-red/10 text-prayag-red text-[10px] font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-prayag-red group-hover:text-white transition-colors">
+                      <span className="w-5 h-5 rounded-full bg-prayag-red text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-red-700 transition-colors">
                         {i + 1}
                       </span>
                       {section.label}
@@ -221,12 +235,9 @@ export const ProductDetailPage: React.FC = () => {
               <div className="flex items-center gap-3 mb-5">
                 <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
                 <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
-                  Overview
+                  Product Overview
                 </span>
               </div>
-              <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-4">
-                Overview
-              </h2>
               <div className="prose prose-gray max-w-none font-body text-gray-600 leading-relaxed space-y-4">
                 <p>{product.description}</p>
               </div>
@@ -239,7 +250,7 @@ export const ProductDetailPage: React.FC = () => {
                   {product.materials.map((mat) => (
                     <span
                       key={mat}
-                      className="inline-block px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-700 font-body text-sm font-medium"
+                      className="inline-block px-3 py-1 rounded-full bg-prayag-red/5 border border-prayag-red/15 text-prayag-red font-body text-sm font-medium"
                     >
                       {mat}
                     </span>
@@ -253,12 +264,9 @@ export const ProductDetailPage: React.FC = () => {
               <div className="flex items-center gap-3 mb-5">
                 <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
                 <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
-                  Specifications
+                  Technical Specifications
                 </span>
               </div>
-              <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-5">
-                Specifications
-              </h2>
               {product.specs.length > 0 ? (
                 <div className="rounded-xl border border-gray-200 overflow-hidden shadow-sm">
                   <table className="w-full text-sm font-body">
@@ -290,12 +298,9 @@ export const ProductDetailPage: React.FC = () => {
                 <div className="flex items-center gap-3 mb-5">
                   <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
                   <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
-                    Available Materials
+                    Available Materials &amp; Grades
                   </span>
                 </div>
-                <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-2">
-                  Available Materials
-                </h2>
                 <p className="text-gray-500 font-body text-sm leading-relaxed mb-6">
                   This product is available in the following material families and grades. Enquire for current stock availability and lead times.
                 </p>
@@ -312,12 +317,9 @@ export const ProductDetailPage: React.FC = () => {
               <div className="flex items-center gap-3 mb-5">
                 <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
                 <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
-                  Standards & Compliance
+                  Standards &amp; Compliance
                 </span>
               </div>
-              <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-5">
-                Standards &amp; Compliance
-              </h2>
               <div className="flex flex-wrap gap-2">
                 {product.standards.map((std) => (
                   <span
@@ -335,12 +337,9 @@ export const ProductDetailPage: React.FC = () => {
               <div className="flex items-center gap-3 mb-5">
                 <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
                 <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
-                  Enquire
+                  Request a Quote
                 </span>
               </div>
-              <h2 className="font-heading font-black text-2xl uppercase text-prayag-black mb-5">
-                Enquire About This Product
-              </h2>
               <div className="bg-off-white rounded-2xl border border-gray-100 p-8 lg:p-10">
                 <p className="text-gray-600 font-body leading-relaxed mb-6">
                   Interested in <strong className="text-prayag-black">{product.name}</strong>? Contact our team for

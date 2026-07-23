@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useRef } from "react";
+import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { motion } from "framer-motion";
@@ -7,8 +7,6 @@ import {
   ExternalLink,
   CheckCheck,
   Clock,
-  ArrowRight,
-  BookOpen,
 } from "lucide-react";
 import type { BlogPostFull, BlogPostPreview } from "../../../types/blog";
 import { urlFor } from "../../../lib/imageUrl";
