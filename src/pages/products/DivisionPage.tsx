@@ -364,12 +364,25 @@ export const DivisionPage: React.FC = () => {
             <div className="flex items-center justify-center py-20">
               <div className="w-8 h-8 border-2 border-prayag-red border-t-transparent rounded-full animate-spin" />
             </div>
-          ) : isTypeFirst ? (
+          ) : isTypeFirst ? (() => {
+            // Split: Header Assembly + Fabricated Fittings go into the specialized section
+            const SPECIALIZED_SLUGS = new Set([
+              "buttweld-fitting-header-assembly",
+              "buttweld-fitting-fabricated-fittings",
+            ]);
+            const standardGroups = subcategoryGroups.filter(
+              ({ products: gp }) => !SPECIALIZED_SLUGS.has(gp[0].slug)
+            );
+            const specializedGroups = subcategoryGroups.filter(
+              ({ products: gp }) => SPECIALIZED_SLUGS.has(gp[0].slug)
+            );
+            return (
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
               {/* ── TYPE-FIRST LAYOUT: interactive card grid (fittings / flanges) ── */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 space-y-12">
+                {/* ── Standard Fittings Grid ── */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-                  {subcategoryGroups.map(({ products: gp, id: groupId }, i) => {
+                  {standardGroups.map(({ products: gp, id: groupId }, i) => {
                     const p = gp[0];
                     return (
                       <ProductCard
@@ -382,6 +395,41 @@ export const DivisionPage: React.FC = () => {
                     );
                   })}
                 </div>
+
+                {/* ── Specialized Products Sub-Section ── */}
+                {specializedGroups.length > 0 && (
+                  <div>
+                    {/* Divider & heading */}
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="h-px flex-1 bg-gray-200" aria-hidden="true" />
+                      <div className="flex items-center gap-3 flex-shrink-0">
+                        <div className="h-0.5 w-5 bg-prayag-red" aria-hidden="true" />
+                        <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                          Specialized Products
+                        </span>
+                        <div className="h-0.5 w-5 bg-prayag-red" aria-hidden="true" />
+                      </div>
+                      <div className="h-px flex-1 bg-gray-200" aria-hidden="true" />
+                    </div>
+                    <p className="text-gray-500 font-body text-sm mb-6 text-center">
+                      Custom-engineered assemblies and fabrications manufactured to customer drawings and project specifications.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
+                      {specializedGroups.map(({ products: gp, id: groupId }, i) => {
+                        const p = gp[0];
+                        return (
+                          <ProductCard
+                            key={p.id}
+                            product={p}
+                            div={div}
+                            index={i}
+                            groupId={groupId}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Sidebar TOC */}
@@ -389,7 +437,8 @@ export const DivisionPage: React.FC = () => {
                 <TocSidebar groups={subcategoryGroups} activeId={activeSectionId} onScrollTo={scrollToId} div={div} />
               </aside>
             </div>
-          ) : (
+            );
+          })() : (
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
               {/* ── MATERIAL-FIRST LAYOUT: subcategory group rows (pipes / tubes) ── */}
               <div className="flex-1 min-w-0 space-y-8">
