@@ -601,6 +601,48 @@ export const flanges: Product[] = [
       { label: "Available Configurations", value: "Weld Neck, Blind & Custom RTJ Flanges" },
     ],
     materialsTable: FLANGES_MATERIALS,
+    faqs: [
+      {
+        question: "What is an RTJ Flange?",
+        answer:
+          "A Ring Type Joint (RTJ) Flange is a high-performance flange manufactured with a precision-machined groove cut into its face. Instead of using a standard flat or raised gasket, an oval or octagonal solid metallic ring gasket is inserted into the groove. Under high bolt tension, the metal gasket is coined into the groove, forming a robust, metal-to-metal seal that prevents leakage in extreme operating conditions.",
+      },
+      {
+        question: "Where is an RTJ Flange used?",
+        answer:
+          "RTJ Flanges are primarily used in severe-service environments characterized by high pressures and elevated or fluctuating temperatures. Typical applications include offshore oil and gas platforms, subsea wellhead manifolds, high-pressure gas transmission pipelines, refinery hydrogen units, petrochemical cracking plants, and chemical processing facilities where zero leakage is mandatory.",
+      },
+      {
+        question: "What pressure classes and size ranges are available for RTJ Flanges?",
+        answer:
+          "Prayag Steel manufactures RTJ Flanges across standard ASME pressure classes from Class 150# through Class 2500#, with Class 600#, 900#, 1500#, and 2500# being the most frequently demanded for high-pressure service. Size ranges cover ½\" to 24\" NPS under ASME B16.5 and 26\" to 60\" NPS under ASME B16.47 Series A and B.",
+      },
+      {
+        question: "What is the difference between a Raised Face (RF) and a Ring Type Joint (RTJ) Flange?",
+        answer:
+          "A Raised Face (RF) flange uses a flat, elevated surface that compresses a non-metallic, semi-metallic, or spiral wound gasket between mating faces, suitable for standard to moderate pressure applications. In contrast, an RTJ flange features a precision-machined groove designed exclusively for metallic ring gaskets. RTJ connections can withstand significantly higher pressure surges and thermal shock than RF connections without gasket blowout.",
+      },
+      {
+        question: "What material grades are supplied for RTJ Flanges?",
+        answer:
+          "We supply forged RTJ Flanges in a wide spectrum of corrosion-resistant and high-strength alloys, including Stainless Steel (304/304L, 316/316L, 321, 347, 904L), Duplex & Super Duplex (2205, 2507, Zeron 100), Nickel Alloys (Inconel 600, 625, 718, 800H, 825), Monel (400, K500), Hastelloy (C22, C276, B2, B3), Titanium (Grades 2, 5, 7), Cupro Nickel, and Alloy 20.",
+      },
+      {
+        question: "What testing and quality inspections do RTJ Flanges undergo?",
+        answer:
+          "All RTJ Flanges undergo rigorous non-destructive and mechanical testing in compliance with ASME B16.5 / B16.47 and ASTM standards. Inspections include precision optical and tactile dimensional checks of the ring groove (pitch diameter, groove depth, angle, and surface finish), Positive Material Identification (PMI), ultrasonic testing (UT), intergranular corrosion (IGC) testing, and hardness testing. Material Test Certificates (EN 10204 3.1) and third-party inspection reports are provided on request.",
+      },
+      {
+        question: "Why is the ring groove surface finish critical on an RTJ Flange?",
+        answer:
+          "The ring groove is the primary sealing interface. Its side walls must be machined to a smooth, precise surface finish (typically 63 µin / 1.6 µm Ra or finer) and exact 23° angular tolerances. Any roughness, scratches, or dimensional variance can prevent the metallic ring gasket from seating properly, leading to micro-leaks under high pressure.",
+      },
+      {
+        question: "What types of metallic ring gaskets are used with RTJ Flanges?",
+        answer:
+          "RTJ Flanges are designed to accommodate standard oval or octagonal cross-section ring joint gaskets (such as R-type, RX-type, and BX-type metallic gaskets, depending on flange configuration and pressure rating). The gasket material is selected to be slightly softer than the flange material so that the gasket plastically deforms into the groove without damaging the flange face during bolt tightening.",
+      },
+    ],
     image: "products/flanges/ring-type-joint-rtj-flange.webp",
     metaTitle: "Ring Type Joint (RTJ) Flange Manufacturer & Supplier in India | Prayag Steel",
     metaDescription:

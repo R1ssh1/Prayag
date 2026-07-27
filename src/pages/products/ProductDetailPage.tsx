@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { PageMeta } from "../../seo/PageMeta";
-import { BreadcrumbSchema, ProductSchema } from "../../seo/StructuredData";
+import { BreadcrumbSchema, ProductSchema, FAQSchema } from "../../seo/StructuredData";
 import { getProductBySlug, getProductsByDivision } from "../../data/products";
+import { getProductFaqs } from "../../data/products/faqs";
 import { ImagePlaceholder } from "../../components/ui/ImagePlaceholder";
 import { CatalogueDownloadButton } from "../../components/ui/CatalogueDownloadButton";
 import { ProductCard } from "../../components/ui/ProductCard";
@@ -14,7 +16,8 @@ function buildTocSections(
   hasMaterialsTable: boolean,
   hasKeyFeatures: boolean,
   hasApplications: boolean,
-  hasInspectionTesting: boolean
+  hasInspectionTesting: boolean,
+  hasFaqs: boolean
 ) {
   const sections = [
     { id: "overview", label: "Overview" },
@@ -24,10 +27,9 @@ function buildTocSections(
   if (hasMaterialsTable) sections.push({ id: "available-materials", label: "Available Materials" });
   if (hasApplications) sections.push({ id: "applications", label: "Applications" });
   if (hasInspectionTesting) sections.push({ id: "inspection-testing", label: "Inspection & Testing" });
-  sections.push(
-    { id: "standards", label: "Standards & Compliance" },
-    { id: "enquire", label: "Enquire" }
-  );
+  sections.push({ id: "standards", label: "Standards & Compliance" });
+  if (hasFaqs) sections.push({ id: "faqs", label: "FAQ" });
+  sections.push({ id: "enquire", label: "Enquire" });
   return sections;
 }
 
@@ -103,6 +105,7 @@ export const ProductDetailPage: React.FC = () => {
   }
 
   const divisionTitle = div.charAt(0).toUpperCase() + div.slice(1);
+  const faqs = getProductFaqs(product);
 
   // ── Sidebar data ────────────────────────────────────────────────────────────
   const allDivisionProducts = getProductsByDivision(div);
@@ -129,7 +132,8 @@ export const ProductDetailPage: React.FC = () => {
     !!product.materialsTable,
     !!product.keyFeatures?.length,
     !!product.applications?.length,
-    !!product.inspectionTesting?.length
+    !!product.inspectionTesting?.length,
+    !!faqs.length
   );
 
   return (
@@ -141,6 +145,7 @@ export const ProductDetailPage: React.FC = () => {
         type="product"
       />
       <ProductSchema product={product} />
+      <FAQSchema faqs={faqs} />
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "/" },
@@ -438,18 +443,33 @@ export const ProductDetailPage: React.FC = () => {
               </div>
             </section>
 
-            {/* ── § Trust Block (flanges only) ─────────────────────────── */}
-            {div === "flanges" && (
-              <div className="my-8 rounded-xl border border-prayag-red/15 bg-prayag-red/3 px-6 py-5">
-                <p className="text-gray-600 font-body text-sm leading-relaxed">
-                  Every product is manufactured from certified raw materials and undergoes stringent
-                  dimensional, visual, chemical, and mechanical inspections to ensure compliance with
-                  applicable international standards. Material Test Certificates (EN 10204 3.1),
-                  third-party inspection, custom marking, and project-specific documentation are
-                  available on request.
-                </p>
-              </div>
+            {/* ── § FAQs ──────────────────────────────────────────────── */}
+            {faqs && faqs.length > 0 && (
+              <section id="faqs" className="mb-14 scroll-mt-24">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
+                  <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                    Frequently Asked Questions
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  {faqs.map((faq) => (
+                    <ProductFaqItem key={faq.question} faq={faq} />
+                  ))}
+                </div>
+              </section>
             )}
+
+            {/* ── § Trust Block ─────────────────────────── */}
+            <div className="my-8 rounded-xl border border-prayag-red/15 bg-prayag-red/3 px-6 py-5">
+              <p className="text-gray-600 font-body text-sm leading-relaxed">
+                Every product is manufactured from certified raw materials and undergoes stringent
+                dimensional, visual, chemical, and mechanical inspections to ensure compliance with
+                applicable international standards. Material Test Certificates (EN 10204 3.1),
+                third-party inspection, custom marking, and project-specific documentation are
+                available on request.
+              </p>
+            </div>
 
             {/* ── § Related Products ──────────────────────────────────── */}
             {product.relatedProducts && product.relatedProducts.length > 0 && (
@@ -646,3 +666,28 @@ export const ProductDetailPage: React.FC = () => {
     </>
   );
 };
+
+function ProductFaqItem({ faq }: { faq: { question: string; answer: string } }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="rounded-xl border border-gray-200 bg-white overflow-hidden shadow-sm">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition-colors"
+        aria-expanded={open}
+      >
+        <span className="font-body font-semibold text-sm text-prayag-black pr-4 leading-snug">{faq.question}</span>
+        {open ? (
+          <ChevronUp className="w-4 h-4 text-prayag-red flex-shrink-0" aria-hidden="true" />
+        ) : (
+          <ChevronDown className="w-4 h-4 text-gray-400 flex-shrink-0" aria-hidden="true" />
+        )}
+      </button>
+      {open && (
+        <div className="border-t border-gray-100 px-6 py-4 bg-gray-50/50">
+          <p className="font-body text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+        </div>
+      )}
+    </div>
+  );
+}

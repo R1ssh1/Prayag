@@ -66,6 +66,8 @@ export interface Product {
   applications?: string[];
   /** List of available inspection and testing methods. Rendered if present. */
   inspectionTesting?: string[];
+  /** Frequently Asked Questions for SEO and on-page FAQ section. */
+  faqs?: { question: string; answer: string }[];
   /** Cross-links to related products. slug is optional — if absent, renders as
    *  plain text only (used when the related product page does not yet exist). */
   relatedProducts?: { name: string; slug?: string; division?: string }[];
