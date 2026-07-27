@@ -125,7 +125,7 @@ export const flanges: Product[] = [
   // ── 1. Weld Neck Flange ───────────────────────────────────────────────────
   {
     id: "flg-001",
-    slug: "weld-neck-flange",
+    slug: "weld-neck-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Weld Neck Flange",
     type: "Forged",
@@ -139,15 +139,14 @@ export const flanges: Product[] = [
     specs: FLANGES_SPECS,
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/weld-neck-flange.webp",
-    metaTitle: "Weld Neck Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged Weld Neck Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. High pressure & cyclic service. Prayag Steel India.",
+    metaTitle: "Weld Neck Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged Weld Neck Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. High pressure & cyclic service. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 2. Slip-On Flange ─────────────────────────────────────────────────────
   {
     id: "flg-002",
-    slug: "slip-on-flange",
+    slug: "slip-on-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Slip-On Flange",
     type: "Forged",
@@ -161,15 +160,14 @@ export const flanges: Product[] = [
     specs: FLANGES_SPECS,
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/slip-on-flange.webp",
-    metaTitle: "Slip-On Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged Slip-On Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Low to medium pressure service. Prayag Steel India.",
+    metaTitle: "Slip-On Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged Slip-On Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Low to medium pressure service. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 3. Blind Flange ───────────────────────────────────────────────────────
   {
     id: "flg-003",
-    slug: "blind-flange",
+    slug: "blind-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Blind Flange",
     type: "Forged",
@@ -183,15 +181,14 @@ export const flanges: Product[] = [
     specs: FLANGES_SPECS,
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/blind-flange.webp",
-    metaTitle: "Blind Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged Blind Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Pipeline isolation & pressure testing. Prayag Steel India.",
+    metaTitle: "Blind Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged Blind Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Pipeline isolation & pressure testing. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 4. Socket Weld Flange ─────────────────────────────────────────────────
   {
     id: "flg-004",
-    slug: "socket-weld-flange",
+    slug: "socket-weld-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Socket Weld Flange",
     type: "Forged",
@@ -205,15 +202,14 @@ export const flanges: Product[] = [
     specs: FLANGES_SPECS,
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/socket-weld-flange.webp",
-    metaTitle: "Socket Weld Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged Socket Weld Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Small bore high pressure service. Prayag Steel India.",
+    metaTitle: "Socket Weld Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged Socket Weld Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Small bore high pressure service. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 5. Threaded Flange ────────────────────────────────────────────────────
   {
     id: "flg-005",
-    slug: "threaded-flange",
+    slug: "threaded-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Threaded Flange",
     type: "Forged",
@@ -227,15 +223,14 @@ export const flanges: Product[] = [
     specs: FLANGES_SPECS,
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/threaded-flange.webp",
-    metaTitle: "Threaded Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged Threaded Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. No-weld installation for hazardous environments. Prayag Steel.",
+    metaTitle: "Threaded Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged Threaded Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. No-weld installation for hazardous environments. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── 6. Lap Joint Flange ───────────────────────────────────────────────────
   {
     id: "flg-006",
-    slug: "lap-joint-flange",
+    slug: "lap-joint-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Lap Joint Flange",
     type: "Forged",
@@ -249,15 +244,14 @@ export const flanges: Product[] = [
     specs: FLANGES_SPECS,
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/lap-joint-flange.webp",
-    metaTitle: "Lap Joint Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged Lap Joint Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Used with Stub Ends for frequent-dismantle systems. Prayag Steel.",
+    metaTitle: "Lap Joint Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged Lap Joint Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Used with Stub Ends for frequent-dismantle systems. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── 7. Orifice Flange ─────────────────────────────────────────────────────
   {
     id: "flg-007",
-    slug: "orifice-flange",
+    slug: "orifice-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Orifice Flange",
     type: "Forged",
@@ -275,15 +269,14 @@ export const flanges: Product[] = [
     ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/orifice-flange.webp",
-    metaTitle: "Orifice Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged Orifice Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Pressure tap holes for flow measurement. ASME B16.5. Prayag Steel India.",
+    metaTitle: "Orifice Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged Orifice Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Pressure tap holes for flow measurement. ASME B16.5. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 8. Spectacle Blind ────────────────────────────────────────────────────
   {
     id: "flg-008",
-    slug: "spectacle-blind",
+    slug: "spectacle-blind-manufacturer-india",
     division: "flanges",
     subcategory: "Spectacle Blind",
     type: "Forged / Fabricated",
@@ -297,15 +290,14 @@ export const flanges: Product[] = [
     specs: FLANGES_SPECS,
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/spectacle-blind.webp",
-    metaTitle: "Spectacle Blind | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Spectacle Blinds in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Positive pipeline isolation for maintenance & shutdown. Prayag Steel India.",
+    metaTitle: "Spectacle Blind Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Spectacle Blinds in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Positive pipeline isolation for maintenance & shutdown. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 9. Reducing Flange ────────────────────────────────────────────────────
   {
     id: "flg-009",
-    slug: "reducing-flange",
+    slug: "reducing-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Reducing Flange",
     type: "Forged",
@@ -319,15 +311,14 @@ export const flanges: Product[] = [
     specs: FLANGES_SPECS,
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/reducing-flange.webp",
-    metaTitle: "Reducing Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged Reducing Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Size transition with flange connection. ASME B16.5. Prayag Steel India.",
+    metaTitle: "Reducing Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged Reducing Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Size transition with flange connection. ASME B16.5. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 10. Ring Type Joint (RTJ) ─────────────────────────────────────────────
   {
     id: "flg-010",
-    slug: "ring-type-joint-rtj-flange",
+    slug: "ring-type-joint-rtj-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Ring Type Joint (RTJ) Flange",
     type: "Forged",
@@ -345,14 +336,13 @@ export const flanges: Product[] = [
     ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/ring-type-joint-rtj-flange.webp",
-    metaTitle: "Ring Type Joint (RTJ) Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged RTJ Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Metal-to-metal seal for extreme pressure & temperature. Prayag Steel India.",
+    metaTitle: "Ring Type Joint (RTJ) Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged RTJ Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Metal-to-metal seal for extreme pressure & temperature. Manufacturer and supplier in India. Prayag Steel India.",
   },
   // ── 11. Male-Female Flange ───────────────────────────────────────────────────
   {
     id: "flg-011",
-    slug: "male-female-flange",
+    slug: "male-female-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Male-Female Flange",
     type: "Forged",
@@ -372,15 +362,14 @@ export const flanges: Product[] = [
     ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/male-female-flange.webp",
-    metaTitle: "Male-Female Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged Male-Female Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–24\"+, Class 150#–2500#. Matched pairs, blowout-proof gasket confinement. Prayag Steel India.",
+    metaTitle: "Male-Female Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged Male-Female Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–24\"+, Class 150#–2500#. Matched pairs, blowout-proof gasket confinement. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 12. Tongue and Groove Flange ─────────────────────────────────────────────
   {
     id: "flg-012",
-    slug: "tongue-and-groove-flange",
+    slug: "tongue-and-groove-flange-manufacturer-india",
     division: "flanges",
     subcategory: "Tongue and Groove Flange",
     type: "Forged",
@@ -400,8 +389,7 @@ export const flanges: Product[] = [
     ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/tongue-groove-flange.webp",
-    metaTitle: "Tongue and Groove Flange | Forged Flanges | Prayag Steel & Engineering",
-    metaDescription:
-      "Forged Tongue and Groove Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–24\"+, Class 150#–2500#. Full gasket confinement for volatile & hazardous fluids. Prayag Steel India.",
+    metaTitle: "Tongue and Groove Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Forged Tongue and Groove Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–24\"+, Class 150#–2500#. Full gasket confinement for volatile & hazardous fluids. Manufacturer and supplier in India. Prayag Steel India.",
   },
 ];

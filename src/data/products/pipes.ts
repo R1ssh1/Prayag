@@ -9,7 +9,7 @@ export const pipes: Product[] = [
   // ── Stainless Steel ─────────────────────────────────────────────────────────
   {
     id: "pip-001",
-    slug: "seamless-stainless-steel-pipe-tp304",
+    slug: "seamless-stainless-steel-pipe-tp304-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -30,13 +30,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp304.webp",
-    metaTitle: "Seamless TP304 Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP304 stainless steel pipes, 6mm–168mm OD. BA, P&P, polished finish. ASTM A312/A213 compliant. Chemical, food & beverage, general engineering. Prayag Steel.",
+    metaTitle: "Seamless TP304 Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP304 stainless steel pipes, 6mm–168mm OD. BA, P&P, polished finish. ASTM A312/A213 compliant. Chemical, food & beverage, general engineering. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-002",
-    slug: "seamless-stainless-steel-pipe-tp304l",
+    slug: "seamless-stainless-steel-pipe-tp304l-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -56,13 +55,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp304l.webp",
-    metaTitle: "Seamless TP304L Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP304L low-carbon stainless steel pipes, 6mm–168mm OD. Reduced sensitisation risk, ideal for welded assemblies. ASTM A312/A213. Prayag Steel India.",
+    metaTitle: "Seamless TP304L Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP304L low-carbon stainless steel pipes, 6mm–168mm OD. Reduced sensitisation risk, ideal for welded assemblies. ASTM A312/A213. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-003",
-    slug: "seamless-stainless-steel-pipe-tp304h",
+    slug: "seamless-stainless-steel-pipe-tp304h-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -82,13 +80,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp304h.webp",
-    metaTitle: "Seamless TP304H Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP304H high-carbon stainless steel pipes for elevated-temperature service. Enhanced creep strength. ASTM A312/A213. Heat exchangers, superheaters. Prayag Steel.",
+    metaTitle: "Seamless TP304H Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP304H high-carbon stainless steel pipes for elevated-temperature service. Enhanced creep strength. ASTM A312/A213. Heat exchangers, superheaters. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-004",
-    slug: "seamless-stainless-steel-pipe-tp310",
+    slug: "seamless-stainless-steel-pipe-tp310-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -108,13 +105,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp310.webp",
-    metaTitle: "Seamless TP310 Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP310 stainless steel pipes for high-temperature oxidation resistance up to 1040°C. ASTM A312/A213. Furnace, kiln, heat treatment applications. Prayag Steel.",
+    metaTitle: "Seamless TP310 Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP310 stainless steel pipes for high-temperature oxidation resistance up to 1040°C. ASTM A312/A213. Furnace, kiln, heat treatment applications. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-005",
-    slug: "seamless-stainless-steel-pipe-tp310s",
+    slug: "seamless-stainless-steel-pipe-tp310s-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -134,13 +130,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp310s.webp",
-    metaTitle: "Seamless TP310S Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP310S low-carbon stainless steel pipes with excellent high-temperature resistance and improved weldability. ASTM A312/A213. Prayag Steel India.",
+    metaTitle: "Seamless TP310S Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP310S low-carbon stainless steel pipes with excellent high-temperature resistance and improved weldability. ASTM A312/A213. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-006",
-    slug: "seamless-stainless-steel-pipe-tp316",
+    slug: "seamless-stainless-steel-pipe-tp316-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -160,13 +155,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp316.webp",
-    metaTitle: "Seamless TP316 Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP316 molybdenum-bearing stainless steel pipes for superior chloride resistance. 6mm–168mm OD. ASTM A312/A213. Chemical, marine, pharma. Prayag Steel.",
+    metaTitle: "Seamless TP316 Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP316 molybdenum-bearing stainless steel pipes for superior chloride resistance. 6mm–168mm OD. ASTM A312/A213. Chemical, marine, pharma. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-007",
-    slug: "seamless-stainless-steel-pipe-tp316l",
+    slug: "seamless-stainless-steel-pipe-tp316l-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -186,13 +180,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp316l.webp",
-    metaTitle: "Seamless TP316L Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP316L low-carbon stainless steel pipes, 6mm–168mm OD. Superior chloride resistance, ideal for welded assemblies. ASTM A312/A213. Chemical, pharma, nuclear. Prayag Steel.",
+    metaTitle: "Seamless TP316L Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP316L low-carbon stainless steel pipes, 6mm–168mm OD. Superior chloride resistance, ideal for welded assemblies. ASTM A312/A213. Chemical, pharma, nuclear. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-008",
-    slug: "seamless-stainless-steel-pipe-tp316ti",
+    slug: "seamless-stainless-steel-pipe-tp316ti-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -212,13 +205,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp316ti.webp",
-    metaTitle: "Seamless TP316Ti Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP316Ti titanium-stabilised stainless steel pipes with enhanced intergranular corrosion resistance. ASTM A312/A213. Chemical, refinery, heat exchangers. Prayag Steel.",
+    metaTitle: "Seamless TP316Ti Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP316Ti titanium-stabilised stainless steel pipes with enhanced intergranular corrosion resistance. ASTM A312/A213. Chemical, refinery, heat exchangers. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-009",
-    slug: "seamless-stainless-steel-pipe-tp317",
+    slug: "seamless-stainless-steel-pipe-tp317-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -238,13 +230,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp317.webp",
-    metaTitle: "Seamless TP317 Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP317 high-molybdenum stainless steel pipes for superior pitting resistance. ASTM A312/A213. Pulp & paper, textile, chemical processing. Prayag Steel India.",
+    metaTitle: "Seamless TP317 Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP317 high-molybdenum stainless steel pipes for superior pitting resistance. ASTM A312/A213. Pulp & paper, textile, chemical processing. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-010",
-    slug: "seamless-stainless-steel-pipe-tp317l",
+    slug: "seamless-stainless-steel-pipe-tp317l-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -264,13 +255,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp317l.webp",
-    metaTitle: "Seamless TP317L Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP317L low-carbon, high-molybdenum stainless steel pipes. Superior pitting resistance and excellent weldability. ASTM A312/A213. Prayag Steel India.",
+    metaTitle: "Seamless TP317L Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP317L low-carbon, high-molybdenum stainless steel pipes. Superior pitting resistance and excellent weldability. ASTM A312/A213. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-011",
-    slug: "seamless-stainless-steel-pipe-tp321",
+    slug: "seamless-stainless-steel-pipe-tp321-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -290,13 +280,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp321.webp",
-    metaTitle: "Seamless TP321 Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP321 titanium-stabilised stainless steel pipes immune to sensitisation. Elevated-temperature service. ASTM A312/A213. Aerospace, chemical, exhaust. Prayag Steel.",
+    metaTitle: "Seamless TP321 Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP321 titanium-stabilised stainless steel pipes immune to sensitisation. Elevated-temperature service. ASTM A312/A213. Aerospace, chemical, exhaust. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-012",
-    slug: "seamless-stainless-steel-pipe-tp321h",
+    slug: "seamless-stainless-steel-pipe-tp321h-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -316,13 +305,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp321h.webp",
-    metaTitle: "Seamless TP321H Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP321H high-carbon titanium-stabilised stainless steel pipes for superior creep strength. ASTM A312/A213. Superheaters, high-temperature pressure vessels. Prayag Steel.",
+    metaTitle: "Seamless TP321H Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP321H high-carbon titanium-stabilised stainless steel pipes for superior creep strength. ASTM A312/A213. Superheaters, high-temperature pressure vessels. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-013",
-    slug: "seamless-stainless-steel-pipe-tp347",
+    slug: "seamless-stainless-steel-pipe-tp347-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -342,13 +330,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp347.webp",
-    metaTitle: "Seamless TP347 Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP347 niobium-stabilised stainless steel pipes. High intergranular corrosion resistance for elevated-temperature service. ASTM A312/A213. Prayag Steel India.",
+    metaTitle: "Seamless TP347 Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP347 niobium-stabilised stainless steel pipes. High intergranular corrosion resistance for elevated-temperature service. ASTM A312/A213. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-014",
-    slug: "seamless-stainless-steel-pipe-tp347h",
+    slug: "seamless-stainless-steel-pipe-tp347h-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -368,13 +355,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp347h.webp",
-    metaTitle: "Seamless TP347H Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP347H high-carbon niobium-stabilised stainless steel pipes for superior creep resistance. ASTM A312/A213. Power generation, superheaters. Prayag Steel.",
+    metaTitle: "Seamless TP347H Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP347H high-carbon niobium-stabilised stainless steel pipes for superior creep resistance. ASTM A312/A213. Power generation, superheaters. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-015",
-    slug: "seamless-stainless-steel-pipe-tp904l",
+    slug: "seamless-stainless-steel-pipe-tp904l-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -394,13 +380,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp904l.webp",
-    metaTitle: "Seamless TP904L Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless TP904L high-alloy austenitic stainless steel pipes for outstanding sulphuric acid and chloride resistance. ASTM A312/A213. Chemical, offshore. Prayag Steel.",
+    metaTitle: "Seamless TP904L Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless TP904L high-alloy austenitic stainless steel pipes for outstanding sulphuric acid and chloride resistance. ASTM A312/A213. Chemical, offshore. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-016",
-    slug: "seamless-stainless-steel-pipe-uns-s31254",
+    slug: "seamless-stainless-steel-pipe-uns-s31254-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -420,13 +405,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-uns-s31254.webp",
-    metaTitle: "Seamless 254 SMO (UNS S31254) Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless 254 SMO (UNS S31254) superaustenitic 6Mo stainless steel pipes. Exceptional chloride pitting resistance. ASTM A312/A213. Seawater, desalination. Prayag Steel.",
+    metaTitle: "Seamless 254 SMO (UNS S31254) Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless 254 SMO (UNS S31254) superaustenitic 6Mo stainless steel pipes. Exceptional chloride pitting resistance. ASTM A312/A213. Seawater, desalination. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-017",
-    slug: "seamless-stainless-steel-pipe-uns-n08367",
+    slug: "seamless-stainless-steel-pipe-uns-n08367-manufacturer-india",
     division: "pipes",
     subcategory: "Stainless Steel",
     type: "Seamless",
@@ -446,15 +430,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-uns-n08367.webp",
-    metaTitle: "Seamless UNS N08367 6Mo Stainless Steel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless UNS N08367 (6Mo / AL-6XN) superaustenitic stainless steel pipes with very high pitting resistance. ASTM A312/A213. Seawater, offshore, chemical. Prayag Steel.",
+    metaTitle: "Seamless UNS N08367 6Mo Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless UNS N08367 (6Mo / AL-6XN) superaustenitic stainless steel pipes with very high pitting resistance. ASTM A312/A213. Seawater, offshore, chemical. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── Duplex ──────────────────────────────────────────────────────────────────
   {
     id: "pip-018",
-    slug: "seamless-duplex-pipe-uns-s31803",
+    slug: "seamless-duplex-pipe-uns-s31803-manufacturer-india",
     division: "pipes",
     subcategory: "Duplex",
     type: "Seamless",
@@ -474,13 +457,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A790", "ASTM A928"],
     image: "products/pipes/seamless-duplex-pipe-uns-s31803.webp",
-    metaTitle: "Seamless UNS S31803 Duplex Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless UNS S31803 duplex stainless steel pipes — high strength, excellent pitting and SCC resistance. ASTM A790. Oil & gas, chemical, desalination. Prayag Steel.",
+    metaTitle: "Seamless UNS S31803 Duplex Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless UNS S31803 duplex stainless steel pipes — high strength, excellent pitting and SCC resistance. ASTM A790. Oil & gas, chemical, desalination. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-019",
-    slug: "seamless-duplex-pipe-uns-s32205",
+    slug: "seamless-duplex-pipe-uns-s32205-manufacturer-india",
     division: "pipes",
     subcategory: "Duplex",
     type: "Seamless",
@@ -500,15 +482,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A790", "ASTM A928"],
     image: "products/pipes/seamless-duplex-pipe-uns-s32205.webp",
-    metaTitle: "Seamless 2205 Duplex (UNS S32205) Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless 2205 duplex (UNS S32205) stainless steel pipes — 2× strength of standard SS, superior pitting resistance. ASTM A790. Chemical, desalination, oil & gas. Prayag Steel.",
+    metaTitle: "Seamless 2205 Duplex (UNS S32205) Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless 2205 duplex (UNS S32205) stainless steel pipes — 2× strength of standard SS, superior pitting resistance. ASTM A790. Chemical, desalination, oil & gas. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── Super Duplex ─────────────────────────────────────────────────────────────
   {
     id: "pip-020",
-    slug: "seamless-super-duplex-pipe-uns-s32750",
+    slug: "seamless-super-duplex-pipe-uns-s32750-manufacturer-india",
     division: "pipes",
     subcategory: "Super Duplex",
     type: "Seamless",
@@ -528,13 +509,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A790", "ASTM A928"],
     image: "products/pipes/seamless-super-duplex-pipe-uns-s32750.webp",
-    metaTitle: "Seamless 2507 Super Duplex (UNS S32750) Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless 2507 super duplex (UNS S32750) pipes — very high PRE, outstanding pitting resistance. ASTM A790. Offshore, desalination, chemical processing. Prayag Steel.",
+    metaTitle: "Seamless 2507 Super Duplex (UNS S32750) Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless 2507 super duplex (UNS S32750) pipes — very high PRE, outstanding pitting resistance. ASTM A790. Offshore, desalination, chemical processing. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-021",
-    slug: "seamless-super-duplex-pipe-uns-s32760",
+    slug: "seamless-super-duplex-pipe-uns-s32760-manufacturer-india",
     division: "pipes",
     subcategory: "Super Duplex",
     type: "Seamless",
@@ -554,15 +534,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM A790", "ASTM A928"],
     image: "products/pipes/seamless-super-duplex-pipe-uns-s32760.webp",
-    metaTitle: "Seamless UNS S32760 Super Duplex Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless UNS S32760 (Zeron 100) super duplex pipes — PRE >40, excellent corrosion resistance in seawater and acids. ASTM A790. Offshore, marine. Prayag Steel India.",
+    metaTitle: "Seamless UNS S32760 Super Duplex Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless UNS S32760 (Zeron 100) super duplex pipes — PRE >40, excellent corrosion resistance in seawater and acids. ASTM A790. Offshore, marine. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── Inconel ──────────────────────────────────────────────────────────────────
   {
     id: "pip-022",
-    slug: "seamless-inconel-pipe-600",
+    slug: "seamless-inconel-pipe-600-manufacturer-india",
     division: "pipes",
     subcategory: "Inconel",
     type: "Seamless",
@@ -582,13 +561,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B444"],
     image: "products/pipes/seamless-inconel-pipe-600.webp",
-    metaTitle: "Seamless Inconel 600 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Inconel 600 (UNS N06600) pipes — excellent oxidation and carburisation resistance up to 1150°C. ASTM B622/B444. Heat treatment, nuclear, chemical. Prayag Steel.",
+    metaTitle: "Seamless Inconel 600 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Inconel 600 (UNS N06600) pipes — excellent oxidation and carburisation resistance up to 1150°C. ASTM B622/B444. Heat treatment, nuclear, chemical. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-023",
-    slug: "seamless-inconel-pipe-601",
+    slug: "seamless-inconel-pipe-601-manufacturer-india",
     division: "pipes",
     subcategory: "Inconel",
     type: "Seamless",
@@ -608,13 +586,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B444"],
     image: "products/pipes/seamless-inconel-pipe-601.webp",
-    metaTitle: "Seamless Inconel 601 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Inconel 601 (UNS N06601) pipes — exceptional oxidation resistance to 1200°C with aluminium-enhanced protective scale. ASTM B622/B444. Industrial heating. Prayag Steel.",
+    metaTitle: "Seamless Inconel 601 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Inconel 601 (UNS N06601) pipes — exceptional oxidation resistance to 1200°C with aluminium-enhanced protective scale. ASTM B622/B444. Industrial heating. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-024",
-    slug: "seamless-inconel-pipe-617",
+    slug: "seamless-inconel-pipe-617-manufacturer-india",
     division: "pipes",
     subcategory: "Inconel",
     type: "Seamless",
@@ -634,13 +611,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B444"],
     image: "products/pipes/seamless-inconel-pipe-617.webp",
-    metaTitle: "Seamless Inconel 617 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Inconel 617 (UNS N06617) pipes — high-temperature strength and oxidation resistance for gas turbines and steam reforming. ASTM B622/B444. Prayag Steel.",
+    metaTitle: "Seamless Inconel 617 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Inconel 617 (UNS N06617) pipes — high-temperature strength and oxidation resistance for gas turbines and steam reforming. ASTM B622/B444. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-025",
-    slug: "seamless-inconel-pipe-625",
+    slug: "seamless-inconel-pipe-625-manufacturer-india",
     division: "pipes",
     subcategory: "Inconel",
     type: "Seamless",
@@ -660,13 +636,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B444"],
     image: "products/pipes/seamless-inconel-pipe-625.webp",
-    metaTitle: "Seamless Inconel 625 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Inconel 625 (UNS N06625) pipes for extreme corrosion and high-temperature service. Defence, nuclear, aerospace, offshore. ASTM B622/B444. Prayag Steel India.",
+    metaTitle: "Seamless Inconel 625 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Inconel 625 (UNS N06625) pipes for extreme corrosion and high-temperature service. Defence, nuclear, aerospace, offshore. ASTM B622/B444. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-026",
-    slug: "seamless-inconel-pipe-686",
+    slug: "seamless-inconel-pipe-686-manufacturer-india",
     division: "pipes",
     subcategory: "Inconel",
     type: "Seamless",
@@ -686,13 +661,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B444"],
     image: "products/pipes/seamless-inconel-pipe-686.webp",
-    metaTitle: "Seamless Inconel 686 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Inconel 686 (UNS N06686) pipes — extremely high corrosion resistance in mixed acids, wet chlorine, and hypochlorite. ASTM B622/B444. Prayag Steel India.",
+    metaTitle: "Seamless Inconel 686 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Inconel 686 (UNS N06686) pipes — extremely high corrosion resistance in mixed acids, wet chlorine, and hypochlorite. ASTM B622/B444. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-027",
-    slug: "seamless-inconel-pipe-690",
+    slug: "seamless-inconel-pipe-690-manufacturer-india",
     division: "pipes",
     subcategory: "Inconel",
     type: "Seamless",
@@ -712,13 +686,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B444"],
     image: "products/pipes/seamless-inconel-pipe-690.webp",
-    metaTitle: "Seamless Inconel 690 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Inconel 690 (UNS N06690) high-chromium pipes — superior SCC resistance for nuclear steam generators and chemical processing. ASTM B622/B444. Prayag Steel.",
+    metaTitle: "Seamless Inconel 690 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Inconel 690 (UNS N06690) high-chromium pipes — superior SCC resistance for nuclear steam generators and chemical processing. ASTM B622/B444. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-028",
-    slug: "seamless-inconel-pipe-718",
+    slug: "seamless-inconel-pipe-718-manufacturer-india",
     division: "pipes",
     subcategory: "Inconel",
     type: "Seamless",
@@ -738,13 +711,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B444"],
     image: "products/pipes/seamless-inconel-pipe-718.webp",
-    metaTitle: "Seamless Inconel 718 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Inconel 718 (UNS N07718) precipitation-hardened pipes — very high strength, cryogenic to 700°C. ASTM B622/B444. Aerospace, oil & gas, nuclear. Prayag Steel.",
+    metaTitle: "Seamless Inconel 718 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Inconel 718 (UNS N07718) precipitation-hardened pipes — very high strength, cryogenic to 700°C. ASTM B622/B444. Aerospace, oil & gas, nuclear. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-029",
-    slug: "seamless-inconel-pipe-x-750",
+    slug: "seamless-inconel-pipe-x-750-manufacturer-india",
     division: "pipes",
     subcategory: "Inconel",
     type: "Seamless",
@@ -764,15 +736,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B444"],
     image: "products/pipes/seamless-inconel-pipe-x-750.webp",
-    metaTitle: "Seamless Inconel X-750 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Inconel X-750 (UNS N07750) age-hardenable pipes — high strength, oxidation resistance to 980°C. ASTM B622/B444. Gas turbines, nuclear, aerospace. Prayag Steel.",
+    metaTitle: "Seamless Inconel X-750 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Inconel X-750 (UNS N07750) age-hardenable pipes — high strength, oxidation resistance to 980°C. ASTM B622/B444. Gas turbines, nuclear, aerospace. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── Incoloy ──────────────────────────────────────────────────────────────────
   {
     id: "pip-030",
-    slug: "seamless-incoloy-pipe-800",
+    slug: "seamless-incoloy-pipe-800-manufacturer-india",
     division: "pipes",
     subcategory: "Incoloy",
     type: "Seamless",
@@ -792,13 +763,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B407", "ASTM B423", "ASTM B163"],
     image: "products/pipes/seamless-incoloy-pipe-800.webp",
-    metaTitle: "Seamless Incoloy 800 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Incoloy 800 (UNS N08800) pipes — carburisation, oxidation, and nitridation resistance to 816°C. ASTM B407/B423. Chemical processing, heat exchangers. Prayag Steel.",
+    metaTitle: "Seamless Incoloy 800 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Incoloy 800 (UNS N08800) pipes — carburisation, oxidation, and nitridation resistance to 816°C. ASTM B407/B423. Chemical processing, heat exchangers. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-031",
-    slug: "seamless-incoloy-pipe-800h",
+    slug: "seamless-incoloy-pipe-800h-manufacturer-india",
     division: "pipes",
     subcategory: "Incoloy",
     type: "Seamless",
@@ -818,13 +788,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B407", "ASTM B423", "ASTM B163"],
     image: "products/pipes/seamless-incoloy-pipe-800h.webp",
-    metaTitle: "Seamless Incoloy 800H Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Incoloy 800H (UNS N08810) pipes — superior creep strength above 600°C. ASTM B407/B423. Steam reformers, ammonia crackers, pyrolysis furnaces. Prayag Steel.",
+    metaTitle: "Seamless Incoloy 800H Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Incoloy 800H (UNS N08810) pipes — superior creep strength above 600°C. ASTM B407/B423. Steam reformers, ammonia crackers, pyrolysis furnaces. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-032",
-    slug: "seamless-incoloy-pipe-800ht",
+    slug: "seamless-incoloy-pipe-800ht-manufacturer-india",
     division: "pipes",
     subcategory: "Incoloy",
     type: "Seamless",
@@ -844,13 +813,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B407", "ASTM B423", "ASTM B163"],
     image: "products/pipes/seamless-incoloy-pipe-800ht.webp",
-    metaTitle: "Seamless Incoloy 800HT Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Incoloy 800HT (UNS N08811) pipes — highest creep strength in the 800 series for steam cracking and ethylene production. ASTM B407/B423. Prayag Steel.",
+    metaTitle: "Seamless Incoloy 800HT Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Incoloy 800HT (UNS N08811) pipes — highest creep strength in the 800 series for steam cracking and ethylene production. ASTM B407/B423. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-033",
-    slug: "seamless-incoloy-pipe-825",
+    slug: "seamless-incoloy-pipe-825-manufacturer-india",
     division: "pipes",
     subcategory: "Incoloy",
     type: "Seamless",
@@ -870,15 +838,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B407", "ASTM B423", "ASTM B163"],
     image: "products/pipes/seamless-incoloy-pipe-825.webp",
-    metaTitle: "Seamless Incoloy 825 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Incoloy 825 (UNS N08825) pipes — outstanding sulphuric and phosphoric acid corrosion resistance. ASTM B407/B423. Oil & gas, chemical, seawater. Prayag Steel.",
+    metaTitle: "Seamless Incoloy 825 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Incoloy 825 (UNS N08825) pipes — outstanding sulphuric and phosphoric acid corrosion resistance. ASTM B407/B423. Oil & gas, chemical, seawater. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── Monel ────────────────────────────────────────────────────────────────────
   {
     id: "pip-034",
-    slug: "seamless-monel-pipe-400",
+    slug: "seamless-monel-pipe-400-manufacturer-india",
     division: "pipes",
     subcategory: "Monel",
     type: "Seamless",
@@ -898,13 +865,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B165", "ASTM B725"],
     image: "products/pipes/seamless-monel-pipe-400.webp",
-    metaTitle: "Seamless Monel 400 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Monel 400 (UNS N04400) pipes — excellent resistance to seawater, HF acid, and reducing acids. ASTM B165/B725. Marine, chemical, hydrocarbon processing. Prayag Steel.",
+    metaTitle: "Seamless Monel 400 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Monel 400 (UNS N04400) pipes — excellent resistance to seawater, HF acid, and reducing acids. ASTM B165/B725. Marine, chemical, hydrocarbon processing. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-035",
-    slug: "seamless-monel-pipe-k-500",
+    slug: "seamless-monel-pipe-k-500-manufacturer-india",
     division: "pipes",
     subcategory: "Monel",
     type: "Seamless",
@@ -924,15 +890,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B165", "ASTM B725"],
     image: "products/pipes/seamless-monel-pipe-k-500.webp",
-    metaTitle: "Seamless Monel K-500 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Monel K-500 (UNS N05500) age-hardenable pipes — 3× yield strength of Monel 400, non-magnetic. ASTM B165/B725. Marine, oil & gas, cryogenic. Prayag Steel.",
+    metaTitle: "Seamless Monel K-500 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Monel K-500 (UNS N05500) age-hardenable pipes — 3× yield strength of Monel 400, non-magnetic. ASTM B165/B725. Marine, oil & gas, cryogenic. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── Hastelloy ────────────────────────────────────────────────────────────────
   {
     id: "pip-036",
-    slug: "seamless-hastelloy-pipe-c-22",
+    slug: "seamless-hastelloy-pipe-c-22-manufacturer-india",
     division: "pipes",
     subcategory: "Hastelloy",
     type: "Seamless",
@@ -952,13 +917,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B619"],
     image: "products/pipes/seamless-hastelloy-pipe-c-22.webp",
-    metaTitle: "Seamless Hastelloy C-22 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Hastelloy C-22 (UNS N06022) pipes — outstanding versatile corrosion resistance in oxidising and reducing environments. ASTM B622/B619. Chemical, pharma. Prayag Steel.",
+    metaTitle: "Seamless Hastelloy C-22 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Hastelloy C-22 (UNS N06022) pipes — outstanding versatile corrosion resistance in oxidising and reducing environments. ASTM B622/B619. Chemical, pharma. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-037",
-    slug: "seamless-hastelloy-pipe-c-276",
+    slug: "seamless-hastelloy-pipe-c-276-manufacturer-india",
     division: "pipes",
     subcategory: "Hastelloy",
     type: "Seamless",
@@ -978,13 +942,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B619"],
     image: "products/pipes/seamless-hastelloy-pipe-c-276.webp",
-    metaTitle: "Seamless Hastelloy C-276 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Hastelloy C-276 (UNS N10276) pipes — outstanding resistance to reducing acids, chlorine, and seawater. ASTM B622/B619. Chemical, oil & gas, waste treatment. Prayag Steel.",
+    metaTitle: "Seamless Hastelloy C-276 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Hastelloy C-276 (UNS N10276) pipes — outstanding resistance to reducing acids, chlorine, and seawater. ASTM B622/B619. Chemical, oil & gas, waste treatment. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-038",
-    slug: "seamless-hastelloy-pipe-b-2",
+    slug: "seamless-hastelloy-pipe-b-2-manufacturer-india",
     division: "pipes",
     subcategory: "Hastelloy",
     type: "Seamless",
@@ -1004,13 +967,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B619"],
     image: "products/pipes/seamless-hastelloy-pipe-b-2.webp",
-    metaTitle: "Seamless Hastelloy B-2 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Hastelloy B-2 (UNS N10665) pipes — exceptional HCl resistance at all concentrations and temperatures. ASTM B622/B619. Chemical processing, acid handling. Prayag Steel.",
+    metaTitle: "Seamless Hastelloy B-2 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Hastelloy B-2 (UNS N10665) pipes — exceptional HCl resistance at all concentrations and temperatures. ASTM B622/B619. Chemical processing, acid handling. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-039",
-    slug: "seamless-hastelloy-pipe-b-3",
+    slug: "seamless-hastelloy-pipe-b-3-manufacturer-india",
     division: "pipes",
     subcategory: "Hastelloy",
     type: "Seamless",
@@ -1030,13 +992,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B619"],
     image: "products/pipes/seamless-hastelloy-pipe-b-3.webp",
-    metaTitle: "Seamless Hastelloy B-3 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Hastelloy B-3 (UNS N10675) pipes — improved thermal stability over B-2, outstanding HCl and H2SO4 resistance. ASTM B622/B619. Chemical reactors. Prayag Steel.",
+    metaTitle: "Seamless Hastelloy B-3 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Hastelloy B-3 (UNS N10675) pipes — improved thermal stability over B-2, outstanding HCl and H2SO4 resistance. ASTM B622/B619. Chemical reactors. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-040",
-    slug: "seamless-hastelloy-pipe-x",
+    slug: "seamless-hastelloy-pipe-x-manufacturer-india",
     division: "pipes",
     subcategory: "Hastelloy",
     type: "Seamless",
@@ -1056,15 +1017,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B622", "ASTM B619"],
     image: "products/pipes/seamless-hastelloy-pipe-x.webp",
-    metaTitle: "Seamless Hastelloy X Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Hastelloy X (UNS N06002) pipes — high-temperature strength and oxidation resistance to 1200°C. ASTM B622/B619. Gas turbines, industrial furnaces. Prayag Steel.",
+    metaTitle: "Seamless Hastelloy X Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Hastelloy X (UNS N06002) pipes — high-temperature strength and oxidation resistance to 1200°C. ASTM B622/B619. Gas turbines, industrial furnaces. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── Nickel ───────────────────────────────────────────────────────────────────
   {
     id: "pip-041",
-    slug: "seamless-nickel-pipe-200",
+    slug: "seamless-nickel-pipe-200-manufacturer-india",
     division: "pipes",
     subcategory: "Nickel",
     type: "Seamless",
@@ -1084,13 +1044,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B161", "ASTM B163"],
     image: "products/pipes/seamless-nickel-pipe-200.webp",
-    metaTitle: "Seamless Nickel 200 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Nickel 200 (UNS N02200) commercially pure nickel pipes — excellent caustic alkali and reducing environment resistance. ASTM B161/B163. Prayag Steel India.",
+    metaTitle: "Seamless Nickel 200 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Nickel 200 (UNS N02200) commercially pure nickel pipes — excellent caustic alkali and reducing environment resistance. ASTM B161/B163. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-042",
-    slug: "seamless-nickel-pipe-201",
+    slug: "seamless-nickel-pipe-201-manufacturer-india",
     division: "pipes",
     subcategory: "Nickel",
     type: "Seamless",
@@ -1110,15 +1069,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B161", "ASTM B163"],
     image: "products/pipes/seamless-nickel-pipe-201.webp",
-    metaTitle: "Seamless Nickel 201 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Nickel 201 (UNS N02201) low-carbon nickel pipes for elevated-temperature service — avoids graphitisation above 315°C. ASTM B161/B163. Prayag Steel India.",
+    metaTitle: "Seamless Nickel 201 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Nickel 201 (UNS N02201) low-carbon nickel pipes for elevated-temperature service — avoids graphitisation above 315°C. ASTM B161/B163. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── Titanium ─────────────────────────────────────────────────────────────────
   {
     id: "pip-043",
-    slug: "seamless-titanium-pipe-grade-1",
+    slug: "seamless-titanium-pipe-grade-1-manufacturer-india",
     division: "pipes",
     subcategory: "Titanium",
     type: "Seamless",
@@ -1138,13 +1096,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B861", "ASTM B338"],
     image: "products/pipes/seamless-titanium-pipe-grade-1.webp",
-    metaTitle: "Seamless Titanium Grade 1 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Titanium Grade 1 (UNS R50250) commercially pure pipes — maximum ductility, excellent corrosion resistance. ASTM B861/B338. Chemical, desalination, marine. Prayag Steel.",
+    metaTitle: "Seamless Titanium Grade 1 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Titanium Grade 1 (UNS R50250) commercially pure pipes — maximum ductility, excellent corrosion resistance. ASTM B861/B338. Chemical, desalination, marine. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-044",
-    slug: "seamless-titanium-pipe-grade-2",
+    slug: "seamless-titanium-pipe-grade-2-manufacturer-india",
     division: "pipes",
     subcategory: "Titanium",
     type: "Seamless",
@@ -1164,13 +1121,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B861", "ASTM B338"],
     image: "products/pipes/seamless-titanium-pipe-grade-2.webp",
-    metaTitle: "Seamless Titanium Grade 2 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Titanium Grade 2 (UNS R50400) standard CP titanium pipes — moderate strength, outstanding corrosion resistance. ASTM B861/B338. Chemical, marine, aerospace. Prayag Steel.",
+    metaTitle: "Seamless Titanium Grade 2 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Titanium Grade 2 (UNS R50400) standard CP titanium pipes — moderate strength, outstanding corrosion resistance. ASTM B861/B338. Chemical, marine, aerospace. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-045",
-    slug: "seamless-titanium-pipe-grade-5",
+    slug: "seamless-titanium-pipe-grade-5-manufacturer-india",
     division: "pipes",
     subcategory: "Titanium",
     type: "Seamless",
@@ -1190,13 +1146,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B861", "ASTM B338"],
     image: "products/pipes/seamless-titanium-pipe-grade-5.webp",
-    metaTitle: "Seamless Titanium Grade 5 (Ti-6Al-4V) Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Titanium Grade 5 Ti-6Al-4V (UNS R56400) pipes — high strength, excellent strength-to-weight ratio. ASTM B861/B338. Aerospace, offshore, medical. Prayag Steel.",
+    metaTitle: "Seamless Titanium Grade 5 (Ti-6Al-4V) Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Titanium Grade 5 Ti-6Al-4V (UNS R56400) pipes — high strength, excellent strength-to-weight ratio. ASTM B861/B338. Aerospace, offshore, medical. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-046",
-    slug: "seamless-titanium-pipe-grade-7",
+    slug: "seamless-titanium-pipe-grade-7-manufacturer-india",
     division: "pipes",
     subcategory: "Titanium",
     type: "Seamless",
@@ -1216,13 +1171,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B861", "ASTM B338"],
     image: "products/pipes/seamless-titanium-pipe-grade-7.webp",
-    metaTitle: "Seamless Titanium Grade 7 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Titanium Grade 7 (UNS R52400) palladium-alloyed pipes — superior corrosion resistance in reducing acids. ASTM B861/B338. Chemical processing. Prayag Steel India.",
+    metaTitle: "Seamless Titanium Grade 7 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Titanium Grade 7 (UNS R52400) palladium-alloyed pipes — superior corrosion resistance in reducing acids. ASTM B861/B338. Chemical processing. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-047",
-    slug: "seamless-titanium-pipe-grade-12",
+    slug: "seamless-titanium-pipe-grade-12-manufacturer-india",
     division: "pipes",
     subcategory: "Titanium",
     type: "Seamless",
@@ -1242,15 +1196,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B861", "ASTM B338"],
     image: "products/pipes/seamless-titanium-pipe-grade-12.webp",
-    metaTitle: "Seamless Titanium Grade 12 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Titanium Grade 12 (UNS R53400) Ni-Mo alloyed pipes — enhanced reducing acid resistance and elevated-temperature strength. ASTM B861/B338. Prayag Steel India.",
+    metaTitle: "Seamless Titanium Grade 12 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Titanium Grade 12 (UNS R53400) Ni-Mo alloyed pipes — enhanced reducing acid resistance and elevated-temperature strength. ASTM B861/B338. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── Alloy 20 ─────────────────────────────────────────────────────────────────
   {
     id: "pip-048",
-    slug: "seamless-alloy-20-pipe-uns-n08020",
+    slug: "seamless-alloy-20-pipe-uns-n08020-manufacturer-india",
     division: "pipes",
     subcategory: "Alloy 20",
     type: "Seamless",
@@ -1270,15 +1223,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B729", "ASTM B464"],
     image: "products/pipes/seamless-alloy-20-pipe-uns-n08020.webp",
-    metaTitle: "Seamless Alloy 20 (UNS N08020) Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Alloy 20 (UNS N08020) pipes — maximum resistance to hot sulphuric acid and chloride environments. ASTM B729/B464. Chemical, pharma, acid pickling. Prayag Steel.",
+    metaTitle: "Seamless Alloy 20 (UNS N08020) Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Alloy 20 (UNS N08020) pipes — maximum resistance to hot sulphuric acid and chloride environments. ASTM B729/B464. Chemical, pharma, acid pickling. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── Copper Nickel ─────────────────────────────────────────────────────────────
   {
     id: "pip-049",
-    slug: "seamless-copper-nickel-pipe-90-10",
+    slug: "seamless-copper-nickel-pipe-90-10-manufacturer-india",
     division: "pipes",
     subcategory: "Copper Nickel",
     type: "Seamless",
@@ -1298,13 +1250,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B466", "ASTM B111", "ASTM B467"],
     image: "products/pipes/seamless-copper-nickel-pipe-90-10.webp",
-    metaTitle: "Seamless 90/10 Copper Nickel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless 90/10 copper-nickel (UNS C70600) pipes — excellent seawater corrosion and biofouling resistance. ASTM B466/B111. Marine, desalination, naval. Prayag Steel.",
+    metaTitle: "Seamless 90/10 Copper Nickel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless 90/10 copper-nickel (UNS C70600) pipes — excellent seawater corrosion and biofouling resistance. ASTM B466/B111. Marine, desalination, naval. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-050",
-    slug: "seamless-copper-nickel-pipe-70-30",
+    slug: "seamless-copper-nickel-pipe-70-30-manufacturer-india",
     division: "pipes",
     subcategory: "Copper Nickel",
     type: "Seamless",
@@ -1324,15 +1275,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B466", "ASTM B111", "ASTM B467"],
     image: "products/pipes/seamless-copper-nickel-pipe-70-30.webp",
-    metaTitle: "Seamless 70/30 Copper Nickel Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless 70/30 copper-nickel (UNS C71500) pipes — higher strength and superior seawater resistance vs 90/10. ASTM B466/B111. Desalination, marine, condensers. Prayag Steel.",
+    metaTitle: "Seamless 70/30 Copper Nickel Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless 70/30 copper-nickel (UNS C71500) pipes — higher strength and superior seawater resistance vs 90/10. ASTM B466/B111. Desalination, marine, condensers. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── Zirconium ─────────────────────────────────────────────────────────────────
   {
     id: "pip-051",
-    slug: "seamless-zirconium-pipe-grade-702",
+    slug: "seamless-zirconium-pipe-grade-702-manufacturer-india",
     division: "pipes",
     subcategory: "Zirconium",
     type: "Seamless",
@@ -1352,13 +1302,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B523"],
     image: "products/pipes/seamless-zirconium-pipe-grade-702.webp",
-    metaTitle: "Seamless Zirconium Grade 702 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Zirconium Grade 702 (UNS R60702) pipes — exceptional HCl, H2SO4, and HNO3 resistance. ASTM B523. Chemical processing, nuclear, distillation. Prayag Steel India.",
+    metaTitle: "Seamless Zirconium Grade 702 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Zirconium Grade 702 (UNS R60702) pipes — exceptional HCl, H2SO4, and HNO3 resistance. ASTM B523. Chemical processing, nuclear, distillation. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-052",
-    slug: "seamless-zirconium-pipe-grade-705",
+    slug: "seamless-zirconium-pipe-grade-705-manufacturer-india",
     division: "pipes",
     subcategory: "Zirconium",
     type: "Seamless",
@@ -1378,15 +1327,14 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B523"],
     image: "products/pipes/seamless-zirconium-pipe-grade-705.webp",
-    metaTitle: "Seamless Zirconium Grade 705 Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Zirconium Grade 705 (UNS R60705) Nb-alloyed pipes — 50% higher strength than Grade 702 with equal corrosion resistance. ASTM B523. Prayag Steel India.",
+    metaTitle: "Seamless Zirconium Grade 705 Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Zirconium Grade 705 (UNS R60705) Nb-alloyed pipes — 50% higher strength than Grade 702 with equal corrosion resistance. ASTM B523. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── Tantalum ─────────────────────────────────────────────────────────────────
   {
     id: "pip-053",
-    slug: "seamless-tantalum-pipe-r05200",
+    slug: "seamless-tantalum-pipe-r05200-manufacturer-india",
     division: "pipes",
     subcategory: "Tantalum",
     type: "Seamless",
@@ -1406,13 +1354,12 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B521"],
     image: "products/pipes/seamless-tantalum-pipe-r05200.webp",
-    metaTitle: "Seamless Commercially Pure Tantalum Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless commercially pure tantalum (UNS R05200) pipes — extraordinary acid corrosion resistance superior to glass. ASTM B521. Chemical reactors, pharma. Prayag Steel.",
+    metaTitle: "Seamless Commercially Pure Tantalum Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless commercially pure tantalum (UNS R05200) pipes — extraordinary acid corrosion resistance superior to glass. ASTM B521. Chemical reactors, pharma. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-054",
-    slug: "seamless-tantalum-pipe-r05252",
+    slug: "seamless-tantalum-pipe-r05252-manufacturer-india",
     division: "pipes",
     subcategory: "Tantalum",
     type: "Seamless",
@@ -1432,8 +1379,7 @@ export const pipes: Product[] = [
     ],
     standards: ["ASTM B521"],
     image: "products/pipes/seamless-tantalum-pipe-r05252.webp",
-    metaTitle: "Seamless Ta-2.5W Tantalum-Tungsten Alloy Pipes | Prayag Steel & Engineering",
-    metaDescription:
-      "Seamless Ta-2.5W (UNS R05252) tantalum-tungsten pipes — 50% higher strength than CP tantalum with equal acid corrosion resistance. ASTM B521. Prayag Steel India.",
+    metaTitle: "Seamless Ta-2.5W Tantalum-Tungsten Alloy Pipes Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription: "Seamless Ta-2.5W (UNS R05252) tantalum-tungsten pipes — 50% higher strength than CP tantalum with equal acid corrosion resistance. ASTM B521. Manufacturer and supplier in India. Prayag Steel India.",
   },
 ];

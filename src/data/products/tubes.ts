@@ -128,7 +128,7 @@ export const tubes: Product[] = [
   // ══════════════════════════════════════════════════════════════════════════
   {
     id: "tub-001",
-    slug: "seamless-stainless-steel-tube-tp304",
+    slug: "seamless-stainless-steel-tube-tp304-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -141,13 +141,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP304 (UNS S30400)", SS_STANDARDS, "Heat Exchanger, Boiler, Condenser, Instrumentation, BA, EP"),
     image: "products/tubes/seamless-stainless-steel-tube-tp304.webp",
-    metaTitle: "Seamless TP304 Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP304 tubes, 6mm–168.3mm OD. Heat exchangers, condensers, instrumentation. ASTM A213/A269. BA, P&P, EP finish. Proficient Tubes / Prayag Steel India.",
+    metaTitle: "Seamless TP304 Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP304 tubes, 6mm–168.3mm OD. Heat exchangers, condensers, instrumentation. ASTM A213/A269. BA, P&P, EP finish. Proficient Tubes / Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-002",
-    slug: "seamless-stainless-steel-tube-tp304l",
+    slug: "seamless-stainless-steel-tube-tp304l-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -160,13 +159,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP304L (UNS S30403)", SS_STANDARDS, "Heat Exchanger, Condenser, High Purity, EP, BA, Instrumentation"),
     image: "products/tubes/seamless-stainless-steel-tube-tp304l.webp",
-    metaTitle: "Seamless TP304L Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP304L low-carbon tubes, 6mm–168.3mm OD. Heat exchangers, high purity, EP. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP304L Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP304L low-carbon tubes, 6mm–168.3mm OD. Heat exchangers, high purity, EP. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-003",
-    slug: "seamless-stainless-steel-tube-tp304h",
+    slug: "seamless-stainless-steel-tube-tp304h-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -179,13 +177,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP304H (UNS S30409)", SS_STANDARDS, "Boiler, Heat Exchanger"),
     image: "products/tubes/seamless-stainless-steel-tube-tp304h.webp",
-    metaTitle: "Seamless TP304H Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP304H high-carbon tubes, 6mm–168.3mm OD. Boiler & high-temperature heat exchanger service. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP304H Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP304H high-carbon tubes, 6mm–168.3mm OD. Boiler & high-temperature heat exchanger service. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-004",
-    slug: "seamless-stainless-steel-tube-tp310s",
+    slug: "seamless-stainless-steel-tube-tp310s-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -198,13 +195,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP310S (UNS S31008)", SS_STANDARDS, "Boiler, Heat Exchanger"),
     image: "products/tubes/seamless-stainless-steel-tube-tp310s.webp",
-    metaTitle: "Seamless TP310S Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP310S tubes, 6mm–168.3mm OD. High-temperature oxidation resistance. Furnaces, boilers, heat treatment. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP310S Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP310S tubes, 6mm–168.3mm OD. High-temperature oxidation resistance. Furnaces, boilers, heat treatment. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-005",
-    slug: "seamless-stainless-steel-tube-tp316",
+    slug: "seamless-stainless-steel-tube-tp316-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -217,13 +213,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP316 (UNS S31600)", SS_STANDARDS, "Heat Exchanger, Condenser, BA, EP, High Purity, Instrumentation"),
     image: "products/tubes/seamless-stainless-steel-tube-tp316.webp",
-    metaTitle: "Seamless TP316 Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP316 tubes, 6mm–168.3mm OD. Chloride & pitting resistance. Chemical, marine, pharma. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP316 Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP316 tubes, 6mm–168.3mm OD. Chloride & pitting resistance. Chemical, marine, pharma. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-006",
-    slug: "seamless-stainless-steel-tube-tp316l",
+    slug: "seamless-stainless-steel-tube-tp316l-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -236,13 +231,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP316L (UNS S31603)", SS_STANDARDS, "Heat Exchanger, Condenser, EP, BA, High Purity, Instrumentation"),
     image: "products/tubes/seamless-stainless-steel-tube-tp316l.webp",
-    metaTitle: "Seamless TP316L Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP316L low-carbon tubes, 6mm–168.3mm OD. Chemical, pharma, high purity, EP. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP316L Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP316L low-carbon tubes, 6mm–168.3mm OD. Chemical, pharma, high purity, EP. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-007",
-    slug: "seamless-stainless-steel-tube-tp316ti",
+    slug: "seamless-stainless-steel-tube-tp316ti-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -255,13 +249,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP316Ti (UNS S31635)", SS_STANDARDS, "Heat Exchanger"),
     image: "products/tubes/seamless-stainless-steel-tube-tp316ti.webp",
-    metaTitle: "Seamless TP316Ti Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP316Ti Ti-stabilised tubes, 6mm–168.3mm OD. Heat exchangers, elevated-temperature service. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP316Ti Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP316Ti Ti-stabilised tubes, 6mm–168.3mm OD. Heat exchangers, elevated-temperature service. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-008",
-    slug: "seamless-stainless-steel-tube-tp317",
+    slug: "seamless-stainless-steel-tube-tp317-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -274,13 +267,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP317 (UNS S31700)", SS_STANDARDS),
     image: "products/tubes/seamless-stainless-steel-tube-tp317.webp",
-    metaTitle: "Seamless TP317 Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP317 high-Mo tubes, 6mm–168.3mm OD. Aggressive chemical environments. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP317 Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP317 high-Mo tubes, 6mm–168.3mm OD. Aggressive chemical environments. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-009",
-    slug: "seamless-stainless-steel-tube-tp317l",
+    slug: "seamless-stainless-steel-tube-tp317l-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -293,13 +285,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP317L (UNS S31703)", SS_STANDARDS),
     image: "products/tubes/seamless-stainless-steel-tube-tp317l.webp",
-    metaTitle: "Seamless TP317L Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP317L low-carbon high-Mo tubes, 6mm–168.3mm OD. Chemical processing. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP317L Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP317L low-carbon high-Mo tubes, 6mm–168.3mm OD. Chemical processing. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-010",
-    slug: "seamless-stainless-steel-tube-tp321",
+    slug: "seamless-stainless-steel-tube-tp321-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -312,13 +303,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP321 (UNS S32100)", SS_STANDARDS, "Heat Exchanger, Boiler"),
     image: "products/tubes/seamless-stainless-steel-tube-tp321.webp",
-    metaTitle: "Seamless TP321 Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP321 Ti-stabilised tubes, 6mm–168.3mm OD. Heat exchangers, boilers, elevated temperature. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP321 Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP321 Ti-stabilised tubes, 6mm–168.3mm OD. Heat exchangers, boilers, elevated temperature. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-011",
-    slug: "seamless-stainless-steel-tube-tp321h",
+    slug: "seamless-stainless-steel-tube-tp321h-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -331,13 +321,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP321H (UNS S32109)", SS_STANDARDS, "Boiler, Heat Exchanger"),
     image: "products/tubes/seamless-stainless-steel-tube-tp321h.webp",
-    metaTitle: "Seamless TP321H Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP321H high-carbon Ti-stabilised tubes, 6mm–168.3mm OD. Boiler superheater, heat exchangers. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP321H Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP321H high-carbon Ti-stabilised tubes, 6mm–168.3mm OD. Boiler superheater, heat exchangers. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-012",
-    slug: "seamless-stainless-steel-tube-tp347",
+    slug: "seamless-stainless-steel-tube-tp347-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -350,13 +339,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP347 (UNS S34700)", SS_STANDARDS, "Heat Exchanger, Boiler"),
     image: "products/tubes/seamless-stainless-steel-tube-tp347.webp",
-    metaTitle: "Seamless TP347 Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP347 Nb-stabilised tubes, 6mm–168.3mm OD. Heat exchangers, boilers, elevated temperature. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP347 Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP347 Nb-stabilised tubes, 6mm–168.3mm OD. Heat exchangers, boilers, elevated temperature. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-013",
-    slug: "seamless-stainless-steel-tube-tp347h",
+    slug: "seamless-stainless-steel-tube-tp347h-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -369,13 +357,12 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP347H (UNS S34709)", SS_STANDARDS, "Boiler, Heat Exchanger"),
     image: "products/tubes/seamless-stainless-steel-tube-tp347h.webp",
-    metaTitle: "Seamless TP347H Stainless Steel Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP347H high-carbon Nb-stabilised tubes, 6mm–168.3mm OD. Boiler superheater, high-temperature service. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP347H Stainless Steel Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP347H high-carbon Nb-stabilised tubes, 6mm–168.3mm OD. Boiler superheater, high-temperature service. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-014",
-    slug: "seamless-stainless-steel-tube-tp904l",
+    slug: "seamless-stainless-steel-tube-tp904l-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SS_SUBCATEGORY,
     type: "Seamless",
@@ -388,9 +375,8 @@ export const tubes: Product[] = [
     standards: SS_STANDARDS,
     specs: makeSpecs("TP904L (UNS N08904)", SS_STANDARDS, "Heat Exchanger, Condenser"),
     image: "products/tubes/seamless-stainless-steel-tube-tp904l.webp",
-    metaTitle: "Seamless TP904L Super-Austenitic Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless TP904L tubes, 6mm–168.3mm OD. Sulfuric acid, phosphoric acid, seawater. Heat exchangers, condensers. ASTM A213/A269. Prayag Steel India.",
+    metaTitle: "Seamless TP904L Super-Austenitic Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless TP904L tubes, 6mm–168.3mm OD. Sulfuric acid, phosphoric acid, seawater. Heat exchangers, condensers. ASTM A213/A269. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -398,7 +384,7 @@ export const tubes: Product[] = [
   // ══════════════════════════════════════════════════════════════════════════
   {
     id: "tub-015",
-    slug: "seamless-duplex-stainless-steel-tube-uns-s31803",
+    slug: "seamless-duplex-stainless-steel-tube-uns-s31803-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: DUPLEX_SUBCATEGORY,
     type: "Seamless",
@@ -411,13 +397,12 @@ export const tubes: Product[] = [
     standards: DUPLEX_STANDARDS,
     specs: makeSpecs("UNS S31803 (Duplex 2205)", DUPLEX_STANDARDS, "Heat Exchanger, Condenser"),
     image: "products/tubes/seamless-duplex-stainless-steel-tube-uns-s31803.webp",
-    metaTitle: "Seamless Duplex 2205 Tubes UNS S31803 | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Duplex 2205 (S31803) tubes, 6mm–168.3mm OD. Heat exchangers, desalination, offshore. ASTM A789. Prayag Steel India.",
+    metaTitle: "Seamless Duplex 2205 Tubes UNS S31803 Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Duplex 2205 (S31803) tubes, 6mm–168.3mm OD. Heat exchangers, desalination, offshore. ASTM A789. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-016",
-    slug: "seamless-duplex-stainless-steel-tube-uns-s32205",
+    slug: "seamless-duplex-stainless-steel-tube-uns-s32205-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: DUPLEX_SUBCATEGORY,
     type: "Seamless",
@@ -430,13 +415,12 @@ export const tubes: Product[] = [
     standards: DUPLEX_STANDARDS,
     specs: makeSpecs("UNS S32205 (Duplex 2205)", DUPLEX_STANDARDS, "Heat Exchanger, Condenser"),
     image: "products/tubes/seamless-duplex-stainless-steel-tube-uns-s32205.webp",
-    metaTitle: "Seamless Duplex 2205 Tubes UNS S32205 | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Duplex 2205 (S32205) tubes, 6mm–168.3mm OD. Enhanced PREN, seawater & offshore service. ASTM A789. Prayag Steel India.",
+    metaTitle: "Seamless Duplex 2205 Tubes UNS S32205 Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Duplex 2205 (S32205) tubes, 6mm–168.3mm OD. Enhanced PREN, seawater & offshore service. ASTM A789. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-017",
-    slug: "seamless-duplex-stainless-steel-tube-uns-s32304",
+    slug: "seamless-duplex-stainless-steel-tube-uns-s32304-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: DUPLEX_SUBCATEGORY,
     type: "Seamless",
@@ -449,9 +433,8 @@ export const tubes: Product[] = [
     standards: DUPLEX_STANDARDS,
     specs: makeSpecs("UNS S32304 (Lean Duplex 2304)", DUPLEX_STANDARDS),
     image: "products/tubes/seamless-duplex-stainless-steel-tube-uns-s32304.webp",
-    metaTitle: "Seamless Duplex 2304 Tubes UNS S32304 | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Lean Duplex 2304 (S32304) tubes, 6mm–168.3mm OD. Cost-effective duplex solution. ASTM A789. Prayag Steel India.",
+    metaTitle: "Seamless Duplex 2304 Tubes UNS S32304 Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Lean Duplex 2304 (S32304) tubes, 6mm–168.3mm OD. Cost-effective duplex solution. ASTM A789. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -459,7 +442,7 @@ export const tubes: Product[] = [
   // ══════════════════════════════════════════════════════════════════════════
   {
     id: "tub-018",
-    slug: "seamless-super-duplex-stainless-steel-tube-uns-s32750",
+    slug: "seamless-super-duplex-stainless-steel-tube-uns-s32750-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SUPER_DUPLEX_SUBCATEGORY,
     type: "Seamless",
@@ -472,13 +455,12 @@ export const tubes: Product[] = [
     standards: DUPLEX_STANDARDS,
     specs: makeSpecs("UNS S32750 (Super Duplex 2507)", DUPLEX_STANDARDS, "Heat Exchanger, Condenser"),
     image: "products/tubes/seamless-super-duplex-stainless-steel-tube-uns-s32750.webp",
-    metaTitle: "Seamless Super Duplex 2507 Tubes UNS S32750 | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Super Duplex 2507 (S32750) tubes, 6mm–168.3mm OD. PREN 42+. Seawater, offshore, desalination. ASTM A789. Prayag Steel India.",
+    metaTitle: "Seamless Super Duplex 2507 Tubes UNS S32750 Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Super Duplex 2507 (S32750) tubes, 6mm–168.3mm OD. PREN 42+. Seawater, offshore, desalination. ASTM A789. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-019",
-    slug: "seamless-super-duplex-stainless-steel-tube-uns-s32760",
+    slug: "seamless-super-duplex-stainless-steel-tube-uns-s32760-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: SUPER_DUPLEX_SUBCATEGORY,
     type: "Seamless",
@@ -491,9 +473,8 @@ export const tubes: Product[] = [
     standards: DUPLEX_STANDARDS,
     specs: makeSpecs("UNS S32760 (Super Duplex Zeron 100)", DUPLEX_STANDARDS, "Heat Exchanger, Condenser"),
     image: "products/tubes/seamless-super-duplex-stainless-steel-tube-uns-s32760.webp",
-    metaTitle: "Seamless Super Duplex Tubes UNS S32760 | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Super Duplex S32760 (Zeron 100) tubes, 6mm–168.3mm OD. Offshore, seawater, chemical processing. ASTM A789. Prayag Steel India.",
+    metaTitle: "Seamless Super Duplex Tubes UNS S32760 Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Super Duplex S32760 (Zeron 100) tubes, 6mm–168.3mm OD. Offshore, seawater, chemical processing. ASTM A789. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -502,7 +483,7 @@ export const tubes: Product[] = [
   // ══════════════════════════════════════════════════════════════════════════
   {
     id: "tub-020",
-    slug: "seamless-nickel-alloy-tube-alloy-600",
+    slug: "seamless-nickel-alloy-tube-alloy-600-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: NICKEL_ALLOY_SUBCATEGORY,
     type: "Seamless",
@@ -515,13 +496,12 @@ export const tubes: Product[] = [
     standards: NICKEL_ALLOY_STANDARDS,
     specs: makeSpecs("Alloy 600 / Inconel 600 (UNS N06600)", NICKEL_ALLOY_STANDARDS, "Heat Exchanger, Boiler, Condenser, U-Bend"),
     image: "products/tubes/seamless-nickel-alloy-tube-alloy-600.webp",
-    metaTitle: "Seamless Inconel 600 Alloy 600 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Alloy 600 (N06600) tubes, 6mm–168.3mm OD. Chemical, nuclear, heat exchangers. ASTM B163/B167. Prayag Steel India.",
+    metaTitle: "Seamless Inconel 600 Alloy 600 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Alloy 600 (N06600) tubes, 6mm–168.3mm OD. Chemical, nuclear, heat exchangers. ASTM B163/B167. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-021",
-    slug: "seamless-nickel-alloy-tube-alloy-601",
+    slug: "seamless-nickel-alloy-tube-alloy-601-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: NICKEL_ALLOY_SUBCATEGORY,
     type: "Seamless",
@@ -534,13 +514,12 @@ export const tubes: Product[] = [
     standards: NICKEL_ALLOY_STANDARDS,
     specs: makeSpecs("Alloy 601 / Inconel 601 (UNS N06601)", NICKEL_ALLOY_STANDARDS),
     image: "products/tubes/seamless-nickel-alloy-tube-alloy-601.webp",
-    metaTitle: "Seamless Inconel 601 Alloy 601 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Alloy 601 (N06601) tubes, 6mm–168.3mm OD. Extreme high-temperature oxidation resistance. ASTM B163/B167. Prayag Steel India.",
+    metaTitle: "Seamless Inconel 601 Alloy 601 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Alloy 601 (N06601) tubes, 6mm–168.3mm OD. Extreme high-temperature oxidation resistance. ASTM B163/B167. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-022",
-    slug: "seamless-nickel-alloy-tube-alloy-625",
+    slug: "seamless-nickel-alloy-tube-alloy-625-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: NICKEL_ALLOY_SUBCATEGORY,
     type: "Seamless",
@@ -553,13 +532,12 @@ export const tubes: Product[] = [
     standards: NICKEL_ALLOY_STANDARDS,
     specs: makeSpecs("Alloy 625 / Inconel 625 (UNS N06625)", NICKEL_ALLOY_STANDARDS, "Heat Exchanger, Condenser, U-Bend"),
     image: "products/tubes/seamless-nickel-alloy-tube-alloy-625.webp",
-    metaTitle: "Seamless Inconel 625 Alloy 625 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Alloy 625 (N06625) tubes, 6mm–168.3mm OD. Seawater, offshore, chemical process. ASTM B444. Prayag Steel India.",
+    metaTitle: "Seamless Inconel 625 Alloy 625 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Alloy 625 (N06625) tubes, 6mm–168.3mm OD. Seawater, offshore, chemical process. ASTM B444. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-023",
-    slug: "seamless-nickel-alloy-tube-alloy-718",
+    slug: "seamless-nickel-alloy-tube-alloy-718-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: NICKEL_ALLOY_SUBCATEGORY,
     type: "Seamless",
@@ -572,13 +550,12 @@ export const tubes: Product[] = [
     standards: NICKEL_ALLOY_STANDARDS,
     specs: makeSpecs("Alloy 718 / Inconel 718 (UNS N07718)", NICKEL_ALLOY_STANDARDS),
     image: "products/tubes/seamless-nickel-alloy-tube-alloy-718.webp",
-    metaTitle: "Seamless Inconel 718 Alloy 718 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Alloy 718 (N07718) tubes, 6mm–168.3mm OD. Aerospace, gas turbine, high-strength service. ASTM B622. Prayag Steel India.",
+    metaTitle: "Seamless Inconel 718 Alloy 718 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Alloy 718 (N07718) tubes, 6mm–168.3mm OD. Aerospace, gas turbine, high-strength service. ASTM B622. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-024",
-    slug: "seamless-nickel-alloy-tube-alloy-800",
+    slug: "seamless-nickel-alloy-tube-alloy-800-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: NICKEL_ALLOY_SUBCATEGORY,
     type: "Seamless",
@@ -591,13 +568,12 @@ export const tubes: Product[] = [
     standards: NICKEL_ALLOY_STANDARDS,
     specs: makeSpecs("Alloy 800 / Incoloy 800 (UNS N08800)", NICKEL_ALLOY_STANDARDS, "Heat Exchanger, Boiler, Condenser, U-Bend"),
     image: "products/tubes/seamless-nickel-alloy-tube-alloy-800.webp",
-    metaTitle: "Seamless Incoloy 800 Alloy 800 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Alloy 800 (N08800) Incoloy tubes, 6mm–168.3mm OD. Heat exchangers, boilers, chemical process. ASTM B163. Prayag Steel India.",
+    metaTitle: "Seamless Incoloy 800 Alloy 800 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Alloy 800 (N08800) Incoloy tubes, 6mm–168.3mm OD. Heat exchangers, boilers, chemical process. ASTM B163. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-025",
-    slug: "seamless-nickel-alloy-tube-alloy-800h",
+    slug: "seamless-nickel-alloy-tube-alloy-800h-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: NICKEL_ALLOY_SUBCATEGORY,
     type: "Seamless",
@@ -610,13 +586,12 @@ export const tubes: Product[] = [
     standards: NICKEL_ALLOY_STANDARDS,
     specs: makeSpecs("Alloy 800H / Incoloy 800H (UNS N08810)", NICKEL_ALLOY_STANDARDS, "Heat Exchanger, Boiler"),
     image: "products/tubes/seamless-nickel-alloy-tube-alloy-800h.webp",
-    metaTitle: "Seamless Incoloy 800H Alloy 800H Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Alloy 800H (N08810) Incoloy tubes, 6mm–168.3mm OD. Elevated-temperature creep resistance. ASTM B163. Prayag Steel India.",
+    metaTitle: "Seamless Incoloy 800H Alloy 800H Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Alloy 800H (N08810) Incoloy tubes, 6mm–168.3mm OD. Elevated-temperature creep resistance. ASTM B163. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-026",
-    slug: "seamless-nickel-alloy-tube-alloy-800ht",
+    slug: "seamless-nickel-alloy-tube-alloy-800ht-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: NICKEL_ALLOY_SUBCATEGORY,
     type: "Seamless",
@@ -629,13 +604,12 @@ export const tubes: Product[] = [
     standards: NICKEL_ALLOY_STANDARDS,
     specs: makeSpecs("Alloy 800HT / Incoloy 800HT (UNS N08811)", NICKEL_ALLOY_STANDARDS, "Heat Exchanger, Boiler"),
     image: "products/tubes/seamless-nickel-alloy-tube-alloy-800ht.webp",
-    metaTitle: "Seamless Incoloy 800HT Alloy 800HT Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Alloy 800HT (N08811) Incoloy tubes, 6mm–168.3mm OD. Maximum elevated-temperature creep resistance. ASTM B163. Prayag Steel India.",
+    metaTitle: "Seamless Incoloy 800HT Alloy 800HT Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Alloy 800HT (N08811) Incoloy tubes, 6mm–168.3mm OD. Maximum elevated-temperature creep resistance. ASTM B163. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-027",
-    slug: "seamless-nickel-alloy-tube-alloy-825",
+    slug: "seamless-nickel-alloy-tube-alloy-825-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: NICKEL_ALLOY_SUBCATEGORY,
     type: "Seamless",
@@ -648,9 +622,8 @@ export const tubes: Product[] = [
     standards: NICKEL_ALLOY_STANDARDS,
     specs: makeSpecs("Alloy 825 / Incoloy 825 (UNS N08825)", NICKEL_ALLOY_STANDARDS, "Heat Exchanger, Condenser, U-Bend"),
     image: "products/tubes/seamless-nickel-alloy-tube-alloy-825.webp",
-    metaTitle: "Seamless Incoloy 825 Alloy 825 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Alloy 825 (N08825) Incoloy tubes, 6mm–168.3mm OD. Sulfuric acid, seawater, chemical process. ASTM B163. Prayag Steel India.",
+    metaTitle: "Seamless Incoloy 825 Alloy 825 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Alloy 825 (N08825) Incoloy tubes, 6mm–168.3mm OD. Sulfuric acid, seawater, chemical process. ASTM B163. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -658,7 +631,7 @@ export const tubes: Product[] = [
   // ══════════════════════════════════════════════════════════════════════════
   {
     id: "tub-028",
-    slug: "seamless-monel-tube-alloy-400",
+    slug: "seamless-monel-tube-alloy-400-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: MONEL_SUBCATEGORY,
     type: "Seamless",
@@ -671,13 +644,12 @@ export const tubes: Product[] = [
     standards: MONEL_STANDARDS,
     specs: makeSpecs("Alloy 400 / Monel 400 (UNS N04400)", MONEL_STANDARDS, "Condenser, Heat Exchanger"),
     image: "products/tubes/seamless-monel-tube-alloy-400.webp",
-    metaTitle: "Seamless Monel 400 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Monel 400 (N04400) tubes, 6mm–168.3mm OD. Seawater, HF acid, brine, condensers. ASTM B165. Prayag Steel India.",
+    metaTitle: "Seamless Monel 400 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Monel 400 (N04400) tubes, 6mm–168.3mm OD. Seawater, HF acid, brine, condensers. ASTM B165. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-029",
-    slug: "seamless-monel-tube-alloy-k500",
+    slug: "seamless-monel-tube-alloy-k500-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: MONEL_SUBCATEGORY,
     type: "Seamless",
@@ -690,9 +662,8 @@ export const tubes: Product[] = [
     standards: MONEL_STANDARDS,
     specs: makeSpecs("Alloy K500 / Monel K500 (UNS N05500)", MONEL_STANDARDS),
     image: "products/tubes/seamless-monel-tube-alloy-k500.webp",
-    metaTitle: "Seamless Monel K500 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Monel K500 (N05500) tubes, 6mm–168.3mm OD. High-strength marine & chemical applications. ASTM B165. Prayag Steel India.",
+    metaTitle: "Seamless Monel K500 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Monel K500 (N05500) tubes, 6mm–168.3mm OD. High-strength marine & chemical applications. ASTM B165. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -700,7 +671,7 @@ export const tubes: Product[] = [
   // ══════════════════════════════════════════════════════════════════════════
   {
     id: "tub-030",
-    slug: "seamless-hastelloy-tube-c22",
+    slug: "seamless-hastelloy-tube-c22-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: HASTELLOY_SUBCATEGORY,
     type: "Seamless",
@@ -713,13 +684,12 @@ export const tubes: Product[] = [
     standards: HASTELLOY_STANDARDS,
     specs: makeSpecs("Hastelloy C-22 (UNS N06022)", HASTELLOY_STANDARDS),
     image: "products/tubes/seamless-hastelloy-tube-c22.webp",
-    metaTitle: "Seamless Hastelloy C-22 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Hastelloy C-22 (N06022) tubes, 6mm–168.3mm OD. Oxidising & reducing acids, FGD, chlorine. ASTM B622. Prayag Steel India.",
+    metaTitle: "Seamless Hastelloy C-22 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Hastelloy C-22 (N06022) tubes, 6mm–168.3mm OD. Oxidising & reducing acids, FGD, chlorine. ASTM B622. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-031",
-    slug: "seamless-hastelloy-tube-c276",
+    slug: "seamless-hastelloy-tube-c276-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: HASTELLOY_SUBCATEGORY,
     type: "Seamless",
@@ -732,13 +702,12 @@ export const tubes: Product[] = [
     standards: HASTELLOY_STANDARDS,
     specs: makeSpecs("Hastelloy C-276 (UNS N10276)", HASTELLOY_STANDARDS, "Heat Exchanger, Condenser"),
     image: "products/tubes/seamless-hastelloy-tube-c276.webp",
-    metaTitle: "Seamless Hastelloy C-276 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Hastelloy C-276 (N10276) tubes, 6mm–168.3mm OD. Chemical reactors, FGD, acid-gas service. ASTM B622. Prayag Steel India.",
+    metaTitle: "Seamless Hastelloy C-276 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Hastelloy C-276 (N10276) tubes, 6mm–168.3mm OD. Chemical reactors, FGD, acid-gas service. ASTM B622. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-032",
-    slug: "seamless-hastelloy-tube-b2",
+    slug: "seamless-hastelloy-tube-b2-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: HASTELLOY_SUBCATEGORY,
     type: "Seamless",
@@ -751,13 +720,12 @@ export const tubes: Product[] = [
     standards: HASTELLOY_STANDARDS,
     specs: makeSpecs("Hastelloy B-2 (UNS N10665)", HASTELLOY_STANDARDS),
     image: "products/tubes/seamless-hastelloy-tube-b2.webp",
-    metaTitle: "Seamless Hastelloy B-2 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Hastelloy B-2 (N10665) tubes, 6mm–168.3mm OD. HCl acid, reducing chemical service. ASTM B622. Prayag Steel India.",
+    metaTitle: "Seamless Hastelloy B-2 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Hastelloy B-2 (N10665) tubes, 6mm–168.3mm OD. HCl acid, reducing chemical service. ASTM B622. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-033",
-    slug: "seamless-hastelloy-tube-b3",
+    slug: "seamless-hastelloy-tube-b3-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: HASTELLOY_SUBCATEGORY,
     type: "Seamless",
@@ -770,13 +738,12 @@ export const tubes: Product[] = [
     standards: HASTELLOY_STANDARDS,
     specs: makeSpecs("Hastelloy B-3 (UNS N10675)", HASTELLOY_STANDARDS),
     image: "products/tubes/seamless-hastelloy-tube-b3.webp",
-    metaTitle: "Seamless Hastelloy B-3 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Hastelloy B-3 (N10675) tubes, 6mm–168.3mm OD. HCl acid resistance, improved thermal stability over B-2. ASTM B622. Prayag Steel India.",
+    metaTitle: "Seamless Hastelloy B-3 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Hastelloy B-3 (N10675) tubes, 6mm–168.3mm OD. HCl acid resistance, improved thermal stability over B-2. ASTM B622. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-034",
-    slug: "seamless-hastelloy-tube-x",
+    slug: "seamless-hastelloy-tube-x-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: HASTELLOY_SUBCATEGORY,
     type: "Seamless",
@@ -789,9 +756,8 @@ export const tubes: Product[] = [
     standards: HASTELLOY_STANDARDS,
     specs: makeSpecs("Hastelloy X (UNS N06002)", HASTELLOY_STANDARDS),
     image: "products/tubes/seamless-hastelloy-tube-x.webp",
-    metaTitle: "Seamless Hastelloy X Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Hastelloy X (N06002) tubes, 6mm–168.3mm OD. Gas turbine, aerospace, extreme high-temperature service. ASTM B622. Prayag Steel India.",
+    metaTitle: "Seamless Hastelloy X Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Hastelloy X (N06002) tubes, 6mm–168.3mm OD. Gas turbine, aerospace, extreme high-temperature service. ASTM B622. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -799,7 +765,7 @@ export const tubes: Product[] = [
   // ══════════════════════════════════════════════════════════════════════════
   {
     id: "tub-035",
-    slug: "seamless-titanium-tube-grade-2",
+    slug: "seamless-titanium-tube-grade-2-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: TITANIUM_SUBCATEGORY,
     type: "Seamless",
@@ -812,13 +778,12 @@ export const tubes: Product[] = [
     standards: TITANIUM_STANDARDS,
     specs: makeSpecs("Titanium Grade 2 (UNS R50400)", TITANIUM_STANDARDS, "Heat Exchanger, Condenser, U-Bend"),
     image: "products/tubes/seamless-titanium-tube-grade-2.webp",
-    metaTitle: "Seamless Titanium Grade 2 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Titanium Grade 2 (R50400) tubes, 6mm–168.3mm OD. Seawater, marine, desalination heat exchangers. ASTM B338. Prayag Steel India.",
+    metaTitle: "Seamless Titanium Grade 2 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Titanium Grade 2 (R50400) tubes, 6mm–168.3mm OD. Seawater, marine, desalination heat exchangers. ASTM B338. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-036",
-    slug: "seamless-titanium-tube-grade-5",
+    slug: "seamless-titanium-tube-grade-5-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: TITANIUM_SUBCATEGORY,
     type: "Seamless",
@@ -831,13 +796,12 @@ export const tubes: Product[] = [
     standards: TITANIUM_STANDARDS,
     specs: makeSpecs("Titanium Grade 5 / Ti-6Al-4V (UNS R56400)", TITANIUM_STANDARDS),
     image: "products/tubes/seamless-titanium-tube-grade-5.webp",
-    metaTitle: "Seamless Titanium Grade 5 Ti-6Al-4V Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Titanium Grade 5 (Ti-6Al-4V, R56400) tubes, 6mm–168.3mm OD. Aerospace, marine, medical. ASTM B338. Prayag Steel India.",
+    metaTitle: "Seamless Titanium Grade 5 Ti-6Al-4V Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Titanium Grade 5 (Ti-6Al-4V, R56400) tubes, 6mm–168.3mm OD. Aerospace, marine, medical. ASTM B338. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-037",
-    slug: "seamless-titanium-tube-grade-7",
+    slug: "seamless-titanium-tube-grade-7-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: TITANIUM_SUBCATEGORY,
     type: "Seamless",
@@ -850,13 +814,12 @@ export const tubes: Product[] = [
     standards: TITANIUM_STANDARDS,
     specs: makeSpecs("Titanium Grade 7 (UNS R52400)", TITANIUM_STANDARDS, "Heat Exchanger, Condenser"),
     image: "products/tubes/seamless-titanium-tube-grade-7.webp",
-    metaTitle: "Seamless Titanium Grade 7 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Titanium Grade 7 (R52400) Pd-stabilised tubes, 6mm–168.3mm OD. Reducing acids, crevice corrosion resistance. ASTM B338. Prayag Steel India.",
+    metaTitle: "Seamless Titanium Grade 7 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Titanium Grade 7 (R52400) Pd-stabilised tubes, 6mm–168.3mm OD. Reducing acids, crevice corrosion resistance. ASTM B338. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-038",
-    slug: "seamless-titanium-tube-grade-12",
+    slug: "seamless-titanium-tube-grade-12-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: TITANIUM_SUBCATEGORY,
     type: "Seamless",
@@ -869,9 +832,8 @@ export const tubes: Product[] = [
     standards: TITANIUM_STANDARDS,
     specs: makeSpecs("Titanium Grade 12 (UNS R53400)", TITANIUM_STANDARDS, "Heat Exchanger, Condenser"),
     image: "products/tubes/seamless-titanium-tube-grade-12.webp",
-    metaTitle: "Seamless Titanium Grade 12 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Titanium Grade 12 (R53400) Mo-Ni alloyed tubes, 6mm–168.3mm OD. Reducing acids, elevated-temperature brine. ASTM B338. Prayag Steel India.",
+    metaTitle: "Seamless Titanium Grade 12 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Titanium Grade 12 (R53400) Mo-Ni alloyed tubes, 6mm–168.3mm OD. Reducing acids, elevated-temperature brine. ASTM B338. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -879,7 +841,7 @@ export const tubes: Product[] = [
   // ══════════════════════════════════════════════════════════════════════════
   {
     id: "tub-039",
-    slug: "seamless-nickel-tube-nickel-200",
+    slug: "seamless-nickel-tube-nickel-200-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: NICKEL_SUBCATEGORY,
     type: "Seamless",
@@ -894,13 +856,12 @@ export const tubes: Product[] = [
     standards: NICKEL_STANDARDS,
     specs: makeSpecs("Nickel 200 (UNS N02200)", NICKEL_STANDARDS),
     image: "products/tubes/seamless-nickel-tube-nickel-200.webp",
-    metaTitle: "Seamless Nickel 200 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Nickel 200 (N02200) tubes, 6mm–168.3mm OD. Caustic soda, food processing, electronic applications. Standard TBC — confirm with client. Prayag Steel India.",
+    metaTitle: "Seamless Nickel 200 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Nickel 200 (N02200) tubes, 6mm–168.3mm OD. Caustic soda, food processing, electronic applications. Standard TBC — confirm with client. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
   {
     id: "tub-040",
-    slug: "seamless-nickel-tube-nickel-201",
+    slug: "seamless-nickel-tube-nickel-201-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: NICKEL_SUBCATEGORY,
     type: "Seamless",
@@ -915,9 +876,8 @@ export const tubes: Product[] = [
     standards: NICKEL_STANDARDS,
     specs: makeSpecs("Nickel 201 (UNS N02201)", NICKEL_STANDARDS),
     image: "products/tubes/seamless-nickel-tube-nickel-201.webp",
-    metaTitle: "Seamless Nickel 201 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Nickel 201 (N02201) low-carbon tubes, 6mm–168.3mm OD. Elevated-temperature caustic service. Standard TBC — confirm with client. Prayag Steel India.",
+    metaTitle: "Seamless Nickel 201 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Nickel 201 (N02201) low-carbon tubes, 6mm–168.3mm OD. Elevated-temperature caustic service. Standard TBC — confirm with client. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
 
   // ══════════════════════════════════════════════════════════════════════════
@@ -925,7 +885,7 @@ export const tubes: Product[] = [
   // ══════════════════════════════════════════════════════════════════════════
   {
     id: "tub-041",
-    slug: "seamless-alloy-20-tube-uns-n08020",
+    slug: "seamless-alloy-20-tube-uns-n08020-manufacturer-mumbai-india",
     division: "tubes",
     subcategory: ALLOY20_SUBCATEGORY,
     type: "Seamless",
@@ -940,8 +900,7 @@ export const tubes: Product[] = [
     standards: ALLOY20_STANDARDS,
     specs: makeSpecs("Alloy 20 (UNS N08020)", ALLOY20_STANDARDS),
     image: "products/tubes/seamless-alloy-20-tube-uns-n08020.webp",
-    metaTitle: "Seamless Alloy 20 UNS N08020 Tubes | Proficient Tubes — Prayag Steel",
-    metaDescription:
-      "Seamless Alloy 20 (N08020) tubes, 6mm–168.3mm OD. Sulfuric acid, chemical process, pharma. Standard TBC — confirm with client. Prayag Steel India.",
+    metaTitle: "Seamless Alloy 20 UNS N08020 Tubes Manufacturer & Supplier in Mumbai, India | Prayag Steel",
+    metaDescription: "Seamless Alloy 20 (N08020) tubes, 6mm–168.3mm OD. Sulfuric acid, chemical process, pharma. Standard TBC — confirm with client. Manufacturer and supplier in Mumbai, India. Prayag Steel India.",
   },
 ];
