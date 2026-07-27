@@ -1,23 +1,97 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Send, CheckCircle2 } from "lucide-react";
 import { companyInfo } from "../../../data/company";
 import { SectionHeading } from "../../ui/SectionHeading";
 
 export const ContactContentSection: React.FC = () => {
+  const [searchParams] = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    company: "",
+    email: "",
+    phone: "",
+    interest: "",
+    message: "",
+  });
+
+  useEffect(() => {
+    const divisionParam = searchParams.get("division");
+    const productParam = searchParams.get("product");
+
+    setFormData((prev) => {
+      let newInterest = prev.interest;
+      let newMessage = prev.message;
+
+      if (divisionParam && ["flanges", "fittings", "pipes", "tubes", "other"].includes(divisionParam.toLowerCase())) {
+        newInterest = divisionParam.toLowerCase();
+      }
+      if (productParam && !prev.message.includes(productParam)) {
+        newMessage = `Inquiring about product: ${productParam}\n\nRequirements:\n`;
+      }
+      return {
+        ...prev,
+        interest: newInterest,
+        message: newMessage,
+      };
+    });
+  }, [searchParams]);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate network request
-    setTimeout(() => {
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "d1391a94-4c33-4682-888c-dbb6c77ae41d",
+          from_name: "Prayag Steel Website Inquiry",
+          subject: formData.interest
+            ? `New Inquiry: ${formData.interest.toUpperCase()} - Prayag Steel Website`
+            : "New Website Inquiry - Prayag Steel",
+          ...formData,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.status === 200 && result.success) {
+        setIsSuccess(true);
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+          phone: "",
+          interest: "",
+          message: "",
+        });
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        setErrorMessage(result.message || "Something went wrong. Please try emailing us directly.");
+      }
+    } catch (error) {
+      setErrorMessage("Network error. Please check your internet connection or email us directly.");
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      // Reset after 4s
-      setTimeout(() => setIsSuccess(false), 4000);
-    }, 1500);
+    }
   };
 
   return (
@@ -147,12 +221,23 @@ export const ContactContentSection: React.FC = () => {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+                  
+                  {errorMessage && (
+                    <div className="bg-red-50 border border-red-200 rounded-xl p-3.5 text-red-700 text-xs font-body font-medium flex items-center gap-2">
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
                       <label htmlFor="name" className="text-[11px] font-body font-bold uppercase tracking-widest text-gray-500 ml-1">Full Name *</label>
                       <input
                         type="text"
                         id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         required
                         className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-prayag-black font-body text-sm focus:bg-white focus:border-prayag-red focus:ring-1 focus:ring-prayag-red outline-none transition-all duration-200"
                         placeholder="John Doe"
@@ -163,6 +248,9 @@ export const ContactContentSection: React.FC = () => {
                       <input
                         type="text"
                         id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleChange}
                         required
                         className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-prayag-black font-body text-sm focus:bg-white focus:border-prayag-red focus:ring-1 focus:ring-prayag-red outline-none transition-all duration-200"
                         placeholder="Company Ltd."
@@ -176,18 +264,27 @@ export const ContactContentSection: React.FC = () => {
                       <input
                         type="email"
                         id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         required
                         className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-prayag-black font-body text-sm focus:bg-white focus:border-prayag-red focus:ring-1 focus:ring-prayag-red outline-none transition-all duration-200"
                         placeholder="john@example.com"
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label htmlFor="phone" className="text-[11px] font-body font-bold uppercase tracking-widest text-gray-500 ml-1">Phone Number</label>
+                      <div className="flex justify-between items-baseline">
+                        <label htmlFor="phone" className="text-[11px] font-body font-bold uppercase tracking-widest text-gray-500 ml-1">Phone Number</label>
+                        <span className="text-[10px] font-body text-gray-400">e.g. +91 / Intl</span>
+                      </div>
                       <input
                         type="tel"
                         id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
                         className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-prayag-black font-body text-sm focus:bg-white focus:border-prayag-red focus:ring-1 focus:ring-prayag-red outline-none transition-all duration-200"
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="+91 98765 43210"
                       />
                     </div>
                   </div>
@@ -196,6 +293,9 @@ export const ContactContentSection: React.FC = () => {
                     <label htmlFor="interest" className="text-[11px] font-body font-bold uppercase tracking-widest text-gray-500 ml-1">Product Interest</label>
                     <select
                       id="interest"
+                      name="interest"
+                      value={formData.interest}
+                      onChange={handleChange}
                       className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-prayag-black font-body text-sm focus:bg-white focus:border-prayag-red focus:ring-1 focus:ring-prayag-red outline-none transition-all duration-200 appearance-none"
                       style={{ backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e\")", backgroundPosition: "right 0.5rem center", backgroundRepeat: "no-repeat", backgroundSize: "1.5em 1.5em", paddingRight: "2.5rem" }}
                     >
@@ -212,6 +312,9 @@ export const ContactContentSection: React.FC = () => {
                     <label htmlFor="message" className="text-[11px] font-body font-bold uppercase tracking-widest text-gray-500 ml-1">Message / Requirements *</label>
                     <textarea
                       id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       required
                       rows={3}
                       className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-prayag-black font-body text-sm focus:bg-white focus:border-prayag-red focus:ring-1 focus:ring-prayag-red outline-none transition-all duration-200 resize-none"

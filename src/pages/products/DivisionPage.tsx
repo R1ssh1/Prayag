@@ -233,12 +233,12 @@ export const DivisionPage: React.FC = () => {
                   Explore Products
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </a>
-                <a
-                  href="/contact"
+                <Link
+                  to={`/contact?division=${division || ""}`}
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-white/20 text-white font-body font-bold uppercase tracking-widest text-[13px] hover:bg-white/10 transition-colors"
                 >
                   Request Quote
-                </a>
+                </Link>
               </div>
             </motion.div>
 
