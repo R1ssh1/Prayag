@@ -3,7 +3,7 @@ import type { Product, MaterialFamily } from "./types";
 // ─────────────────────────────────────────────────────────────────────────────
 // Flanges Division — Type-First Model
 // subcategory = flange type (e.g. "Weld Neck Flange")
-// materialsTable is shared across ALL 10 products — reference FLANGES_MATERIALS,
+// materialsTable is shared across ALL 12 products — reference FLANGES_MATERIALS,
 // never duplicate by value.
 //
 // NOTE: Incoloy is merged into Nickel Alloys — confirmed intentional.
@@ -14,10 +14,14 @@ import type { Product, MaterialFamily } from "./types";
 //       flange specs back in without corresponding confirmed plate material
 //       standards.
 //
-// NOTE: Facing types (RF, FF, RTJ, Serrated, Tongue, Groove) are NOT enumerated
-//       here. The source document (flange_website.docx Section 12) lists
-//       "Facing Types" as a heading but provides no values. Flagged for client
-//       confirmation before adding as a spec row.
+// NOTE: Per-product standards arrays are used (not a single shared constant)
+//       because applicable standards differ significantly by flange type.
+//       See inline comments per product for the rationale.
+//
+// NOTE: RTJ — "Compatible with API Ring Joint Gaskets (R, RX & BX types)" is
+//       intentionally omitted. This is a product-capability claim requiring
+//       client confirmation that RTJ groove profiles are machined to API spec.
+//       Do not add without explicit client sign-off.
 // ─────────────────────────────────────────────────────────────────────────────
 
 // ── Shared materials table (define ONCE, reference from every product) ───────
@@ -73,18 +77,19 @@ export const FLANGES_MATERIALS: MaterialFamily[] = [
     grades: ["Nickel 200", "Nickel 201"],
   },
   {
-    family: "Other Exotic Alloys",
+    family: "Custom & Exotic Alloys",
     standard: "",
     grades: ["Available on Request"],
   },
 ];
 
-// ── Shared standards (dimensional/manufacturing) for all 10 products ─────────
-const FLANGES_STANDARDS = [
+// ── Per-product standards sets ────────────────────────────────────────────────
+// FULL: used by Weld Neck, Slip-On, Blind, Lap Joint, Reducing, RTJ,
+//       Male-Female, Tongue & Groove — all large-diameter capable flanges.
+const STD_FULL = [
   "ASME B16.5",
   "ASME B16.47 Series A",
   "ASME B16.47 Series B",
-  "ASME B16.48",
   "MSS SP-44",
   "EN 1092-1",
   "DIN Series",
@@ -92,14 +97,49 @@ const FLANGES_STANDARDS = [
   "BS 10",
 ];
 
-// ── Shared fallback specs (forged only — per client decision) ─────────────────
-// NOTE: Facing types (RF, FF, RTJ, Serrated, Tongue, Groove) not yet enumerated
-// in source document — Section 12 of flange_website.docx lists "Facing Types"
-// as a heading but doesn't provide values. Flag for client confirmation before
-// adding as a spec row.
+// SOCKET WELD: B16.47 does not apply (covers NPS 26–60 only; SW is small bore).
+const STD_SOCKET_WELD = [
+  "ASME B16.5",
+  "MSS SP-44",
+  "EN 1092-1",
+  "DIN Series",
+  "JIS Series",
+  "BS 10",
+];
+
+// THREADED & ORIFICE: not manufactured in large-diameter ranges covered by
+// B16.47 or MSS SP-44; B16.48 not applicable.
+const STD_THREADED_ORIFICE = [
+  "ASME B16.5",
+  "EN 1092-1",
+  "DIN Series",
+  "JIS Series",
+  "BS 10",
+];
+
+// SPECTACLE BLIND: B16.48 is the governing spec — listed first.
+const STD_SPECTACLE = [
+  "ASME B16.48",
+  "ASME B16.5",
+  "ASME B16.47 Series A",
+  "ASME B16.47 Series B",
+  "MSS SP-44",
+  "EN 1092-1",
+  "DIN Series",
+  "JIS Series",
+  "BS 10",
+];
+
+// ── Shared base spec rows (most products) ─────────────────────────────────────
+// Size Range reflects the ASME B16.5 / B16.47 split accurately.
+// Products that differ (Socket Weld, Threaded, Spectacle Blind, RTJ) build
+// their own specs array inline.
 const FLANGES_SPECS = [
   { label: "Manufacturing Type", value: "Forged" },
-  { label: "Size Range", value: "1/2\" to 60\" (Custom Sizes Available)" },
+  {
+    label: "Size Range",
+    value: "½\" to 24\" NPS (ASME B16.5), 26\" to 60\" NPS (ASME B16.47)",
+  },
   {
     label: "Pressure Class",
     value:
@@ -116,7 +156,7 @@ const FLANGES_SPECS = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// The 10 Products
+// The 12 Products
 // materials: [] — for type-first divisions the authoritative material list is
 //   materialsTable (FLANGES_MATERIALS). The materials array is kept empty to
 //   avoid contradicting the table or creating duplicated maintenance burden.
@@ -131,16 +171,57 @@ export const flanges: Product[] = [
     type: "Forged",
     name: "Weld Neck Flange",
     shortDescription:
-      "Designed for high pressure and cyclic service. Suitable for severe operating conditions where strength and fatigue resistance are essential.",
+      "Engineered for high-pressure, high-temperature, and cyclic service, Weld Neck Flanges provide superior structural integrity, fatigue resistance, and reliable long-term performance in critical piping systems.",
     description:
-      "Weld Neck Flanges are designed for high pressure and cyclic service, suitable for severe operating conditions where strength and fatigue resistance are essential. The tapered hub transitions smoothly from flange thickness to pipe wall thickness, minimising stress concentration at the junction. This makes weld neck flanges the preferred choice for high-pressure, high-temperature, and vibrating service applications across oil & gas, petrochemical, power, and nuclear industries.",
+      "Weld Neck Flanges are forged flanges featuring a long tapered hub that is butt-welded directly to the pipe, providing a smooth transition between the flange and piping system. This design minimizes stress concentration at the weld joint and ensures uniform load distribution, making Weld Neck Flanges the preferred choice for high-pressure, high-temperature, and cyclic service conditions.\n\nWidely used in critical process industries such as oil & gas, petrochemicals, power generation, offshore, chemical processing, pharmaceuticals, and nuclear facilities, Weld Neck Flanges offer excellent mechanical strength, superior fatigue resistance, and long service life. Manufactured to international standards, they are available in a wide range of stainless steels, duplex steels, nickel alloys, titanium, and other corrosion-resistant materials to suit demanding industrial applications.",
     materials: [],
-    standards: FLANGES_STANDARDS,
-    specs: FLANGES_SPECS,
+    standards: STD_FULL,
+    specs: [
+      ...FLANGES_SPECS,
+      { label: "Connection Type", value: "Butt Weld" },
+      { label: "Hub Design", value: "Long Tapered Hub" },
+      { label: "Bore Type", value: "Standard Bore / Schedule Bore" },
+      { label: "Facing Types", value: "RF, RTJ, FF, T&G, M&F" },
+    ],
+    keyFeatures: [
+      "Long tapered hub minimizes stress concentration",
+      "Excellent fatigue resistance",
+      "High structural strength",
+      "Suitable for high-pressure and high-temperature service",
+      "Full-penetration butt weld connection",
+      "Excellent resistance to thermal cycling",
+      "Precision machined sealing faces",
+      "Long service life in critical applications",
+    ],
+    applications: [
+      "Oil & Gas",
+      "Petrochemical Plants",
+      "Refineries",
+      "Chemical Processing",
+      "Power Generation",
+      "Offshore Platforms",
+      "LNG Facilities",
+      "Nuclear Power Plants",
+      "Fertilizer Plants",
+      "Pharmaceutical Industry",
+      "Marine & Shipbuilding",
+    ],
+    inspectionTesting: [
+      "PMI",
+      "Dimensional Inspection",
+      "Visual Inspection",
+      "Ultrasonic Testing (UT)",
+      "Liquid Penetrant Testing (PT)",
+      "Hardness Test",
+      "Ferrite Test (on request)",
+      "IGC Test (on request)",
+      "Third Party Inspection (TPI)",
+    ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/weld-neck-flange.webp",
     metaTitle: "Weld Neck Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged Weld Neck Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. High pressure & cyclic service. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription:
+      "Forged Weld Neck Flanges in SS, Duplex, Inconel, Hastelloy & Titanium. ASME B16.5, Class 150#–2500#. Long tapered hub for superior fatigue resistance and high-pressure, high-temperature cyclic service. Manufacturer in India.",
   },
 
   // ── 2. Slip-On Flange ─────────────────────────────────────────────────────
@@ -152,16 +233,55 @@ export const flanges: Product[] = [
     type: "Forged",
     name: "Slip-On Flange",
     shortDescription:
-      "Economical solution for low to medium pressure applications. Easy alignment and faster installation.",
+      "Cost-effective forged flanges designed for easy installation, accurate alignment, and reliable sealing in low to medium pressure piping systems.",
     description:
-      "Slip-On Flanges provide an economical solution for low to medium pressure applications, offering easy alignment and faster installation compared to weld neck flanges. The flange slips over the pipe outer diameter and is fillet-welded both inside and outside, providing adequate strength for moderate service conditions. Widely used in utility piping, water treatment, and general process piping where the operating conditions do not demand the reinforcement of a weld neck flange.",
+      "Slip-On Flanges are forged flanges designed to slide over the outside diameter of the pipe before being secured with fillet welds on both the inside and outside. Their simple design allows for easy alignment during installation, making them a cost-effective solution for low to medium pressure and moderate temperature applications.\n\nManufactured to international standards, they are available in a wide range of stainless steels, duplex steels, nickel alloys, titanium, and other corrosion-resistant materials for dependable service across diverse industries.",
     materials: [],
-    standards: FLANGES_STANDARDS,
-    specs: FLANGES_SPECS,
+    standards: STD_FULL,
+    specs: [
+      ...FLANGES_SPECS,
+      { label: "Connection Type", value: "Slip-On with Double Fillet Weld" },
+      { label: "Bore Type", value: "Oversized Bore for Easy Pipe Alignment" },
+      { label: "Facing Types", value: "RF, RTJ, FF, T&G, M&F" },
+    ],
+    keyFeatures: [
+      "Easy pipe alignment and installation",
+      "Double fillet weld connection",
+      "Cost-effective alternative to Weld Neck Flanges",
+      "Suitable for low to medium pressure service",
+      "Reduced fabrication and installation time",
+      "Precision machined sealing faces",
+      "Available in multiple facing types",
+      "Manufactured from corrosion-resistant alloys",
+    ],
+    applications: [
+      "Water Treatment Plants",
+      "Chemical Processing",
+      "Petrochemical Plants",
+      "Utility Piping",
+      "Fire Protection Systems",
+      "HVAC Systems",
+      "Marine & Shipbuilding",
+      "Food & Beverage Industry",
+      "Pharmaceutical Utilities",
+      "General Industrial Piping",
+    ],
+    inspectionTesting: [
+      "PMI",
+      "Dimensional Inspection",
+      "Visual Inspection",
+      "Hardness Test",
+      "Ultrasonic Testing (UT)",
+      "Liquid Penetrant Testing (PT)",
+      "Ferrite Test (on request)",
+      "IGC Test (on request)",
+      "Third Party Inspection (TPI)",
+    ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/slip-on-flange.webp",
     metaTitle: "Slip-On Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged Slip-On Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Low to medium pressure service. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription:
+      "Forged Stainless Steel Slip-On Flanges — ASTM A182, ASME B16.5, Class 150#–2500#. SS, Duplex, Inconel, Hastelloy & Titanium. Easy alignment, double fillet weld, cost-effective for low to medium pressure service. Manufacturer in India.",
   },
 
   // ── 3. Blind Flange ───────────────────────────────────────────────────────
@@ -173,19 +293,27 @@ export const flanges: Product[] = [
     type: "Forged",
     name: "Blind Flange",
     shortDescription:
-      "Used for positive pipeline isolation and pressure testing. Provides complete sealing of pipe ends.",
+      "Solid disc flanges used for positive pipeline isolation and pressure testing, providing complete sealing of pipe ends across all pressure classes.",
     description:
       "Blind Flanges are used for positive pipeline isolation and pressure testing, providing complete sealing of pipe ends. As solid disc flanges, they must withstand the full pipeline pressure and are available across all pressure classes. They are used to close off the end of a pipeline or pressure vessel, to allow access for future branch connections, or as isolation blanks during maintenance and hydrostatic testing operations.",
     materials: [],
-    standards: FLANGES_STANDARDS,
-    specs: FLANGES_SPECS,
+    standards: STD_FULL,
+    specs: [
+      ...FLANGES_SPECS,
+      { label: "Construction Type", value: "Solid Disc (Without Bore)" },
+      { label: "Primary Function", value: "Pipeline Isolation & Pressure Containment" },
+      { label: "Facing Types", value: "RF, FF, RTJ, T&G, M&F" },
+    ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/blind-flange.webp",
     metaTitle: "Blind Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged Blind Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Pipeline isolation & pressure testing. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription:
+      "Forged Blind Flanges in SS, Duplex, Inconel, Hastelloy & Titanium. Solid disc construction for positive pipeline isolation and pressure containment. ASME B16.5 / B16.47, Class 150#–2500#. Manufacturer and supplier in India.",
   },
 
   // ── 4. Socket Weld Flange ─────────────────────────────────────────────────
+  // NOTE: B16.47 (covers NPS 26–60) does not apply — Socket Weld flanges are
+  //       standardised in small bore sizes only (1/2" to 24" per ASME B16.5).
   {
     id: "flg-004",
     slug: "socket-weld-flange-manufacturer-india",
@@ -198,15 +326,41 @@ export const flanges: Product[] = [
     description:
       "Socket Weld Flanges are ideal for small bore high pressure piping systems and are particularly well suited to process and hydraulic applications. The pipe is inserted into the socket bore and fillet-welded on the outside, providing a strong and leak-resistant joint without requiring pipe end bevelling. Their compact design and high pressure rating make them preferred in instrumentation, hydraulic, and chemical process piping of small nominal diameter.",
     materials: [],
-    standards: FLANGES_STANDARDS,
-    specs: FLANGES_SPECS,
+    standards: STD_SOCKET_WELD,
+    specs: [
+      { label: "Manufacturing Type", value: "Forged" },
+      { label: "Size Range", value: "1/2\" to 24\" NPS (ASME B16.5)" },
+      {
+        label: "Pressure Class",
+        value:
+          "150#, 300#, 400#, 600#, 900#, 1500#, 2500# | PN6, PN10, PN16, PN25, PN40, PN64, PN100, PN160",
+      },
+      {
+        label: "Surface Finish",
+        value: "Machined, Pickled, Passivated, Glass Bead, Mirror Polish, Electropolished",
+      },
+      {
+        label: "Heat Treatment",
+        value: "Solution Annealing, Stress Relieving (as required)",
+      },
+      { label: "Connection Type", value: "Socket Weld" },
+      { label: "Socket Design", value: "Precision Machined Socket Bore" },
+      { label: "Weld Type", value: "External Fillet Weld" },
+      {
+        label: "Pipe Fitment",
+        value: "Recessed Socket with Expansion Gap as per ASME B16.5",
+      },
+    ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/socket-weld-flange.webp",
     metaTitle: "Socket Weld Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged Socket Weld Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Small bore high pressure service. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription:
+      "Forged Socket Weld Flanges in SS, Duplex, Inconel, Hastelloy & Titanium. 1/2\"–24\" NPS, ASME B16.5, Class 150#–2500#. Precision machined socket bore with external fillet weld for small bore high-pressure piping. Manufacturer in India.",
   },
 
   // ── 5. Threaded Flange ────────────────────────────────────────────────────
+  // NOTE: B16.47, B16.48, and MSS SP-44 are not applicable — Threaded flanges
+  //       are not manufactured in the large-diameter ranges those standards cover.
   {
     id: "flg-005",
     slug: "threaded-flange-manufacturer-india",
@@ -215,16 +369,36 @@ export const flanges: Product[] = [
     type: "Forged",
     name: "Threaded Flange",
     shortDescription:
-      "Designed for piping systems where welding is not possible. Suitable for hazardous environments.",
+      "Suitable for applications where field welding is restricted or impractical, including hazardous areas where minimizing hot work is preferred.",
     description:
-      "Threaded Flanges are designed for piping systems where welding is not possible or desirable, and are particularly suitable for hazardous environments where field welding carries safety risks. The flange is screwed onto the pipe using a tapered or parallel thread, eliminating the need for hot work. They are used in small bore piping for low to moderate pressure services in areas with explosive atmospheres, high fire risk, or other environments where welding is prohibited.",
+      "Threaded Flanges are designed for piping systems where welding is not possible or desirable, and are suitable for applications where field welding is restricted or impractical, including hazardous areas where minimizing hot work is preferred. The flange is screwed onto the pipe using a tapered or parallel thread, eliminating the need for hot work. They are used in small bore piping for low to moderate pressure services in areas with explosive atmospheres, high fire risk, or other environments where welding is prohibited.",
     materials: [],
-    standards: FLANGES_STANDARDS,
-    specs: FLANGES_SPECS,
+    standards: STD_THREADED_ORIFICE,
+    specs: [
+      { label: "Manufacturing Type", value: "Forged" },
+      { label: "Size Range", value: "1/2\" to 24\" NPS" },
+      {
+        label: "Pressure Class",
+        value:
+          "150#, 300#, 400#, 600#, 900#, 1500#, 2500# | PN6, PN10, PN16, PN25, PN40, PN64, PN100, PN160",
+      },
+      {
+        label: "Surface Finish",
+        value: "Machined, Pickled, Passivated, Glass Bead, Mirror Polish, Electropolished",
+      },
+      {
+        label: "Heat Treatment",
+        value: "Solution Annealing, Stress Relieving (as required)",
+      },
+      { label: "Connection Type", value: "Threaded (Screwed Connection)" },
+      { label: "Thread Type", value: "NPT, BSPP, BSPT or Custom Threads" },
+      { label: "Installation", value: "No Welding Required" },
+    ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/threaded-flange.webp",
     metaTitle: "Threaded Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged Threaded Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. No-weld installation for hazardous environments. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription:
+      "Forged Threaded Flanges in SS, Duplex, Inconel, Hastelloy & Titanium. NPT, BSPP & BSPT threads. ASME B16.5, Class 150#–2500#. No-weld screwed connection — ideal for hazardous environments where hot work is restricted. Manufacturer in India.",
   },
 
   // ── 6. Lap Joint Flange ───────────────────────────────────────────────────
@@ -238,17 +412,30 @@ export const flanges: Product[] = [
     shortDescription:
       "Used together with Stub Ends. Excellent for systems requiring frequent dismantling.",
     description:
-      "Lap Joint Flanges are used together with Stub Ends (also called lap joint stub ends) and are particularly well suited to systems requiring frequent dismantling for inspection, cleaning, or component replacement. Because the flange slides freely on the pipe, it can be rotated to align bolt holes without disturbing the pipe or gasket, saving time during maintenance operations. The backing flange is typically made from a less expensive material than the stub end, reducing overall cost when high-alloy materials are required in the process stream.",
+      "Lap Joint Flanges are used together with Stub Ends (also called lap joint stub ends) and are particularly well suited to systems requiring frequent dismantling for inspection, cleaning, or component replacement. Because the flange slides freely on the pipe, it can be rotated to align bolt holes without disturbing the pipe or gasket, saving time during maintenance operations. Where process conditions permit, the backing flange may be manufactured from a different material than the stub end, providing greater material flexibility and potential cost optimization.",
     materials: [],
-    standards: FLANGES_STANDARDS,
-    specs: FLANGES_SPECS,
+    standards: STD_FULL,
+    specs: [
+      ...FLANGES_SPECS,
+      { label: "Connection Type", value: "Used with Lap Joint Stub End" },
+      { label: "Flange Design", value: "Rotating Backing Flange" },
+      { label: "Bolt Alignment", value: "Free Rotational Alignment" },
+      { label: "Facing Type", value: "Flat Face (Used with Lap Joint Stub End)" },
+    ],
+    relatedProducts: [
+      // NOTE: No dedicated Stub Ends product page exists yet in fittings.ts.
+      // slug is intentionally absent — renders as plain text until the page is published.
+      { name: "Lap Joint Stub Ends", division: "fittings" },
+    ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/lap-joint-flange.webp",
     metaTitle: "Lap Joint Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged Lap Joint Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. ASME B16.5. Used with Stub Ends for frequent-dismantle systems. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription:
+      "Forged Lap Joint Flanges in SS, Duplex, Inconel, Hastelloy & Titanium. Rotating backing flange with free bolt alignment — ideal for frequent-dismantle systems. Used with Lap Joint Stub Ends. ASME B16.5 / B16.47. Manufacturer in India.",
   },
 
   // ── 7. Orifice Flange ─────────────────────────────────────────────────────
+  // NOTE: B16.47 and B16.48 do not apply to Orifice Flanges in standard practice.
   {
     id: "flg-007",
     slug: "orifice-flange-manufacturer-india",
@@ -259,21 +446,29 @@ export const flanges: Product[] = [
     shortDescription:
       "Designed for flow measurement systems. Available with pressure tap holes.",
     description:
-      "Orifice Flanges are specifically designed for flow measurement systems. They are supplied as matched pairs with precisely machined pressure tap holes drilled radially through the flange body, allowing differential pressure measurement across an orifice plate. Available in weld neck and slip-on configurations with either 1\" NPT or 1/2\" NPT tappings, they are used in conjunction with orifice plates, flow nozzles, and venturi tubes for accurate process flow measurement.",
+      "Orifice Flanges are specifically designed for flow measurement systems. They are supplied as matched pairs with precisely machined pressure tap holes drilled radially through the flange body, allowing differential pressure transmitters or gauges to accurately measure the pressure drop across the orifice plate for flow rate calculation. Available in weld neck and slip-on configurations with either 1\" NPT or 1/2\" NPT tappings, they are used in conjunction with orifice plates, flow nozzles, and venturi meters for accurate process flow measurement.",
     materials: [],
-    standards: FLANGES_STANDARDS,
+    standards: STD_THREADED_ORIFICE,
     specs: [
       ...FLANGES_SPECS,
-      { label: "Tappings", value: "1\" NPT or 1/2\" NPT Pressure Tap Holes" },
-      { label: "Supply", value: "Matched Pairs" },
+      { label: "Configuration", value: "Weld Neck or Slip-On" },
+      { label: "Supply", value: "Matched Pair" },
+      { label: "Pressure Tappings", value: "1/2\" NPT or 1\" NPT Threaded Tap Connections" },
+      { label: "Application", value: "Differential Pressure Flow Measurement" },
+      { label: "Compatible Devices", value: "Orifice Plates, Flow Nozzles & Venturi Meters" },
+      { label: "Facing Types", value: "Raised Face (RF), Ring Type Joint (RTJ), Flat Face (FF)" },
     ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/orifice-flange.webp",
     metaTitle: "Orifice Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged Orifice Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Pressure tap holes for flow measurement. ASME B16.5. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription:
+      "Forged Orifice Flanges in SS, Duplex, Inconel, Hastelloy & Titanium. Matched pairs with 1/2\" or 1\" NPT pressure tappings for differential pressure flow measurement. Compatible with orifice plates, flow nozzles & venturi meters. ASME B16.5. Manufacturer in India.",
   },
 
   // ── 8. Spectacle Blind ────────────────────────────────────────────────────
+  // NOTE: ASME B16.48 is the governing specification for Spectacle Blinds —
+  //       listed first. Pressure Class uses ASME classes only (PN range not
+  //       applicable unless manufactured to EN standards).
   {
     id: "flg-008",
     slug: "spectacle-blind-manufacturer-india",
@@ -284,14 +479,47 @@ export const flanges: Product[] = [
     shortDescription:
       "Used for positive isolation in process pipelines. Ideal for maintenance and shutdown operations.",
     description:
-      "Spectacle Blinds are used for positive isolation in process pipelines and are ideal for maintenance and shutdown operations. Consisting of two discs connected by a central bar — one solid (blind) and one ring (open) — they can be rotated within the bolted flange assembly to either isolate or allow flow without disturbing the pipeline. This allows rapid, positive, and visible confirmation of the isolation status, making spectacle blinds widely used in refineries, chemical plants, and process facilities where regular isolation is required.",
+      "Spectacle Blinds are used for positive isolation in process pipelines and are ideal for maintenance and shutdown operations. Consisting of two discs connected by a web — one solid (blind) and one open (spacer) — they can be rotated within the bolted flange assembly to either isolate or allow flow without disturbing the pipeline. This allows rapid, positive, and visible confirmation of the isolation status, making spectacle blinds widely used in refineries, chemical plants, and process facilities where regular isolation is required.",
     materials: [],
-    standards: FLANGES_STANDARDS,
-    specs: FLANGES_SPECS,
+    standards: STD_SPECTACLE,
+    specs: [
+      // Standalone array — does not spread FLANGES_SPECS to keep Pressure Class
+      // ASME-only and Manufacturing Type accurate for Forged / Fabricated.
+      { label: "Manufacturing Type", value: "Forged / Fabricated" },
+      {
+        label: "Size Range",
+        value: "½\" to 24\" NPS (ASME B16.5), 26\" to 60\" NPS (ASME B16.47)",
+      },
+      {
+        label: "Pressure Class",
+        value: "150#, 300#, 400#, 600#, 900#, 1500#, 2500#",
+      },
+      {
+        label: "Surface Finish",
+        value: "Machined, Pickled, Passivated, Glass Bead, Mirror Polish, Electropolished",
+      },
+      {
+        label: "Heat Treatment",
+        value: "Solution Annealing, Stress Relieving (as required)",
+      },
+      { label: "Design", value: "Figure-Eight, Blind & Spacer Connected by Web" },
+      { label: "Configuration", value: "Spectacle Blind (Blind + Spacer)" },
+    ],
+    relatedProducts: [
+      { name: "Spacer Ring" },
+      { name: "Paddle Blank" },
+      { name: "Paddle Spacer" },
+      {
+        name: "Blind Flanges",
+        slug: "blind-flange-manufacturer-india",
+        division: "flanges",
+      },
+    ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/spectacle-blind.webp",
     metaTitle: "Spectacle Blind Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Spectacle Blinds in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Positive pipeline isolation for maintenance & shutdown. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription:
+      "Spectacle Blinds in SS, Duplex, Inconel, Hastelloy & Titanium. Figure-eight design — blind and spacer connected by web. ASME B16.48, Class 150#–2500#. Positive pipeline isolation for maintenance and shutdown. Manufacturer in India.",
   },
 
   // ── 9. Reducing Flange ────────────────────────────────────────────────────
@@ -307,15 +535,26 @@ export const flanges: Product[] = [
     description:
       "Reducing Flanges provide a size transition between two different pipe diameters while maintaining a bolted flange connection. They combine the function of a reducer and a flange in a single component, eliminating the need for a separate reducing fitting upstream of the flange. This simplifies the piping layout, reduces the number of weld joints, and saves space in congested areas. Available in weld neck, slip-on, and socket-weld configurations across a comprehensive range of corrosion-resistant alloys.",
     materials: [],
-    standards: FLANGES_STANDARDS,
-    specs: FLANGES_SPECS,
+    standards: STD_FULL,
+    specs: [
+      ...FLANGES_SPECS,
+      { label: "Configuration", value: "One Standard Flange OD with Reduced Bore" },
+      { label: "Connection Type", value: "Butt Weld" },
+      { label: "Bore Design", value: "Concentric Reduced Bore" },
+    ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/reducing-flange.webp",
     metaTitle: "Reducing Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged Reducing Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Size transition with flange connection. ASME B16.5. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription:
+      "Forged Reducing Flanges in SS, Duplex, Inconel, Hastelloy & Titanium. Standard OD with concentric reduced bore — combines reducer and flange function in a single component. ASME B16.5 / B16.47, Class 150#–2500#. Manufacturer in India.",
   },
 
-  // ── 10. Ring Type Joint (RTJ) ─────────────────────────────────────────────
+  // ── 10. Ring Type Joint (RTJ) Flange ──────────────────────────────────────
+  // NOTE: RTJ Pressure Class is ASME only — PN range not listed in brief spec table.
+  // NOTE: API R/RX/BX ring groove compatibility is NOT claimed here. This requires
+  //       client confirmation that groove profiles are machined to API specification.
+  // NOTE: Sealing Method row receives the updated wording (replaces old "Metal-to-Metal"
+  //       value per brief §12 correction, Interpretation A). Ring Groove row is separate.
   {
     id: "flg-010",
     slug: "ring-type-joint-rtj-flange-manufacturer-india",
@@ -326,20 +565,49 @@ export const flanges: Product[] = [
     shortDescription:
       "Designed for extremely high pressure and high temperature applications.",
     description:
-      "Ring Type Joint (RTJ) Flanges are designed for extremely high pressure and high temperature applications where conventional gasket-and-raised-face designs cannot maintain a reliable seal. A machined groove in the flange face accepts an oval or octagonal metallic ring gasket which is compressed to form a highly reliable metal-to-metal seal. RTJ flanges are used extensively in subsea, wellhead, high-pressure gas, and critical process service where leakage prevention is paramount.",
+      "Ring Type Joint (RTJ) Flanges are designed for extremely high pressure and high temperature applications where conventional gasket-and-raised-face designs cannot maintain a reliable seal. A precision-machined ring groove in the flange face accommodates an oval or octagonal metallic ring gasket which is compressed to form a highly reliable seal under high bolt loads. RTJ flanges are used extensively in subsea, wellhead, high-pressure gas, and critical process service where leakage prevention is paramount.",
     materials: [],
-    standards: FLANGES_STANDARDS,
+    standards: STD_FULL,
     specs: [
-      ...FLANGES_SPECS,
+      // Standalone array — ASME Pressure Class only (no PN range) per brief.
+      { label: "Manufacturing Type", value: "Forged" },
+      {
+        label: "Size Range",
+        value: "½\" to 24\" NPS (ASME B16.5), 26\" to 60\" NPS (ASME B16.47)",
+      },
+      {
+        label: "Pressure Class",
+        value: "150#, 300#, 400#, 600#, 900#, 1500#, 2500#",
+      },
+      {
+        label: "Surface Finish",
+        value: "Machined, Pickled, Passivated, Glass Bead, Mirror Polish, Electropolished",
+      },
+      {
+        label: "Heat Treatment",
+        value: "Solution Annealing, Stress Relieving (as required)",
+      },
+      { label: "Facing Type", value: "Ring Type Joint (RTJ)" },
       { label: "Gasket Type", value: "Oval or Octagonal Metallic Ring Gasket" },
-      { label: "Sealing", value: "Metal-to-Metal" },
+      {
+        label: "Sealing Method",
+        value:
+          "Precision-machined ring groove designed to accommodate standard metallic ring joint gaskets for leak-tight sealing under high bolt loads",
+      },
+      {
+        label: "Ring Groove",
+        value: "Precision Machined as per ASME B16.5 / API Requirements",
+      },
+      { label: "Available Configurations", value: "Weld Neck, Blind & Custom RTJ Flanges" },
     ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/ring-type-joint-rtj-flange.webp",
     metaTitle: "Ring Type Joint (RTJ) Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged RTJ Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–60\", Class 150#–2500#. Metal-to-metal seal for extreme pressure & temperature. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription:
+      "Forged RTJ Flanges in SS, Duplex, Inconel, Hastelloy & Titanium. Precision-machined ring groove for oval or octagonal metallic ring gaskets. ASME B16.5 / B16.47, Class 150#–2500#. Weld Neck, Blind & Custom configurations. Manufacturer in India.",
   },
-  // ── 11. Male-Female Flange ───────────────────────────────────────────────────
+
+  // ── 11. Male-Female Flange ────────────────────────────────────────────────
   {
     id: "flg-011",
     slug: "male-female-flange-manufacturer-india",
@@ -348,48 +616,63 @@ export const flanges: Product[] = [
     type: "Forged",
     name: "Male-Female Flange",
     shortDescription:
-      "Matched-pair flanges where one face is raised (male) and the other is recessed (female), fully confining the gasket for leak-proof, blowout-resistant sealing.",
+      "Matched-pair flanges where one face is raised (male) and the other is recessed (female), fully confining the gasket for leak-proof sealing.",
     description:
-      "Male-Female Flanges are specialised facing flanges supplied as matched pairs: one flange is machined with a raised central face (male) and the mating flange carries a matching recessed depression (female). The gasket seats entirely within the female recess and is held under uniform compression across its full width, preventing blowout even under extreme internal pressures. This facing style is widely used in high-pressure steam lines, refineries, petrochemical plants, and cryogenic services where gasket containment and leak prevention are paramount.",
+      "Male-Female Flanges are specialised facing flanges supplied as matched pairs: one flange is machined with a precision raised central face (male) and the mating flange carries a matching precision recessed depression (female). The gasket seats entirely within the female recess and is held under uniform compression across its full width, which helps minimize the risk of gasket displacement and blowout under specified operating conditions. This facing style is widely used in high-pressure steam lines, refineries, petrochemical plants, and cryogenic services where gasket containment and leak prevention are paramount.",
     materials: [],
-    standards: [...FLANGES_STANDARDS, "ASME B16.47"],
+    // NOTE: ASME B16.48 and the duplicate trailing "ASME B16.47" removed.
+    standards: STD_FULL,
     specs: [
       ...FLANGES_SPECS,
-      { label: "Facing Type", value: "Male-Female (Raised Male / Recessed Female)" },
+      { label: "Male Face", value: "Precision Machined Raised Face" },
+      { label: "Female Face", value: "Precision Machined Recessed Face" },
+      { label: "Gasket Location", value: "Fully Confined Within Female Recess" },
       { label: "Supply", value: "Matched Pairs (Male + Female)" },
-      { label: "Gasket Confinement", value: "Fully confined within female recess — prevents blowout" },
-      { label: "Size Range", value: "1/2\" to 24\" NPS (Larger sizes per ASME B16.47)" },
+      {
+        label: "Gasket Confinement",
+        value:
+          "Helps minimize the risk of gasket displacement and blowout under specified operating conditions",
+      },
     ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/male-female-flange.webp",
     metaTitle: "Male-Female Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged Male-Female Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–24\"+, Class 150#–2500#. Matched pairs, blowout-proof gasket confinement. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription:
+      "Forged Male-Female Flanges in SS, Duplex, Inconel, Hastelloy & Titanium. Precision machined raised and recessed faces — matched pairs with fully confined gasket for high-pressure steam, cryogenic & petrochemical service. ASME B16.5 / B16.47. Manufacturer in India.",
   },
 
-  // ── 12. Tongue and Groove Flange ─────────────────────────────────────────────
+  // ── 12. Tongue & Groove Flange ────────────────────────────────────────────
   {
     id: "flg-012",
     slug: "tongue-and-groove-flange-manufacturer-india",
     division: "flanges",
-    subcategory: "Tongue and Groove Flange",
+    subcategory: "Tongue & Groove Flange",
     type: "Forged",
-    name: "Tongue and Groove Flange",
+    name: "Tongue & Groove Flange",
     shortDescription:
-      "Matched-pair flanges with a concentric tongue and groove that fully enclose the gasket, ideal for volatile, hazardous, or high-pressure process fluids.",
+      "Matched-pair flanges with a precision tongue and groove that fully enclose the gasket, ideal for volatile, hazardous, or high-pressure process fluids.",
     description:
-      "Tongue and Groove Flanges are precision-machined matched pairs: one flange carries a concentric raised ring (the tongue) and its partner carries a matching annular depression (the groove). The gasket is completely enclosed within the groove on both its inner and outer diameters, preventing lateral movement, gasket blow-out, and direct contact with the process fluid. This makes Tongue and Groove flanges the preferred choice for volatile hydrocarbons, toxic process streams, high-pressure steam, and other applications where any gasket exposure or leakage is unacceptable.",
+      "Tongue & Groove Flanges are precision-machined matched pairs: one flange carries a precision raised tongue and its partner carries a matching machined groove. The gasket is completely enclosed within the groove on both its inner and outer diameters, preventing lateral movement, gasket blow-out, and direct contact with the process fluid. This makes Tongue & Groove flanges the preferred choice for volatile hydrocarbons, toxic process streams, high-pressure steam, and other applications where any gasket exposure or leakage is unacceptable.",
     materials: [],
-    standards: [...FLANGES_STANDARDS, "ASME B16.47"],
+    // NOTE: ASME B16.48 and the duplicate trailing "ASME B16.47" removed.
+    standards: STD_FULL,
     specs: [
       ...FLANGES_SPECS,
-      { label: "Facing Type", value: "Tongue and Groove (Concentric Ring / Annular Groove)" },
+      {
+        label: "Tongue Design",
+        value: "Precision machined raised tongue for positive gasket alignment",
+      },
+      {
+        label: "Groove Design",
+        value: "Matching machined groove for gasket confinement and leak-tight sealing",
+      },
       { label: "Supply", value: "Matched Pairs (Tongue + Groove)" },
-      { label: "Gasket Confinement", value: "Fully enclosed — ID and OD contained within groove" },
-      { label: "Size Range", value: "1/2\" to 24\" NPS (Larger sizes per ASME B16.47)" },
+      { label: "Gasket Confinement", value: "Fully Enclosed — ID and OD Contained Within Groove" },
     ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/tongue-groove-flange.webp",
-    metaTitle: "Tongue and Groove Flange Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Forged Tongue and Groove Flanges in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–24\"+, Class 150#–2500#. Full gasket confinement for volatile & hazardous fluids. Manufacturer and supplier in India. Prayag Steel India.",
+    metaTitle: "Tongue & Groove Flange Manufacturer & Supplier in India | Prayag Steel",
+    metaDescription:
+      "Forged Tongue & Groove Flanges in SS, Duplex, Inconel, Hastelloy & Titanium. Precision matched pairs — tongue and groove design for full gasket confinement in volatile, hazardous & high-pressure service. ASME B16.5 / B16.47, Class 150#–2500#. Manufacturer in India.",
   },
 ];

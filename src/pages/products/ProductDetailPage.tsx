@@ -9,15 +9,21 @@ import { ProductCard } from "../../components/ui/ProductCard";
 import { divisions } from "../../data/company";
 import type { Division, MaterialFamily } from "../../data/products/types";
 
-// ── TOC sections — computed per product based on available data ───────────────
-function buildTocSections(hasMaterialsTable: boolean) {
+// ── TOC sections — computed per product based on available data ─────────────────────
+function buildTocSections(
+  hasMaterialsTable: boolean,
+  hasKeyFeatures: boolean,
+  hasApplications: boolean,
+  hasInspectionTesting: boolean
+) {
   const sections = [
     { id: "overview", label: "Overview" },
     { id: "specifications", label: "Specifications" },
   ];
-  if (hasMaterialsTable) {
-    sections.push({ id: "available-materials", label: "Available Materials" });
-  }
+  if (hasKeyFeatures) sections.push({ id: "key-features", label: "Key Features" });
+  if (hasMaterialsTable) sections.push({ id: "available-materials", label: "Available Materials" });
+  if (hasApplications) sections.push({ id: "applications", label: "Applications" });
+  if (hasInspectionTesting) sections.push({ id: "inspection-testing", label: "Inspection & Testing" });
   sections.push(
     { id: "standards", label: "Standards & Compliance" },
     { id: "enquire", label: "Enquire" }
@@ -119,7 +125,12 @@ export const ProductDetailPage: React.FC = () => {
       ? `Other ${product.subcategory} ${divisionTitle}`
       : `Other ${divisionTitle}`;
 
-  const tocSections = buildTocSections(!!product.materialsTable);
+  const tocSections = buildTocSections(
+    !!product.materialsTable,
+    !!product.keyFeatures?.length,
+    !!product.applications?.length,
+    !!product.inspectionTesting?.length
+  );
 
   return (
     <>
@@ -309,7 +320,35 @@ export const ProductDetailPage: React.FC = () => {
               )}
             </section>
 
-            {/* ── § Available Materials (type-first divisions only) ────────── */}
+            {/* ── § Key Features ────────────────────────────────────── */}
+            {product.keyFeatures && product.keyFeatures.length > 0 && (
+              <section id="key-features" className="mb-14 scroll-mt-24">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
+                  <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                    Key Features
+                  </span>
+                </div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {product.keyFeatures.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-2.5 text-sm font-body text-gray-700 leading-snug"
+                    >
+                      <span
+                        className="mt-1 w-4 h-4 rounded-full bg-prayag-red/10 border border-prayag-red/25 flex items-center justify-center flex-shrink-0"
+                        aria-hidden="true"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-prayag-red" />
+                      </span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* ── § Available Materials (type-first divisions only) ────────────── */}
             {product.materialsTable && product.materialsTable.length > 0 && (
               <section id="available-materials" className="mb-14 scroll-mt-24">
                 <div className="flex items-center gap-3 mb-5">
@@ -329,7 +368,57 @@ export const ProductDetailPage: React.FC = () => {
               </section>
             )}
 
-            {/* ── § Standards & Compliance ───────────────────────────────── */}
+            {/* ── § Applications ─────────────────────────────────────── */}
+            {product.applications && product.applications.length > 0 && (
+              <section id="applications" className="mb-14 scroll-mt-24">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
+                  <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                    Applications
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {product.applications.map((app) => (
+                    <span
+                      key={app}
+                      className="inline-block px-3.5 py-1.5 rounded-full border border-gray-200 bg-gray-50 text-gray-700 font-body text-sm font-medium hover:border-prayag-red/30 hover:bg-prayag-red/5 hover:text-prayag-red transition-colors"
+                    >
+                      {app}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* ── § Inspection & Testing ─────────────────────────────── */}
+            {product.inspectionTesting && product.inspectionTesting.length > 0 && (
+              <section id="inspection-testing" className="mb-14 scroll-mt-24">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
+                  <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
+                    Inspection & Testing
+                  </span>
+                </div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {product.inspectionTesting.map((test) => (
+                    <li
+                      key={test}
+                      className="flex items-start gap-2.5 text-sm font-body text-gray-700 leading-snug"
+                    >
+                      <span
+                        className="mt-1 w-4 h-4 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0"
+                        aria-hidden="true"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+                      </span>
+                      {test}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* ── § Standards & Compliance ───────────────────────────── */}
             <section id="standards" className="mb-14 scroll-mt-24">
               <div className="flex items-center gap-3 mb-5">
                 <div className="h-0.5 w-8 bg-prayag-red" aria-hidden="true" />
@@ -348,6 +437,48 @@ export const ProductDetailPage: React.FC = () => {
                 ))}
               </div>
             </section>
+
+            {/* ── § Trust Block (flanges only) ─────────────────────────── */}
+            {div === "flanges" && (
+              <div className="my-8 rounded-xl border border-prayag-red/15 bg-prayag-red/3 px-6 py-5">
+                <p className="text-gray-600 font-body text-sm leading-relaxed">
+                  Every product is manufactured from certified raw materials and undergoes stringent
+                  dimensional, visual, chemical, and mechanical inspections to ensure compliance with
+                  applicable international standards. Material Test Certificates (EN 10204 3.1),
+                  third-party inspection, custom marking, and project-specific documentation are
+                  available on request.
+                </p>
+              </div>
+            )}
+
+            {/* ── § Related Products ──────────────────────────────────── */}
+            {product.relatedProducts && product.relatedProducts.length > 0 && (
+              <div className="mb-8 rounded-xl border border-gray-100 bg-gray-50 px-6 py-5">
+                <p className="font-body font-bold text-xs uppercase tracking-[0.18em] text-gray-500 mb-3">
+                  Related Products
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {product.relatedProducts.map((rp) =>
+                    rp.slug ? (
+                      <Link
+                        key={rp.name}
+                        to={`/products/${rp.division ?? div}/${rp.slug}`}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-prayag-red/25 bg-white text-prayag-red font-body text-sm font-medium hover:bg-prayag-red hover:text-white transition-colors"
+                      >
+                        {rp.name}
+                      </Link>
+                    ) : (
+                      <span
+                        key={rp.name}
+                        className="inline-block px-3.5 py-1.5 rounded-full border border-gray-200 bg-white text-gray-500 font-body text-sm"
+                      >
+                        {rp.name}
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
+            )}
 
             {/* ── § Enquire ──────────────────────────────────────────────── */}
             <section id="enquire" className="scroll-mt-24">

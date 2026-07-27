@@ -59,6 +59,16 @@ export interface Product {
   /** Path string only — e.g. "products/flanges/weld-neck-raised-face-wnrf.webp"
    *  Never a static import. Resolved at render time via getProductImage(). */
   image: string;
+  // ── Extended content fields (optional) ───────────────────────────────────
+  /** Bullet-point list of key product features. Rendered on detail page if present. */
+  keyFeatures?: string[];
+  /** List of application areas / end-use industries. Rendered as pills if present. */
+  applications?: string[];
+  /** List of available inspection and testing methods. Rendered if present. */
+  inspectionTesting?: string[];
+  /** Cross-links to related products. slug is optional — if absent, renders as
+   *  plain text only (used when the related product page does not yet exist). */
+  relatedProducts?: { name: string; slug?: string; division?: string }[];
   // ── SEO fields ────────────────────────────────────────────────────────────
   metaTitle: string;
   metaDescription: string;
