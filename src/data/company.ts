@@ -365,14 +365,14 @@ export const divisions = [
     name: "Fittings",
     tagline: "Seamless Connections. Infinite Strength.",
     description:
-      "Complete range of butt-weld, forged, and custom fittings — elbows, tees, reducers, caps, stub ends, crosses, couplings, unions, and more. Seamless & welded in sizes 1/2\" to 16\".",
+      "Complete range of butt-weld and custom fittings — elbows, tees, reducers, caps, stub ends, crosses, pipe bends, miter bends, and more. Seamless & welded in sizes 1/2\" to 48\".",
     image: "divisions/fittings-hero.webp",
     slug: "fittings",
     highlights: [
-      'Size range: 1/2" – 16" NB',
-      "Ratings: 3000# / 6000# / 9000#",
-      "ASME B16.9 / B16.11 compliant",
-      "Butt-weld & forged types",
+      'Seamless: 1/2" – 24" | Welded: up to 48"',
+      "ASME B16.9, B16.28, MSS SP-43 compliant",
+      "Butt-weld & custom fabrications",
+      "Exotic alloys available",
     ],
   },
   {

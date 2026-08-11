@@ -71,6 +71,14 @@ export interface Product {
   /** Cross-links to related products. slug is optional — if absent, renders as
    *  plain text only (used when the related product page does not yet exist). */
   relatedProducts?: { name: string; slug?: string; division?: string }[];
+  /** When true, this product is a custom fabrication (not a standard catalogue
+   *  fitting). Used to: (a) show a badge on ProductCard, (b) group separately
+   *  in the fittings division sidebar under "Custom Fabrications". */
+  isCustomFabrication?: boolean;
+  /** Optional override for the badge text shown on ProductCard. When set, this
+   *  text is shown instead of the default "Custom Fabrication" label.
+   *  Only rendered when isCustomFabrication is true. */
+  cardTag?: string;
   // ── SEO fields ────────────────────────────────────────────────────────────
   metaTitle: string;
   metaDescription: string;

@@ -41,6 +41,13 @@ export function ProductCard({ product, div, index, groupId }: ProductCardProps) 
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+        {product.isCustomFabrication && (
+          <div className="absolute top-3 left-3 z-10">
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-prayag-black/80 text-white font-body text-[10px] font-semibold uppercase tracking-widest backdrop-blur-sm border border-white/10">
+              {product.cardTag ?? "Custom Fabrication"}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Content */}

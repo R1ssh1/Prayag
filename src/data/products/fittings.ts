@@ -8,9 +8,6 @@ import type { Product, MaterialFamily } from "./types";
 // ─────────────────────────────────────────────────────────────────────────────
 
 // ── Shared materials table (define ONCE, reference from every product) ───────
-// NOTE: Copper Nickel standard not given in source document — flagged for
-// client confirmation before launch. "Standard not specified in source document"
-// is the exact text used below rather than a silent omission or a guess.
 export const FITTINGS_MATERIALS: MaterialFamily[] = [
   {
     family: "Stainless Steel",
@@ -20,6 +17,11 @@ export const FITTINGS_MATERIALS: MaterialFamily[] = [
       "WP316", "WP316L", "WP316Ti", "WP317", "WP317L",
       "WP321", "WP321H", "WP347", "WP347H",
     ],
+  },
+  {
+    family: "Super Austenitic Stainless Steel",
+    standard: "ASTM A403 / ASTM A182",
+    grades: ["904L", "254 SMO (1.4547)", "6Mo (1.4529)"],
   },
   {
     family: "Duplex Stainless Steel",
@@ -66,31 +68,43 @@ export const FITTINGS_MATERIALS: MaterialFamily[] = [
   },
   {
     family: "Copper Nickel",
-    // FLAGGED: Standard not confirmed in source document — needs client confirmation before launch.
-    standard: "Standard not specified in source document — flag for client confirmation",
+    standard: "ASTM B466 / ASTM B366",
     grades: ["90/10 (C70600)", "70/30 (C71500)"],
   },
 ];
 
-// ── Shared standards (dimensional/manufacturing) for all 22 products ─────────
-// Exception: Product #4 (Short Radius Elbow) — uses only ASME B16.28 per
-// instruction document.
+// ── Standards lists ───────────────────────────────────────────────────────────
+// Full shared list — used for products with no specific standard override
 const FITTINGS_STANDARDS = [
   "ASME B16.9", "ASME B16.28", "MSS SP-43",
   "EN 10253-3", "EN 10253-4",
+  "ASTM A403", "ASTM A815", "ASTM B366", "ASTM B363",
   "DIN 2605", "DIN 2615", "DIN 2616", "DIN 2617",
   "JIS B2311", "JIS B2312", "JIS B2313",
 ];
 
+// LR Elbows — ASME B16.28 is NOT applicable (B16.28 covers SR elbows & LR returns)
+const LR_ELBOW_STANDARDS = ["ASME B16.9", "MSS SP-43", "EN 10253-3", "EN 10253-4"];
+
+// Tees and Reducers — ASME B16.9 only
+const TEE_REDUCER_STANDARDS = ["ASME B16.9", "EN 10253-3", "EN 10253-4"];
+
+// ── Corrected shared spec values ──────────────────────────────────────────────
+const PR   = "Dependent on Pipe Schedule & Applicable Design Code";
+const SF   = "Pickled & Passivated, Shot Blasted, Machined, Mirror Polish, Electropolished";
+const WT   = "SCH 5S, SCH 10S, SCH 20, SCH 40S, SCH 80S, SCH 120, SCH 160, XXS";
+const TEST = "PMI, Dimensional Inspection, Visual Inspection, UT, RT, PT, Hydro Test (When Applicable), Hardness Test, Mechanical Testing, IGC Test, Ferrite Test";
+const EP   = "Beveled, Plain End, Square Cut";
+
 // ── Shared fallback specs (used when product description gives no override) ───
 const FALLBACK_SPECS = [
-  { label: "Manufacturing Process", value: "Seamless, Welded & Fabricated" },
-  { label: "Size Range", value: "1/2\" to 48\" (Larger Sizes on Request)" },
-  { label: "Wall Thickness", value: "SCH 5S to SCH XXS" },
-  { label: "Pressure Rating", value: "As Per ASME B16.9 / Project Requirements" },
-  { label: "Surface Finish", value: "Pickled, Passivated, Machined, Shot Blasted, Mirror Polish, Electropolished" },
-  { label: "End Preparation", value: "Beveled, Plain End, Square Cut" },
-  { label: "Testing", value: "PMI, Hydro Test, UT, RT, PT, Mechanical Testing, Hardness, IGC, Ferrite" },
+  { label: "Manufacturing Process", value: "Seamless | Welded | Fabricated (Large Sizes)" },
+  { label: "Size Range",            value: "1/2\" to 48\" (Larger Sizes on Request)" },
+  { label: "Wall Thickness",        value: WT },
+  { label: "Pressure Rating",       value: PR },
+  { label: "Surface Finish",        value: SF },
+  { label: "End Preparation",       value: EP },
+  { label: "Testing",               value: TEST },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -100,6 +114,7 @@ const FALLBACK_SPECS = [
 //   avoid contradicting the table or creating duplicated maintenance burden.
 // ─────────────────────────────────────────────────────────────────────────────
 export const fittings: Product[] = [
+
   // ── 1. 90 Degree Long Radius Elbow ───────────────────────────────────────
   {
     id: "fit-001",
@@ -112,20 +127,29 @@ export const fittings: Product[] = [
     description:
       "90 Degree Long Radius Elbows are designed for flow redirection with minimal pressure loss. Manufactured to ASME B16.9, they are available in seamless, welded, and fabricated construction across a size range of 1/2\" to 48\". The long radius (1.5D) configuration allows for smooth directional change with lower turbulence and pressure drop compared to short radius alternatives, making them the preferred choice in high-pressure and high-velocity piping systems across oil & gas, chemical, and power generation industries.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: LR_ELBOW_STANDARDS,
     specs: [
-      { label: "Manufacturing Process", value: "Seamless, Welded & Fabricated" },
-      { label: "Size Range", value: "1/2\" to 48\"" },
-      { label: "Wall Thickness", value: "SCH 5S to SCH XXS" },
-      { label: "Radius", value: "Long Radius (1.5D)" },
-      { label: "Pressure Rating", value: "As Per ASME B16.9 / Project Requirements" },
-      { label: "Surface Finish", value: "Pickled, Passivated, Machined, Shot Blasted, Mirror Polish, Electropolished" },
-      { label: "End Preparation", value: "Beveled, Plain End, Square Cut" },
-      { label: "Testing", value: "PMI, Hydro Test, UT, RT, PT, Mechanical Testing, Hardness, IGC, Ferrite" },
+      { label: "Manufacturing Process", value: "Seamless | Welded | Fabricated (Large Sizes)" },
+      { label: "Size Range",            value: "Seamless: 1/2\"–16\" | Welded: 18\"–48\" | Fabricated: 26\"–72\"+ (on request)" },
+      { label: "Wall Thickness",        value: WT },
+      { label: "Radius",                value: "Long Radius (1.5D)" },
+      { label: "Pressure Rating",       value: PR },
+      { label: "Surface Finish",        value: SF },
+      { label: "End Preparation",       value: EP },
+      { label: "Testing",               value: TEST },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/90-degree-long-radius-elbow.webp",
-    metaTitle: "90 Degree Long Radius Elbow Manufacturer & Supplier in India | Prayag Steel",
+    relatedProducts: [
+      { name: "45° LR Elbow",       slug: "buttweld-fitting-45-degree-long-radius-elbow-manufacturer-india" },
+      { name: "180° Return Bend",   slug: "buttweld-fitting-180deg-return-bend-manufacturer-india" },
+      { name: "Short Radius Elbow", slug: "buttweld-fitting-short-radius-elbow-manufacturer-india" },
+      { name: "Equal Tee",          slug: "buttweld-fitting-equal-tee-manufacturer-india" },
+      { name: "Reducing Tee",       slug: "buttweld-fitting-reducing-tee-manufacturer-india" },
+      { name: "Concentric Reducer", slug: "buttweld-fitting-concentric-reducer-manufacturer-india" },
+      { name: "Eccentric Reducer",  slug: "buttweld-fitting-eccentric-reducer-manufacturer-india" },
+    ],
+    metaTitle: "90° Long Radius Elbow Manufacturer & Supplier in India | Prayag Steel",
     metaDescription: "90 Degree LR Elbows in SS, Duplex, Super Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", SCH 5S–XXS. ASME B16.9. Seamless, welded & fabricated. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
@@ -141,20 +165,26 @@ export const fittings: Product[] = [
     description:
       "45 Degree Long Radius Elbows provide an efficient direction change with reduced flow resistance compared to 90 degree elbows. Available in seamless and welded construction across a size range of 1/2\" to 48\", they are widely used in process piping where a gradual directional change is required to minimise pressure drop and erosion. Manufactured to ASME B16.9 in a comprehensive range of corrosion-resistant alloys for demanding industrial environments.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: ["ASME B16.9", "EN 10253-3", "EN 10253-4"],
     specs: [
       { label: "Manufacturing Process", value: "Seamless, Welded" },
-      { label: "Size Range", value: "1/2\" to 48\"" },
-      { label: "Wall Thickness", value: "SCH 5S to SCH XXS" },
-      { label: "Radius", value: "Long Radius (1.5D)" },
-      { label: "Pressure Rating", value: "As Per ASME B16.9 / Project Requirements" },
-      { label: "Surface Finish", value: "Pickled, Passivated, Machined, Shot Blasted, Mirror Polish, Electropolished" },
-      { label: "End Preparation", value: "Beveled, Plain End, Square Cut" },
-      { label: "Testing", value: "PMI, Hydro Test, UT, RT, PT, Mechanical Testing, Hardness, IGC, Ferrite" },
+      { label: "Size Range",            value: "1/2\" to 48\"" },
+      { label: "Wall Thickness",        value: WT },
+      { label: "Radius",                value: "Long Radius (1.5D)" },
+      { label: "Pressure Rating",       value: PR },
+      { label: "Surface Finish",        value: SF },
+      { label: "End Preparation",       value: EP },
+      { label: "Testing",               value: "PMI, Visual Inspection, Dimensional Inspection, UT, RT (When Specified), PT, Hydro Test (When Required), Mechanical Testing, Hardness, IGC, Ferrite Content" },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/45-degree-long-radius-elbow.webp",
-    metaTitle: "45 Degree Long Radius Elbow Manufacturer & Supplier in India | Prayag Steel",
+    relatedProducts: [
+      { name: "90° LR Elbow",       slug: "buttweld-fitting-90-degree-long-radius-elbow-manufacturer-india" },
+      { name: "180° Return Bend",   slug: "buttweld-fitting-180deg-return-bend-manufacturer-india" },
+      { name: "Short Radius Elbow", slug: "buttweld-fitting-short-radius-elbow-manufacturer-india" },
+      { name: "Equal Tee",          slug: "buttweld-fitting-equal-tee-manufacturer-india" },
+    ],
+    metaTitle: "45° Long Radius Elbow Manufacturer & Supplier in India | Prayag Steel",
     metaDescription: "45 Degree LR Elbows in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", SCH 5S–XXS. ASME B16.9. Seamless & welded construction. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
@@ -168,49 +198,64 @@ export const fittings: Product[] = [
     name: "180 Degree Return Bend",
     shortDescription: "Complete Flow Reversal. Available in Long Radius and Short Radius configurations, 1/2\" to 24\".",
     description:
-      "180 Degree Return Bends provide complete flow reversal in piping systems. Available in Long Radius and Short Radius configurations, they are used in heat exchangers, coil assemblies, and process piping where space constraints require a 180 degree turn in the flow direction. Supplied in a size range of 1/2\" to 24\" and manufactured to ASME B16.9 across a full range of corrosion-resistant alloy families.",
+      "180 Degree Return Bends provide complete flow reversal in piping systems. Available in Long Radius and Short Radius configurations, they are used in heat exchangers, coil assemblies, and process piping where space constraints require a 180 degree turn in the flow direction. Supplied in a size range of 1/2\" to 24\" and manufactured in accordance with ASME B16.9 (Long Radius) and ASME B16.28 (Short Radius), depending on configuration, across a full range of corrosion-resistant alloy families.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: ["ASME B16.9", "ASME B16.28", "MSS SP-43", "EN 10253-3", "EN 10253-4"],
     specs: [
-      { label: "Manufacturing Process", value: "Seamless, Welded & Fabricated" },
-      { label: "Size Range", value: "1/2\" to 24\"" },
-      { label: "Wall Thickness", value: "SCH 5S to SCH XXS" },
-      { label: "Available In", value: "Long Radius, Short Radius" },
-      { label: "Pressure Rating", value: "As Per ASME B16.9 / Project Requirements" },
-      { label: "Surface Finish", value: "Pickled, Passivated, Machined, Shot Blasted, Mirror Polish, Electropolished" },
-      { label: "End Preparation", value: "Beveled, Plain End, Square Cut" },
-      { label: "Testing", value: "PMI, Hydro Test, UT, RT, PT, Mechanical Testing, Hardness, IGC, Ferrite" },
+      { label: "Manufacturing Process", value: "Seamless, Welded" },
+      { label: "Size Range",            value: "1/2\" to 24\"" },
+      { label: "Wall Thickness",        value: WT },
+      { label: "Available In",          value: "Long Radius (ASME B16.9), Short Radius (ASME B16.28)" },
+      { label: "Pressure Rating",       value: PR },
+      { label: "Surface Finish",        value: SF },
+      { label: "End Preparation",       value: EP },
+      { label: "Testing",               value: TEST },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/180-degree-return-bend.webp",
+    relatedProducts: [
+      { name: "90° LR Elbow",       slug: "buttweld-fitting-90-degree-long-radius-elbow-manufacturer-india" },
+      { name: "45° LR Elbow",       slug: "buttweld-fitting-45-degree-long-radius-elbow-manufacturer-india" },
+      { name: "Short Radius Elbow", slug: "buttweld-fitting-short-radius-elbow-manufacturer-india" },
+    ],
     metaTitle: "180 Degree Return Bend Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "180 Degree Return Bends in SS, Duplex, Inconel, Hastelloy. LR & SR configurations. 1/2\"–24\", ASME B16.9. Heat exchangers, coil assemblies. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription: "180 Degree Return Bends in SS, Duplex, Inconel, Hastelloy. LR & SR configurations. 1/2\"–24\", ASME B16.9 / B16.28. Heat exchangers, coil assemblies. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 4. Short Radius Elbow ─────────────────────────────────────────────────
-  // Standard is ASME B16.28 only (per instruction document — replaces the
-  // general dimensional standards list for this product only).
+  // ASME B16.28 is the governing standard for Short Radius Elbows.
   {
     id: "fit-004",
     slug: "buttweld-fitting-short-radius-elbow-manufacturer-india",
     division: "fittings",
     subcategory: "Short Radius Elbow",
-    type: "Seamless / Welded / Fabricated",
+    type: "Seamless / Welded",
     name: "Short Radius Elbow",
     shortDescription: "Compact Piping Solution. Short Radius (1D) configuration for tight-clearance piping layouts.",
     description:
-      "Short Radius Elbows (1D radius) offer a compact piping solution for applications where space is limited and a tighter bend is required. Manufactured to ASME B16.28, they are used in congested piping layouts across process, petrochemical, and power industries where long radius elbows cannot be accommodated. Available in both 90 degree and 45 degree configurations in the full range of corrosion-resistant alloys.",
+      "Short Radius Elbows (1D radius) offer a compact piping solution for applications where space is limited and a tighter bend is required. Manufactured to ASME B16.28, they are used in congested piping layouts across process, petrochemical, and power industries where long radius elbows cannot be accommodated. Available in both SR 90° and SR 180° configurations in the full range of corrosion-resistant alloys.",
     materials: [],
-    // Short Radius Elbow: ASME B16.28 only — per instruction document.
-    standards: ["ASME B16.28"],
+    standards: ["ASME B16.28", "ASTM A403", "ASTM A815", "ASTM B366", "ASTM B363"],
     specs: [
-      ...FALLBACK_SPECS,
-      { label: "Radius", value: "Short Radius (1D)" },
+      { label: "Manufacturing Process", value: "Seamless & Welded" },
+      { label: "Size Range",            value: "1/2\" to 24\"" },
+      { label: "Wall Thickness",        value: WT },
+      { label: "Radius",                value: "Short Radius (1D)" },
+      { label: "Configurations",        value: "SR 90°, SR 180°" },
+      { label: "Pressure Rating",       value: PR },
+      { label: "Surface Finish",        value: SF },
+      { label: "End Preparation",       value: EP },
+      { label: "Testing",               value: TEST },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/short-radius-elbow.webp",
+    relatedProducts: [
+      { name: "90° LR Elbow",     slug: "buttweld-fitting-90-degree-long-radius-elbow-manufacturer-india" },
+      { name: "45° LR Elbow",     slug: "buttweld-fitting-45-degree-long-radius-elbow-manufacturer-india" },
+      { name: "180° Return Bend", slug: "buttweld-fitting-180deg-return-bend-manufacturer-india" },
+    ],
     metaTitle: "Short Radius Elbow Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Short Radius Elbows in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", SCH 5S–XXS. ASME B16.28. Compact piping layouts. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription: "Short Radius Elbows (SR 90° & SR 180°) in SS, Duplex, Inconel, Hastelloy, Titanium. ASME B16.28. Compact piping layouts. Seamless & welded. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 5. Equal Tee ──────────────────────────────────────────────────────────
@@ -225,13 +270,19 @@ export const fittings: Product[] = [
     description:
       "Equal Tees provide balanced fluid distribution across chemical plants, power plants, oil & gas installations, and water treatment facilities. All three openings are of the same nominal size, allowing flow to be split or combined uniformly. Manufactured to ASME B16.9 in seamless, welded, and fabricated construction across a comprehensive range of corrosion-resistant alloy families.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: TEE_REDUCER_STANDARDS,
     specs: [
       ...FALLBACK_SPECS,
       { label: "Applications", value: "Chemical Plants, Power Plants, Oil & Gas, Water Treatment" },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/equal-tee.webp",
+    relatedProducts: [
+      { name: "Reducing Tee",       slug: "buttweld-fitting-reducing-tee-manufacturer-india" },
+      { name: "Lateral Tee (45°)", slug: "buttweld-fitting-lateral-tee-45-degree-manufacturer-india" },
+      { name: "Concentric Reducer", slug: "buttweld-fitting-concentric-reducer-manufacturer-india" },
+      { name: "Eccentric Reducer",  slug: "buttweld-fitting-eccentric-reducer-manufacturer-india" },
+    ],
     metaTitle: "Equal Tee Manufacturer & Supplier in India | Prayag Steel",
     metaDescription: "Equal Tees in SS, Duplex, Super Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Chemical, power, oil & gas, water treatment. Manufacturer and supplier in India. Prayag Steel India.",
   },
@@ -248,12 +299,17 @@ export const fittings: Product[] = [
     description:
       "Reducing Tees provide efficient pipeline branching where the branch outlet is a smaller bore than the run pipe. They eliminate the need for a separate reducer and tee combination, saving space and reducing potential leak points. Manufactured to ASME B16.9 in seamless, welded, and fabricated construction, they are widely used across chemical processing, oil & gas, and power generation piping systems.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: TEE_REDUCER_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/reducing-tee.webp",
+    relatedProducts: [
+      { name: "Equal Tee",          slug: "buttweld-fitting-equal-tee-manufacturer-india" },
+      { name: "Lateral Tee (45°)", slug: "buttweld-fitting-lateral-tee-45-degree-manufacturer-india" },
+      { name: "Concentric Reducer", slug: "buttweld-fitting-concentric-reducer-manufacturer-india" },
+    ],
     metaTitle: "Reducing Tee Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Reducing Tees in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Seamless, welded & fabricated. Pipeline branch connections. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription: "Reducing Tees in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Pipeline branch connections. Seamless, welded & fabricated. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 7. Concentric Reducer ─────────────────────────────────────────────────
@@ -268,12 +324,17 @@ export const fittings: Product[] = [
     description:
       "Concentric Reducers provide a smooth diameter transition between two different pipe sizes while maintaining the same centreline axis. They are the preferred choice for vertical piping and for gas or steam service where keeping flow centred is important. Manufactured to ASME B16.9 in seamless, welded, and fabricated forms across a comprehensive alloy range.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: TEE_REDUCER_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/concentric-reducer.webp",
+    relatedProducts: [
+      { name: "Eccentric Reducer", slug: "buttweld-fitting-eccentric-reducer-manufacturer-india" },
+      { name: "Equal Tee",         slug: "buttweld-fitting-equal-tee-manufacturer-india" },
+      { name: "Reducing Tee",      slug: "buttweld-fitting-reducing-tee-manufacturer-india" },
+    ],
     metaTitle: "Concentric Reducer Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Concentric Reducers in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Seamless, welded & fabricated. Centreline-maintained transitions. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Concentric Reducers in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Centreline-maintained transitions. Seamless, welded & fabricated. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── 8. Eccentric Reducer ──────────────────────────────────────────────────
@@ -288,10 +349,14 @@ export const fittings: Product[] = [
     description:
       "Eccentric Reducers provide a diameter transition with one side flat, preventing air pockets or liquid accumulation in horizontal piping. They are essential in pump suction lines, liquid-service horizontal piping, and any application where air entrapment would cause cavitation or measurement errors. Manufactured to ASME B16.9 in seamless, welded, and fabricated construction across a full range of corrosion-resistant alloys.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: TEE_REDUCER_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/eccentric-reducer.webp",
+    relatedProducts: [
+      { name: "Concentric Reducer", slug: "buttweld-fitting-concentric-reducer-manufacturer-india" },
+      { name: "Equal Tee",          slug: "buttweld-fitting-equal-tee-manufacturer-india" },
+    ],
     metaTitle: "Eccentric Reducer Manufacturer & Supplier in India | Prayag Steel",
     metaDescription: "Eccentric Reducers in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Prevents air entrapment. Horizontal pump suction lines. Manufacturer and supplier in India. Prayag Steel.",
   },
@@ -308,7 +373,7 @@ export const fittings: Product[] = [
     description:
       "Pipe Caps (End Caps) provide reliable line termination by closing the open end of a pipe or fitting. Used for permanent pipe end sealing as well as temporary isolation during construction and commissioning. Manufactured to ASME B16.9 with a dished or hemispherical end profile in seamless, welded, and fabricated forms across a comprehensive range of corrosion-resistant alloy families.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: TEE_REDUCER_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/buttweld-fitting-pipe-cap-end-cap.webp",
@@ -328,14 +393,17 @@ export const fittings: Product[] = [
     description:
       "Short Pattern Stub Ends are designed for use with Lap Joint Flanges in applications requiring frequent dismantling without disturbing the gasket or pipeline alignment. The precision-machined sealing face provides a reliable, leak-proof flange connection while allowing the backing flange to be rotated for bolt-hole alignment. Short pattern stub ends are more economical in material cost and are suitable for the majority of lap joint service applications. Manufactured to MSS SP-43 in seamless and welded construction.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: ["ASME B16.9", "MSS SP-43", "EN 10253-3", "EN 10253-4"],
     specs: [
       ...FALLBACK_SPECS,
-      { label: "Pattern", value: "Short Pattern" },
+      { label: "Pattern",   value: "Short Pattern" },
       { label: "Face Type", value: "Precision-Machined Sealing Face" },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/buttweld-fitting-stub-end-short-pattern.webp",
+    relatedProducts: [
+      { name: "Stub End (Long Pattern)", slug: "buttweld-fitting-stub-end-long-pattern-manufacturer-india" },
+    ],
     metaTitle: "Stub End Short Pattern Manufacturer & Supplier in India | Prayag Steel",
     metaDescription: "Stub Ends (Short Pattern) for Lap Joint Flanges in SS, Duplex, Inconel, Hastelloy. 1/2\"–48\", MSS SP-43. Precision-machined face. Frequent-dismantle service. Manufacturer and supplier in India. Prayag Steel.",
   },
@@ -352,14 +420,17 @@ export const fittings: Product[] = [
     description:
       "Long Pattern Stub Ends are designed for use with Lap Joint Flanges in applications requiring frequent dismantling without disturbing the gasket or pipeline alignment. The extended body length provides additional support and alignment, making long pattern stub ends preferable where greater mechanical strength or rigidity at the flange connection is required. The precision-machined sealing face ensures a reliable, leak-proof flange joint. Manufactured to MSS SP-43 in seamless and welded construction.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: ["ASME B16.9", "MSS SP-43", "EN 10253-3", "EN 10253-4"],
     specs: [
       ...FALLBACK_SPECS,
-      { label: "Pattern", value: "Long Pattern" },
+      { label: "Pattern",   value: "Long Pattern" },
       { label: "Face Type", value: "Precision-Machined Sealing Face" },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/buttweld-fitting-stub-end-long-pattern.webp",
+    relatedProducts: [
+      { name: "Stub End (Short Pattern)", slug: "buttweld-fitting-stub-end-short-pattern-manufacturer-india" },
+    ],
     metaTitle: "Stub End Long Pattern Manufacturer & Supplier in India | Prayag Steel",
     metaDescription: "Stub Ends (Long Pattern) for Lap Joint Flanges in SS, Duplex, Inconel, Hastelloy. 1/2\"–48\", MSS SP-43. Extended body for greater rigidity. Frequent-dismantle service. Manufacturer and supplier in India. Prayag Steel.",
   },
@@ -376,7 +447,7 @@ export const fittings: Product[] = [
     description:
       "Cross fittings provide a four-way pipeline connection, allowing flow to be distributed to or collected from three branch directions at a single junction point. They are used in complex piping manifolds, distribution headers, and collection systems across chemical processing, petrochemical, and power industries. Manufactured to ASME B16.9 in seamless, welded, and fabricated construction across a full range of corrosion-resistant alloys.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: TEE_REDUCER_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/cross-fitting.webp",
@@ -396,13 +467,17 @@ export const fittings: Product[] = [
     description:
       "Lateral Tees with a 45 degree branch angle provide efficient flow diversion with significantly less turbulence and pressure loss than a standard 90 degree tee. The angled branch allows flow to merge or diverge with less disruption to the main flow stream, making lateral tees well-suited to high-velocity services, slurry lines, and applications where minimising pressure drop at branch points is important. Manufactured to ASME B16.9 in seamless, welded, and fabricated construction.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: TEE_REDUCER_STANDARDS,
     specs: [
       ...FALLBACK_SPECS,
       { label: "Branch Angle", value: "45 Degrees" },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/buttweld-fitting-lateral-tee-45deg.webp",
+    relatedProducts: [
+      { name: "Equal Tee",    slug: "buttweld-fitting-equal-tee-manufacturer-india" },
+      { name: "Reducing Tee", slug: "buttweld-fitting-reducing-tee-manufacturer-india" },
+    ],
     metaTitle: "Lateral Tee 45 Degree Manufacturer & Supplier in India | Prayag Steel",
     metaDescription: "Lateral Tees (45 Degree) in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\", ASME B16.9. Reduced turbulence at branch. Seamless, welded & fabricated. Manufacturer and supplier in India. Prayag Steel.",
   },
@@ -417,17 +492,22 @@ export const fittings: Product[] = [
     name: "Pipe Bend",
     shortDescription: "Large Radius Flow Control. Available in 3D, 5D, 8D, and 10D radius configurations for ultra-low pressure-drop piping.",
     description:
-      "Pipe Bends are manufactured in large radius configurations — 3D, 5D, 8D, and 10D — to provide ultra-low pressure-drop directional changes in piping systems. Their longer radius compared to standard elbows results in lower turbulence, erosion, and noise, making them preferred in high-velocity, abrasive, or pulsating flow services. Produced by induction bending or cold forming from seamless pipe stock in a full range of corrosion-resistant alloys.",
+      "Pipe Bends are manufactured in large radius configurations — 3D, 5D, 8D, and 10D — to provide ultra-low pressure-drop directional changes in piping systems. Their longer radius compared to standard elbows results in lower turbulence, erosion, and noise, making them preferred in high-velocity, abrasive, or pulsating flow services. Produced by hot induction bending, induction bending, or cold forming from seamless pipe stock in a full range of corrosion-resistant alloys.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: LR_ELBOW_STANDARDS,
     specs: [
       ...FALLBACK_SPECS,
-      { label: "Available In", value: "3D, 5D, 8D, 10D Radius Configurations" },
+      { label: "Available In",    value: "3D, 5D, 8D, 10D Radius Configurations" },
+      { label: "Bending Methods", value: "Hot Induction Bending, Induction Bending, Cold Forming" },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/pipe-bend.webp",
+    relatedProducts: [
+      { name: "90° LR Elbow", slug: "buttweld-fitting-90-degree-long-radius-elbow-manufacturer-india" },
+      { name: "Miter Bend",   slug: "buttweld-fitting-miter-bend-manufacturer-india" },
+    ],
     metaTitle: "Pipe Bend Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Pipe Bends (3D, 5D, 8D, 10D) in SS, Duplex, Inconel, Hastelloy. 1/2\"–48\", ASME B16.9. Ultra-low pressure drop. Induction & cold-formed. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription: "Pipe Bends (3D, 5D, 8D, 10D) in SS, Duplex, Inconel, Hastelloy. 1/2\"–48\", ASME B16.9. Ultra-low pressure drop. Hot induction & cold-formed. Manufacturer and supplier in India. Prayag Steel India.",
   },
 
   // ── 15. Miter Bend ────────────────────────────────────────────────────────
@@ -442,10 +522,14 @@ export const fittings: Product[] = [
     description:
       "Miter Bends are custom-fabricated fittings manufactured according to customer drawings and international standards for specialised industrial applications. Produced by cutting and welding pipe segments at precise angles, they are used where large diameter directional changes are required and standard elbow fittings are unavailable or uneconomical. Each miter bend is engineered for the specific project requirements including pressure class, material, and geometry.",
     materials: [],
-    standards: FITTINGS_STANDARDS,
+    standards: LR_ELBOW_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/miter-bend.webp",
+    relatedProducts: [
+      { name: "Pipe Bend",    slug: "buttweld-fitting-pipe-bend-manufacturer-india" },
+      { name: "90° LR Elbow", slug: "buttweld-fitting-90-degree-long-radius-elbow-manufacturer-india" },
+    ],
     metaTitle: "Miter Bend Manufacturer & Supplier in India | Prayag Steel",
     metaDescription: "Miter Bends fabricated to customer drawings in SS, Duplex, Inconel, Hastelloy, Titanium. 1/2\"–48\". Project-specific engineering. Manufacturer and supplier in India. Prayag Steel India.",
   },
@@ -480,18 +564,26 @@ export const fittings: Product[] = [
     name: "Swage Nipple",
     shortDescription: "Compact Diameter Transition for Small Bore Piping. Combines the function of a nipple and reducer in one component.",
     description:
-      "Swage nipples provide a compact, integral solution for connecting pipes of two different diameters, combining the function of a nipple and reducer in a single component. Manufactured in concentric and eccentric configurations, they are widely used in instrumentation lines, small-bore branch connections, and tight-clearance piping layouts where a full reducing fitting is impractical. Available in threaded, plain-end, or socket-weld end configurations across the full range of corrosion-resistant alloys.",
+      "Swage nipples provide a compact, integral solution for connecting pipes of two different diameters, combining the function of a nipple and reducer in a single component. Manufactured in concentric and eccentric configurations by seamless, bar stock machined, or forged processes, they are widely used in instrumentation lines, small-bore branch connections, and tight-clearance piping layouts where a full reducing fitting is impractical. Available in threaded, plain-end, or socket-weld end configurations across the full range of corrosion-resistant alloys.",
     materials: [],
     standards: FITTINGS_STANDARDS,
     specs: [
-      ...FALLBACK_SPECS,
-      { label: "Available In", value: "Concentric, Eccentric" },
-      { label: "Size Range", value: "Available on Request" },
+      { label: "Manufacturing Process", value: "Seamless, Bar Stock Machined, Forged" },
+      { label: "Size Range",            value: "Available on Request" },
+      { label: "Wall Thickness",        value: WT },
+      { label: "Available In",          value: "Concentric, Eccentric" },
+      { label: "Pressure Rating",       value: PR },
+      { label: "Surface Finish",        value: SF },
+      { label: "End Preparation",       value: "Threaded, Plain End, Socket Weld" },
+      { label: "Testing",               value: TEST },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/swage-nipple.webp",
+    relatedProducts: [
+      { name: "Pipe Nipple", slug: "buttweld-fitting-pipe-nipple-manufacturer-india" },
+    ],
     metaTitle: "Swage Nipple Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Swage Nipples (concentric & eccentric) in SS, Duplex, Inconel, Hastelloy, Titanium. Small-bore diameter transitions. Instrumentation, branch connections. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Swage Nipples (concentric & eccentric) in SS, Duplex, Inconel, Hastelloy, Titanium. Seamless, bar stock machined & forged. Small-bore diameter transitions. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── 18. Pipe Nipple ───────────────────────────────────────────────────────
@@ -504,21 +596,30 @@ export const fittings: Product[] = [
     name: "Pipe Nipple",
     shortDescription: "Short-Length Connector for Fittings & Valves. Threaded, plain end, or welded at both ends.",
     description:
-      "Pipe nipples are short lengths of pipe, threaded, plain, or welded at both ends, used to connect two fittings, a fitting and a valve, or two components positioned close together. They provide a reliable, standardised method of joining piping components in compact assemblies. Manufactured in threaded, plain end, and welded configurations across the full range of corrosion-resistant alloy families for process, instrumentation, and utility piping.",
+      "Pipe nipples are short lengths of pipe, threaded, plain, or welded at both ends, used to connect two fittings, a fitting and a valve, or two components positioned close together. They provide a reliable, standardised method of joining piping components in compact assemblies. Manufactured in seamless and welded construction across the full range of corrosion-resistant alloy families for process, instrumentation, and utility piping.",
     materials: [],
     standards: FITTINGS_STANDARDS,
     specs: [
-      ...FALLBACK_SPECS,
-      { label: "Available In", value: "Threaded, Plain End, Welded" },
-      { label: "Size Range", value: "Available on Request" },
+      { label: "Manufacturing Process", value: "Seamless, Welded" },
+      { label: "Available In",          value: "Threaded, Plain End, Welded" },
+      { label: "Size Range",            value: "Available on Request" },
+      { label: "Wall Thickness",        value: WT },
+      { label: "Pressure Rating",       value: PR },
+      { label: "Surface Finish",        value: SF },
+      { label: "Testing",               value: TEST },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/pipe-nipple.webp",
+    relatedProducts: [
+      { name: "Swage Nipple", slug: "buttweld-fitting-swage-nipple-manufacturer-india" },
+    ],
     metaTitle: "Pipe Nipple Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Pipe Nipples (threaded, plain end, welded) in SS, Duplex, Inconel, Hastelloy, Titanium. Compact assembly connectors. Instrumentation & process piping. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Pipe Nipples (threaded, plain end, welded) in SS, Duplex, Inconel, Hastelloy, Titanium. Seamless & welded. Compact assembly connectors. Instrumentation & process piping. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── 19. Reducer Insert ────────────────────────────────────────────────────
+  // NOTE: Belongs to Socket Weld / Forged Fittings — not a butt weld fitting.
+  // Kept in fittings division; isCustomFabrication: true groups it in sidebar.
   {
     id: "fit-019",
     slug: "buttweld-fitting-reducer-insert-manufacturer-india",
@@ -526,15 +627,20 @@ export const fittings: Product[] = [
     subcategory: "Reducer Insert",
     type: "Socket Weld / Threaded",
     name: "Reducer Insert",
-    shortDescription: "In-Fitting Bore Reduction. Steps down the bore within an existing socket-weld or threaded fitting.",
+    shortDescription: "In-Fitting Bore Reduction. A forged / socket weld component that steps down the bore within an existing fitting.",
     description:
-      "Reducer inserts are used to step down the bore size within an existing socket-weld or threaded fitting, allowing a size transition without introducing a separate reducer fitting into the line. They are a space-efficient solution for small-bore piping systems requiring a diameter change at a single connection point. Available in socket-weld and threaded end configurations across the full range of corrosion-resistant alloys.",
+      "Reducer inserts are socket weld or threaded components (forged fittings category) used to step down the bore size within an existing socket-weld or threaded fitting, allowing a size transition without introducing a separate reducer fitting into the line. They are a space-efficient solution for small-bore piping systems requiring a diameter change at a single connection point. Available in socket-weld and threaded end configurations across the full range of corrosion-resistant alloys.",
     materials: [],
+    isCustomFabrication: true,
+    cardTag: "Socket Weld / Forged Fitting",
     standards: FITTINGS_STANDARDS,
     specs: [
-      ...FALLBACK_SPECS,
-      { label: "Available In", value: "Socket Weld, Threaded" },
-      { label: "Size Range", value: "Available on Request" },
+      { label: "Fitting Category", value: "Socket Weld / Forged Fitting" },
+      { label: "Available In",     value: "Socket Weld, Threaded" },
+      { label: "Size Range",       value: "Available on Request" },
+      { label: "Pressure Rating",  value: PR },
+      { label: "Surface Finish",   value: SF },
+      { label: "Testing",          value: TEST },
     ],
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/reducer-insert.webp",
@@ -543,6 +649,7 @@ export const fittings: Product[] = [
   },
 
   // ── 20. Header Assembly ───────────────────────────────────────────────────
+  // Custom fabrication — not a standard piping fitting.
   {
     id: "fit-020",
     slug: "buttweld-fitting-header-assembly-manufacturer-india",
@@ -550,10 +657,11 @@ export const fittings: Product[] = [
     subcategory: "Header Assembly",
     type: "Fabricated",
     name: "Header Assembly",
-    shortDescription: "Engineered for Project-Specific Requirements. Custom-fabricated flow distribution headers manufactured to customer drawings.",
+    shortDescription: "Custom-Fabricated Flow Distribution Headers. Manufactured to customer drawings for centralised multi-branch piping.",
     description:
-      "Header Assemblies are custom-fabricated flow distribution or collection manifolds manufactured according to customer drawings and international standards for specialised industrial applications. Engineered to handle multiple branch connections from a single run pipe, they are used in chemical process plants, power stations, oil & gas facilities, and heat exchanger installations where centralised flow distribution is required.",
+      "Header Assemblies are custom-fabricated flow distribution or collection manifolds manufactured according to customer drawings and international standards. Not a standard piping fitting, they are engineered to handle multiple branch connections from a single run pipe and are used in chemical process plants, power stations, oil & gas facilities, and heat exchanger installations where centralised flow distribution is required.",
     materials: [],
+    isCustomFabrication: true,
     standards: FITTINGS_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
@@ -563,6 +671,7 @@ export const fittings: Product[] = [
   },
 
   // ── 21. Transition Piece ──────────────────────────────────────────────────
+  // Custom fabrication — not a standard piping fitting.
   {
     id: "fit-021",
     slug: "buttweld-fitting-transition-piece-manufacturer-india",
@@ -570,10 +679,11 @@ export const fittings: Product[] = [
     subcategory: "Transition Piece",
     type: "Fabricated",
     name: "Transition Piece",
-    shortDescription: "Engineered for Project-Specific Requirements. Custom-fabricated shape transitions for specialised piping geometry.",
+    shortDescription: "Custom-Fabricated Shape Transitions. Engineered geometry changes for specialised piping and ductwork.",
     description:
-      "Transition Pieces are custom-fabricated fittings manufactured according to customer drawings and international standards for specialised industrial applications. They provide geometry changes between different cross-sections — circular to rectangular, oval to round, or other bespoke shapes — that cannot be accommodated by standard catalogue fittings. Used in ductwork, pressure vessels, and process piping where non-standard transitions are required.",
+      "Transition Pieces are custom-fabricated components manufactured according to customer drawings and international standards. Not a standard piping fitting, they provide geometry changes between different cross-sections — circular to rectangular, oval to round, or other bespoke shapes — that cannot be accommodated by standard catalogue fittings. Used in ductwork, pressure vessels, and process piping where non-standard transitions are required.",
     materials: [],
+    isCustomFabrication: true,
     standards: FITTINGS_STANDARDS,
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
@@ -592,10 +702,11 @@ export const fittings: Product[] = [
     subcategory: "Fabricated Fittings",
     type: "Fabricated",
     name: "Fabricated Fittings",
-    shortDescription: "Engineered for Project-Specific Requirements. Custom fabrications including Piggable Tees, Spools, and Special Fabrications.",
+    shortDescription: "Custom-Engineered Piping Components. Full range of project-specific fabrications including Piggable Tees, Spools, and Special Fabrications.",
     description:
       "Fabricated Fittings encompass the full range of custom-engineered piping components manufactured according to customer drawings and international standards for specialised industrial applications. This category includes Piggable Tees, Pipe Spools, Special Fabrications, and any bespoke fitting geometry not covered by standard catalogue products. All fabrications are manufactured from the same comprehensive range of corrosion-resistant alloys and are subject to the same rigorous testing and inspection procedures as standard products.",
     materials: [],
+    isCustomFabrication: true,
     standards: FITTINGS_STANDARDS,
     specs: [
       ...FALLBACK_SPECS,

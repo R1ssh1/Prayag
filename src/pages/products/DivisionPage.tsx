@@ -366,16 +366,17 @@ export const DivisionPage: React.FC = () => {
               <div className="w-8 h-8 border-2 border-prayag-red border-t-transparent rounded-full animate-spin" />
             </div>
           ) : isTypeFirst ? (() => {
-            // Split: Header Assembly + Fabricated Fittings go into the specialized section
-            const SPECIALIZED_SLUGS = new Set([
-              "buttweld-fitting-header-assembly",
-              "buttweld-fitting-fabricated-fittings",
+            // Custom Fabrication slugs — get a separate sidebar section + card badge
+            const CUSTOM_FAB_SLUGS = new Set([
+              "buttweld-fitting-header-assembly-manufacturer-india",
+              "buttweld-fitting-fabricated-fittings-manufacturer-india",
+              "buttweld-fitting-transition-piece-manufacturer-india",
             ]);
             const standardGroups = subcategoryGroups.filter(
-              ({ products: gp }) => !SPECIALIZED_SLUGS.has(gp[0].slug)
+              ({ products: gp }) => !CUSTOM_FAB_SLUGS.has(gp[0].slug)
             );
-            const specializedGroups = subcategoryGroups.filter(
-              ({ products: gp }) => SPECIALIZED_SLUGS.has(gp[0].slug)
+            const customFabGroups = subcategoryGroups.filter(
+              ({ products: gp }) => CUSTOM_FAB_SLUGS.has(gp[0].slug)
             );
             return (
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
@@ -397,8 +398,8 @@ export const DivisionPage: React.FC = () => {
                   })}
                 </div>
 
-                {/* ── Specialized Products Sub-Section ── */}
-                {specializedGroups.length > 0 && (
+                {/* ── Custom Fabrications Sub-Section ── */}
+                {customFabGroups.length > 0 && (
                   <div>
                     {/* Divider & heading */}
                     <div className="flex items-center gap-4 mb-8">
@@ -406,7 +407,7 @@ export const DivisionPage: React.FC = () => {
                       <div className="flex items-center gap-3 flex-shrink-0">
                         <div className="h-0.5 w-5 bg-prayag-red" aria-hidden="true" />
                         <span className="text-prayag-red font-body text-xs font-semibold uppercase tracking-[0.22em]">
-                          Specialized Products
+                          Custom Fabrications
                         </span>
                         <div className="h-0.5 w-5 bg-prayag-red" aria-hidden="true" />
                       </div>
@@ -415,8 +416,8 @@ export const DivisionPage: React.FC = () => {
                     <p className="text-gray-500 font-body text-sm mb-6 text-center">
                       Custom-engineered assemblies and fabrications manufactured to customer drawings and project specifications.
                     </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
-                      {specializedGroups.map(({ products: gp, id: groupId }, i) => {
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                      {customFabGroups.map(({ products: gp, id: groupId }, i) => {
                         const p = gp[0];
                         return (
                           <ProductCard
@@ -435,7 +436,13 @@ export const DivisionPage: React.FC = () => {
 
               {/* Sidebar TOC */}
               <aside className="hidden lg:block w-60 xl:w-64 flex-shrink-0 sticky top-28 self-start max-h-[calc(100vh-8rem)] overflow-y-auto" aria-label="Categories">
-                <TocSidebar groups={subcategoryGroups} activeId={activeSectionId} onScrollTo={scrollToId} div={div} />
+                <TocSidebar
+                  standardGroups={standardGroups.map(g => ({ label: g.label, id: g.id }))}
+                  customFabGroups={customFabGroups.map(g => ({ label: g.label, id: g.id }))}
+                  activeId={activeSectionId}
+                  onScrollTo={scrollToId}
+                  div={div}
+                />
               </aside>
             </div>
             );
@@ -490,7 +497,13 @@ export const DivisionPage: React.FC = () => {
               </div>
 
               <aside className="w-full lg:w-60 xl:w-64 flex-shrink-0 sticky top-28 self-start max-h-[calc(100vh-8rem)] overflow-y-auto" aria-label="Table of Contents">
-                <TocSidebar groups={subcategoryGroups} activeId={activeSectionId} onScrollTo={scrollToId} div={div} />
+                <TocSidebar
+                  standardGroups={subcategoryGroups.map(g => ({ label: g.label, id: g.id }))}
+                  customFabGroups={[]}
+                  activeId={activeSectionId}
+                  onScrollTo={scrollToId}
+                  div={div}
+                />
               </aside>
             </div>
           )}
@@ -650,7 +663,44 @@ function FaqItem({ faq }: { faq: { question: string; answer: string } }) {
   );
 }
 
-function TocSidebar({ groups, activeId, onScrollTo, div }: { groups: { label: string; id: string }[]; activeId: string; onScrollTo: (id: string) => void; div: string; }) {
+function TocSidebar({
+  standardGroups,
+  customFabGroups,
+  activeId,
+  onScrollTo,
+  div,
+}: {
+  standardGroups: { label: string; id: string }[];
+  customFabGroups: { label: string; id: string }[];
+  activeId: string;
+  onScrollTo: (id: string) => void;
+  div: string;
+}) {
+  const renderItem = ({ label, id }: { label: string; id: string }) => (
+    <li key={id}>
+      <button
+        onClick={() => onScrollTo(id)}
+        className={`w-full flex items-center gap-3 px-5 py-3 transition-colors text-left group ${
+          activeId === id ? "bg-red-50" : "hover:bg-red-50"
+        }`}
+      >
+        <span
+          className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${
+            activeId === id ? "bg-prayag-red" : "bg-gray-300 group-hover:bg-prayag-red"
+          }`}
+          aria-hidden="true"
+        />
+        <span
+          className={`font-body text-sm transition-colors leading-snug ${
+            activeId === id ? "text-prayag-red font-semibold" : "text-gray-600 group-hover:text-prayag-red"
+          }`}
+        >
+          {label}
+        </span>
+      </button>
+    </li>
+  );
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
       <div className="px-5 py-4 border-b border-gray-100 bg-gray-50">
@@ -658,24 +708,23 @@ function TocSidebar({ groups, activeId, onScrollTo, div }: { groups: { label: st
       </div>
       <nav>
         <ul className="divide-y divide-gray-50">
-          {groups.map(({ label, id }) => (
-            <li key={id}>
-              <button
-                onClick={() => onScrollTo(id)}
-                className={`w-full flex items-center gap-3 px-5 py-3 transition-colors text-left group ${activeId === id ? "bg-red-50" : "hover:bg-red-50"
-                  }`}
-              >
-                <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors ${activeId === id ? "bg-prayag-red" : "bg-gray-300 group-hover:bg-prayag-red"
-                  }`} aria-hidden="true" />
-                <span className={`font-body text-sm transition-colors leading-snug ${activeId === id ? "text-prayag-red font-semibold" : "text-gray-600 group-hover:text-prayag-red"
-                  }`}>
-                  {label}
-                </span>
-              </button>
-            </li>
-          ))}
+          {standardGroups.map(renderItem)}
         </ul>
       </nav>
+
+      {customFabGroups.length > 0 && (
+        <>
+          <div className="px-5 py-3 border-t border-gray-100 bg-gray-50/80">
+            <p className="font-body font-bold text-[10px] uppercase tracking-[0.18em] text-prayag-black/50">Custom Fabrications</p>
+          </div>
+          <nav>
+            <ul className="divide-y divide-gray-50">
+              {customFabGroups.map(renderItem)}
+            </ul>
+          </nav>
+        </>
+      )}
+
       <div className="px-5 py-4 border-t border-gray-100 bg-gray-50">
         <CatalogueDownloadButton id={`${div}-sidebar-catalogue-btn`} className="w-full justify-center" />
       </div>

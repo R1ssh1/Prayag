@@ -359,8 +359,8 @@ export const fittingsContent: DivisionContent = {
 
   standardsByBody: [
     {
-      body: "ASME",
-      standards: ["ASME B16.9", "ASME B16.28", "ASME B16.11", "MSS SP-43"],
+      body: "ASME / ASTM",
+      standards: ["ASME B16.9", "ASME B16.28", "ASME B16.11", "MSS SP-43", "ASTM A403", "ASTM A815", "ASTM B366", "ASTM B363"],
     },
     {
       body: "EN",
@@ -378,11 +378,12 @@ export const fittingsContent: DivisionContent = {
 
   sizeRange: [
     { label: "Seamless Fittings", value: "1/2\" to 24\"" },
-    { label: "Welded Fittings", value: "1/2\" to 48\" (Larger sizes on request)" }
+    { label: "Welded Fittings", value: "1/2\" to 48\" (Larger sizes on request)" },
+    { label: "Fabricated Fittings", value: "26\" to 72\"+ (Available on Request)", customNote: true }
   ],
 
   pressureClasses: [
-    "SCH 5S", "SCH 10S", "SCH 40S", "SCH 80S", "SCH 160", "SCH XXS"
+    "SCH 5S", "SCH 10S", "SCH 20", "SCH 40S", "SCH 80S", "SCH 120", "SCH 160", "XXS"
   ],
 
   technicalSpecAccordion: [
@@ -424,6 +425,13 @@ export const fittingsContent: DivisionContent = {
     { name: "Intergranular Corrosion Test (IGC)", description: "ASTM A262 for sensitisation check." },
     { name: "Ferrite Content", description: "For duplex and super duplex grades." },
     { name: "Mechanical Testing", description: "Tensile, yield, and impact (Charpy)." },
+    { name: "Eddy Current Test", description: "For welded tube products where applicable." },
+    { name: "Flattening Test", description: "For welded fittings per applicable standard." },
+    { name: "Grain Size Test", description: "ASTM E112 — for austenitic grades where specified." },
+    { name: "Corrosion Testing", description: "ASTM G48 pitting resistance for duplex and super duplex." },
+    { name: "Microstructure Examination", description: "Ferrite phase assessment and sensitisation check." },
+    { name: "ASTM A380 Pickling & Passivation" },
+    { name: "ASTM A967 Passivation Verification" },
   ],
 
   thirdPartyInspections: [
