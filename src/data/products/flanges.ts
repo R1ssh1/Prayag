@@ -28,52 +28,52 @@ import type { Product, MaterialFamily } from "./types";
 export const FLANGES_MATERIALS: MaterialFamily[] = [
   {
     family: "Stainless Steel",
-    standard: "",
+    standard: "ASTM A182",
     grades: ["304", "304L", "304H", "316", "316L", "316Ti", "317L", "321", "347", "904L"],
   },
   {
     family: "Duplex",
-    standard: "",
+    standard: "ASTM A182",
     grades: ["2205", "2304"],
   },
   {
     family: "Super Duplex",
-    standard: "",
+    standard: "ASTM A182",
     grades: ["2507", "Zeron 100"],
   },
   {
     family: "Nickel Alloys",
-    standard: "",
+    standard: "ASTM A182 / ASTM B564",
     grades: ["Inconel 600", "625", "718", "800H", "825"],
   },
   {
     family: "Monel",
-    standard: "",
+    standard: "ASTM B564",
     grades: ["400", "K500"],
   },
   {
     family: "Hastelloy",
-    standard: "",
+    standard: "ASTM B564",
     grades: ["C22", "C276", "B2", "B3", "X"],
   },
   {
     family: "Titanium",
-    standard: "",
+    standard: "ASTM B381",
     grades: ["Grade 2", "Grade 5", "Grade 7"],
   },
   {
     family: "Copper Nickel",
-    standard: "",
+    standard: "ASTM B151",
     grades: ["90/10", "70/30"],
   },
   {
     family: "Alloy 20",
-    standard: "",
+    standard: "ASTM B462",
     grades: ["Alloy 20"],
   },
   {
     family: "Nickel",
-    standard: "",
+    standard: "ASTM B160",
     grades: ["Nickel 200", "Nickel 201"],
   },
   {
@@ -423,9 +423,8 @@ export const flanges: Product[] = [
       { label: "Facing Type", value: "Flat Face (Used with Lap Joint Stub End)" },
     ],
     relatedProducts: [
-      // NOTE: No dedicated Stub Ends product page exists yet in fittings.ts.
-      // slug is intentionally absent — renders as plain text until the page is published.
-      { name: "Lap Joint Stub Ends", division: "fittings" },
+      { name: "Stub End (Short Pattern)", slug: "buttweld-fitting-stub-end-short-pattern-manufacturer-india", division: "fittings" },
+      { name: "Stub End (Long Pattern)", slug: "buttweld-fitting-stub-end-long-pattern-manufacturer-india", division: "fittings" },
     ],
     materialsTable: FLANGES_MATERIALS,
     image: "products/flanges/lap-joint-flange.webp",

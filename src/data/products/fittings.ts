@@ -68,7 +68,7 @@ export const FITTINGS_MATERIALS: MaterialFamily[] = [
   },
   {
     family: "Copper Nickel",
-    standard: "ASTM B466 / ASTM B366",
+    standard: "ASTM B366",
     grades: ["90/10 (C70600)", "70/30 (C71500)"],
   },
 ];
@@ -83,7 +83,7 @@ const FITTINGS_STANDARDS = [
   "JIS B2311", "JIS B2312", "JIS B2313",
 ];
 
-// LR Elbows — ASME B16.28 is NOT applicable (B16.28 covers SR elbows & LR returns)
+// LR Elbows — ASME B16.28 is NOT applicable (B16.28 covers SR elbows & SR return bends only)
 const LR_ELBOW_STANDARDS = ["ASME B16.9", "MSS SP-43", "EN 10253-3", "EN 10253-4"];
 
 // Tees and Reducers — ASME B16.9 only
@@ -494,7 +494,7 @@ export const fittings: Product[] = [
     description:
       "Pipe Bends are manufactured in large radius configurations — 3D, 5D, 8D, and 10D — to provide ultra-low pressure-drop directional changes in piping systems. Their longer radius compared to standard elbows results in lower turbulence, erosion, and noise, making them preferred in high-velocity, abrasive, or pulsating flow services. Produced by hot induction bending, induction bending, or cold forming from seamless pipe stock in a full range of corrosion-resistant alloys.",
     materials: [],
-    standards: LR_ELBOW_STANDARDS,
+    standards: ["ASME B16.49", "EN 10253-3", "EN 10253-4"],
     specs: [
       ...FALLBACK_SPECS,
       { label: "Available In",    value: "3D, 5D, 8D, 10D Radius Configurations" },
@@ -522,7 +522,7 @@ export const fittings: Product[] = [
     description:
       "Miter Bends are custom-fabricated fittings manufactured according to customer drawings and international standards for specialised industrial applications. Produced by cutting and welding pipe segments at precise angles, they are used where large diameter directional changes are required and standard elbow fittings are unavailable or uneconomical. Each miter bend is engineered for the specific project requirements including pressure class, material, and geometry.",
     materials: [],
-    standards: LR_ELBOW_STANDARDS,
+    standards: ["ASME B31.3 Appendix J", "EN 10253-3", "EN 10253-4"],
     specs: FALLBACK_SPECS,
     materialsTable: FITTINGS_MATERIALS,
     image: "products/fittings/miter-bend.webp",

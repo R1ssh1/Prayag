@@ -1,4 +1,4 @@
-﻿import type { Product } from "./types";
+import type { Product } from "./types";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Pipes Division — Full Catalogue (54 Products)
@@ -31,7 +31,7 @@ export const pipes: Product[] = [
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp304.webp",
     metaTitle: "Seamless TP304 Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless TP304 stainless steel pipes, 6mm–168mm OD. BA, P&P, polished finish. ASTM A312/A213 compliant. Chemical, food & beverage, general engineering. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless TP304 stainless steel pipes, 6mm–355.6mm OD. BA, P&P, polished finish. ASTM A312/A213 compliant. Chemical, food & beverage, general engineering. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-002",
@@ -56,7 +56,7 @@ export const pipes: Product[] = [
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp304l.webp",
     metaTitle: "Seamless TP304L Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless TP304L low-carbon stainless steel pipes, 6mm–168mm OD. Reduced sensitisation risk, ideal for welded assemblies. ASTM A312/A213. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription: "Seamless TP304L low-carbon stainless steel pipes, 6mm–355.6mm OD. Reduced sensitisation risk, ideal for welded assemblies. ASTM A312/A213. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-003",
@@ -156,7 +156,7 @@ export const pipes: Product[] = [
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp316.webp",
     metaTitle: "Seamless TP316 Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless TP316 molybdenum-bearing stainless steel pipes for superior chloride resistance. 6mm–168mm OD. ASTM A312/A213. Chemical, marine, pharma. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless TP316 molybdenum-bearing stainless steel pipes for superior chloride resistance. 6mm–355.6mm OD. ASTM A312/A213. Chemical, marine, pharma. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-007",
@@ -181,7 +181,7 @@ export const pipes: Product[] = [
     standards: ["ASTM A312", "ASTM A213", "ASTM A269", "ASTM A511", "ASTM A358"],
     image: "products/pipes/seamless-stainless-steel-pipe-tp316l.webp",
     metaTitle: "Seamless TP316L Stainless Steel Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless TP316L low-carbon stainless steel pipes, 6mm–168mm OD. Superior chloride resistance, ideal for welded assemblies. ASTM A312/A213. Chemical, pharma, nuclear. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless TP316L low-carbon stainless steel pipes, 6mm–355.6mm OD. Superior chloride resistance, ideal for welded assemblies. ASTM A312/A213. Chemical, pharma, nuclear. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-008",
@@ -497,7 +497,7 @@ export const pipes: Product[] = [
     shortDescription:
       "Seamless 2507 super duplex pipes with very high pitting resistance and excellent mechanical strength for aggressive offshore environments. Bright annealed finish available.",
     description:
-      "Seamless super duplex 2507 (UNS S32750) pipes contain 25% chromium, 7% nickel, and 4% molybdenum, providing a pitting resistance equivalent (PRE) above 40 and outstanding resistance to pitting, crevice corrosion, and stress-corrosion cracking in chloride-rich and acidic environments. The grade also has high tensile and yield strength. Used in offshore oil & gas piping, desalination, subsea umbilicals, and chemical process vessels. Supplied per ASTM A790 and ASTM A928.",
+      "Seamless super duplex 2507 (UNS S32750) pipes contain 25% chromium, 7% nickel, and 4% molybdenum, providing a pitting resistance equivalent (PRE) exceeding 42 and outstanding resistance to pitting, crevice corrosion, and stress-corrosion cracking in chloride-rich and acidic environments. The grade also has high tensile and yield strength. Used in offshore oil & gas piping, desalination, subsea umbilicals, and chemical process vessels. Supplied per ASTM A790 and ASTM A928.",
     materials: ["UNS S32750 (2507)"],
     specs: [
       { label: "OD Range", value: "6mm – 355.6mm (¼\" – 14\")" },
@@ -557,12 +557,12 @@ export const pipes: Product[] = [
       { label: "Length", value: "Up to 6 meters" },
       { label: "Grade", value: "Inconel 600 (UNS N06600)" },
       { label: "Finish", value: "Bright Annealed / Pickled & Passivated / Polished / Mirror" },
-      { label: "Standard", value: "ASTM B622 / ASTM B444" },
+      { label: "Standard", value: "ASTM B622" },
     ],
-    standards: ["ASTM B622", "ASTM B444"],
+    standards: ["ASTM B622"],
     image: "products/pipes/seamless-inconel-pipe-600.webp",
     metaTitle: "Seamless Inconel 600 Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless Inconel 600 (UNS N06600) pipes — excellent oxidation and carburisation resistance up to 1150°C. ASTM B622/B444. Heat treatment, nuclear, chemical. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless Inconel 600 (UNS N06600) pipes — excellent oxidation and carburisation resistance up to 1150°C. ASTM B622. Heat treatment, nuclear, chemical. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-023",
@@ -582,12 +582,12 @@ export const pipes: Product[] = [
       { label: "Length", value: "Up to 6 meters" },
       { label: "Grade", value: "Inconel 601 (UNS N06601)" },
       { label: "Finish", value: "Bright Annealed / Pickled & Passivated / Polished / Mirror" },
-      { label: "Standard", value: "ASTM B622 / ASTM B444" },
+      { label: "Standard", value: "ASTM B622" },
     ],
-    standards: ["ASTM B622", "ASTM B444"],
+    standards: ["ASTM B622"],
     image: "products/pipes/seamless-inconel-pipe-601.webp",
     metaTitle: "Seamless Inconel 601 Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless Inconel 601 (UNS N06601) pipes — exceptional oxidation resistance to 1200°C with aluminium-enhanced protective scale. ASTM B622/B444. Industrial heating. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless Inconel 601 (UNS N06601) pipes — exceptional oxidation resistance to 1200°C with aluminium-enhanced protective scale. ASTM B622. Industrial heating. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-024",
@@ -607,12 +607,12 @@ export const pipes: Product[] = [
       { label: "Length", value: "Up to 6 meters" },
       { label: "Grade", value: "Inconel 617 (UNS N06617)" },
       { label: "Finish", value: "Bright Annealed / Pickled & Passivated / Polished / Mirror" },
-      { label: "Standard", value: "ASTM B622 / ASTM B444" },
+      { label: "Standard", value: "ASTM B622" },
     ],
-    standards: ["ASTM B622", "ASTM B444"],
+    standards: ["ASTM B622"],
     image: "products/pipes/seamless-inconel-pipe-617.webp",
     metaTitle: "Seamless Inconel 617 Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless Inconel 617 (UNS N06617) pipes — high-temperature strength and oxidation resistance for gas turbines and steam reforming. ASTM B622/B444. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless Inconel 617 (UNS N06617) pipes — high-temperature strength and oxidation resistance for gas turbines and steam reforming. ASTM B622. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-025",
@@ -657,12 +657,12 @@ export const pipes: Product[] = [
       { label: "Length", value: "Up to 6 meters" },
       { label: "Grade", value: "Inconel 686 (UNS N06686)" },
       { label: "Finish", value: "Bright Annealed / Pickled & Passivated / Polished / Mirror" },
-      { label: "Standard", value: "ASTM B622 / ASTM B444" },
+      { label: "Standard", value: "ASTM B622" },
     ],
-    standards: ["ASTM B622", "ASTM B444"],
+    standards: ["ASTM B622"],
     image: "products/pipes/seamless-inconel-pipe-686.webp",
     metaTitle: "Seamless Inconel 686 Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless Inconel 686 (UNS N06686) pipes — extremely high corrosion resistance in mixed acids, wet chlorine, and hypochlorite. ASTM B622/B444. Manufacturer and supplier in India. Prayag Steel India.",
+    metaDescription: "Seamless Inconel 686 (UNS N06686) pipes — extremely high corrosion resistance in mixed acids, wet chlorine, and hypochlorite. ASTM B622. Manufacturer and supplier in India. Prayag Steel India.",
   },
   {
     id: "pip-027",
@@ -682,12 +682,12 @@ export const pipes: Product[] = [
       { label: "Length", value: "Up to 6 meters" },
       { label: "Grade", value: "Inconel 690 (UNS N06690)" },
       { label: "Finish", value: "Bright Annealed / Pickled & Passivated / Polished / Mirror" },
-      { label: "Standard", value: "ASTM B622 / ASTM B444" },
+      { label: "Standard", value: "ASTM B622" },
     ],
-    standards: ["ASTM B622", "ASTM B444"],
+    standards: ["ASTM B622"],
     image: "products/pipes/seamless-inconel-pipe-690.webp",
     metaTitle: "Seamless Inconel 690 Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless Inconel 690 (UNS N06690) high-chromium pipes — superior SCC resistance for nuclear steam generators and chemical processing. ASTM B622/B444. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless Inconel 690 (UNS N06690) high-chromium pipes — superior SCC resistance for nuclear steam generators and chemical processing. ASTM B622. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-028",
@@ -707,12 +707,12 @@ export const pipes: Product[] = [
       { label: "Length", value: "Up to 6 meters" },
       { label: "Grade", value: "Inconel 718 (UNS N07718)" },
       { label: "Finish", value: "Bright Annealed / Pickled & Passivated / Polished / Mirror" },
-      { label: "Standard", value: "ASTM B622 / ASTM B444" },
+      { label: "Standard", value: "ASTM B622" },
     ],
-    standards: ["ASTM B622", "ASTM B444"],
+    standards: ["ASTM B622"],
     image: "products/pipes/seamless-inconel-pipe-718.webp",
     metaTitle: "Seamless Inconel 718 Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless Inconel 718 (UNS N07718) precipitation-hardened pipes — very high strength, cryogenic to 700°C. ASTM B622/B444. Aerospace, oil & gas, nuclear. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless Inconel 718 (UNS N07718) precipitation-hardened pipes — very high strength, cryogenic to 700°C. ASTM B622. Aerospace, oil & gas, nuclear. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-029",
@@ -732,12 +732,12 @@ export const pipes: Product[] = [
       { label: "Length", value: "Up to 6 meters" },
       { label: "Grade", value: "Inconel X-750 (UNS N07750)" },
       { label: "Finish", value: "Bright Annealed / Pickled & Passivated / Polished / Mirror" },
-      { label: "Standard", value: "ASTM B622 / ASTM B444" },
+      { label: "Standard", value: "ASTM B622" },
     ],
-    standards: ["ASTM B622", "ASTM B444"],
+    standards: ["ASTM B622"],
     image: "products/pipes/seamless-inconel-pipe-x-750.webp",
     metaTitle: "Seamless Inconel X-750 Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless Inconel X-750 (UNS N07750) age-hardenable pipes — high strength, oxidation resistance to 980°C. ASTM B622/B444. Gas turbines, nuclear, aerospace. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless Inconel X-750 (UNS N07750) age-hardenable pipes — high strength, oxidation resistance to 980°C. ASTM B622. Gas turbines, nuclear, aerospace. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── Incoloy ──────────────────────────────────────────────────────────────────
@@ -1084,7 +1084,7 @@ export const pipes: Product[] = [
     shortDescription:
       "Seamless Titanium Grade 1 commercially pure pipes with maximum ductility and excellent corrosion resistance in oxidising and mildly reducing environments.",
     description:
-      "Seamless Titanium Grade 1 (UNS R50250) pipes are the purest commercially available titanium grade, offering the highest ductility, excellent cold formability, and outstanding corrosion resistance to oxidising and mildly reducing environments including seawater, nitric acid, and most organic acids. Used in chemical processing, desalination, marine equipment, and medical implants. Supplied per ASTM B861 and ASTM B338.",
+      "Seamless Titanium Grade 1 (UNS R50250) pipes are the purest commercially available titanium grade, offering the highest ductility, excellent cold formability, and outstanding corrosion resistance to oxidising and mildly reducing environments including seawater, nitric acid, and most organic acids. Used in chemical processing, desalination, marine equipment, and corrosion-resistant industrial components. Supplied per ASTM B861 and ASTM B338.",
     materials: ["Titanium Grade 1 (UNS R50250)"],
     specs: [
       { label: "OD Range", value: "6mm – 355.6mm (¼\" – 14\")" },
@@ -1246,12 +1246,12 @@ export const pipes: Product[] = [
       { label: "Length", value: "Up to 6 meters" },
       { label: "Grade", value: "Cu-Ni 90/10 (UNS C70600)" },
       { label: "Finish", value: "Bright Annealed / Pickled & Passivated / Polished / Mirror" },
-      { label: "Standard", value: "ASTM B466 / ASTM B111 / ASTM B467" },
+      { label: "Standard", value: "ASTM B466 / ASTM B467" },
     ],
-    standards: ["ASTM B466", "ASTM B111", "ASTM B467"],
+    standards: ["ASTM B466", "ASTM B467"],
     image: "products/pipes/seamless-copper-nickel-pipe-90-10.webp",
     metaTitle: "Seamless 90/10 Copper Nickel Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless 90/10 copper-nickel (UNS C70600) pipes — excellent seawater corrosion and biofouling resistance. ASTM B466/B111. Marine, desalination, naval. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless 90/10 copper-nickel (UNS C70600) pipes — excellent seawater corrosion and biofouling resistance. ASTM B466/B467. Marine, desalination, naval. Manufacturer and supplier in India. Prayag Steel.",
   },
   {
     id: "pip-050",
@@ -1271,12 +1271,12 @@ export const pipes: Product[] = [
       { label: "Length", value: "Up to 6 meters" },
       { label: "Grade", value: "Cu-Ni 70/30 (UNS C71500)" },
       { label: "Finish", value: "Bright Annealed / Pickled & Passivated / Polished / Mirror" },
-      { label: "Standard", value: "ASTM B466 / ASTM B111 / ASTM B467" },
+      { label: "Standard", value: "ASTM B466 / ASTM B467" },
     ],
-    standards: ["ASTM B466", "ASTM B111", "ASTM B467"],
+    standards: ["ASTM B466", "ASTM B467"],
     image: "products/pipes/seamless-copper-nickel-pipe-70-30.webp",
     metaTitle: "Seamless 70/30 Copper Nickel Pipes Manufacturer & Supplier in India | Prayag Steel",
-    metaDescription: "Seamless 70/30 copper-nickel (UNS C71500) pipes — higher strength and superior seawater resistance vs 90/10. ASTM B466/B111. Desalination, marine, condensers. Manufacturer and supplier in India. Prayag Steel.",
+    metaDescription: "Seamless 70/30 copper-nickel (UNS C71500) pipes — higher strength and superior seawater resistance vs 90/10. ASTM B466/B467. Desalination, marine, condensers. Manufacturer and supplier in India. Prayag Steel.",
   },
 
   // ── Zirconium ─────────────────────────────────────────────────────────────────

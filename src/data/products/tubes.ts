@@ -107,19 +107,20 @@ const TITANIUM_STANDARDS = ["ASTM B338"];
 const TITANIUM_SUBCATEGORY = "Titanium";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// NICKEL — no standard given in source (2 grades)
+// NICKEL — ASTM B161 (2 grades: Nickel 200, Nickel 201)
 // ─────────────────────────────────────────────────────────────────────────────
-// FLAGGED: No standard given anywhere in source document for plain Nickel
-// 200/201 tubes. Empty array below — confirm with client before launch.
-const NICKEL_STANDARDS: string[] = [];
+// CONFIRMED: ASTM B161 is the correct specification for seamless nickel
+// (UNS N02200 / N02201) pipe and tube. Client-confirmed 2026-08-11.
+const NICKEL_STANDARDS = ["ASTM B161"];
 const NICKEL_SUBCATEGORY = "Nickel";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// ALLOY 20 — no standard given in source (1 grade)
+// ALLOY 20 — ASTM B729 (1 grade: UNS N08020)
 // ─────────────────────────────────────────────────────────────────────────────
-// FLAGGED: No standard given anywhere in source document for Alloy 20 tubes.
-// Empty array below — confirm with client before launch.
-const ALLOY20_STANDARDS: string[] = [];
+// CONFIRMED: ASTM B729 is the correct specification for seamless nickel-iron-
+// chromium-molybdenum-copper alloy (Alloy 20, UNS N08020) pipe and tube for
+// corrosive service. Client-confirmed 2026-08-11.
+const ALLOY20_STANDARDS = ["ASTM B729"];
 const ALLOY20_SUBCATEGORY = "Alloy 20";
 
 export const tubes: Product[] = [
