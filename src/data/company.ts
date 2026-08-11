@@ -350,7 +350,7 @@ export const divisions = [
     name: "Flanges",
     tagline: "Born in Fire. Built to Last.",
     description:
-      "Forged, machined, and CNC-finished flanges in all types and pressure classes. From 1/2\" to 36\" NB, Class 150# to 2500#, in SS, CS, Alloy Steel, Duplex, Super Duplex, Inconel, Monel, Hastelloy, and Titanium.",
+      "Forged, machined, and CNC-finished flanges in all types and pressure classes. From 1/2\" to 36\" NB, Class 150# to 2500#, in SS, Alloy Steel, Duplex, Super Duplex, Inconel, Monel, Hastelloy, and Titanium.",
     image: "divisions/flanges-hero.webp",
     slug: "flanges",
     highlights: [
