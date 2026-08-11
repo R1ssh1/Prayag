@@ -8,6 +8,7 @@ import { getProductFaqs } from "../../data/products/faqs";
 import { ImagePlaceholder } from "../../components/ui/ImagePlaceholder";
 import { CatalogueDownloadButton } from "../../components/ui/CatalogueDownloadButton";
 import { ProductCard } from "../../components/ui/ProductCard";
+import { MaterialCard } from "../../components/ui/MaterialCard";
 import { divisions } from "../../data/company";
 import type { Division, MaterialFamily } from "../../data/products/types";
 
@@ -33,31 +34,6 @@ function buildTocSections(
   return sections;
 }
 
-// ── Available Materials card ──────────────────────────────────────────────────
-function MaterialFamilyCard({ family }: { family: MaterialFamily }) {
-  return (
-    <div className="rounded-xl border border-gray-100 bg-white shadow-sm overflow-hidden">
-      <div className="px-4 py-3 border-b border-gray-100 bg-gray-50">
-        <p className="font-body font-bold text-xs uppercase tracking-[0.18em] text-prayag-black leading-snug">
-          {family.family}
-        </p>
-        <p className="font-body text-[11px] text-gray-400 mt-0.5 leading-snug">
-          {family.standard}
-        </p>
-      </div>
-      <div className="px-4 py-3 flex flex-wrap gap-1.5">
-        {family.grades.map((grade) => (
-          <span
-            key={grade}
-            className="inline-block px-2.5 py-1 rounded-full bg-prayag-red/5 border border-prayag-red/15 text-prayag-red font-body text-xs font-medium leading-snug"
-          >
-            {grade}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export const ProductDetailPage: React.FC = () => {
   const { division, slug } = useParams<{ division: string; slug: string }>();
@@ -366,8 +342,8 @@ export const ProductDetailPage: React.FC = () => {
                   This product is available in the following material families and grades. Enquire for current stock availability and lead times.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-                  {product.materialsTable.map((family) => (
-                    <MaterialFamilyCard key={family.family} family={family} />
+                  {product.materialsTable.map((family, i) => (
+                    <MaterialCard key={family.family} family={family} index={i} />
                   ))}
                 </div>
               </section>

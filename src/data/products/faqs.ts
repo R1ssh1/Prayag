@@ -109,7 +109,7 @@ export function getProductFaqs(product: Product): { question: string; answer: st
     },
     {
       question: `What documentation and Material Test Certificates (MTCs) are provided with ${product.name}?`,
-      answer: `We provide complete traceability and comprehensive project documentation with every shipment of ${product.name}. Standard deliverables include EN 10204 3.1 Material Test Certificates (MTCs), raw material chemical analysis reports, mechanical test charts, heat treatment records, and NDT inspection reports. Third-party inspection (TPI) per EN 10204 3.2 is readily arranged through Lloyds, DNV, TUV, Bureau Veritas, or customer-appointed agencies.`,
+      answer: `We provide complete traceability and comprehensive project documentation with every shipment of ${product.name}. Standard deliverables include EN 10204 3.1 Material Test Certificates (MTCs), raw material chemical analysis reports, mechanical test charts, heat treatment records, and NDT inspection reports. Third-party inspection (TPI) per EN 10204 3.2 is readily arranged through Lloyds, DNV, Bureau Veritas, or customer-appointed agencies.`,
     },
     {
       question: `Why choose Prayag Steel as your manufacturer and supplier for ${product.name} in India?`,

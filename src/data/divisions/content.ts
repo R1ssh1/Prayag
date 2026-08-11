@@ -225,7 +225,7 @@ export const flangesContent: DivisionContent = {
   ],
 
   thirdPartyInspections: [
-    "BV", "TUV", "Lloyd's", "DNV", "SGS", "IRS", "EIL", "PDIL", "NPCIL", "BARC", "Customer Representatives"
+    "BV", "Lloyd's", "DNV", "SGS", "IRS", "EIL", "PDIL", "NPCIL", "BARC", "Customer Representatives"
   ],
 
   whyChooseUs: [
@@ -299,7 +299,7 @@ export const flangesContent: DivisionContent = {
     { question: "Which flange is suitable for high-pressure service?", answer: "Weld Neck, Ring Type Joint (RTJ), and Blind flanges are typically used for high-pressure and high-temperature services." },
     { question: "What pressure classes are available?", answer: "We supply flanges from Class 150# to 2500# (ASME) and PN6 to PN160 (EN/DIN)." },
     { question: "Can you manufacture custom flanges from customer drawings?", answer: "Yes, we specialize in manufacturing custom-designed flanges according to client drawings and specifications." },
-    { question: "Do you provide third-party inspection?", answer: "Yes, we offer third-party inspection from major agencies like TUV, BV, DNV, Lloyd's, SGS, and others." },
+    { question: "Do you provide third-party inspection?", answer: "Yes, we offer third-party inspection from major agencies like BV, DNV, Lloyd's, SGS, and others." },
     { question: "What materials are available?", answer: "We manufacture flanges in Stainless Steel, Duplex, Super Duplex, Inconel, Hastelloy, Monel, Titanium, Cu-Ni, and other exotic alloys." },
     { question: "What surface finishes can be supplied?", answer: "Finishes include Machined, Pickled, Passivated, Glass Bead, Mirror Polish, and Electropolished." },
     { question: "Do you provide NACE-compliant flanges?", answer: "Yes, we supply flanges strictly conforming to NACE MR0175 and MR0103 for sour service." },
@@ -435,7 +435,7 @@ export const fittingsContent: DivisionContent = {
   ],
 
   thirdPartyInspections: [
-    "BV", "TUV", "Lloyd's", "DNV", "SGS", "IRS", "EIL"
+    "BV", "Lloyd's", "DNV", "SGS", "IRS", "EIL"
   ],
 
   whyChooseUs: [
@@ -554,7 +554,7 @@ export const pipesContent: DivisionContent = {
   ],
 
   thirdPartyInspections: [
-    "TUV", "Lloyd's", "DNV", "SGS", "BV"
+    "Lloyd's", "DNV", "SGS", "BV"
   ],
 
   whyChooseUs: [
@@ -685,7 +685,7 @@ export const tubesContent: DivisionContent = {
   ],
 
   thirdPartyInspections: [
-    "TUV", "BV", "SGS", "Lloyd's"
+    "BV", "SGS", "Lloyd's"
   ],
 
   whyChooseUs: [
