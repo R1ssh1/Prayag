@@ -10,7 +10,7 @@ import { CatalogueDownloadButton } from "../../components/ui/CatalogueDownloadBu
 import { ProductCard } from "../../components/ui/ProductCard";
 import { MaterialCard } from "../../components/ui/MaterialCard";
 import { divisions } from "../../data/company";
-import type { Division, MaterialFamily } from "../../data/products/types";
+import type { Division } from "../../data/products/types";
 
 // ── TOC sections — computed per product based on available data ─────────────────────
 function buildTocSections(
